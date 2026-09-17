@@ -1,3 +1,10 @@
+## 0.1.54 — GitHub bootstrap lease guard
+
+- Added a one-time SHA-pinned `--force-with-lease` bootstrap path for replacing only the known connector-created GitHub bootstrap commit.
+- The bootstrap script verifies the remote branch still equals the supplied bootstrap SHA before any history replacement; intervening remote changes fail closed.
+- General force-push flags remain prohibited.
+- M7-027 remains BLOCKED pending executed candidate-bound PostgreSQL 16+ certification evidence.
+
 ## 0.1.52 — M7-027 Automatic Git Candidate Binding
 
 - Added deterministic candidate freezing from the exact committed Git revision/tree and locked architecture/build/contract inputs.
