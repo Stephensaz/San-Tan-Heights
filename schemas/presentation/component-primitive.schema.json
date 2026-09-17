@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://san-tan-heights.local/schemas/presentation/component-primitive.schema.json",
+  "title": "San Tan Heights Shared Component Primitive",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["component_id", "kind", "props", "children"],
+  "properties": {
+    "component_id": {"type": "string", "pattern": "^[a-z][a-z0-9_-]{0,63}$"},
+    "kind": {"enum": ["TEXT", "STACK", "CARD", "DIVIDER", "DISCLOSURE"]},
+    "props": {"type": "object"},
+    "children": {"type": "array", "items": {"$ref": "#"}}
+  }
+}
