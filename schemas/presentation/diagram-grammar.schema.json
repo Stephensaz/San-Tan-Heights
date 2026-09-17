@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://san-tan-heights.local/schemas/presentation/diagram-grammar.schema.json",
+  "title": "San Tan Heights Diagram Grammar",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["grammar_id", "version", "status", "diagram_kind", "entity_types", "relationship_types", "rules"],
+  "properties": {
+    "grammar_id": {"const": "STH-DIAGRAM-GRAMMAR-v1.0"},
+    "version": {"const": "1.0.0"},
+    "status": {"const": "LOCKED"},
+    "diagram_kind": {"const": "SCHEMATIC_RELATIONSHIP"},
+    "entity_types": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"type": "object"}
+    },
+    "relationship_types": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"type": "object"}
+    },
+    "rules": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "require_single_subject",
+        "require_governed_source_reference",
+        "allow_coordinates",
+        "allow_distances",
+        "allow_value_claims",
+        "allow_unreferenced_entities",
+        "allow_unreferenced_relationships"
+      ],
+      "properties": {
+        "require_single_subject": {"const": true},
+        "require_governed_source_reference": {"const": true},
+        "allow_coordinates": {"const": false},
+        "allow_distances": {"const": false},
+        "allow_value_claims": {"const": false},
+        "allow_unreferenced_entities": {"const": false},
+        "allow_unreferenced_relationships": {"const": false}
+      }
+    }
+  }
+}

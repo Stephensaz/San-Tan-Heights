@@ -1,0 +1,29 @@
+grammar_id: STH-DIAGRAM-GRAMMAR-v1.0
+version: 1.0.0
+status: LOCKED
+diagram_kind: SCHEMATIC_RELATIONSHIP
+entity_types:
+  SUBJECT_LOT: {}
+  ADJACENT_LOT: {}
+  ROAD: {}
+  COMMON_TRACT: {}
+  OPEN_SPACE: {}
+  WASH: {}
+  COMMUNITY_BOUNDARY: {}
+  ORIENTATION_MARKER: {}
+relationship_types:
+  FRONTS: {}
+  BACKS_TO: {}
+  SIDES_TO: {}
+  TOUCHES: {}
+  ADJACENT_TO: {}
+  ACROSS_FROM: {}
+  ORIENTED_TOWARD: {}
+rules:
+  require_single_subject: true
+  require_governed_source_reference: true
+  allow_coordinates: false
+  allow_distances: false
+  allow_value_claims: false
+  allow_unreferenced_entities: false
+  allow_unreferenced_relationships: false
