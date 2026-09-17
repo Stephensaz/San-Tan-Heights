@@ -21,10 +21,16 @@ def registry():
 
 def assertions(*, failed=()):
     required = registry().required_structural_assertions
-    return tuple(
+    items = [
         StructuralAssertion(code, code not in failed, f"fixture/{code.lower()}")
         for code in required
+    ]
+    items.extend(
+        StructuralAssertion(code, False, f"fixture/{code.lower()}")
+        for code in failed
+        if code not in required
     )
+    return tuple(items)
 
 
 def capture(*, image=b"same", failed=(), target="PUBLIC_WEB", viewport="mobile"):
