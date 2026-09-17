@@ -1,0 +1,18 @@
+accessibility_runtime_id: STH-PRESENTATION-ACCESSIBILITY-v1.0
+version: 1.0.0
+status: LOCKED
+rules:
+  require_nonblank_property_identity_text: true
+  require_nonblank_section_titles: true
+  require_nonblank_card_titles: true
+  require_nonblank_finding_labels: true
+  require_nonblank_finding_display_text: true
+  preserve_semantic_order: true
+  require_print_source_binding: true
+  require_diagram_short_description: true
+  require_diagram_long_description: true
+  require_diagram_nonvisual_equivalent: true
+  require_accessible_svg_metadata: true
+  allow_accessibility_specific_property_facts: false
+  allow_audience_reclassification: false
+  allow_content_rewriting: false
