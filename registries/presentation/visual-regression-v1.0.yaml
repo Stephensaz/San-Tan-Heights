@@ -1,0 +1,42 @@
+visual_regression_id: STH-VISUAL-REGRESSION-v1.0
+version: 1.0.0
+status: LOCKED
+runtime:
+  browser: chromium
+  browser_major: 140
+  os: ubuntu-24.04
+  device_pixel_ratio: 1
+  locale: en-US
+  timezone: America/Phoenix
+  frozen_clock: 2026-09-17T12:00:00-07:00
+  animations_enabled: false
+viewports:
+  desktop_large: [1440, 1000]
+  desktop: [1280, 900]
+  tablet: [834, 1112]
+  mobile: [390, 844]
+  mobile_narrow: [320, 800]
+targets:
+  - PUBLIC_WEB
+  - SELLER_WEB
+  - AGENT_WEB
+  - PDF
+  - PRINT
+required_structural_assertions:
+  - NO_CLIPPING
+  - NO_OVERFLOW
+  - NO_OVERLAP
+  - NO_ZERO_SIZE
+  - REQUIRED_LIMITATIONS_VISIBLE
+  - REQUIRED_DISCLOSURES_VISIBLE
+  - FRESHNESS_VISIBLE
+hard_failure_codes:
+  - MISSING_LIMITATION
+  - CROPPED_TEXT
+  - WRONG_AUDIENCE_CONTENT
+  - MISSING_FRESHNESS
+  - DIAGRAM_MEANING_MISALIGNMENT
+diff_classes:
+  - EXPECTED
+  - REVIEW_REQUIRED
+  - UNEXPECTED
