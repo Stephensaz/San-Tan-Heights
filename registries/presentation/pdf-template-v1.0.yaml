@@ -1,0 +1,22 @@
+pdf_template_id: STH-PDF-TEMPLATE-v1.0
+version: 1.0.0
+status: LOCKED
+page:
+  size: LETTER
+  width_pt: 612
+  height_pt: 792
+  margin_top_pt: 54
+  margin_right_pt: 54
+  margin_bottom_pt: 54
+  margin_left_pt: 54
+  header_height_pt: 36
+  footer_height_pt: 30
+rules:
+  preserve_semantic_order: true
+  allow_content_omission: false
+  allow_audience_reclassification: false
+  allow_pdf_specific_fact_changes: false
+  repeat_header: true
+  repeat_footer: true
+  keep_section_heading_with_first_block: true
+  allow_section_body_split: true
