@@ -1,0 +1,605 @@
+{
+  "fixture_set_id": "STH-M8-032-GOLDEN-FIXTURES-v1.0",
+  "version": "1.0.0",
+  "synthetic_only": true,
+  "fixtures": [
+    {
+      "fixture_id": "SYNTH-NORMAL-001",
+      "category": "NORMAL",
+      "synthetic_only": true,
+      "property": {
+        "property_id": "SYNTH-PROP-001",
+        "address": "101 Example Interior Ave",
+        "community": "San Tan Heights Synthetic"
+      },
+      "truth": {
+        "scenario_traits": [
+          "standard-interior"
+        ],
+        "canonical_phase": "B-3",
+        "phase_confidence": "VERIFIED",
+        "freshness_state": "CURRENT",
+        "media_state": "AVAILABLE",
+        "change_count": 0,
+        "evidence_density": "STANDARD",
+        "accessibility_case": false,
+        "privacy_adversarial": false
+      },
+      "audience_projection": {
+        "AGENT": {
+          "classification": "AGENT_INTERNAL",
+          "publication_scope": "AGENT"
+        },
+        "SELLER": {
+          "classification": "SELLER_DATA",
+          "publication_scope": "SELLER"
+        },
+        "PUBLIC": {
+          "classification": "PUBLIC_DATA",
+          "publication_scope": "PUBLIC"
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-SPARSE-001",
+      "category": "SPARSE",
+      "synthetic_only": true,
+      "property": {
+        "property_id": "SYNTH-PROP-002",
+        "address": "102 Example Sparse Ave",
+        "community": "San Tan Heights Synthetic"
+      },
+      "truth": {
+        "scenario_traits": [
+          "limited-evidence"
+        ],
+        "canonical_phase": "C-1",
+        "phase_confidence": "VERIFIED",
+        "freshness_state": "CURRENT",
+        "media_state": "AVAILABLE",
+        "change_count": 0,
+        "evidence_density": "SPARSE",
+        "accessibility_case": false,
+        "privacy_adversarial": false
+      },
+      "audience_projection": {
+        "AGENT": {
+          "classification": "AGENT_INTERNAL",
+          "publication_scope": "AGENT"
+        },
+        "SELLER": {
+          "classification": "SELLER_DATA",
+          "publication_scope": "SELLER"
+        },
+        "PUBLIC": {
+          "classification": "PUBLIC_DATA",
+          "publication_scope": "PUBLIC"
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-DENSE-001",
+      "category": "DENSE",
+      "synthetic_only": true,
+      "property": {
+        "property_id": "SYNTH-PROP-003",
+        "address": "103 Example Dense Ave",
+        "community": "San Tan Heights Synthetic"
+      },
+      "truth": {
+        "scenario_traits": [
+          "long-agent-report"
+        ],
+        "canonical_phase": "B-3",
+        "phase_confidence": "VERIFIED",
+        "freshness_state": "CURRENT",
+        "media_state": "AVAILABLE",
+        "change_count": 0,
+        "evidence_density": "DENSE",
+        "accessibility_case": false,
+        "privacy_adversarial": false
+      },
+      "audience_projection": {
+        "AGENT": {
+          "classification": "AGENT_INTERNAL",
+          "publication_scope": "AGENT"
+        },
+        "SELLER": {
+          "classification": "SELLER_DATA",
+          "publication_scope": "SELLER"
+        },
+        "PUBLIC": {
+          "classification": "PUBLIC_DATA",
+          "publication_scope": "PUBLIC"
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-UNCERTAIN-001",
+      "category": "UNCERTAIN",
+      "synthetic_only": true,
+      "property": {
+        "property_id": "SYNTH-PROP-004",
+        "address": "104 Example Uncertain Ave",
+        "community": "San Tan Heights Synthetic"
+      },
+      "truth": {
+        "scenario_traits": [
+          "limited-evidence",
+          "uncertainty"
+        ],
+        "canonical_phase": null,
+        "phase_confidence": "LOW",
+        "freshness_state": "CURRENT",
+        "media_state": "AVAILABLE",
+        "change_count": 0,
+        "evidence_density": "STANDARD",
+        "accessibility_case": false,
+        "privacy_adversarial": false
+      },
+      "audience_projection": {
+        "AGENT": {
+          "classification": "AGENT_INTERNAL",
+          "publication_scope": "AGENT"
+        },
+        "SELLER": {
+          "classification": "SELLER_DATA",
+          "publication_scope": "SELLER"
+        },
+        "PUBLIC": {
+          "classification": "PUBLIC_DATA",
+          "publication_scope": "PUBLIC"
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-CONFLICTED-001",
+      "category": "CONFLICTED",
+      "synthetic_only": true,
+      "property": {
+        "property_id": "SYNTH-PROP-005",
+        "address": "105 Example Conflict Ave",
+        "community": "San Tan Heights Synthetic"
+      },
+      "truth": {
+        "scenario_traits": [
+          "conflict"
+        ],
+        "canonical_phase": "B-3",
+        "phase_confidence": "VERIFIED",
+        "freshness_state": "CURRENT",
+        "media_state": "AVAILABLE",
+        "change_count": 0,
+        "evidence_density": "STANDARD",
+        "accessibility_case": false,
+        "privacy_adversarial": false
+      },
+      "audience_projection": {
+        "AGENT": {
+          "classification": "AGENT_INTERNAL",
+          "publication_scope": "AGENT"
+        },
+        "SELLER": {
+          "classification": "SELLER_DATA",
+          "publication_scope": "SELLER"
+        },
+        "PUBLIC": {
+          "classification": "PUBLIC_DATA",
+          "publication_scope": "PUBLIC"
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-STALE-001",
+      "category": "STALE",
+      "synthetic_only": true,
+      "property": {
+        "property_id": "SYNTH-PROP-006",
+        "address": "106 Example Stale Ave",
+        "community": "San Tan Heights Synthetic"
+      },
+      "truth": {
+        "scenario_traits": [
+          "stale"
+        ],
+        "canonical_phase": "C-1",
+        "phase_confidence": "VERIFIED",
+        "freshness_state": "STALE",
+        "media_state": "AVAILABLE",
+        "change_count": 0,
+        "evidence_density": "STANDARD",
+        "accessibility_case": false,
+        "privacy_adversarial": false
+      },
+      "audience_projection": {
+        "AGENT": {
+          "classification": "AGENT_INTERNAL",
+          "publication_scope": "AGENT"
+        },
+        "SELLER": {
+          "classification": "SELLER_DATA",
+          "publication_scope": "SELLER"
+        },
+        "PUBLIC": {
+          "classification": "PUBLIC_DATA",
+          "publication_scope": "PUBLIC"
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-SPATIAL-001",
+      "category": "SPATIAL",
+      "synthetic_only": true,
+      "property": {
+        "property_id": "SYNTH-PROP-007",
+        "address": "107 Example Corner Ave",
+        "community": "San Tan Heights Synthetic"
+      },
+      "truth": {
+        "scenario_traits": [
+          "corner",
+          "cul-de-sac",
+          "common-area",
+          "road-adjacency"
+        ],
+        "canonical_phase": "B-3",
+        "phase_confidence": "VERIFIED",
+        "freshness_state": "CURRENT",
+        "media_state": "AVAILABLE",
+        "change_count": 0,
+        "evidence_density": "STANDARD",
+        "accessibility_case": false,
+        "privacy_adversarial": false
+      },
+      "audience_projection": {
+        "AGENT": {
+          "classification": "AGENT_INTERNAL",
+          "publication_scope": "AGENT"
+        },
+        "SELLER": {
+          "classification": "SELLER_DATA",
+          "publication_scope": "SELLER"
+        },
+        "PUBLIC": {
+          "classification": "PUBLIC_DATA",
+          "publication_scope": "PUBLIC"
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-MEDIA-001",
+      "category": "MEDIA",
+      "synthetic_only": true,
+      "property": {
+        "property_id": "SYNTH-PROP-008",
+        "address": "108 Example Media Ave",
+        "community": "San Tan Heights Synthetic"
+      },
+      "truth": {
+        "scenario_traits": [
+          "no-photo",
+          "media"
+        ],
+        "canonical_phase": "C-1",
+        "phase_confidence": "VERIFIED",
+        "freshness_state": "CURRENT",
+        "media_state": "NONE_AVAILABLE",
+        "change_count": 0,
+        "evidence_density": "STANDARD",
+        "accessibility_case": false,
+        "privacy_adversarial": false
+      },
+      "audience_projection": {
+        "AGENT": {
+          "classification": "AGENT_INTERNAL",
+          "publication_scope": "AGENT"
+        },
+        "SELLER": {
+          "classification": "SELLER_DATA",
+          "publication_scope": "SELLER"
+        },
+        "PUBLIC": {
+          "classification": "PUBLIC_DATA",
+          "publication_scope": "PUBLIC"
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-ANALYTICAL-001",
+      "category": "ANALYTICAL",
+      "synthetic_only": true,
+      "property": {
+        "property_id": "SYNTH-PROP-009",
+        "address": "109 Example Analytical Ave",
+        "community": "San Tan Heights Synthetic"
+      },
+      "truth": {
+        "scenario_traits": [
+          "analytical"
+        ],
+        "canonical_phase": "B-3",
+        "phase_confidence": "VERIFIED",
+        "freshness_state": "CURRENT",
+        "media_state": "AVAILABLE",
+        "change_count": 0,
+        "evidence_density": "STANDARD",
+        "accessibility_case": false,
+        "privacy_adversarial": false
+      },
+      "audience_projection": {
+        "AGENT": {
+          "classification": "AGENT_INTERNAL",
+          "publication_scope": "AGENT"
+        },
+        "SELLER": {
+          "classification": "SELLER_DATA",
+          "publication_scope": "SELLER"
+        },
+        "PUBLIC": {
+          "classification": "PUBLIC_DATA",
+          "publication_scope": "PUBLIC"
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-HISTORICAL-001",
+      "category": "HISTORICAL",
+      "synthetic_only": true,
+      "property": {
+        "property_id": "SYNTH-PROP-010",
+        "address": "110 Example Historical Ave",
+        "community": "San Tan Heights Synthetic"
+      },
+      "truth": {
+        "scenario_traits": [
+          "historical"
+        ],
+        "canonical_phase": "C-1",
+        "phase_confidence": "VERIFIED",
+        "freshness_state": "HISTORICAL",
+        "media_state": "AVAILABLE",
+        "change_count": 0,
+        "evidence_density": "STANDARD",
+        "accessibility_case": false,
+        "privacy_adversarial": false
+      },
+      "audience_projection": {
+        "AGENT": {
+          "classification": "AGENT_INTERNAL",
+          "publication_scope": "AGENT"
+        },
+        "SELLER": {
+          "classification": "SELLER_DATA",
+          "publication_scope": "SELLER"
+        },
+        "PUBLIC": {
+          "classification": "PUBLIC_DATA",
+          "publication_scope": "PUBLIC"
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-CHANGE-001",
+      "category": "CHANGE",
+      "synthetic_only": true,
+      "property": {
+        "property_id": "SYNTH-PROP-011",
+        "address": "111 Example Change Ave",
+        "community": "San Tan Heights Synthetic"
+      },
+      "truth": {
+        "scenario_traits": [
+          "many-changes"
+        ],
+        "canonical_phase": "B-3",
+        "phase_confidence": "VERIFIED",
+        "freshness_state": "CURRENT",
+        "media_state": "AVAILABLE",
+        "change_count": 12,
+        "evidence_density": "STANDARD",
+        "accessibility_case": false,
+        "privacy_adversarial": false
+      },
+      "audience_projection": {
+        "AGENT": {
+          "classification": "AGENT_INTERNAL",
+          "publication_scope": "AGENT"
+        },
+        "SELLER": {
+          "classification": "SELLER_DATA",
+          "publication_scope": "SELLER"
+        },
+        "PUBLIC": {
+          "classification": "PUBLIC_DATA",
+          "publication_scope": "PUBLIC"
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-EMPTY-001",
+      "category": "EMPTY",
+      "synthetic_only": true,
+      "property": {
+        "property_id": "SYNTH-PROP-012",
+        "address": "112 Example Empty Ave",
+        "community": "San Tan Heights Synthetic"
+      },
+      "truth": {
+        "scenario_traits": [
+          "empty"
+        ],
+        "canonical_phase": "C-1",
+        "phase_confidence": "VERIFIED",
+        "freshness_state": "CURRENT",
+        "media_state": "AVAILABLE",
+        "change_count": 0,
+        "evidence_density": "STANDARD",
+        "accessibility_case": false,
+        "privacy_adversarial": false
+      },
+      "audience_projection": {
+        "AGENT": {
+          "classification": "AGENT_INTERNAL",
+          "publication_scope": "AGENT"
+        },
+        "SELLER": {
+          "classification": "SELLER_DATA",
+          "publication_scope": "SELLER"
+        },
+        "PUBLIC": {
+          "classification": "PUBLIC_DATA",
+          "publication_scope": "PUBLIC"
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-RESPONSIVE-001",
+      "category": "RESPONSIVE",
+      "synthetic_only": true,
+      "property": {
+        "property_id": "SYNTH-PROP-013",
+        "address": "113 Example Responsive Ave",
+        "community": "San Tan Heights Synthetic"
+      },
+      "truth": {
+        "scenario_traits": [
+          "responsive"
+        ],
+        "canonical_phase": "B-3",
+        "phase_confidence": "VERIFIED",
+        "freshness_state": "CURRENT",
+        "media_state": "AVAILABLE",
+        "change_count": 0,
+        "evidence_density": "STANDARD",
+        "accessibility_case": false,
+        "privacy_adversarial": false
+      },
+      "audience_projection": {
+        "AGENT": {
+          "classification": "AGENT_INTERNAL",
+          "publication_scope": "AGENT"
+        },
+        "SELLER": {
+          "classification": "SELLER_DATA",
+          "publication_scope": "SELLER"
+        },
+        "PUBLIC": {
+          "classification": "PUBLIC_DATA",
+          "publication_scope": "PUBLIC"
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-PAGINATION-001",
+      "category": "PAGINATION",
+      "synthetic_only": true,
+      "property": {
+        "property_id": "SYNTH-PROP-014",
+        "address": "114 Example Pagination Ave",
+        "community": "San Tan Heights Synthetic"
+      },
+      "truth": {
+        "scenario_traits": [
+          "pagination",
+          "long-agent-report"
+        ],
+        "canonical_phase": "C-1",
+        "phase_confidence": "VERIFIED",
+        "freshness_state": "CURRENT",
+        "media_state": "AVAILABLE",
+        "change_count": 0,
+        "evidence_density": "DENSE",
+        "accessibility_case": false,
+        "privacy_adversarial": false
+      },
+      "audience_projection": {
+        "AGENT": {
+          "classification": "AGENT_INTERNAL",
+          "publication_scope": "AGENT"
+        },
+        "SELLER": {
+          "classification": "SELLER_DATA",
+          "publication_scope": "SELLER"
+        },
+        "PUBLIC": {
+          "classification": "PUBLIC_DATA",
+          "publication_scope": "PUBLIC"
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-PRIVACY_ADVERSARIAL-001",
+      "category": "PRIVACY_ADVERSARIAL",
+      "synthetic_only": true,
+      "property": {
+        "property_id": "SYNTH-PROP-015",
+        "address": "115 Example Privacy Ave",
+        "community": "San Tan Heights Synthetic"
+      },
+      "truth": {
+        "scenario_traits": [
+          "privacy-adversarial"
+        ],
+        "canonical_phase": "B-3",
+        "phase_confidence": "VERIFIED",
+        "freshness_state": "CURRENT",
+        "media_state": "AVAILABLE",
+        "change_count": 0,
+        "evidence_density": "STANDARD",
+        "accessibility_case": false,
+        "privacy_adversarial": true
+      },
+      "audience_projection": {
+        "AGENT": {
+          "classification": "AGENT_INTERNAL",
+          "publication_scope": "AGENT"
+        },
+        "SELLER": {
+          "classification": "SELLER_DATA",
+          "publication_scope": "SELLER"
+        },
+        "PUBLIC": {
+          "classification": "PUBLIC_DATA",
+          "publication_scope": "PUBLIC"
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-ACCESSIBILITY-001",
+      "category": "ACCESSIBILITY",
+      "synthetic_only": true,
+      "property": {
+        "property_id": "SYNTH-PROP-016",
+        "address": "116 Example Accessibility Ave",
+        "community": "San Tan Heights Synthetic"
+      },
+      "truth": {
+        "scenario_traits": [
+          "accessibility"
+        ],
+        "canonical_phase": "C-1",
+        "phase_confidence": "VERIFIED",
+        "freshness_state": "CURRENT",
+        "media_state": "AVAILABLE",
+        "change_count": 0,
+        "evidence_density": "STANDARD",
+        "accessibility_case": true,
+        "privacy_adversarial": false
+      },
+      "audience_projection": {
+        "AGENT": {
+          "classification": "AGENT_INTERNAL",
+          "publication_scope": "AGENT"
+        },
+        "SELLER": {
+          "classification": "SELLER_DATA",
+          "publication_scope": "SELLER"
+        },
+        "PUBLIC": {
+          "classification": "PUBLIC_DATA",
+          "publication_scope": "PUBLIC"
+        }
+      }
+    }
+  ]
+}
