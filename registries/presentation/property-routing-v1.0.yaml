@@ -1,0 +1,16 @@
+property_routing_id: STH-PROPERTY-ROUTING-v1.0
+version: 1.0.0
+status: LOCKED
+base_path: /properties
+audience_segments:
+  AGENT: agent
+  SELLER: seller
+  PUBLIC: public
+rules:
+  canonical_property_uuid_required: true
+  route_is_version_independent: true
+  route_is_identity_only: true
+  route_does_not_authorize_access: true
+  allow_address_in_route: false
+  allow_report_version_in_route: false
+  allow_presentation_hash_in_route: false
