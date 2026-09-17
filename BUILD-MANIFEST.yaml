@@ -5,7 +5,7 @@ status_values:
 - IN_PROGRESS
 - BLOCKED
 - ACCEPTED
-current_ticket: M7-027
+current_ticket: M8-001
 milestones:
 - id: M1
   name: Governed Lifecycle Kernel
@@ -27,8 +27,8 @@ milestones:
   status: ACCEPTED
 - id: M7
   name: Production Certification and Go-Live
-  status: BLOCKED
+  status: ACCEPTED
 - id: M8
   name: Consumer Experience
-  status: NOT_STARTED
-version: 0.1.55
+  status: IN_PROGRESS
+version: 0.1.56
