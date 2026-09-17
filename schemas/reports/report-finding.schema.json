@@ -1,0 +1,18 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"sth://schemas/reports/report-finding-v1",
+  "type":"object","additionalProperties":false,
+  "required":["finding_id","finding_type","label","display_text","section_id","source_snapshot_id","semantic_fingerprint"],
+  "properties":{
+    "finding_id":{"type":"string","minLength":1},
+    "finding_type":{"type":"string","minLength":1},
+    "label":{"type":"string","minLength":1},
+    "display_text":{"type":"string","minLength":1},
+    "section_id":{"type":"string","minLength":1},
+    "status_label":{"type":["string","null"]},
+    "confidence_label":{"type":["string","null"]},
+    "limitation":{"type":["string","null"]},
+    "source_snapshot_id":{"type":"string","format":"uuid"},
+    "semantic_fingerprint":{"type":"string","pattern":"^[0-9a-f]{64}$"}
+  }
+}

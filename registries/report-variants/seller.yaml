@@ -1,0 +1,24 @@
+policy_id: STH-REPORT-VARIANT-SELLER-v1.0
+version: 1.0.0
+variant: SELLER
+allowed_classifications:
+  - PUBLIC_DATA
+  - SELLER_DATA
+allowed_publication_scopes:
+  - SELLER
+  - AGENT_SELLER
+  - ALL
+evidence_depth: STANDARD
+confidence_visibility: FRIENDLY
+required_sections:
+  - summary
+  - property-identity
+  - lot-location
+  - home-dna
+  - evidence
+  - freshness
+optional_sections:
+  - market-context
+  - changes
+  - glossary
+prohibited_finding_types: []

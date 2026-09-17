@@ -1,0 +1,18 @@
+registry_id: STH-SNAPSHOT-REQUIREMENTS-PROPERTY-IDENTITY-v1.0
+version: 1.0.0
+scope: PROPERTY_IDENTITY
+requirements:
+- requirement_id: REQ_PROPERTY_IDENTITY_DEPENDENCY
+  required: true
+  satisfied_by:
+    dependency_type: PROPERTY_IDENTITY
+  failure:
+    action: BLOCK_SNAPSHOT
+    reason_code: PROPERTY_IDENTITY_DEPENDENCY_MISSING
+- requirement_id: REQ_PARCEL_IDENTITY_DEPENDENCY
+  required: true
+  satisfied_by:
+    dependency_type: PARCEL_IDENTITY
+  failure:
+    action: BLOCK_SNAPSHOT
+    reason_code: PARCEL_IDENTITY_DEPENDENCY_MISSING

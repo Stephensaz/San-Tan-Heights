@@ -1,0 +1,15 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"sth://schemas/rendering/media-asset-v1",
+  "type":"object","additionalProperties":false,
+  "required":["media_id","media_class","property_id","approval_status","rights_status","semantic_fingerprint","version"],
+  "properties":{
+    "media_id":{"type":"string","minLength":1},
+    "media_class":{"type":"string","enum":["SUBJECT_EXTERIOR_FRONT","SUBJECT_EXTERIOR_REAR","SUBJECT_LOT_CONTEXT","SUBJECT_INTERIOR","COMMUNITY_CONTEXT","EVIDENCE_IMAGE"]},
+    "property_id":{"type":["string","null"]},
+    "approval_status":{"type":"string","enum":["APPROVED","PENDING","REJECTED","WITHDRAWN"]},
+    "rights_status":{"type":"string","enum":["CLEARED","UNKNOWN","RESTRICTED","EXPIRED"]},
+    "semantic_fingerprint":{"type":"string","pattern":"^[0-9a-f]{64}$"},
+    "version":{"type":"string","minLength":1}
+  }
+}

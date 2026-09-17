@@ -1,0 +1,13 @@
+registry_id: STH-HARD-ZERO-METRICS-v1.0
+version: 1.0.0
+status: LOCKED
+metrics:
+  publication_of_stale_variant: {maximum: 0}
+  publication_pointer_partial_swap: {maximum: 0}
+  unauthorized_data_exposure: {maximum: 0}
+  negative_field_leakage: {maximum: 0}
+  immutable_history_mutation: {maximum: 0}
+  duplicate_logical_command_effect: {maximum: 0}
+  uncertified_public_activation: {maximum: 0}
+  restore_without_publication_freeze: {maximum: 0}
+  break_glass_without_audit: {maximum: 0}

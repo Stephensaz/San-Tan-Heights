@@ -1,0 +1,9 @@
+policy_version: STH-MANUAL-AUDIT-POLICY-v1.0
+status: LOCKED
+sample_size: 10
+selection_strategy: FAILED_SHADOW_FIRST_THEN_DETERMINISTIC_HASH
+allowed_audit_statuses:
+  - PASS
+  - FAIL
+  - REVIEW_REQUIRED
+checklist_version: STH-MANUAL-AUDIT-CHECKLIST-v1.0

@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","type":"object","required":["status"],"properties":{"status":{"enum":["QUEUED","EXISTING_ACTIVE_JOB","NO_OP","BLOCKED"]},"job_id":{"type":["string","null"]},"target_snapshot_id":{"type":["string","null"]},"job_target_key":{"type":["string","null"]},"priority_class":{"type":["string","null"]}},"additionalProperties":false}

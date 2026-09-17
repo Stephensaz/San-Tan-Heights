@@ -1,0 +1,3432 @@
+backlog_id: STH-IMPLEMENTATION-BACKLOG-v1.0
+tickets:
+- ticket_id: M1-001
+  milestone: M1
+  title: Repository Bootstrap
+  status: ACCEPTED
+  dependencies: []
+  files:
+  - README.md
+  - CHANGELOG.md
+  - VERSION
+  - ARCHITECTURE-LOCK.yaml
+  - BUILD-MANIFEST.yaml
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M1-002
+  milestone: M1
+  title: Contract Manifest & Architecture Lock
+  status: ACCEPTED
+  dependencies:
+  - M1-001
+  files:
+  - CONTRACT-MANIFEST.yaml
+  - src/kernel/contracts/manifest_loader.py
+  - src/kernel/contracts/hash_verifier.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M1-003
+  milestone: M1
+  title: Registry Loader & Cross-Reference Validator
+  status: ACCEPTED
+  dependencies:
+  - M1-002
+  files:
+  - src/kernel/registry/loader.py
+  - src/kernel/registry/cross_reference_validator.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M1-004
+  milestone: M1
+  title: Canonical Serialization & Hash Library
+  status: ACCEPTED
+  dependencies:
+  - M1-003
+  files:
+  - src/shared/canonical_json.py
+  - src/shared/hash.py
+  - src/shared/normalization.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M1-005
+  milestone: M1
+  title: PostgreSQL Foundation
+  status: ACCEPTED
+  dependencies:
+  - M1-004
+  files:
+  - database/migrations/0001_extensions.sql
+  - database/migrations/0002_reference_tables.sql
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M1-006
+  milestone: M1
+  title: Reference Tables & Seed Registry
+  status: ACCEPTED
+  dependencies:
+  - M1-005
+  files:
+  - database/seeds/reference_states.sql
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M1-007
+  milestone: M1
+  title: Audit & Event Persistence
+  status: ACCEPTED
+  dependencies:
+  - M1-006
+  files:
+  - database/migrations/0070_audit_tables.sql
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M1-008
+  milestone: M1
+  title: Processed Command Ledger
+  status: ACCEPTED
+  dependencies:
+  - M1-007
+  files:
+  - database/migrations/0073_processed_commands.sql
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M1-009
+  milestone: M1
+  title: Transactional Outbox
+  status: ACCEPTED
+  dependencies:
+  - M1-008
+  files:
+  - database/migrations/0072_outbox.sql
+  - workers/outbox_dispatcher/worker.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M1-010
+  milestone: M1
+  title: Event Runtime
+  status: ACCEPTED
+  dependencies:
+  - M1-009
+  files:
+  - src/kernel/events/event_writer.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M1-011
+  milestone: M1
+  title: Transition Registry Runtime
+  status: ACCEPTED
+  dependencies:
+  - M1-010
+  files:
+  - src/kernel/transitions/transition_registry.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M1-012
+  milestone: M1
+  title: Guard Runtime
+  status: ACCEPTED
+  dependencies:
+  - M1-011
+  files:
+  - src/kernel/guards/guard_runner.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M1-013
+  milestone: M1
+  title: State Adapter Framework
+  status: ACCEPTED
+  dependencies:
+  - M1-012
+  files:
+  - src/kernel/state/state_adapter.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M1-014
+  milestone: M1
+  title: Transition Engine
+  status: ACCEPTED
+  dependencies:
+  - M1-013
+  files:
+  - src/kernel/transitions/transition_engine.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M1-015
+  milestone: M1
+  title: Database Roles & Grants
+  status: ACCEPTED
+  dependencies:
+  - M1-014
+  files:
+  - database/migrations/0140_database_roles.sql
+  - database/migrations/0141_database_grants.sql
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M1-016
+  milestone: M1
+  title: Kernel Certification Suite
+  status: ACCEPTED
+  dependencies:
+  - M1-015
+  files:
+  - tests/e2e/kernel/test_full_transition.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M2-001
+  milestone: M2
+  title: Governed-State Read Contract
+  status: ACCEPTED
+  dependencies:
+  - M1-016
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M2-002
+  milestone: M2
+  title: Snapshot Persistence Completion
+  status: ACCEPTED
+  dependencies:
+  - M2-001
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M2-003
+  milestone: M2
+  title: Snapshot Requirement Registry
+  status: ACCEPTED
+  dependencies:
+  - M2-002
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M2-004
+  milestone: M2
+  title: Snapshot Requirement Engine
+  status: ACCEPTED
+  dependencies:
+  - M2-003
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M2-005
+  milestone: M2
+  title: Finding Freezer
+  status: ACCEPTED
+  dependencies:
+  - M2-004
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M2-006
+  milestone: M2
+  title: Passport Reference Capture
+  status: ACCEPTED
+  dependencies:
+  - M2-005
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M2-007
+  milestone: M2
+  title: Finding Fingerprint Engine
+  status: ACCEPTED
+  dependencies:
+  - M2-006
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M2-008
+  milestone: M2
+  title: Snapshot & Variant Fingerprints
+  status: ACCEPTED
+  dependencies:
+  - M2-007
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M2-009
+  milestone: M2
+  title: Snapshot Deduplication
+  status: ACCEPTED
+  dependencies:
+  - M2-008
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M2-010
+  milestone: M2
+  title: Dependency Manifest Builder
+  status: ACCEPTED
+  dependencies:
+  - M2-009
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M2-011
+  milestone: M2
+  title: Snapshot Creation Service
+  status: ACCEPTED
+  dependencies:
+  - M2-010
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M2-012
+  milestone: M2
+  title: Snapshot Diff Engine
+  status: ACCEPTED
+  dependencies:
+  - M2-011
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M2-013
+  milestone: M2
+  title: Current Snapshot Read Model
+  status: ACCEPTED
+  dependencies:
+  - M2-012
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M2-014
+  milestone: M2
+  title: Dependency Impact Rule Registry
+  status: ACCEPTED
+  dependencies:
+  - M2-013
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M2-015
+  milestone: M2
+  title: Dependency Reverse Lookup
+  status: ACCEPTED
+  dependencies:
+  - M2-014
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M2-016
+  milestone: M2
+  title: Single-Change Impact Evaluator
+  status: ACCEPTED
+  dependencies:
+  - M2-015
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M2-017
+  milestone: M2
+  title: Impact Persistence
+  status: ACCEPTED
+  dependencies:
+  - M2-016
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M2-018
+  milestone: M2
+  title: Bulk Dependency Change Batches
+  status: ACCEPTED
+  dependencies:
+  - M2-017
+  files:
+  - database/migrations/0190_dependency_change_batches.sql
+  - database/migrations/0191_dependency_change_items.sql
+  - src/dependency/batch/models.py
+  - src/dependency/batch/repository.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M2-019
+  milestone: M2
+  title: Bulk Impact Evaluator
+  status: ACCEPTED
+  dependencies:
+  - M2-018
+  files:
+  - src/dependency/batch/evaluator.py
+  - workers/dependency_batch_worker/worker.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M2-020
+  milestone: M2
+  title: Block / Invalidation Escalation
+  status: ACCEPTED
+  dependencies:
+  - M2-019
+  files:
+  - database/migrations/0104_operations_review_items.sql
+  - src/dependency/escalation/service.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M2-021
+  milestone: M2
+  title: Milestone 2 Certification Suite
+  status: ACCEPTED
+  dependencies:
+  - M2-020
+  files:
+  - tests/e2e/milestone2/test_milestone2_certification.py
+  - tests/unit/dependency/test_bulk_batch_repository.py
+  - tests/unit/dependency/test_bulk_impact_evaluator.py
+  - tests/unit/dependency/test_escalation.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-001
+  milestone: M3
+  title: Regeneration Job Persistence Completion
+  status: ACCEPTED
+  dependencies:
+  - M2-021
+  files:
+  - database/migrations/0060_regeneration_jobs.sql
+  - database/migrations/0061_job_indexes.sql
+  - database/migrations/0062_regeneration_job_extensions.sql
+  - src/regeneration/repository/models.py
+  - src/regeneration/repository/job_repository.py
+  - tests/unit/regeneration/test_job_persistence.py
+  - tests/unit/regeneration/test_regeneration_migrations.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-002
+  milestone: M3
+  title: Regeneration Priority Registry
+  status: ACCEPTED
+  dependencies:
+  - M3-001
+  files:
+  - registries/regeneration/priorities.yaml
+  - schemas/regeneration/priority-rule.schema.json
+  - src/regeneration/priority/registry.py
+  - src/regeneration/priority/resolver.py
+  - tests/unit/regeneration/test_priority.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-003
+  milestone: M3
+  title: Job Target Key Engine
+  status: ACCEPTED
+  dependencies:
+  - M3-002
+  files:
+  - src/regeneration/target/target_key.py
+  - tests/unit/regeneration/test_target_key.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-004
+  milestone: M3
+  title: Regeneration Queue Service
+  status: ACCEPTED
+  dependencies:
+  - M3-003
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-005
+  milestone: M3
+  title: Worker Claim / Lease / Heartbeat
+  status: ACCEPTED
+  dependencies:
+  - M3-004
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-006
+  milestone: M3
+  title: Retry Classification & Recovery
+  status: ACCEPTED
+  dependencies:
+  - M3-005
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-007
+  milestone: M3
+  title: Variant-Specific Job Freshness
+  status: ACCEPTED
+  dependencies:
+  - M3-006
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-008
+  milestone: M3
+  title: Report Persistence Completion
+  status: ACCEPTED
+  dependencies:
+  - M3-007
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-009
+  milestone: M3
+  title: Report Version Counter
+  status: ACCEPTED
+  dependencies:
+  - M3-008
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-010
+  milestone: M3
+  title: Canonical Report Schema
+  status: ACCEPTED
+  dependencies:
+  - M3-009
+  files:
+  - schemas/reports/canonical-report.schema.json
+  - schemas/reports/report-metadata.schema.json
+  - schemas/reports/report-section.schema.json
+  - schemas/reports/report-card.schema.json
+  - schemas/reports/report-finding.schema.json
+  - schemas/reports/evidence-disclosure.schema.json
+  - schemas/reports/glossary-entry.schema.json
+  - schemas/reports/media-slot.schema.json
+  - schemas/reports/diagram-slot.schema.json
+  - src/report_builder/schema/canonical_report.py
+  - tests/unit/report_builder/test_canonical_report_schema.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-011
+  milestone: M3
+  title: Variant Policy Registry
+  status: ACCEPTED
+  dependencies:
+  - M3-010
+  files:
+  - schemas/reports/report-variant-policy.schema.json
+  - registries/report-variants/agent.yaml
+  - registries/report-variants/seller.yaml
+  - registries/report-variants/public.yaml
+  - src/report_builder/variant/registry.py
+  - tests/unit/report_builder/test_variant_policy_registry.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-012
+  milestone: M3
+  title: Report Section Registry
+  status: ACCEPTED
+  dependencies:
+  - M3-011
+  files:
+  - schemas/reports/report-section-registry.schema.json
+  - registries/report-sections/sections.yaml
+  - src/report_builder/sections/registry.py
+  - tests/unit/report_builder/test_section_registry.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-013
+  milestone: M3
+  title: Finding Selection Engine
+  status: ACCEPTED
+  dependencies:
+  - M3-012
+  files:
+  - src/report_builder/findings/selector.py
+  - src/report_builder/findings/__init__.py
+  - tests/unit/report_builder/test_finding_selector.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-014
+  milestone: M3
+  title: Approved Wording Resolver
+  status: ACCEPTED
+  dependencies:
+  - M3-013
+  files:
+  - src/report_builder/wording/resolver.py
+  - src/report_builder/wording/__init__.py
+  - tests/unit/report_builder/test_wording_resolver.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-015
+  milestone: M3
+  title: Friendly Label Resolver
+  status: ACCEPTED
+  dependencies:
+  - M3-014
+  files:
+  - registries/friendly-labels/friendly-labels-v1.0.yaml
+  - src/report_builder/labels/resolver.py
+  - src/report_builder/labels/__init__.py
+  - tests/unit/report_builder/test_friendly_labels.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-016
+  milestone: M3
+  title: Glossary Resolver
+  status: ACCEPTED
+  dependencies:
+  - M3-015
+  files:
+  - registries/glossary/glossary-v1.0.yaml
+  - src/report_builder/glossary/resolver.py
+  - src/report_builder/glossary/__init__.py
+  - tests/unit/report_builder/test_glossary_resolver.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-017
+  milestone: M3
+  title: Report Dependency Manifest Builder
+  status: ACCEPTED
+  dependencies:
+  - M3-016
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-018
+  milestone: M3
+  title: Report Input Hash Engine
+  status: ACCEPTED
+  dependencies:
+  - M3-017
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-019
+  milestone: M3
+  title: Canonical Payload Builder
+  status: ACCEPTED
+  dependencies:
+  - M3-018
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-020
+  milestone: M3
+  title: Canonical Payload Hashing
+  status: ACCEPTED
+  dependencies:
+  - M3-019
+  files:
+  - src/report_builder/hashing/canonical_payload_hash.py
+  - src/report_builder/hashing/__init__.py
+  - tests/unit/report_builder/test_canonical_payload_hash.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-021
+  milestone: M3
+  title: Report Deduplication
+  status: ACCEPTED
+  dependencies:
+  - M3-020
+  files:
+  - src/report_builder/deduplication/engine.py
+  - src/report_builder/deduplication/__init__.py
+  - tests/unit/report_builder/test_report_deduplication.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-022
+  milestone: M3
+  title: Version Allocation & Persistence
+  status: ACCEPTED
+  dependencies:
+  - M3-021
+  files:
+  - src/report_builder/persistence/service.py
+  - src/report_builder/persistence/__init__.py
+  - src/report_builder/repository/models.py
+  - src/report_builder/repository/report_repository.py
+  - database/migrations/0034_report_dependency_source_scope.sql
+  - tests/unit/report_builder/test_report_persistence_service.py
+  - tests/unit/report_builder/test_report_persistence_m3_022_migration.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-023
+  milestone: M3
+  title: Report Validation Engine
+  status: ACCEPTED
+  dependencies:
+  - M3-022
+  files:
+  - src/report_builder/validation/engine.py
+  - src/report_builder/validation/__init__.py
+  - tests/unit/report_builder/test_report_validation_engine.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-024
+  milestone: M3
+  title: READY Immutability
+  status: ACCEPTED
+  dependencies:
+  - M3-023
+  files:
+  - database/migrations/0035_ready_semantic_immutability.sql
+  - tests/unit/report_builder/test_ready_immutability.py
+  - docs/implementation/M3-024.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-025
+  milestone: M3
+  title: Report Semantic Diff Engine
+  status: ACCEPTED
+  dependencies:
+  - M3-024
+  files:
+  - src/report_builder/diff/engine.py
+  - src/report_builder/diff/persistence.py
+  - src/report_builder/diff/__init__.py
+  - src/report_builder/repository/report_repository.py
+  - tests/unit/report_builder/test_report_semantic_diff.py
+  - docs/implementation/M3-025.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-026
+  milestone: M3
+  title: Regeneration Worker Integration
+  status: ACCEPTED
+  dependencies:
+  - M3-025
+  files:
+  - workers/regeneration_worker/worker.py
+  - workers/regeneration_worker/__init__.py
+  - src/regeneration/repository/job_repository.py
+  - tests/unit/regeneration/test_worker_integration.py
+  - docs/implementation/M3-026.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M3-027
+  milestone: M3
+  title: Milestone 3 Certification Suite
+  status: ACCEPTED
+  dependencies:
+  - M3-026
+  files:
+  - tests/certification/m3/test_milestone3_certification.py
+  - docs/implementation/M3-027.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-001
+  milestone: M4
+  title: Render Persistence Completion
+  status: ACCEPTED
+  dependencies:
+  - M3-027
+  files:
+  - database/migrations/0040_render_tables.sql
+  - database/migrations/0041_render_indexes.sql
+  - src/renderer/repository/models.py
+  - src/renderer/repository/render_repository.py
+  - tests/unit/renderer/test_render_persistence.py
+  - tests/persistence/test_render_schema_persistence.py
+  - docs/implementation/M4-001.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-002
+  milestone: M4
+  title: Render Version Counters
+  status: ACCEPTED
+  dependencies:
+  - M4-001
+  files:
+  - database/migrations/0042_render_version_counters.sql
+  - src/renderer/versioning/allocator.py
+  - src/renderer/versioning/__init__.py
+  - tests/unit/renderer/test_render_version_allocator.py
+  - tests/persistence/test_render_version_counter_schema.py
+  - docs/implementation/M4-002.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-003
+  milestone: M4
+  title: Render Contract Registry
+  status: ACCEPTED
+  dependencies:
+  - M4-002
+  files:
+  - registries/render-contracts/render-contracts-v1.0.yaml
+  - src/renderer/contracts/registry.py
+  - src/renderer/contracts/__init__.py
+  - tests/unit/renderer/test_render_contract_registry.py
+  - docs/implementation/M4-003.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-004
+  milestone: M4
+  title: Presentation Input Hash Engine
+  status: ACCEPTED
+  dependencies:
+  - M4-003
+  files:
+  - src/renderer/hashing/presentation_input_hash.py
+  - src/renderer/hashing/__init__.py
+  - tests/unit/renderer/test_presentation_input_hash.py
+  - docs/implementation/M4-004.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-005
+  milestone: M4
+  title: Media Slot Binding
+  status: ACCEPTED
+  dependencies:
+  - M4-004
+  files:
+  - registries/media/media-policy-v1.0.yaml
+  - schemas/rendering/media-asset.schema.json
+  - src/renderer/media/binder.py
+  - src/renderer/media/__init__.py
+  - tests/unit/renderer/test_media_slot_binding.py
+  - docs/implementation/M4-005.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-006
+  milestone: M4
+  title: Diagram Slot Binding
+  status: ACCEPTED
+  dependencies:
+  - M4-005
+  files:
+  - registries/diagrams/diagram-policy-v1.0.yaml
+  - schemas/rendering/diagram-asset.schema.json
+  - src/renderer/diagrams/binder.py
+  - src/renderer/diagrams/__init__.py
+  - tests/unit/renderer/test_diagram_slot_binding.py
+  - docs/implementation/M4-006.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-007
+  milestone: M4
+  title: Render Request Service
+  status: ACCEPTED
+  dependencies:
+  - M4-006
+  files:
+  - src/renderer/requests/service.py
+  - src/renderer/requests/__init__.py
+  - tests/unit/renderer/test_render_request_service.py
+  - docs/implementation/M4-007.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-008
+  milestone: M4
+  title: WEB Render Adapter
+  status: ACCEPTED
+  dependencies:
+  - M4-007
+  files:
+  - src/renderer/adapters/common.py
+  - src/renderer/adapters/web.py
+  - src/renderer/adapters/__init__.py
+  - tests/unit/renderer/test_web_render_adapter.py
+  - docs/implementation/M4-008.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-009
+  milestone: M4
+  title: PDF Render Adapter
+  status: ACCEPTED
+  dependencies:
+  - M4-008
+  files:
+  - src/renderer/adapters/pdf.py
+  - tests/unit/renderer/test_pdf_render_adapter.py
+  - docs/implementation/M4-009.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-010
+  milestone: M4
+  title: PRINT Render Adapter
+  status: ACCEPTED
+  dependencies:
+  - M4-009
+  files:
+  - src/renderer/adapters/print.py
+  - tests/unit/renderer/test_print_render_adapter.py
+  - docs/implementation/M4-010.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-011
+  milestone: M4
+  title: Render Deduplication
+  status: ACCEPTED
+  dependencies:
+  - M4-010
+  files:
+  - src/renderer/deduplication/engine.py
+  - src/renderer/deduplication/__init__.py
+  - tests/unit/renderer/test_render_deduplication.py
+  - docs/implementation/M4-011.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-012
+  milestone: M4
+  title: Render Validation
+  status: ACCEPTED
+  dependencies:
+  - M4-011
+  files:
+  - src/renderer/validation/engine.py
+  - tests/unit/renderer/test_render_validation.py
+  - database/migrations/0044_render_integrity_constraints.sql
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-013
+  milestone: M4
+  title: Render Artifact Immutability
+  status: ACCEPTED
+  dependencies:
+  - M4-012
+  files:
+  - database/migrations/0043_render_ready_immutability.sql
+  - tests/persistence/test_render_immutability_schema.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-014
+  milestone: M4
+  title: Storage Integrity
+  status: ACCEPTED
+  dependencies:
+  - M4-013
+  files:
+  - src/renderer/storage/integrity.py
+  - tests/unit/renderer/test_storage_integrity.py
+  - database/migrations/0044_render_integrity_constraints.sql
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-015
+  milestone: M4
+  title: Publication Persistence Completion
+  status: ACCEPTED
+  dependencies:
+  - M4-014
+  files:
+  - database/migrations/0045_publication_persistence.sql
+  - database/migrations/0046_publication_history_immutability.sql
+  - src/publication/repository/publication_repository.py
+  - tests/persistence/test_publication_persistence_schema.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-016
+  milestone: M4
+  title: Current Semantic Report Model
+  status: ACCEPTED
+  dependencies:
+  - M4-015
+  files:
+  - src/publication/current/model.py
+  - tests/unit/publication/test_publication_pointer_models.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-017
+  milestone: M4
+  title: Publication Channel Pointer Model
+  status: ACCEPTED
+  dependencies:
+  - M4-016
+  files:
+  - src/publication/channels/model.py
+  - tests/unit/publication/test_publication_pointer_models.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-018
+  milestone: M4
+  title: Publication Staging
+  status: ACCEPTED
+  dependencies:
+  - M4-017
+  files:
+  - database/migrations/0047_publication_staging.sql
+  - src/publication/staging/models.py
+  - src/publication/staging/repository.py
+  - tests/unit/publication/test_publication_staging.py
+  - tests/persistence/test_publication_staging_schema.py
+  - docs/implementation/M4-018.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-019
+  milestone: M4
+  title: Publication Guard Engine
+  status: ACCEPTED
+  dependencies:
+  - M4-018
+  files:
+  - src/publication/guards/engine.py
+  - tests/unit/publication/test_publication_guard_engine.py
+  - docs/implementation/M4-019.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-020
+  milestone: M4
+  title: Pre-Publication Variant Freshness
+  status: ACCEPTED
+  dependencies:
+  - M4-019
+  files:
+  - src/publication/freshness/checker.py
+  - tests/unit/publication/test_prepublication_freshness.py
+  - docs/implementation/M4-020.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-021
+  milestone: M4
+  title: Atomic Publication Service
+  status: ACCEPTED
+  dependencies:
+  - M4-020
+  files:
+  - src/publication/service/atomic_publish.py
+  - src/publication/repository/publication_repository.py
+  - src/publication/repository/models.py
+  - tests/unit/publication/test_atomic_publication_service.py
+  - docs/implementation/M4-021.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-022
+  milestone: M4
+  title: Supersession & Publication History
+  status: ACCEPTED
+  dependencies:
+  - M4-021
+  files:
+  - src/publication/history/service.py
+  - src/publication/repository/publication_repository.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-023
+  milestone: M4
+  title: Presentation-Only Render Promotion
+  status: ACCEPTED
+  dependencies:
+  - M4-022
+  files:
+  - src/publication/lifecycle/service.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-024
+  milestone: M4
+  title: Unpublish
+  status: ACCEPTED
+  dependencies:
+  - M4-023
+  files:
+  - src/publication/lifecycle/service.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-025
+  milestone: M4
+  title: Republish
+  status: ACCEPTED
+  dependencies:
+  - M4-024
+  files:
+  - src/publication/lifecycle/service.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-026
+  milestone: M4
+  title: Rollback
+  status: ACCEPTED
+  dependencies:
+  - M4-025
+  files:
+  - src/publication/lifecycle/service.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-027
+  milestone: M4
+  title: Invalidation
+  status: ACCEPTED
+  dependencies:
+  - M4-026
+  files:
+  - src/publication/lifecycle/service.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-028
+  milestone: M4
+  title: Withdrawal
+  status: ACCEPTED
+  dependencies:
+  - M4-027
+  files:
+  - src/publication/lifecycle/service.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-029
+  milestone: M4
+  title: Publication Freeze Controls
+  status: ACCEPTED
+  dependencies:
+  - M4-028
+  files:
+  - src/publication/freeze/repository.py
+  - database/migrations/0048_publication_lifecycle.sql
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-030
+  milestone: M4
+  title: Stable Delivery Routing Contract
+  status: ACCEPTED
+  dependencies:
+  - M4-029
+  files:
+  - registries/publication/delivery-routing.yaml
+  - src/publication/routing/resolver.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-031
+  milestone: M4
+  title: Cache Invalidation Events
+  status: ACCEPTED
+  dependencies:
+  - M4-030
+  files:
+  - src/publication/cache/events.py
+  - registries/events/events.yaml
+  - database/migrations/0165_reference_seed_data.sql
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M4-032
+  milestone: M4
+  title: Milestone 4 Certification Suite
+  status: ACCEPTED
+  dependencies:
+  - M4-031
+  files:
+  - tests/certification/test_m4_publication_certification.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-001
+  milestone: M5
+  title: Release Persistence Completion
+  status: ACCEPTED
+  dependencies:
+  - M4-032
+  files:
+  - database/migrations/0080_release_persistence.sql
+  - src/release/repository/models.py
+  - src/release/repository/release_repository.py
+  - src/release/repository/__init__.py
+  - tests/persistence/test_release_persistence_schema.py
+  - tests/unit/release/test_release_repository.py
+  - docs/implementation/M5-001.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-002
+  milestone: M5
+  title: Release Policy Registry
+  status: ACCEPTED
+  dependencies:
+  - M5-001
+  files:
+  - registries/releases/release-policy-v1.0.yaml
+  - src/release/policy/registry.py
+  - src/release/policy/__init__.py
+  - tests/unit/release/test_release_policy_registry.py
+  - docs/implementation/M5-002.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-003
+  milestone: M5
+  title: Deterministic Membership Resolver
+  status: ACCEPTED
+  dependencies:
+  - M5-002
+  files:
+  - src/release/membership/resolver.py
+  - src/release/membership/__init__.py
+  - tests/unit/release/test_membership_resolver.py
+  - docs/implementation/M5-003.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-004
+  milestone: M5
+  title: Release Manifest Freezer
+  status: ACCEPTED
+  dependencies:
+  - M5-003
+  files:
+  - src/release/manifest/freezer.py
+  - src/release/manifest/__init__.py
+  - database/migrations/0081_release_manifest_immutability.sql
+  - tests/unit/release/test_manifest_freezer.py
+  - tests/persistence/test_release_manifest_immutability.py
+  - docs/implementation/M5-004.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-005
+  milestone: M5
+  title: Release Item Lifecycle
+  status: ACCEPTED
+  dependencies:
+  - M5-004
+  files:
+  - src/release/lifecycle/service.py
+  - database/migrations/0082_release_execution_control.sql
+  - tests/unit/release/test_release_execution.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-006
+  milestone: M5
+  title: Bulk Generation Coordinator
+  status: ACCEPTED
+  dependencies:
+  - M5-005
+  files:
+  - src/release/generation/coordinator.py
+  - tests/unit/release/test_bulk_generation_coordinator.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-007
+  milestone: M5
+  title: Release Validation
+  status: ACCEPTED
+  dependencies:
+  - M5-006
+  files:
+  - src/release/validation/engine.py
+  - database/migrations/0082_release_execution_control.sql
+  - tests/unit/release/test_release_execution.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-008
+  milestone: M5
+  title: Release Staging
+  status: ACCEPTED
+  dependencies:
+  - M5-007
+  files:
+  - src/release/staging/service.py
+  - tests/unit/release/test_release_execution.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-009
+  milestone: M5
+  title: Release Approval
+  status: ACCEPTED
+  dependencies:
+  - M5-008
+  files:
+  - src/release/approval/service.py
+  - database/migrations/0082_release_execution_control.sql
+  - tests/unit/release/test_release_execution.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-010
+  milestone: M5
+  title: Chunked Publication
+  status: ACCEPTED
+  dependencies:
+  - M5-009
+  files:
+  - src/release/rollout/service.py
+  - tests/unit/release/test_release_execution.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-011
+  milestone: M5
+  title: Partial-Failure Policy Engine
+  status: ACCEPTED
+  dependencies:
+  - M5-010
+  files:
+  - src/release/rollout/service.py
+  - tests/unit/release/test_release_execution.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-012
+  milestone: M5
+  title: Release Reconciliation
+  status: ACCEPTED
+  dependencies:
+  - M5-011
+  files:
+  - src/release/reconciliation/service.py
+  - tests/unit/release/test_release_execution.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-013
+  milestone: M5
+  title: Release Rollback
+  status: ACCEPTED
+  dependencies:
+  - M5-012
+  files:
+  - src/release/rollback/service.py
+  - tests/unit/release/test_release_execution.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-014
+  milestone: M5
+  title: Release Cancellation
+  status: ACCEPTED
+  dependencies:
+  - M5-013
+  files:
+  - src/release/cancellation/service.py
+  - tests/unit/release/test_release_execution.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-015
+  milestone: M5
+  title: Fleet Health Model
+  status: ACCEPTED
+  dependencies:
+  - M5-014
+  files:
+  - src/operations/health/models.py
+  - src/operations/health/fleet_health.py
+  - tests/unit/operations/test_health_models.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-016
+  milestone: M5
+  title: Property Health Model
+  status: ACCEPTED
+  dependencies:
+  - M5-015
+  files:
+  - src/operations/health/models.py
+  - src/operations/health/property_health.py
+  - tests/unit/operations/test_health_models.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-017
+  milestone: M5
+  title: Operations Read Models
+  status: ACCEPTED
+  dependencies:
+  - M5-016
+  files:
+  - src/operations/read_models/models.py
+  - src/operations/read_models/repository.py
+  - database/migrations/0083_operations_health_and_integrity.sql
+  - tests/unit/operations/test_read_models.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-018
+  milestone: M5
+  title: Reconciliation Rule Registry
+  status: ACCEPTED
+  dependencies:
+  - M5-017
+  files:
+  - registries/reconciliation-rules/core.yaml
+  - src/operations/reconciliation/registry.py
+  - tests/unit/operations/test_reconciliation_registry.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-019
+  milestone: M5
+  title: Publication Pointer Integrity Sweep
+  status: ACCEPTED
+  dependencies:
+  - M5-018
+  files:
+  - src/operations/monitoring/pointer_integrity.py
+  - src/operations/monitoring/models.py
+  - database/migrations/0083_operations_health_and_integrity.sql
+  - tests/unit/operations/test_integrity_sweeps.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-020
+  milestone: M5
+  title: Orphan Detection
+  status: ACCEPTED
+  dependencies:
+  - M5-019
+  files:
+  - src/operations/monitoring/orphans.py
+  - src/operations/monitoring/models.py
+  - tests/unit/operations/test_integrity_sweeps.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-021
+  milestone: M5
+  title: Stuck-Job Detection
+  status: ACCEPTED
+  dependencies:
+  - M5-020
+  files:
+  - src/operations/monitoring/stuck_jobs.py
+  - src/operations/monitoring/models.py
+  - tests/unit/operations/test_integrity_sweeps.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-022
+  milestone: M5
+  title: Release Integrity Sweep
+  status: ACCEPTED
+  dependencies:
+  - M5-021
+  files:
+  - src/operations/monitoring/release_integrity.py
+  - src/operations/monitoring/models.py
+  - tests/unit/operations/test_integrity_sweeps.py
+  - tests/persistence/test_operations_health_migration.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-023
+  milestone: M5
+  title: Incident Persistence & Lifecycle
+  status: ACCEPTED
+  dependencies:
+  - M5-022
+  files:
+  - database/migrations/0084_incident_recovery_control.sql
+  - src/operations/incidents/models.py
+  - src/operations/incidents/repository.py
+  - src/operations/incidents/service.py
+  - tests/unit/operations/test_incident_lifecycle.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-024
+  milestone: M5
+  title: Automatic Containment
+  status: ACCEPTED
+  dependencies:
+  - M5-023
+  files:
+  - registries/operations/containment-rules.yaml
+  - src/operations/containment/registry.py
+  - src/operations/containment/service.py
+  - tests/unit/operations/test_containment.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-025
+  milestone: M5
+  title: Recovery Command Framework
+  status: ACCEPTED
+  dependencies:
+  - M5-024
+  files:
+  - registries/operations/recovery-actions.yaml
+  - src/operations/recovery/registry.py
+  - src/operations/recovery/framework.py
+  - tests/unit/operations/test_recovery_framework.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-026
+  milestone: M5
+  title: Explicit Recovery Actions
+  status: ACCEPTED
+  dependencies:
+  - M5-025
+  files:
+  - src/operations/recovery/actions.py
+  - database/migrations/0167_reference_seed_data.sql
+  - tests/unit/operations/test_explicit_recovery_actions.py
+  - tests/persistence/test_incident_recovery_migration.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-027
+  milestone: M5
+  title: Backup Verification
+  status: ACCEPTED
+  dependencies:
+  - M5-026
+  files:
+  - src/operations/backup/models.py
+  - src/operations/backup/repository.py
+  - src/operations/backup/service.py
+  - database/migrations/0085_backup_restore_operations.sql
+  - database/migrations/0168_reference_seed_data.sql
+  - tests/unit/operations/test_backup_verification.py
+  - tests/persistence/test_backup_restore_operations_migration.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-028
+  milestone: M5
+  title: Restore Verification
+  status: ACCEPTED
+  dependencies:
+  - M5-027
+  files:
+  - src/operations/restore/models.py
+  - src/operations/restore/repository.py
+  - src/operations/restore/service.py
+  - database/migrations/0085_backup_restore_operations.sql
+  - tests/unit/operations/test_restore_verification.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-029
+  milestone: M5
+  title: Post-Restore Publication Freeze
+  status: ACCEPTED
+  dependencies:
+  - M5-028
+  files:
+  - src/operations/restore/service.py
+  - src/operations/restore/repository.py
+  - src/publication/freeze/repository.py
+  - database/migrations/0085_backup_restore_operations.sql
+  - tests/unit/operations/test_restore_verification.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-030
+  milestone: M5
+  title: Operations Dashboard Projections
+  status: ACCEPTED
+  dependencies:
+  - M5-029
+  files:
+  - src/operations/dashboard/models.py
+  - src/operations/dashboard/projection.py
+  - database/migrations/0085_backup_restore_operations.sql
+  - tests/unit/operations/test_dashboard_projection.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M5-031
+  milestone: M5
+  title: Milestone 5 Certification Suite
+  status: ACCEPTED
+  dependencies:
+  - M5-030
+  files:
+  - tests/certification/m5/test_milestone5_certification.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-001
+  milestone: M6
+  title: Service Identity Registry
+  status: ACCEPTED
+  dependencies:
+  - M5-031
+  files:
+  - registries/security/service-identities-v1.0.yaml
+  - src/security/identity/models.py
+  - src/security/identity/registry.py
+  - tests/contract/security/test_service_identity_registry.py
+  - docs/implementation/M6-001.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-002
+  milestone: M6
+  title: Service Authentication Boundary
+  status: ACCEPTED
+  dependencies:
+  - M6-001
+  files:
+  - src/security/authentication/models.py
+  - src/security/authentication/boundary.py
+  - tests/unit/security/test_service_authentication_boundary.py
+  - docs/implementation/M6-002.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-003
+  milestone: M6
+  title: Database Least-Privilege Completion
+  status: ACCEPTED
+  dependencies:
+  - M6-002
+  files:
+  - database/migrations/0142_service_roles.sql
+  - database/migrations/0143_least_privilege_completion.sql
+  - database/tests/test_service_role_permissions.sql
+  - tests/persistence/security/test_database_least_privilege_sql.py
+  - docs/implementation/M6-003.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-004
+  milestone: M6
+  title: Human Role Registry
+  status: ACCEPTED
+  dependencies:
+  - M6-003
+  files:
+  - registries/security/human-roles-v1.0.yaml
+  - src/security/authorization/models.py
+  - src/security/authorization/registry.py
+  - tests/contract/security/test_human_role_registry.py
+  - docs/implementation/M6-004.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-005
+  milestone: M6
+  title: Authorization Policy Engine
+  status: ACCEPTED
+  dependencies:
+  - M6-004
+  files:
+  - src/security/authorization/policy.py
+  - src/security/authorization/__init__.py
+  - tests/unit/security/test_authorization_policy.py
+  - docs/implementation/M6-005.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-006
+  milestone: M6
+  title: Property-Scoped Authorization
+  status: ACCEPTED
+  dependencies:
+  - M6-005
+  files:
+  - src/security/authorization/property_scope.py
+  - tests/unit/security/test_property_scoped_authorization.py
+  - docs/implementation/M6-006.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-007
+  milestone: M6
+  title: Audience Enforcement
+  status: ACCEPTED
+  dependencies:
+  - M6-006
+  files:
+  - registries/security/audience-policy-v1.0.yaml
+  - src/security/audience/registry.py
+  - src/security/audience/enforcement.py
+  - tests/contract/security/test_audience_policy_registry.py
+  - tests/unit/security/test_audience_enforcement.py
+  - docs/implementation/M6-007.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-008
+  milestone: M6
+  title: Response DTO Segregation
+  status: ACCEPTED
+  dependencies:
+  - M6-007
+  files:
+  - src/security/responses/dto.py
+  - src/security/responses/projector.py
+  - tests/unit/security/test_response_dto_segregation.py
+  - docs/implementation/M6-008.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-009
+  milestone: M6
+  title: Negative-Field Protection
+  status: ACCEPTED
+  dependencies:
+  - M6-008
+  files:
+  - src/security/responses/negative_fields.py
+  - tests/unit/security/test_negative_field_protection.py
+  - docs/implementation/M6-009.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-010
+  milestone: M6
+  title: Private Media Authorization
+  status: ACCEPTED
+  dependencies:
+  - M6-009
+  files:
+  - src/security/media/access.py
+  - src/security/media/__init__.py
+  - tests/unit/security/test_private_media_authorization.py
+  - docs/implementation/M6-010.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-011
+  milestone: M6
+  title: Historical Report Access Control
+  status: ACCEPTED
+  dependencies:
+  - M6-010
+  files:
+  - src/security/history/access.py
+  - src/security/history/__init__.py
+  - tests/unit/security/test_historical_report_access_control.py
+  - docs/implementation/M6-011.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-012
+  milestone: M6
+  title: Privileged Command Authorization
+  status: ACCEPTED
+  dependencies:
+  - M6-011
+  files:
+  - registries/security/privileged-command-policy-v1.0.yaml
+  - src/security/privileged/registry.py
+  - src/security/privileged/authorization.py
+  - src/security/privileged/__init__.py
+  - tests/contract/security/test_privileged_command_registry.py
+  - tests/unit/security/test_privileged_command_authorization.py
+  - docs/implementation/M6-012.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-013
+  milestone: M6
+  title: Break-Glass Controls
+  status: ACCEPTED
+  dependencies:
+  - M6-012
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-014
+  milestone: M6
+  title: Security Event Taxonomy
+  status: ACCEPTED
+  dependencies:
+  - M6-013
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-015
+  milestone: M6
+  title: Security Audit Persistence
+  status: ACCEPTED
+  dependencies:
+  - M6-014
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-016
+  milestone: M6
+  title: Certification Persistence
+  status: ACCEPTED
+  dependencies:
+  - M6-015
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-017
+  milestone: M6
+  title: Synthetic Fleet Generator
+  status: ACCEPTED
+  dependencies:
+  - M6-016
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-018
+  milestone: M6
+  title: Synthetic Scenario Registry
+  status: ACCEPTED
+  dependencies:
+  - M6-017
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-019
+  milestone: M6
+  title: Golden Fixture Framework
+  status: ACCEPTED
+  dependencies:
+  - M6-018
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-020
+  milestone: M6
+  title: Normal Lifecycle Suite
+  status: ACCEPTED
+  dependencies:
+  - M6-019
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-021
+  milestone: M6
+  title: Idempotency Suite
+  status: ACCEPTED
+  dependencies:
+  - M6-020
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-022
+  milestone: M6
+  title: Variant-Isolation Suite
+  status: ACCEPTED
+  dependencies:
+  - M6-021
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-023
+  milestone: M6
+  title: Stale-Build Suite
+  status: ACCEPTED
+  dependencies:
+  - M6-022
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-024
+  milestone: M6
+  title: Publication Race Suite
+  status: ACCEPTED
+  dependencies:
+  - M6-023
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-025
+  milestone: M6
+  title: Rollback / Invalidation Suite
+  status: ACCEPTED
+  dependencies:
+  - M6-024
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-026
+  milestone: M6
+  title: Release Suite
+  status: ACCEPTED
+  dependencies:
+  - M6-025
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-027
+  milestone: M6
+  title: Recovery Suite
+  status: ACCEPTED
+  dependencies:
+  - M6-026
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-028
+  milestone: M6
+  title: Security Mutation Suite
+  status: ACCEPTED
+  dependencies:
+  - M6-027
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-029
+  milestone: M6
+  title: Leakage / Negative-Field Suite
+  status: ACCEPTED
+  dependencies:
+  - M6-028
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-030
+  milestone: M6
+  title: Chaos Harness
+  status: ACCEPTED
+  dependencies:
+  - M6-029
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-031
+  milestone: M6
+  title: Disaster-Recovery Certification
+  status: ACCEPTED
+  dependencies:
+  - M6-030
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-032
+  milestone: M6
+  title: Reproducibility Suite
+  status: ACCEPTED
+  dependencies:
+  - M6-031
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-033
+  milestone: M6
+  title: Hard-Zero Metric Engine
+  status: ACCEPTED
+  dependencies:
+  - M6-032
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-034
+  milestone: M6
+  title: Certification Runner
+  status: ACCEPTED
+  dependencies:
+  - M6-033
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M6-035
+  milestone: M6
+  title: Milestone 6 Final Certification Suite
+  status: ACCEPTED
+  dependencies:
+  - M6-034
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-001
+  milestone: M7
+  title: Production Certification Persistence Completion
+  status: ACCEPTED
+  dependencies:
+  - M6-035
+  files:
+  - database/migrations/0087_production_certification_persistence.sql
+  - src/production_certification/__init__.py
+  - src/production_certification/models.py
+  - src/production_certification/repository.py
+  - tests/persistence/certification/test_production_certification_persistence_sql.py
+  - tests/unit/production_certification/test_persistence_models.py
+  - docs/implementation/M7-001.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-002
+  milestone: M7
+  title: Certification Candidate Freeze
+  status: ACCEPTED
+  dependencies:
+  - M7-001
+  files:
+  - database/migrations/0088_production_candidate_manifest_environment.sql
+  - src/production_certification/candidate/__init__.py
+  - src/production_certification/candidate/freeze.py
+  - tests/unit/production_certification/test_candidate_freeze.py
+  - tests/persistence/certification/test_candidate_manifest_environment_sql.py
+  - docs/implementation/M7-002.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-003
+  milestone: M7
+  title: Contract / Build Manifest Pinning
+  status: ACCEPTED
+  dependencies:
+  - M7-002
+  files:
+  - src/production_certification/manifests/__init__.py
+  - src/production_certification/manifests/pinning.py
+  - tests/unit/production_certification/test_manifest_pinning.py
+  - docs/implementation/M7-003.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-004
+  milestone: M7
+  title: Environment Parity Verification
+  status: ACCEPTED
+  dependencies:
+  - M7-003
+  files:
+  - registries/production-certification/environment-parity.yaml
+  - src/production_certification/environment/__init__.py
+  - src/production_certification/environment/parity.py
+  - tests/unit/production_certification/test_environment_parity.py
+  - docs/implementation/M7-004.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-005
+  milestone: M7
+  title: Production Configuration Validation
+  status: ACCEPTED
+  dependencies:
+  - M7-004
+  files:
+  - registries/production-certification/configuration-policy.yaml
+  - src/production_certification/configuration/validation.py
+  - database/migrations/0089_production_configuration_and_pilot.sql
+  - tests/unit/production_certification/test_configuration_validation.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-006
+  milestone: M7
+  title: Real-Property Pilot Eligibility Resolver
+  status: ACCEPTED
+  dependencies:
+  - M7-005
+  files:
+  - registries/production-certification/pilot-eligibility.yaml
+  - src/production_certification/pilot/eligibility.py
+  - database/migrations/0089_production_configuration_and_pilot.sql
+  - tests/unit/production_certification/test_pilot_eligibility.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-007
+  milestone: M7
+  title: Shadow Mode Orchestrator
+  status: ACCEPTED
+  dependencies:
+  - M7-006
+  files:
+  - src/production_certification/shadow/orchestrator.py
+  - tests/unit/production_certification/test_shadow_orchestrator.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-008
+  milestone: M7
+  title: Shadow Cycle Tracking
+  status: ACCEPTED
+  dependencies:
+  - M7-007
+  files:
+  - database/migrations/0090_shadow_cycle_manual_audit.sql
+  - src/production_certification/shadow/tracking.py
+  - tests/unit/production_certification/test_shadow_cycle_tracking.py
+  - tests/persistence/certification/test_shadow_manual_audit_persistence_sql.py
+  - docs/implementation/M7-008.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-009
+  milestone: M7
+  title: Manual Audit Sample Builder
+  status: ACCEPTED
+  dependencies:
+  - M7-008
+  files:
+  - registries/production-certification/manual-audit-policy.yaml
+  - src/production_certification/audit/sample.py
+  - tests/unit/production_certification/test_manual_audit_sample.py
+  - docs/implementation/M7-009.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-010
+  milestone: M7
+  title: Manual Audit Evidence Capture
+  status: ACCEPTED
+  dependencies:
+  - M7-009
+  files:
+  - src/production_certification/audit/evidence.py
+  - tests/unit/production_certification/test_manual_audit_evidence.py
+  - docs/implementation/M7-010.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-011
+  milestone: M7
+  title: Shadow Acceptance Engine
+  status: ACCEPTED
+  dependencies:
+  - M7-010
+  files:
+  - registries/production-certification/shadow-acceptance-policy.yaml
+  - src/production_certification/shadow/acceptance.py
+  - database/migrations/0091_shadow_acceptance_stop_limited_approval.sql
+  - tests/unit/production_certification/test_shadow_acceptance.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-012
+  milestone: M7
+  title: Go-Live Stop Condition Engine
+  status: ACCEPTED
+  dependencies:
+  - M7-011
+  files:
+  - registries/production-certification/go-live-stop-policy.yaml
+  - src/production_certification/go_live/stop_conditions.py
+  - database/migrations/0091_shadow_acceptance_stop_limited_approval.sql
+  - tests/unit/production_certification/test_go_live_stop_conditions.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-013
+  milestone: M7
+  title: Limited Approval
+  status: ACCEPTED
+  dependencies:
+  - M7-012
+  files:
+  - registries/production-certification/limited-approval-policy.yaml
+  - src/production_certification/approval/limited.py
+  - database/migrations/0091_shadow_acceptance_stop_limited_approval.sql
+  - tests/unit/production_certification/test_limited_approval.py
+  - tests/persistence/certification/test_go_live_acceptance_sql.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-014
+  milestone: M7
+  title: Cohort Registry & Membership Freezing
+  status: ACCEPTED
+  dependencies:
+  - M7-013
+  files:
+  - registries/production-certification/cohort-policy.yaml
+  - src/production_certification/cohort/membership.py
+  - database/migrations/0092_cohort_25_rollout.sql
+  - tests/unit/production_certification/test_cohort_membership.py
+  - tests/persistence/certification/test_cohort_25_rollout_sql.py
+  - docs/implementation/M7-014.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-015
+  milestone: M7
+  title: Cohort 25 Deployment
+  status: ACCEPTED
+  dependencies:
+  - M7-014
+  files:
+  - src/production_certification/cohort/deployment.py
+  - src/production_certification/repository.py
+  - tests/unit/production_certification/test_cohort_25_deployment.py
+  - docs/implementation/M7-015.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-016
+  milestone: M7
+  title: Cohort Evidence Certification
+  status: ACCEPTED
+  dependencies:
+  - M7-015
+  files:
+  - registries/production-certification/cohort-evidence-certification.yaml
+  - src/production_certification/cohort/certification.py
+  - tests/unit/production_certification/test_cohort_evidence_certification.py
+  - docs/implementation/M7-016.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-017
+  milestone: M7
+  title: Cohort 100 Deployment
+  status: ACCEPTED
+  dependencies:
+  - M7-016
+  files: &id001
+  - registries/production-certification/progressive-rollout-policy.yaml
+  - src/production_certification/cohort/progressive.py
+  - database/migrations/0093_progressive_cohort_rollout.sql
+  - tests/unit/production_certification/test_progressive_cohort_rollout.py
+  - tests/persistence/certification/test_progressive_cohort_rollout_sql.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-018
+  milestone: M7
+  title: Cohort 500 Deployment
+  status: ACCEPTED
+  dependencies:
+  - M7-017
+  files: *id001
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-019
+  milestone: M7
+  title: Remaining Fleet Deployment
+  status: ACCEPTED
+  dependencies:
+  - M7-018
+  files: *id001
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-020
+  milestone: M7
+  title: Manual Publication Policy
+  status: ACCEPTED
+  dependencies:
+  - M7-019
+  files:
+  - registries/production-certification/manual-publication-policy.yaml
+  - src/production_certification/go_live/publication_control.py
+  - tests/unit/production_certification/test_publication_control.py
+  - docs/implementation/M7-020.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-021
+  milestone: M7
+  title: Progressive Automation Policy
+  status: ACCEPTED
+  dependencies:
+  - M7-020
+  files:
+  - registries/production-certification/progressive-automation-policy.yaml
+  - src/production_certification/go_live/publication_control.py
+  - database/migrations/0094_publication_automation_baselines.sql
+  - tests/unit/production_certification/test_publication_control.py
+  - tests/persistence/test_publication_automation_baseline_schema.py
+  - docs/implementation/M7-021.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-022
+  milestone: M7
+  title: Rollback Baseline Capture
+  status: ACCEPTED
+  dependencies:
+  - M7-021
+  files:
+  - src/production_certification/go_live/publication_control.py
+  - database/migrations/0094_publication_automation_baselines.sql
+  - tests/unit/production_certification/test_publication_control.py
+  - tests/persistence/test_publication_automation_baseline_schema.py
+  - docs/implementation/M7-022.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-023
+  milestone: M7
+  title: Cohort Rollback / Containment
+  status: ACCEPTED
+  dependencies:
+  - M7-022
+  files:
+  - src/production_certification/go_live/finalization.py
+  - database/migrations/0095_final_production_approval.sql
+  - tests/unit/production_certification/test_finalization.py
+  - tests/persistence/test_final_production_approval_schema.py
+  - docs/implementation/M7-023.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-024
+  milestone: M7
+  title: Certification Evidence Bundle
+  status: ACCEPTED
+  dependencies:
+  - M7-023
+  files:
+  - src/production_certification/go_live/finalization.py
+  - database/migrations/0095_final_production_approval.sql
+  - tests/unit/production_certification/test_finalization.py
+  - tests/persistence/test_final_production_approval_schema.py
+  - docs/implementation/M7-024.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-025
+  milestone: M7
+  title: Certification Revocation
+  status: ACCEPTED
+  dependencies:
+  - M7-024
+  files:
+  - src/production_certification/go_live/finalization.py
+  - database/migrations/0095_final_production_approval.sql
+  - tests/unit/production_certification/test_finalization.py
+  - tests/persistence/test_final_production_approval_schema.py
+  - docs/implementation/M7-025.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-026
+  milestone: M7
+  title: Formal FULL_APPROVAL
+  status: ACCEPTED
+  dependencies:
+  - M7-025
+  files:
+  - src/production_certification/go_live/finalization.py
+  - registries/production-certification/full-approval-policy.yaml
+  - database/migrations/0095_final_production_approval.sql
+  - tests/unit/production_certification/test_finalization.py
+  - tests/persistence/test_final_production_approval_schema.py
+  - docs/implementation/M7-026.md
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M7-027
+  milestone: M7
+  title: Milestone 7 Final Certification Suite
+  status: BLOCKED
+  dependencies:
+  - M7-026
+  files:
+  - registries/production-certification/final-certification-policy.yaml
+  - src/production_certification/certification/__init__.py
+  - src/production_certification/certification/final_suite.py
+  - tests/certification/m7/test_milestone7_final_certification.py
+  - docs/implementation/M7-027.md
+  - scripts/certification/run_live_postgres_certification.py
+  - tests/certification/m7/test_live_postgres_certification_harness.py
+  - docs/runbooks/M7-027-LIVE-POSTGRES-CERTIFICATION.md
+  - database/migrations/0143_least_privilege_completion.sql
+  - .github/workflows/m7-live-postgres-certification.yml
+  - tests/certification/m7/test_live_postgres_github_workflow.py
+  - src/production_certification/certification/finalizer.py
+  - scripts/certification/finalize_m7_from_live_evidence.py
+  - tests/certification/m7/test_m7_live_evidence_finalizer.py
+  - scripts/certification/freeze_repository_candidate.py
+  - tests/certification/m7/test_repository_candidate_freeze.py
+  - .gitignore
+  - scripts/certification/bootstrap_github_remote.py
+  - tests/certification/m7/test_github_repository_bootstrap.py
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-001
+  milestone: M8
+  title: Presentation Package Bootstrap
+  status: NOT_STARTED
+  dependencies:
+  - M7-027
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-002
+  milestone: M8
+  title: Design Token System
+  status: NOT_STARTED
+  dependencies:
+  - M8-001
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-003
+  milestone: M8
+  title: Shared Component Primitives
+  status: NOT_STARTED
+  dependencies:
+  - M8-002
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-004
+  milestone: M8
+  title: Report Layout Shell
+  status: NOT_STARTED
+  dependencies:
+  - M8-003
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-005
+  milestone: M8
+  title: Friendly Label Runtime
+  status: NOT_STARTED
+  dependencies:
+  - M8-004
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-006
+  milestone: M8
+  title: Audience Presentation Policy
+  status: NOT_STARTED
+  dependencies:
+  - M8-005
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-007
+  milestone: M8
+  title: Agent Report Experience
+  status: NOT_STARTED
+  dependencies:
+  - M8-006
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-008
+  milestone: M8
+  title: Seller Report Experience
+  status: NOT_STARTED
+  dependencies:
+  - M8-007
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-009
+  milestone: M8
+  title: Public Property Experience
+  status: NOT_STARTED
+  dependencies:
+  - M8-008
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-010
+  milestone: M8
+  title: Diagram Grammar Runtime
+  status: NOT_STARTED
+  dependencies:
+  - M8-009
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-011
+  milestone: M8
+  title: Lot / Context Diagram Renderer
+  status: NOT_STARTED
+  dependencies:
+  - M8-010
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-012
+  milestone: M8
+  title: Diagram Accessibility Layer
+  status: NOT_STARTED
+  dependencies:
+  - M8-011
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-013
+  milestone: M8
+  title: Media Pipeline
+  status: NOT_STARTED
+  dependencies:
+  - M8-012
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-014
+  milestone: M8
+  title: Media Slot Components
+  status: NOT_STARTED
+  dependencies:
+  - M8-013
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-015
+  milestone: M8
+  title: Evidence Disclosure Components
+  status: NOT_STARTED
+  dependencies:
+  - M8-014
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-016
+  milestone: M8
+  title: Confidence / Limitation Components
+  status: NOT_STARTED
+  dependencies:
+  - M8-015
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-017
+  milestone: M8
+  title: Responsive Layout System
+  status: NOT_STARTED
+  dependencies:
+  - M8-016
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-018
+  milestone: M8
+  title: Mobile Navigation & Progressive Disclosure
+  status: NOT_STARTED
+  dependencies:
+  - M8-017
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-019
+  milestone: M8
+  title: PDF Template Foundation
+  status: NOT_STARTED
+  dependencies:
+  - M8-018
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-020
+  milestone: M8
+  title: Agent PDF
+  status: NOT_STARTED
+  dependencies:
+  - M8-019
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-021
+  milestone: M8
+  title: Seller PDF
+  status: NOT_STARTED
+  dependencies:
+  - M8-020
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-022
+  milestone: M8
+  title: Public PDF
+  status: NOT_STARTED
+  dependencies:
+  - M8-021
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-023
+  milestone: M8
+  title: Print Templates
+  status: NOT_STARTED
+  dependencies:
+  - M8-022
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-024
+  milestone: M8
+  title: Accessibility Runtime & Tests
+  status: NOT_STARTED
+  dependencies:
+  - M8-023
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-025
+  milestone: M8
+  title: Stable Property Routing
+  status: NOT_STARTED
+  dependencies:
+  - M8-024
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-026
+  milestone: M8
+  title: Branding Runtime
+  status: NOT_STARTED
+  dependencies:
+  - M8-025
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-027
+  milestone: M8
+  title: Consumer Glossary UI
+  status: NOT_STARTED
+  dependencies:
+  - M8-026
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-028
+  milestone: M8
+  title: What Changed UI
+  status: NOT_STARTED
+  dependencies:
+  - M8-027
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-029
+  milestone: M8
+  title: Freshness / Version UI
+  status: NOT_STARTED
+  dependencies:
+  - M8-028
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-030
+  milestone: M8
+  title: Empty / Missing / Unavailable States
+  status: NOT_STARTED
+  dependencies:
+  - M8-029
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-031
+  milestone: M8
+  title: Visual Regression Harness
+  status: NOT_STARTED
+  dependencies:
+  - M8-030
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-032
+  milestone: M8
+  title: Golden Presentation Fixtures
+  status: NOT_STARTED
+  dependencies:
+  - M8-031
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-033
+  milestone: M8
+  title: Consumer Comprehension Test Harness
+  status: NOT_STARTED
+  dependencies:
+  - M8-032
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-034
+  milestone: M8
+  title: Template Certification Runtime
+  status: NOT_STARTED
+  dependencies:
+  - M8-033
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied
+- ticket_id: M8-035
+  milestone: M8
+  title: Milestone 8 Final Certification Suite
+  status: NOT_STARTED
+  dependencies:
+  - M8-034
+  files: []
+  definition_of_done:
+  - code_or_artifact_complete
+  - required_tests_pass
+  - contract_references_present
+  - dependencies_accepted
+  - pass_criteria_satisfied

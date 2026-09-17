@@ -1,0 +1,37 @@
+registry_id: STH-REGENERATION-RETRY-v1.0
+version: 1.0.0
+default_action: BLOCK
+max_attempts_default: 3
+base_delay_seconds: 30
+max_delay_seconds: 900
+rules:
+  - rule_id: RETRY_DB_TEMPORARY
+    failure_code: DB_TEMPORARY_FAILURE
+    action: RETRY
+  - rule_id: RETRY_STORAGE_TEMPORARY
+    failure_code: STORAGE_TEMPORARY_FAILURE
+    action: RETRY
+  - rule_id: RETRY_WORKER_INTERRUPTED
+    failure_code: WORKER_INTERRUPTED
+    action: RETRY
+  - rule_id: RETRY_TIMEOUT
+    failure_code: TIMEOUT
+    action: RETRY
+  - rule_id: RETRY_DEADLOCK
+    failure_code: DEADLOCK
+    action: RETRY
+  - rule_id: BLOCK_SNAPSHOT_INVALID
+    failure_code: SNAPSHOT_INVALID
+    action: BLOCK
+  - rule_id: BLOCK_REQUIRED_FINDING_MISSING
+    failure_code: REQUIRED_FINDING_MISSING
+    action: BLOCK
+  - rule_id: BLOCK_REPORT_SCHEMA_UNSUPPORTED
+    failure_code: UNSUPPORTED_REPORT_SCHEMA
+    action: BLOCK
+  - rule_id: BLOCK_VARIANT_POLICY_UNRESOLVED
+    failure_code: VARIANT_POLICY_UNRESOLVED
+    action: BLOCK
+  - rule_id: BLOCK_CLASSIFICATION_VIOLATION
+    failure_code: CLASSIFICATION_VIOLATION
+    action: BLOCK

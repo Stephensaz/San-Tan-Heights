@@ -1,0 +1,17 @@
+contract_id: STH-GOVERNED-PROPERTY-STATE-READ
+version: 1.0.0
+status: LOCKED
+purpose: Define the only approved read boundary from production-governed intelligence into Snapshot Service.
+operation: GetGovernedPropertyState
+request:
+  required: [property_id]
+response:
+  schema: schemas/snapshots/governed-property-state.schema.json
+invariants:
+  - returns_governed_production_intelligence_only
+  - raw_source_records_are_not_exposed
+  - source_read_token_is_required
+  - production_findings_require_immutable_passport_lineage
+  - unknown_statuses_fail_closed
+allowed_production_statuses: [PRODUCTION_READY, INTERNAL_ONLY, BLOCKED, DEPRECATED, SUPERSEDED]
+allowed_publication_scopes: [AGENT, SELLER, PUBLIC, AGENT_SELLER, ALL, NONE]

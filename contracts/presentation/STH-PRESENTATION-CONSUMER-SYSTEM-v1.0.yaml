@@ -1,0 +1,10 @@
+contract_id: STH-PRESENTATION-CONSUMER-SYSTEM
+version: 1.0.0
+status: LOCKED
+purpose: Define downstream Agent, Seller, and Public presentation behavior.
+invariants:
+  - presentation_does_not_create_or_reinterpret_intelligence
+  - audience_depth_decreases_agent_to_seller_to_public
+  - missing_information_is_not_inferred
+  - visual_emphasis_does_not_imply_property_quality
+  - uncertified_templates_do_not_publish

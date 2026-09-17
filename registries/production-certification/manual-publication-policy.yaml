@@ -1,0 +1,17 @@
+policy_id: STH-MANUAL-PUBLICATION-POLICY
+policy_version: 1.0.0
+status: LOCKED
+default_mode: MANUAL
+requires_current_stop_condition_clearance: true
+requires_operator_identity: true
+requires_reason_code: true
+requires_candidate_fingerprint_match: true
+allowed_actions:
+  - PUBLISH
+  - PROMOTE_RENDER
+  - ROLLBACK
+  - UNPUBLISH
+  - REPUBLISH
+prohibited_in_manual_mode:
+  - UNATTENDED_POINTER_MUTATION
+  - IMPLICIT_STAGE_EXPANSION

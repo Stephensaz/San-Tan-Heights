@@ -1,0 +1,15 @@
+contract_id: STH-PERSISTENCE
+version: 1.0.0
+status: LOCKED
+purpose: Define PostgreSQL persistence, immutability, history, and transactional boundaries.
+database:
+  engine: PostgreSQL
+  minimum_major_version: 16
+  identifiers: UUID
+invariants:
+  - no_physical_deletes_for_governed_history
+  - no_destructive_cascade_deletes
+  - migrations_are_append_only_after_application
+  - reference_tables_preferred_over_native_enum
+  - current_publication_is_pointer_based
+schemas: [core, snapshot, reporting, publication, orchestration, audit, operations, security, reference]

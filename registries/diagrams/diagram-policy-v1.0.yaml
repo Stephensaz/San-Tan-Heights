@@ -1,0 +1,18 @@
+registry_id: STH-DIAGRAM-POLICY-v1.0
+version: 1.0.0
+status: LOCKED
+allowed_statuses: [APPROVED]
+required_qa_status: PASS
+slot_rules:
+  LOT_CONTEXT: {allowed_types: [LOT_CONTEXT]}
+  REAR_ADJACENCY: {allowed_types: [REAR_ADJACENCY]}
+  SIDE_ADJACENCY: {allowed_types: [SIDE_ADJACENCY]}
+  CORNER_CONTEXT: {allowed_types: [CORNER_CONTEXT]}
+  CUL_DE_SAC_CONTEXT: {allowed_types: [CUL_DE_SAC_CONTEXT]}
+  STREET_SIDE: {allowed_types: [STREET_SIDE]}
+  ROAD_RELATIONSHIP: {allowed_types: [ROAD_RELATIONSHIP]}
+  TRACT_ADJACENCY: {allowed_types: [TRACT_ADJACENCY]}
+  COMMON_AREA_RELATIONSHIP: {allowed_types: [COMMON_AREA_RELATIONSHIP]}
+  OPEN_SPACE_RELATIONSHIP: {allowed_types: [OPEN_SPACE_RELATIONSHIP]}
+  ENTRANCE_ROUTE_CONTEXT: {allowed_types: [ENTRANCE_ROUTE_CONTEXT]}
+  VIEW_CONTEXT: {allowed_types: [VIEW_CONTEXT]}

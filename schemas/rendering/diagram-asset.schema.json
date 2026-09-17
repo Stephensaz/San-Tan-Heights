@@ -1,0 +1,16 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"sth://schemas/rendering/diagram-asset-v1",
+  "type":"object","additionalProperties":false,
+  "required":["diagram_id","diagram_type","property_id","approval_status","qa_status","semantic_fingerprint","version","finding_ids"],
+  "properties":{
+    "diagram_id":{"type":"string","minLength":1},
+    "diagram_type":{"type":"string","minLength":1},
+    "property_id":{"type":"string","minLength":1},
+    "approval_status":{"type":"string","enum":["APPROVED","PENDING","REJECTED","WITHDRAWN"]},
+    "qa_status":{"type":"string","enum":["PASS","PENDING","FAIL","REVIEW_REQUIRED"]},
+    "semantic_fingerprint":{"type":"string","pattern":"^[0-9a-f]{64}$"},
+    "version":{"type":"string","minLength":1},
+    "finding_ids":{"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true}
+  }
+}

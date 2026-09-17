@@ -1,0 +1,36 @@
+registry_id: STH-SNAPSHOT-REQUIREMENTS-CORE-v1.0
+version: 1.0.0
+scope: CORE
+requirements:
+- requirement_id: REQ_CANONICAL_PROPERTY_IDENTITY
+  required: true
+  satisfied_by:
+    property_field: property_identity_status
+    equals: RESOLVED
+  failure:
+    action: BLOCK_SNAPSHOT
+    reason_code: PROPERTY_IDENTITY_UNRESOLVED
+- requirement_id: REQ_PROPERTY_QA_PASS
+  required: true
+  satisfied_by:
+    property_field: qa_status
+    equals: PASS
+  failure:
+    action: BLOCK_SNAPSHOT
+    reason_code: PROPERTY_QA_NOT_ACCEPTED
+- requirement_id: REQ_GOVERNANCE_SCHEMA
+  required: true
+  satisfied_by:
+    property_field: governance_schema_version
+    nonempty: true
+  failure:
+    action: BLOCK_SNAPSHOT
+    reason_code: GOVERNANCE_SCHEMA_MISSING
+- requirement_id: REQ_INTELLIGENCE_SCHEMA
+  required: true
+  satisfied_by:
+    property_field: intelligence_schema_version
+    nonempty: true
+  failure:
+    action: BLOCK_SNAPSHOT
+    reason_code: INTELLIGENCE_SCHEMA_MISSING

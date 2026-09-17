@@ -1,0 +1,12 @@
+registry_id: STH-RELEASE-POLICY-v1.0
+version: 1.0.0
+policies:
+  STANDARD_FLEET:
+    policy_id: STANDARD_FLEET
+    description: Deterministic governed fleet release membership and manifest freezing.
+    allowed_variants: [AGENT, SELLER, PUBLIC]
+    allowed_channels: [WEB, PDF_DOWNLOAD, PRINT]
+    channel_optional: true
+    duplicate_behavior: REJECT_CONFLICT
+    membership_sort: [property_id, report_variant, channel]
+    require_membership_freeze: true

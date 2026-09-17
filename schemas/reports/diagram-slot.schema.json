@@ -1,0 +1,12 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"sth://schemas/reports/diagram-slot-v1",
+  "type":"object","additionalProperties":false,
+  "required":["slot_id","diagram_type","required","finding_ids"],
+  "properties":{
+    "slot_id":{"type":"string","minLength":1},
+    "diagram_type":{"type":"string","enum":["LOT_CONTEXT","REAR_ADJACENCY","SIDE_ADJACENCY","CORNER_CONTEXT","CUL_DE_SAC_CONTEXT","STREET_SIDE","ROAD_RELATIONSHIP","TRACT_ADJACENCY","COMMON_AREA_RELATIONSHIP","OPEN_SPACE_RELATIONSHIP","ENTRANCE_ROUTE_CONTEXT","VIEW_CONTEXT"]},
+    "required":{"type":"boolean"},
+    "finding_ids":{"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true}
+  }
+}

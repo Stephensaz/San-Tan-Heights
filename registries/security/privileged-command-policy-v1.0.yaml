@@ -1,0 +1,32 @@
+registry_id: STH-PRIVILEGED-COMMAND-POLICY-v1.0
+version: 1.0.0
+status: LOCKED
+commands:
+  RELEASE_PUBLICATION_FREEZE:
+    required_action: recovery.execute
+    classification: OPERATIONS_INTERNAL
+    property_scoped: true
+  REQUEUE_REGENERATION_JOB:
+    required_action: recovery.execute
+    classification: OPERATIONS_INTERNAL
+    property_scoped: true
+  RETRY_RELEASE_ITEM:
+    required_action: recovery.execute
+    classification: OPERATIONS_INTERNAL
+    property_scoped: true
+  REVALIDATE_PUBLICATION_TARGET:
+    required_action: recovery.execute
+    classification: OPERATIONS_INTERNAL
+    property_scoped: true
+  RESOLVE_INCIDENT:
+    required_action: recovery.execute
+    classification: OPERATIONS_INTERNAL
+    property_scoped: true
+  PUBLICATION_MANAGE:
+    required_action: publication.manage
+    classification: OPERATIONS_INTERNAL
+    property_scoped: true
+  RELEASE_MANAGE:
+    required_action: release.manage
+    classification: OPERATIONS_INTERNAL
+    property_scoped: false

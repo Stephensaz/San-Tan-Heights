@@ -1,0 +1,23 @@
+registry_id: STH-PROGRESSIVE-ROLLOUT-POLICY-v1.0
+registry_version: 1.0.0
+status: LOCKED
+requires_stop_condition_clearance: true
+requires_prior_cohort_certification_pass: true
+selection_order: PROPERTY_ID_ASC
+allowed_variants:
+  - AGENT
+  - SELLER
+  - PUBLIC
+stages:
+  COHORT_100:
+    property_count: 100
+    prior_cohort_code: COHORT_25
+    require_exact_size: true
+  COHORT_500:
+    property_count: 500
+    prior_cohort_code: COHORT_100
+    require_exact_size: true
+  REMAINING_FLEET:
+    property_count: ALL_REMAINING
+    prior_cohort_code: COHORT_500
+    require_exact_size: false

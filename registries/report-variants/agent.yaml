@@ -1,0 +1,25 @@
+policy_id: STH-REPORT-VARIANT-AGENT-v1.0
+version: 1.0.0
+variant: AGENT
+allowed_classifications:
+  - PUBLIC_DATA
+  - SELLER_DATA
+  - AGENT_INTERNAL
+allowed_publication_scopes:
+  - AGENT
+  - AGENT_SELLER
+  - ALL
+evidence_depth: DETAILED
+confidence_visibility: DETAILED
+required_sections:
+  - summary
+  - property-identity
+  - lot-location
+  - home-dna
+  - evidence
+  - freshness
+optional_sections:
+  - market-context
+  - changes
+  - glossary
+prohibited_finding_types: []

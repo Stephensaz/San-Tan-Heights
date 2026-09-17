@@ -1,0 +1,34 @@
+build_manifest_id: STH-BUILD-MANIFEST-v1.0
+status: ACTIVE
+status_values:
+- NOT_STARTED
+- IN_PROGRESS
+- BLOCKED
+- ACCEPTED
+current_ticket: M7-027
+milestones:
+- id: M1
+  name: Governed Lifecycle Kernel
+  status: ACCEPTED
+- id: M2
+  name: Intelligence Bridge
+  status: ACCEPTED
+- id: M3
+  name: Report Production
+  status: ACCEPTED
+- id: M4
+  name: Rendering and Controlled Publication
+  status: ACCEPTED
+- id: M5
+  name: Fleet Control and Operations
+  status: ACCEPTED
+- id: M6
+  name: Security and System Certification
+  status: ACCEPTED
+- id: M7
+  name: Production Certification and Go-Live
+  status: BLOCKED
+- id: M8
+  name: Consumer Experience
+  status: NOT_STARTED
+version: 0.1.53

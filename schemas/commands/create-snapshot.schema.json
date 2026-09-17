@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","title":"CreateSnapshot","type":"object","required":["property_id","snapshot_reason","created_by"],"properties":{"property_id":{"type":"string","format":"uuid"},"snapshot_reason":{"type":"string","minLength":1},"created_by":{"type":"string","minLength":1}},"additionalProperties":false}

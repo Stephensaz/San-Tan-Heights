@@ -1,0 +1,41 @@
+registry_id: STH-HUMAN-ROLES-v1.0
+version: 1.0.0
+status: LOCKED
+roles:
+  PUBLIC:
+    status: ACTIVE
+    property_scope_mode: NONE
+    classifications: [PUBLIC_DATA]
+    actions: [publication.current_public.read]
+  SELLER:
+    status: ACTIVE
+    property_scope_mode: ASSIGNED
+    classifications: [PUBLIC_DATA, SELLER_DATA]
+    actions: [property.current_report.read, property.media.read]
+  AGENT:
+    status: ACTIVE
+    property_scope_mode: ASSIGNED
+    classifications: [PUBLIC_DATA, SELLER_DATA, AGENT_INTERNAL]
+    actions: [property.current_report.read, property.historical_report.read, property.media.read, property.intelligence.read]
+  OPERATIONS:
+    status: ACTIVE
+    property_scope_mode: FLEET
+    classifications: [PUBLIC_DATA, SELLER_DATA, AGENT_INTERNAL, OPERATIONS_INTERNAL, SYSTEM_INTERNAL]
+    actions: [property.current_report.read, property.historical_report.read, property.media.read, property.intelligence.read, operations.read, operations.write, publication.manage, release.manage, recovery.execute]
+  ADMIN:
+    status: ACTIVE
+    property_scope_mode: FLEET
+    classifications: [PUBLIC_DATA, SELLER_DATA, AGENT_INTERNAL, OPERATIONS_INTERNAL, SYSTEM_INTERNAL, RESTRICTED]
+    actions: ['*']
+actions:
+  publication.current_public.read: {protected_property: false}
+  property.current_report.read: {protected_property: true}
+  property.historical_report.read: {protected_property: true}
+  property.media.read: {protected_property: true}
+  property.intelligence.read: {protected_property: true}
+  operations.read: {protected_property: false}
+  operations.write: {protected_property: false}
+  publication.manage: {protected_property: true}
+  release.manage: {protected_property: false}
+  recovery.execute: {protected_property: true}
+  security.manage: {protected_property: false}

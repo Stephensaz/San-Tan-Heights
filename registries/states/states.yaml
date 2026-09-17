@@ -1,0 +1,52 @@
+registry_id: STH-STATE-REGISTRY-v1.0
+version: 1.0.0
+dimensions:
+  CONTENT:
+    - BUILDING
+    - VALIDATING
+    - READY
+    - BLOCKED
+    - FAILED
+    - STALE
+    - INVALIDATED
+    - ARCHIVED
+  PUBLICATION:
+    - NEVER_PUBLISHED
+    - STAGED
+    - PUBLISHING
+    - PUBLISHED
+    - UNPUBLISHED
+    - SUPERSEDED
+    - ROLLED_BACK
+    - WITHDRAWN
+  HEALTH:
+    - CLEAN
+    - DIRTY
+    - STALE
+    - BLOCKED
+  JOB:
+    - QUEUED
+    - CLAIMED
+    - RUNNING
+    - RETRY_WAIT
+    - BLOCKED
+    - STALE
+    - SUCCEEDED
+    - FAILED
+    - CANCELLED
+    - NO_OP
+  RELEASE:
+    - DRAFT
+    - ASSEMBLING
+    - GENERATION_READY
+    - GENERATING
+    - VALIDATING
+    - STAGED
+    - APPROVED
+    - PUBLISHING
+    - PUBLISHED
+    - BLOCKED
+    - PARTIAL_FAILURE
+    - ROLLING_BACK
+    - ROLLED_BACK
+    - CANCELLED

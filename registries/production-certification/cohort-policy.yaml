@@ -1,0 +1,13 @@
+registry_id: STH-PRODUCTION-COHORT-POLICY-v1.0
+registry_version: 1.0.0
+status: LOCKED
+cohorts:
+  COHORT_25:
+    property_count: 25
+    approval_type: LIMITED
+    selection_strategy: PILOT_ORDER_PREFIX
+    require_exact_size: true
+    allowed_variants:
+      - AGENT
+      - SELLER
+      - PUBLIC

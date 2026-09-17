@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["rule_id","dependency_type","variants","normal_change","blocked_change","invalidating_change","requires_consumption"],
+  "properties": {
+    "rule_id": {"type":"string","minLength":1},
+    "dependency_type": {"type":"string","minLength":1},
+    "variants": {
+      "type":"object",
+      "required":["AGENT","SELLER","PUBLIC"],
+      "properties":{"AGENT":{"type":"boolean"},"SELLER":{"type":"boolean"},"PUBLIC":{"type":"boolean"}},
+      "additionalProperties": false
+    },
+    "normal_change": {"enum":["NO_IMPACT","DIRTY","BLOCKED","INVALIDATION_REQUIRED","REVIEW_REQUIRED"]},
+    "blocked_change": {"enum":["NO_IMPACT","DIRTY","BLOCKED","INVALIDATION_REQUIRED","REVIEW_REQUIRED"]},
+    "invalidating_change": {"enum":["NO_IMPACT","DIRTY","BLOCKED","INVALIDATION_REQUIRED","REVIEW_REQUIRED"]},
+    "requires_consumption": {"type":"boolean"}
+  },
+  "additionalProperties": false
+}

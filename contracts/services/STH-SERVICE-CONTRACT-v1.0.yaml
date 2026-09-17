@@ -1,0 +1,19 @@
+contract_id: STH-SERVICE-CONTRACT
+version: 1.0.0
+status: LOCKED
+purpose: Define logical module boundaries and service responsibilities.
+architecture_style: modular_monolith_with_background_workers
+modules:
+  - snapshot
+  - dependency
+  - regeneration
+  - report_builder
+  - renderer
+  - publication
+  - release
+  - operations
+  - security
+invariants:
+  - renderer_reads_canonical_reports_not_raw_intelligence
+  - release_manager_coordinates_services_not_direct_table_mutation
+  - audit_writer_participates_in_callers_transaction

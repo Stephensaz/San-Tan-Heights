@@ -1,0 +1,18 @@
+policy_id: STH-M7-FINAL-CERTIFICATION-POLICY
+policy_version: 1.0.0
+status: LOCKED
+required_rollout_stages:
+  - COHORT_25
+  - COHORT_100
+  - COHORT_500
+  - REMAINING_FLEET
+required_live_postgresql_checks:
+  - MIGRATIONS_EXECUTED
+  - IMMUTABILITY_TRIGGERS_VERIFIED
+  - LEAST_PRIVILEGE_GRANTS_VERIFIED
+  - LOCKING_AND_CONCURRENCY_VERIFIED
+  - BACKUP_RESTORE_VERIFIED
+requires_full_approval: true
+requires_clear_stop_conditions: true
+requires_zero_hard_zero_metrics: true
+blocked_when_live_postgresql_unavailable: true

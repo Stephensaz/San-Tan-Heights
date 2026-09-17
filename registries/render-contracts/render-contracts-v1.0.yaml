@@ -1,0 +1,68 @@
+registry_id: STH-RENDER-CONTRACTS-v1.0
+version: 1.0.0
+status: LOCKED
+contracts:
+  WEB:
+    render_contract_version: 1.0.0
+    artifact_kind: HTML
+    mime_types: [text/html]
+    publication_channels: [WEB]
+    required_inputs:
+      - canonical_report_payload_hash
+      - report_input_hash
+      - template_id
+      - template_version
+      - renderer_version
+      - render_dependency_manifest
+    forbidden_semantic_behavior:
+      - create_new_property_fact
+      - reinterpret_governed_finding
+      - substitute_unapproved_wording
+  PDF:
+    render_contract_version: 1.0.0
+    artifact_kind: PDF
+    mime_types: [application/pdf]
+    publication_channels: [PDF_DOWNLOAD]
+    required_inputs:
+      - canonical_report_payload_hash
+      - report_input_hash
+      - template_id
+      - template_version
+      - renderer_version
+      - render_dependency_manifest
+    forbidden_semantic_behavior:
+      - create_new_property_fact
+      - reinterpret_governed_finding
+      - substitute_unapproved_wording
+  PRINT:
+    render_contract_version: 1.0.0
+    artifact_kind: PDF
+    mime_types: [application/pdf]
+    publication_channels: [PRINT]
+    required_inputs:
+      - canonical_report_payload_hash
+      - report_input_hash
+      - template_id
+      - template_version
+      - renderer_version
+      - render_dependency_manifest
+    forbidden_semantic_behavior:
+      - create_new_property_fact
+      - reinterpret_governed_finding
+      - substitute_unapproved_wording
+  MOBILE_PREVIEW:
+    render_contract_version: 1.0.0
+    artifact_kind: HTML
+    mime_types: [text/html]
+    publication_channels: []
+    required_inputs:
+      - canonical_report_payload_hash
+      - report_input_hash
+      - template_id
+      - template_version
+      - renderer_version
+      - render_dependency_manifest
+    forbidden_semantic_behavior:
+      - create_new_property_fact
+      - reinterpret_governed_finding
+      - substitute_unapproved_wording

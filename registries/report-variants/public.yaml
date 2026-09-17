@@ -1,0 +1,22 @@
+policy_id: STH-REPORT-VARIANT-PUBLIC-v1.0
+version: 1.0.0
+variant: PUBLIC
+allowed_classifications:
+  - PUBLIC_DATA
+allowed_publication_scopes:
+  - PUBLIC
+  - ALL
+evidence_depth: LIGHT
+confidence_visibility: SELECTIVE
+required_sections:
+  - summary
+  - property-identity
+  - lot-location
+  - home-dna
+  - evidence
+  - freshness
+optional_sections:
+  - market-context
+  - changes
+  - glossary
+prohibited_finding_types: []

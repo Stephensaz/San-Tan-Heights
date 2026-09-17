@@ -1,0 +1,34 @@
+registry_id: STH-REGENERATION-PRIORITY-v1.0
+version: 1.0.0
+classes:
+  CRITICAL: 100
+  HIGH: 80
+  NORMAL: 50
+  BULK: 30
+  LOW: 10
+rules:
+  - rule_id: PRIORITY_INVALIDATING_CORRECTION
+    priority_class: CRITICAL
+    when:
+      change_class: INVALIDATING_CORRECTION
+  - rule_id: PRIORITY_IDENTITY_CORRECTION
+    priority_class: HIGH
+    when:
+      change_class: IDENTITY_CORRECTION
+  - rule_id: PRIORITY_MATERIAL_CORRECTION
+    priority_class: HIGH
+    when:
+      change_class: MATERIAL_CORRECTION
+  - rule_id: PRIORITY_MANUAL_REBUILD
+    priority_class: HIGH
+    when:
+      trigger_type: MANUAL_REBUILD_REQUESTED
+  - rule_id: PRIORITY_RELEASE_BULK
+    priority_class: BULK
+    when:
+      trigger_type: RELEASE_REGENERATION_REQUESTED
+  - rule_id: PRIORITY_SOURCE_REFRESH
+    priority_class: LOW
+    when:
+      change_class: SOURCE_REFRESH
+default: NORMAL

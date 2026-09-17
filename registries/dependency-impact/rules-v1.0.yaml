@@ -1,0 +1,259 @@
+registry_id: STH-DEPENDENCY-IMPACT-RULES-v1.0
+version: 1.0.0
+decisions:
+- NO_IMPACT
+- DIRTY
+- BLOCKED
+- INVALIDATION_REQUIRED
+- REVIEW_REQUIRED
+rules:
+- rule_id: IMPACT_PROPERTY_IDENTITY_001
+  dependency_type: PROPERTY_IDENTITY
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true
+- rule_id: IMPACT_PARCEL_IDENTITY_001
+  dependency_type: PARCEL_IDENTITY
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true
+- rule_id: IMPACT_PARCEL_GEOMETRY_001
+  dependency_type: PARCEL_GEOMETRY
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true
+- rule_id: IMPACT_CANONICAL_PHASE_001
+  dependency_type: CANONICAL_PHASE
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true
+- rule_id: IMPACT_BUILDER_IDENTITY_001
+  dependency_type: BUILDER_IDENTITY
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true
+- rule_id: IMPACT_FLOOR_PLAN_IDENTITY_001
+  dependency_type: FLOOR_PLAN_IDENTITY
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true
+- rule_id: IMPACT_LOT_IDENTITY_001
+  dependency_type: LOT_IDENTITY
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true
+- rule_id: IMPACT_LOT_GEOMETRY_001
+  dependency_type: LOT_GEOMETRY
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true
+- rule_id: IMPACT_STREET_CONTEXT_001
+  dependency_type: STREET_CONTEXT
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true
+- rule_id: IMPACT_STREET_SIDE_001
+  dependency_type: STREET_SIDE
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true
+- rule_id: IMPACT_ROAD_ADJACENCY_001
+  dependency_type: ROAD_ADJACENCY
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true
+- rule_id: IMPACT_TRACT_ADJACENCY_001
+  dependency_type: TRACT_ADJACENCY
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true
+- rule_id: IMPACT_REAR_ADJACENCY_001
+  dependency_type: REAR_ADJACENCY
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true
+- rule_id: IMPACT_CORNER_STATUS_001
+  dependency_type: CORNER_STATUS
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true
+- rule_id: IMPACT_CUL_DE_SAC_STATUS_001
+  dependency_type: CUL_DE_SAC_STATUS
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true
+- rule_id: IMPACT_OPEN_SPACE_RELATIONSHIP_001
+  dependency_type: OPEN_SPACE_RELATIONSHIP
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true
+- rule_id: IMPACT_VIEW_CLASSIFICATION_001
+  dependency_type: VIEW_CLASSIFICATION
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true
+- rule_id: IMPACT_POOL_STATUS_001
+  dependency_type: POOL_STATUS
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true
+- rule_id: IMPACT_GARAGE_CLASSIFICATION_001
+  dependency_type: GARAGE_CLASSIFICATION
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true
+- rule_id: IMPACT_SOURCE_DATASET_001
+  dependency_type: SOURCE_DATASET
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true
+- rule_id: IMPACT_PRODUCTION_FINDING_001
+  dependency_type: PRODUCTION_FINDING
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true
+- rule_id: IMPACT_PASSPORT_001
+  dependency_type: PASSPORT
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true
+- rule_id: IMPACT_WORDING_POLICY_001
+  dependency_type: WORDING_POLICY
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true
+- rule_id: IMPACT_PUBLICATION_POLICY_001
+  dependency_type: PUBLICATION_POLICY
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true
+- rule_id: IMPACT_MODEL_VERSION_001
+  dependency_type: MODEL_VERSION
+  variants:
+    AGENT: true
+    SELLER: true
+    PUBLIC: true
+  normal_change: DIRTY
+  blocked_change: BLOCKED
+  invalidating_change: INVALIDATION_REQUIRED
+  requires_consumption: true

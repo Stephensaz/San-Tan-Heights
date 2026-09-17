@@ -1,0 +1,23 @@
+registry_id: STH-CONTAINMENT-RULES-v1.0
+version: 1.0.0
+rules:
+  - rule_id: CONTAIN_POINTER_INTEGRITY
+    incident_types: [PUBLICATION_POINTER_INTEGRITY]
+    minimum_severity: ERROR
+    action_type: FREEZE_PUBLICATION_TARGET
+    reason_code: INCIDENT_AUTOMATIC_CONTAINMENT
+  - rule_id: CONTAIN_UNSAFE_PUBLICATION
+    incident_types: [UNSAFE_CURRENT_PUBLICATION]
+    minimum_severity: ERROR
+    action_type: FREEZE_PUBLICATION_TARGET
+    reason_code: INCIDENT_AUTOMATIC_CONTAINMENT
+  - rule_id: CONTAIN_RELEASE_INTEGRITY
+    incident_types: [RELEASE_INTEGRITY]
+    minimum_severity: ERROR
+    action_type: BLOCK_RELEASE
+    reason_code: INCIDENT_AUTOMATIC_CONTAINMENT
+  - rule_id: CONTAIN_STUCK_REGENERATION
+    incident_types: [STUCK_REGENERATION_JOB]
+    minimum_severity: CRITICAL
+    action_type: HOLD_REGENERATION_TARGET
+    reason_code: INCIDENT_AUTOMATIC_CONTAINMENT

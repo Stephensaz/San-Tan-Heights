@@ -1,0 +1,12 @@
+registry_id: STH-GUARD-REGISTRY-v1.0
+version: 1.0.0
+guards:
+  - id: ENTITY_EXISTS
+    implementation: entity_exists
+    read_only: true
+  - id: EXPECTED_STATE_MATCHES
+    implementation: expected_state_matches
+    read_only: true
+  - id: CALLER_AUTHORIZED
+    implementation: caller_authorized
+    read_only: true

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "sth://schemas/snapshots/governed-finding-input-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["finding_id","finding_type","passport_id","passport_version","canonical_value","confidence_code","qa_status","production_status","publication_scope","approved_wording","wording_versions","semantic_fingerprint","evidence_reference_set_hash"],
+  "properties": {
+    "finding_id": {"type":"string","minLength":1},
+    "finding_type": {"type":"string","minLength":1},
+    "passport_id": {"type":"string","minLength":1},
+    "passport_version": {"type":"string","minLength":1},
+    "canonical_value": {},
+    "confidence_code": {"type":"string","minLength":1},
+    "qa_status": {"type":"string","enum":["PENDING","PASS","FAIL","REVIEW_REQUIRED"]},
+    "production_status": {"type":"string","enum":["PRODUCTION_READY","INTERNAL_ONLY","BLOCKED","DEPRECATED","SUPERSEDED"]},
+    "publication_scope": {"type":"string","enum":["AGENT","SELLER","PUBLIC","AGENT_SELLER","ALL","NONE"]},
+    "approved_wording": {
+      "type":"object","additionalProperties":false,
+      "required":["agent","seller","public"],
+      "properties":{"agent":{"type":["string","null"]},"seller":{"type":["string","null"]},"public":{"type":["string","null"]}}
+    },
+    "wording_versions": {
+      "type":"object","additionalProperties":false,
+      "required":["agent","seller","public"],
+      "properties":{"agent":{"type":["string","null"]},"seller":{"type":["string","null"]},"public":{"type":["string","null"]}}
+    },
+    "semantic_fingerprint": {"type":"string","pattern":"^[0-9a-f]{64}$"},
+    "evidence_reference_set_hash": {"type":"string","pattern":"^[0-9a-f]{64}$"}
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Snapshot Requirement Registry",
+  "type": "object",
+  "required": [
+    "registry_id",
+    "version",
+    "scope",
+    "requirements"
+  ],
+  "properties": {
+    "registry_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "requirement_id",
+          "required",
+          "satisfied_by",
+          "failure"
+        ],
+        "properties": {
+          "requirement_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "satisfied_by": {
+            "type": "object",
+            "minProperties": 1
+          },
+          "failure": {
+            "type": "object",
+            "required": [
+              "action",
+              "reason_code"
+            ],
+            "properties": {
+              "action": {
+                "enum": [
+                  "BLOCK_SNAPSHOT",
+                  "ALLOW_PARTIAL"
+                ]
+              },
+              "reason_code": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

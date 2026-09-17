@@ -1,0 +1,31 @@
+registry_id: STH-CONSUMER-GLOSSARY-v1.0
+version: 1.0.0
+universal_terms:
+  - VERIFIED
+  - DATA_FRESHNESS
+terms:
+  VERIFIED:
+    related_finding_types: []
+    agent: {label: Verified, definition: Supported by the governed evidence required for this finding and passed production QA.}
+    seller: {label: Verified, definition: Supported by the information required for this item and checked for this report.}
+    public: {label: Verified, definition: Supported by the sources required for this item and checked for this report.}
+  DATA_FRESHNESS:
+    related_finding_types: []
+    agent: {label: Data Freshness, definition: The date through which the displayed governed information was verified; it is not the render date.}
+    seller: {label: Data Freshness, definition: The date through which the information shown here was checked.}
+    public: {label: Data Freshness, definition: The date through which the displayed information was checked.}
+  RECORDED_PHASE:
+    related_finding_types: [CANONICAL_PHASE]
+    agent: {label: Recorded Phase, definition: The governed subdivision phase associated with the property from approved recorded or authoritative source evidence.}
+    seller: {label: Community Phase, definition: The verified subdivision phase associated with the property.}
+    public: {label: Community Phase, definition: The verified subdivision phase associated with the property.}
+  COMMON_AREA:
+    related_finding_types: [REAR_ADJACENCY, SIDE_ADJACENCY, TRACT_ADJACENCY, OPEN_SPACE_RELATIONSHIP]
+    agent: {label: Common Area, definition: A governed property relationship to an area identified by the approved evidence as common area; this does not by itself guarantee view, access, or permanence.}
+    seller: {label: Common Area, definition: An area identified by the available approved evidence as common area; that label does not by itself guarantee a view, access, or permanence.}
+    public: {label: Common Area, definition: An area identified by the available approved evidence as common area; it does not by itself guarantee a view, access, or permanence.}
+  PROPERTY_RELATIONSHIP:
+    related_finding_types: [REAR_ADJACENCY, SIDE_ADJACENCY, ROAD_ADJACENCY, TRACT_ADJACENCY]
+    agent: {label: Property Relationship, definition: The governed spatial relationship between the subject property and an adjacent lot, tract, road, or other mapped feature.}
+    seller: {label: Property Relationship, definition: How the property relates to an adjacent lot, tract, road, or mapped feature.}
+    public: {label: Property Relationship, definition: How the property relates to an adjacent lot, tract, road, or mapped feature.}

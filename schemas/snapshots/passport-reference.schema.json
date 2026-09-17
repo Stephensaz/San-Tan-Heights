@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "sth://schemas/snapshots/passport-reference-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["passport_id","passport_version","passport_semantic_fingerprint","passport_qa_status","finding_id","evidence_reference_set_hash"],
+  "properties": {
+    "passport_id": {"type":"string","minLength":1},
+    "passport_version": {"type":"string","minLength":1},
+    "passport_semantic_fingerprint": {"type":"string","pattern":"^[0-9a-f]{64}$"},
+    "passport_qa_status": {"type":"string","enum":["PASS","REVIEW_REQUIRED","FAIL","PENDING"]},
+    "finding_id": {"type":"string","minLength":1},
+    "evidence_reference_set_hash": {"type":"string","pattern":"^[0-9a-f]{64}$"}
+  }
+}

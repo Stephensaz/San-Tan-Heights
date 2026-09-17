@@ -1,0 +1,14 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"sth://schemas/reports/evidence-disclosure-v1",
+  "type":"object","additionalProperties":false,
+  "required":["disclosure_id","finding_id","source_category","verified_at"],
+  "properties":{
+    "disclosure_id":{"type":"string","minLength":1},
+    "finding_id":{"type":"string","minLength":1},
+    "source_category":{"type":"string","minLength":1},
+    "verified_at":{"type":"string","format":"date-time"},
+    "limitation":{"type":["string","null"]},
+    "detail":{"type":["string","null"]}
+  }
+}

@@ -1,0 +1,83 @@
+registry_id: STH-EVENT-REGISTRY-v1.0
+version: 1.0.0
+events:
+- id: COMMAND_ACCEPTED
+  version: 1
+  producers:
+  - KERNEL
+  schema_file: event-payload.schema.json
+  topics:
+  - events
+- id: TRANSITION_APPLIED
+  version: 1
+  producers:
+  - KERNEL
+  schema_file: event-payload.schema.json
+  topics:
+  - events
+- id: TRANSITION_REJECTED
+  version: 1
+  producers:
+  - KERNEL
+  schema_file: event-payload.schema.json
+  topics:
+  - events
+- id: UNAUTHORIZED_TRANSITION_ATTEMPT
+  version: 1
+  producers:
+  - KERNEL
+  schema_file: event-payload.schema.json
+  topics:
+  - events
+- id: GUARD_FAILED
+  version: 1
+  producers:
+  - KERNEL
+  schema_file: event-payload.schema.json
+  topics:
+  - events
+- id: OUTBOX_DELIVERY_FAILED
+  version: 1
+  producers:
+  - KERNEL
+  - OUTBOX_WORKER
+  schema_file: event-payload.schema.json
+  topics:
+  - events
+- id: REPORT_IMPACT_EVALUATED
+  version: 1
+  producers: [DEPENDENCY_SERVICE]
+  schema_file: event-payload.schema.json
+  topics: [events]
+- id: REPORT_MARKED_DIRTY
+  version: 1
+  producers: [DEPENDENCY_SERVICE]
+  schema_file: event-payload.schema.json
+  topics: [events]
+- id: REPORT_BLOCKED_BY_DEPENDENCY
+  version: 1
+  producers: [DEPENDENCY_SERVICE]
+  schema_file: event-payload.schema.json
+  topics: [events]
+- id: REPORT_INVALIDATION_RECOMMENDED
+  version: 1
+  producers: [DEPENDENCY_SERVICE]
+  schema_file: event-payload.schema.json
+  topics: [events]
+- id: REPORT_REVIEW_REQUIRED
+  version: 1
+  producers: [DEPENDENCY_SERVICE]
+  schema_file: event-payload.schema.json
+  topics: [events]
+
+- id: REGENERATION_JOB_QUEUED
+  version: 1
+  producers: [REGENERATION_SERVICE]
+  schema_file: event-payload.schema.json
+  topics: [events]
+
+- id: PUBLICATION_CACHE_INVALIDATED
+  version: 1
+  producers: [PUBLICATION_SERVICE]
+  schema_file: event-payload.schema.json
+  topics: [events]

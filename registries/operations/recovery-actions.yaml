@@ -1,0 +1,18 @@
+registry_id: STH-RECOVERY-ACTIONS-v1.0
+version: 1.0.0
+actions:
+  - command_type: RELEASE_PUBLICATION_FREEZE
+    required_payload: [freeze_id]
+    allowed_incident_states: [CONTAINED, RECOVERING]
+  - command_type: REQUEUE_REGENERATION_JOB
+    required_payload: [job_id]
+    allowed_incident_states: [CONTAINED, RECOVERING]
+  - command_type: RETRY_RELEASE_ITEM
+    required_payload: [release_item_id]
+    allowed_incident_states: [CONTAINED, RECOVERING]
+  - command_type: REVALIDATE_PUBLICATION_TARGET
+    required_payload: [property_id, report_variant, channel]
+    allowed_incident_states: [CONTAINED, RECOVERING]
+  - command_type: RESOLVE_INCIDENT
+    required_payload: []
+    allowed_incident_states: [CONTAINED, RECOVERING, OPEN]

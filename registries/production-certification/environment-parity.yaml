@@ -1,0 +1,19 @@
+registry_id: STH-PRODUCTION-ENVIRONMENT-PARITY-v1.0
+status: LOCKED
+policy_version: 1.0.0
+required_keys:
+  - application_version
+  - python_major_minor
+  - postgres_major
+  - timezone
+  - locale
+  - canonical_serialization_version
+  - production_certification_contract_version
+exact_match_keys:
+  - application_version
+  - python_major_minor
+  - postgres_major
+  - timezone
+  - locale
+  - canonical_serialization_version
+  - production_certification_contract_version

@@ -1,0 +1,26 @@
+registry_id: STH-RECONCILIATION-RULES-v1.0
+rules:
+  - rule_id: POINTER_REPORT_EXISTS
+    category: PUBLICATION_POINTER
+    severity: CRITICAL
+  - rule_id: POINTER_RENDER_EXISTS
+    category: PUBLICATION_POINTER
+    severity: CRITICAL
+  - rule_id: POINTER_RENDER_REPORT_MATCH
+    category: PUBLICATION_POINTER
+    severity: CRITICAL
+  - rule_id: ORPHAN_READY_REPORT
+    category: ORPHAN
+    severity: DEGRADED
+  - rule_id: ORPHAN_READY_RENDER
+    category: ORPHAN
+    severity: DEGRADED
+  - rule_id: STUCK_REGENERATION_JOB
+    category: JOB
+    severity: DEGRADED
+  - rule_id: RELEASE_ITEM_COUNT_MATCH
+    category: RELEASE
+    severity: CRITICAL
+  - rule_id: RELEASE_MANIFEST_MATCH
+    category: RELEASE
+    severity: CRITICAL

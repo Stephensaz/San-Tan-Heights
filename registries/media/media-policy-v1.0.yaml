@@ -1,0 +1,17 @@
+registry_id: STH-MEDIA-POLICY-v1.0
+version: 1.0.0
+status: LOCKED
+allowed_statuses: [APPROVED]
+required_rights_status: CLEARED
+prohibited_substitution:
+  - unrelated_property
+  - stock_home_as_subject_property
+  - different_lot_as_subject_property
+slot_rules:
+  HERO_EXTERIOR: {allowed_classes: [SUBJECT_EXTERIOR_FRONT], required: false}
+  FRONT: {allowed_classes: [SUBJECT_EXTERIOR_FRONT], required: false}
+  REAR: {allowed_classes: [SUBJECT_EXTERIOR_REAR], required: false}
+  LOT_CONTEXT: {allowed_classes: [SUBJECT_LOT_CONTEXT], required: false}
+  INTERIOR_PRIMARY: {allowed_classes: [SUBJECT_INTERIOR], required: false}
+  COMMUNITY_CONTEXT: {allowed_classes: [COMMUNITY_CONTEXT], required: false}
+  EVIDENCE_IMAGE: {allowed_classes: [EVIDENCE_IMAGE], required: false}

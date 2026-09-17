@@ -1,0 +1,18 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"sth://schemas/reports/report-metadata-v1",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["report_schema_version","content_contract_version","variant_policy_version","report_variant","property_id","snapshot_id","verified_through"],
+  "properties":{
+    "report_schema_version":{"type":"string","minLength":1},
+    "content_contract_version":{"type":"string","minLength":1},
+    "variant_policy_version":{"type":"string","minLength":1},
+    "report_variant":{"type":"string","enum":["AGENT","SELLER","PUBLIC"]},
+    "property_id":{"type":"string","format":"uuid"},
+    "snapshot_id":{"type":"string","format":"uuid"},
+    "verified_through":{"type":"string","format":"date-time"},
+    "market_data_through":{"type":["string","null"],"format":"date-time"},
+    "builder_data_through":{"type":["string","null"],"format":"date-time"}
+  }
+}

@@ -1,0 +1,14 @@
+registry_id: STH-BREAK-GLASS-POLICY-v1.0
+version: 1.0.0
+status: LOCKED
+max_duration_minutes: 60
+issuer_roles: [ADMIN]
+required_action: security.manage
+classification: RESTRICTED
+requires_reason_code: true
+requires_incident_id: true
+requires_explicit_actions: true
+prohibited_actions:
+  - security.break_glass.issue
+  - security.break_glass.extend
+  - security.break_glass.delegate

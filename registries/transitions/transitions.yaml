@@ -1,0 +1,13 @@
+registry_id: STH-TRANSITION-REGISTRY-v1.0
+version: 1.0.0
+transitions:
+  - transition_id: KERNEL_TEST_BUILDING_TO_VALIDATING
+    entity_type: KERNEL_TEST_ENTITY
+    state_dimension: CONTENT
+    from_state: BUILDING
+    to_state: VALIDATING
+    allowed_callers: [KERNEL]
+    required_guards: [ENTITY_EXISTS, EXPECTED_STATE_MATCHES, CALLER_AUTHORIZED]
+    emitted_events: [TRANSITION_APPLIED]
+    rejection_event: TRANSITION_REJECTED
+    reason_code: KERNEL_TEST_TRANSITION

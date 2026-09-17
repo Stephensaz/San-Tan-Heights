@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "STH Orchestration Event Envelope",
+  "type": "object",
+  "required": ["event_type","source_system","actor_type","actor_id","correlation_id","payload"],
+  "properties": {
+    "event_type":{"type":"string","minLength":1},
+    "source_system":{"type":"string","minLength":1},
+    "actor_type":{"type":"string","minLength":1},
+    "actor_id":{"type":"string","minLength":1},
+    "correlation_id":{"type":"string","format":"uuid"},
+    "reason_code":{"type":["string","null"]},
+    "payload":{"type":"object"}
+  },
+  "additionalProperties": true
+}

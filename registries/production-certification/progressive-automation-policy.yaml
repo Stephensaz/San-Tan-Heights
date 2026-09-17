@@ -1,0 +1,19 @@
+policy_id: STH-PROGRESSIVE-AUTOMATION-POLICY
+policy_version: 1.0.0
+status: LOCKED
+default_mode: MANUAL
+requires_explicit_handoff: true
+requires_current_stop_condition_clearance: true
+requires_rollback_baseline: true
+requires_prior_stage_certification_pass: true
+allowed_stages:
+  COHORT_100:
+    prior_stage: COHORT_25
+  COHORT_500:
+    prior_stage: COHORT_100
+  REMAINING_FLEET:
+    prior_stage: COHORT_500
+prohibited_actions:
+  - BYPASS_PUBLICATION_GUARDS
+  - MUTATE_FROZEN_MEMBERSHIP
+  - AUTO_ADVANCE_ON_FAILED_STAGE

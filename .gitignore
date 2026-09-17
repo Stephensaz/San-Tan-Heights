@@ -1,0 +1,23 @@
+# Python / pytest
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local environments
+.venv/
+venv/
+.env
+.env.*
+
+# OS/editor noise
+.DS_Store
+*.swp
+
+# Generated certification evidence (never source inputs)
+artifacts/certification/
+
+# Local temporary files
+*.tmp
+*.log

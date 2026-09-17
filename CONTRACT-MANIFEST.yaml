@@ -1,0 +1,52 @@
+manifest_id: STH-CONTRACT-MANIFEST-v1.0
+status: LOCKED
+contracts:
+- id: STH-ORCH-CONTRACT
+  version: 1.0.0
+  status: LOCKED
+  path: contracts/orchestration/STH-ORCH-CONTRACT-v1.0.yaml
+  sha256: 29df50d06c5954a16c1208f046f9bd1dffe27281ffd7767ce7f1b45dd1c12396
+  depends_on: []
+- id: STH-PERSISTENCE
+  version: 1.0.0
+  status: LOCKED
+  path: contracts/persistence/STH-PERSISTENCE-v1.0.yaml
+  sha256: c48c00e9c250685f470dd3d16417e5fa457df9b68b549a879d4e29f5caf7f563
+  depends_on: []
+- id: STH-SERVICE-CONTRACT
+  version: 1.0.0
+  status: LOCKED
+  path: contracts/services/STH-SERVICE-CONTRACT-v1.0.yaml
+  sha256: 3cb01642ba58f32b1de5882b4286abef5b45ec60706bc16d5063926e94799b79
+  depends_on: []
+- id: STH-OPS-CONTRACT
+  version: 1.0.0
+  status: LOCKED
+  path: contracts/operations/STH-OPS-CONTRACT-v1.0.yaml
+  sha256: 1ded999c9e3c237b04536c9775336bd2827b071fcbe72f966ee752dde6ca0f6d
+  depends_on: []
+- id: STH-SECURITY-CONTRACT
+  version: 1.0.0
+  status: LOCKED
+  path: contracts/security/STH-SECURITY-CONTRACT-v1.0.yaml
+  sha256: 9f5f5066815551aeed3e1c3c9d90644fce793695c289a6d9878fb81fd8b37f88
+  depends_on: []
+- id: STH-PRODUCTION-CERTIFICATION
+  version: 1.0.0
+  status: LOCKED
+  path: contracts/certification/STH-PRODUCTION-CERTIFICATION-v1.0.yaml
+  sha256: 37b659381bebc5e0c6c190a92b4e59a3adeb73f886f9bfc9e2ee5da83d7c2b64
+  depends_on: []
+- id: STH-PRESENTATION-CONSUMER-SYSTEM
+  version: 1.0.0
+  status: LOCKED
+  path: contracts/presentation/STH-PRESENTATION-CONSUMER-SYSTEM-v1.0.yaml
+  sha256: 1584b0c07f5f7d430ee501b4d802c72a947b205dfe4656b645a2e0982fac6a71
+  depends_on: []
+- id: STH-CANONICAL-SERIALIZATION
+  version: 1.0.0
+  status: LOCKED
+  path: contracts/implementation/STH-CANONICAL-SERIALIZATION-v1.0.yaml
+  depends_on: []
+  sha256: e8ecdf966760309873a90d09c1f8830e6e10e84fdc8d0db44f4962e5d9d8e830
+hash_algorithm: SHA-256

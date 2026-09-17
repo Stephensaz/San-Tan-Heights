@@ -1,0 +1,32 @@
+registry_id: STH-SNAPSHOT-REQUIREMENTS-LOT-LOCATION-v1.0
+version: 1.0.0
+scope: LOT_LOCATION
+requirements:
+- requirement_id: REQ_REAR_ADJACENCY
+  required: false
+  satisfied_by:
+    finding_type: REAR_ADJACENCY
+  failure:
+    action: ALLOW_PARTIAL
+    reason_code: OPTIONAL_REAR_ADJACENCY_MISSING
+- requirement_id: REQ_CORNER_STATUS
+  required: false
+  satisfied_by:
+    finding_type: CORNER_STATUS
+  failure:
+    action: ALLOW_PARTIAL
+    reason_code: OPTIONAL_CORNER_STATUS_MISSING
+- requirement_id: REQ_CUL_DE_SAC_STATUS
+  required: false
+  satisfied_by:
+    finding_type: CUL_DE_SAC_STATUS
+  failure:
+    action: ALLOW_PARTIAL
+    reason_code: OPTIONAL_CUL_DE_SAC_STATUS_MISSING
+- requirement_id: REQ_VIEW_CLASSIFICATION
+  required: false
+  satisfied_by:
+    finding_type: VIEW_CLASSIFICATION
+  failure:
+    action: ALLOW_PARTIAL
+    reason_code: OPTIONAL_VIEW_CLASSIFICATION_MISSING

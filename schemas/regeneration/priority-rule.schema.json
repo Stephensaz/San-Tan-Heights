@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "STH-regeneration-priority-rule-v1",
+  "type": "object",
+  "required": ["registry_id", "version", "classes", "rules", "default"],
+  "properties": {
+    "registry_id": {"const": "STH-REGENERATION-PRIORITY-v1.0"},
+    "version": {"type": "string"},
+    "classes": {"type": "object", "additionalProperties": {"type": "integer"}},
+    "rules": {"type": "array", "items": {"type": "object", "required": ["rule_id", "priority_class", "when"], "properties": {"rule_id": {"type": "string"}, "priority_class": {"type": "string"}, "when": {"type": "object"}}, "additionalProperties": false}},
+    "default": {"type": "string"}
+  },
+  "additionalProperties": false
+}

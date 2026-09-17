@@ -1,0 +1,15 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"sth://schemas/reports/report-card-v1",
+  "type":"object","additionalProperties":false,
+  "required":["card_id","card_type","section_id","title","finding_ids"],
+  "properties":{
+    "card_id":{"type":"string","minLength":1},
+    "card_type":{"type":"string","enum":["PROPERTY_HEADER","SUMMARY_CARD","FACT_CARD","INTELLIGENCE_CARD","STATUS_CARD","CONTEXT_CARD","COMPARISON_CARD","CHANGE_CARD","EVIDENCE_CARD","NOTICE_CARD"]},
+    "section_id":{"type":"string","minLength":1},
+    "title":{"type":"string","minLength":1},
+    "body":{"type":["string","null"]},
+    "finding_ids":{"type":"array","items":{"type":"string","minLength":1},"uniqueItems":true},
+    "status_label":{"type":["string","null"]}
+  }
+}

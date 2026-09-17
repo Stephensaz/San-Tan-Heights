@@ -1,0 +1,21 @@
+policy_id: STH-PRODUCTION-CONFIGURATION-POLICY
+policy_version: 1.0.0
+status: LOCKED
+required_values:
+  environment_name: production
+  timezone: UTC
+  database_ssl_required: "true"
+  service_auth_required: "true"
+  public_delivery_read_only: "true"
+  backup_verification_required: "true"
+  post_restore_publication_freeze_required: "true"
+  shadow_publication_mutation_allowed: "false"
+  canonical_serialization_version: 1.0.0
+prohibited_values:
+  secrets_source:
+    - inline
+    - plaintext
+required_nonempty:
+  - secrets_source
+  - artifact_storage_backend
+  - service_key_provider

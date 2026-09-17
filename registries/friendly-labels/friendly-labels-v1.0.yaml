@@ -1,0 +1,24 @@
+registry_id: STH-FRIENDLY-LABELS-v1.0
+version: 1.0.0
+labels:
+  PROPERTY_IDENTITY: {agent: Property Identity, seller: Property, public: Property}
+  CANONICAL_PHASE: {agent: Canonical Phase, seller: Community Phase, public: Community Phase}
+  BUILDER_IDENTITY: {agent: Builder Identity, seller: Builder, public: Builder}
+  FLOOR_PLAN_IDENTITY: {agent: Floor Plan Identity, seller: Floor Plan, public: Floor Plan}
+  LOT_IDENTITY: {agent: Lot Identity, seller: Homesite, public: Homesite}
+  STREET_SIDE: {agent: Street-Side Geometry, seller: Street Position, public: Street Position}
+  REAR_ADJACENCY: {agent: Rear Adjacency, seller: What's Behind the Home, public: Rear Property Relationship}
+  SIDE_ADJACENCY: {agent: Side Adjacency, seller: What's Beside the Home, public: Side Property Relationship}
+  CORNER_STATUS: {agent: Corner Status, seller: Corner Homesite, public: Corner Property}
+  CUL_DE_SAC_STATUS: {agent: Cul-de-Sac Status, seller: Cul-de-Sac Location, public: Cul-de-Sac Location}
+  ROAD_ADJACENCY: {agent: Road Adjacency, seller: Nearby Road Relationship, public: Road Relationship}
+  TRACT_ADJACENCY: {agent: Tract Adjacency, seller: Adjacent Recorded Tract, public: Recorded Tract Relationship}
+  OPEN_SPACE_RELATIONSHIP: {agent: Open-Space Relationship, seller: Open-Space Relationship, public: Open-Space Relationship}
+  VIEW_CLASSIFICATION: {agent: View Classification, seller: Verified View Context, public: View Context}
+  POOL_STATUS: {agent: Pool Status, seller: Pool, public: Pool}
+  GARAGE_CLASSIFICATION: {agent: Garage Classification, seller: Garage, public: Garage}
+  MARKET_CONTEXT: {agent: Market Context, seller: Current Market Context, public: Market Context}
+  BUYER_DEPTH: {agent: Buyer Depth, seller: Buyer Activity Context, public: Buyer Activity Context}
+  PRICING_RESPONSE: {agent: Pricing Response, seller: Market Response, public: Market Response}
+  CURRENT_ALTERNATIVES: {agent: Current Buyer Alternatives, seller: Current Buyer Choices, public: Current Market Alternatives}
+  BUILDER_COMPETITION: {agent: Builder Competition, seller: New-Construction Competition, public: New-Construction Context}

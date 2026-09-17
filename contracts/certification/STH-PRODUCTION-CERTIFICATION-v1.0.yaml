@@ -1,0 +1,10 @@
+contract_id: STH-PRODUCTION-CERTIFICATION
+version: 1.0.0
+status: LOCKED
+purpose: Define production certification, shadow operation, cohort rollout, and hard-stop gates.
+verdicts: [GO, NO_GO]
+invariants:
+  - candidate_versions_are_frozen_during_certification
+  - hard_zero_metrics_are_not_waivable
+  - cohort_expansion_requires_prior_cohort_pass
+  - public_activation_requires_certified_candidate

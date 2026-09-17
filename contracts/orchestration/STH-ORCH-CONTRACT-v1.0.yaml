@@ -1,0 +1,13 @@
+contract_id: STH-ORCH-CONTRACT
+version: 1.0.0
+status: LOCKED
+purpose: Govern lifecycle state changes, guards, events, idempotency, and auditability.
+invariants:
+  - governed_state_changes_use_transition_engine
+  - unknown_transitions_fail_closed
+  - guards_are_read_only
+  - rejected_transitions_are_auditable
+  - events_transitions_and_guard_evaluations_are_append_only
+  - mutations_and_required_audit_commit_atomically
+result_statuses: [APPLIED, REJECTED, BLOCKED, NO_OP, CONFLICT, FAILED]
+owned_registries: [states, transitions, guards, events, reason-codes, error-codes]

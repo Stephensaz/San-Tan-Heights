@@ -1,0 +1,18 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"sth://schemas/reports/report-variant-policy-v1",
+  "type":"object","additionalProperties":false,
+  "required":["policy_id","version","variant","allowed_classifications","allowed_publication_scopes","evidence_depth","confidence_visibility","required_sections","optional_sections","prohibited_finding_types"],
+  "properties":{
+    "policy_id":{"type":"string","minLength":1},
+    "version":{"type":"string","minLength":1},
+    "variant":{"type":"string","enum":["AGENT","SELLER","PUBLIC"]},
+    "allowed_classifications":{"type":"array","items":{"type":"string"},"uniqueItems":true,"minItems":1},
+    "allowed_publication_scopes":{"type":"array","items":{"type":"string","enum":["AGENT","SELLER","PUBLIC","AGENT_SELLER","ALL","NONE"]},"uniqueItems":true},
+    "evidence_depth":{"type":"string","enum":["DETAILED","STANDARD","LIGHT"]},
+    "confidence_visibility":{"type":"string","enum":["DETAILED","FRIENDLY","SELECTIVE"]},
+    "required_sections":{"type":"array","items":{"type":"string"},"uniqueItems":true},
+    "optional_sections":{"type":"array","items":{"type":"string"},"uniqueItems":true},
+    "prohibited_finding_types":{"type":"array","items":{"type":"string"},"uniqueItems":true}
+  }
+}

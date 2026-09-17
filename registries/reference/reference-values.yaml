@@ -1,0 +1,16 @@
+registry_id: STH-REFERENCE-VALUES-v1.0
+version: 1.0.0
+report_variants:
+  - AGENT
+  - SELLER
+  - PUBLIC
+qa_statuses:
+  - PENDING
+  - PASS
+  - FAIL
+  - REVIEW_REQUIRED
+render_types:
+  - WEB
+  - PDF
+  - PRINT
+  - MOBILE_PREVIEW

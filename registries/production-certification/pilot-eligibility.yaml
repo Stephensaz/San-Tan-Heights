@@ -1,0 +1,16 @@
+policy_id: STH-REAL-PROPERTY-PILOT-ELIGIBILITY
+policy_version: 1.0.0
+status: LOCKED
+required_identity_status: RESOLVED
+required_snapshot_qa_status: PASS
+allowed_snapshot_completeness:
+  - COMPLETE
+  - PARTIAL_VALID
+blocking_incident_severities:
+  - CRITICAL
+blocking_publication_freeze: true
+max_pilot_properties: 50
+variants:
+  - AGENT
+  - SELLER
+  - PUBLIC

@@ -1,0 +1,16 @@
+registry_id: STH-SECURITY-EVENTS-v1.0
+version: 1.0.0
+status: LOCKED
+events:
+  AUTHENTICATION_FAILED: {severity: MEDIUM, retention_class: SECURITY}
+  AUTHORIZATION_DENIED: {severity: MEDIUM, retention_class: SECURITY}
+  AUDIENCE_ACCESS_DENIED: {severity: MEDIUM, retention_class: SECURITY}
+  NEGATIVE_FIELD_BLOCKED: {severity: HIGH, retention_class: SECURITY}
+  PRIVATE_MEDIA_DENIED: {severity: MEDIUM, retention_class: SECURITY}
+  HISTORICAL_ACCESS_DENIED: {severity: MEDIUM, retention_class: SECURITY}
+  PRIVILEGED_COMMAND_DENIED: {severity: HIGH, retention_class: SECURITY}
+  BREAK_GLASS_ISSUED: {severity: CRITICAL, retention_class: SECURITY}
+  BREAK_GLASS_USED: {severity: CRITICAL, retention_class: SECURITY}
+  BREAK_GLASS_REVOKED: {severity: CRITICAL, retention_class: SECURITY}
+  BREAK_GLASS_EXPIRED: {severity: HIGH, retention_class: SECURITY}
+  SECURITY_POLICY_MUTATION_DETECTED: {severity: CRITICAL, retention_class: SECURITY}

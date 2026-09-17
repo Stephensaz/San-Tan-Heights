@@ -1,0 +1,13 @@
+contract_id: STH-CANONICAL-SERIALIZATION
+version: 1.0.0
+status: LOCKED
+purpose: Define deterministic serialization used for semantic fingerprints and hashes.
+rules:
+  encoding: UTF-8
+  object_keys: lexicographic
+  timestamps: UTC_RFC3339_MICROSECONDS_TRIMMED
+  numbers: normalized_decimal_plain
+  whitespace: none
+  booleans_and_null: json_lowercase
+  arrays: preserve_order_unless_path_declared_set_like
+hash_algorithm: SHA-256

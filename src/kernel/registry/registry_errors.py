@@ -1,0 +1,2 @@
+class RegistryValidationError(RuntimeError):
+    pass

@@ -1,0 +1,23 @@
+policy_id: STH-FULL-APPROVAL-POLICY
+policy_version: 1.0.0
+status: LOCKED
+approval_type: FULL_APPROVAL
+requires_stop_condition_clearance: true
+prohibits_active_revocation: true
+required_evidence_codes:
+  - CANDIDATE_FREEZE
+  - MANIFEST_PIN
+  - ENVIRONMENT_PARITY
+  - PRODUCTION_CONFIGURATION
+  - SHADOW_ACCEPTANCE
+  - MANUAL_AUDIT
+  - HARD_ZERO_METRICS
+  - COHORT_25_CERTIFICATION
+  - COHORT_100_CERTIFICATION
+  - COHORT_500_CERTIFICATION
+  - REMAINING_FLEET_CERTIFICATION
+required_rollout_stages:
+  - COHORT_25
+  - COHORT_100
+  - COHORT_500
+  - REMAINING_FLEET

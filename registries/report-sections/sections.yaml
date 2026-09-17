@@ -1,0 +1,57 @@
+registry_id: STH-REPORT-SECTIONS-v1.0
+version: 1.0.0
+sections:
+  - section_id: summary
+    order: 1
+    allowed_variants: [AGENT, SELLER, PUBLIC]
+    required_by_variant: [AGENT, SELLER, PUBLIC]
+    finding_types: []
+    fallback_behavior: BLOCK_IF_REQUIRED
+  - section_id: property-identity
+    order: 2
+    allowed_variants: [AGENT, SELLER, PUBLIC]
+    required_by_variant: [AGENT, SELLER, PUBLIC]
+    finding_types: [PROPERTY_IDENTITY, CANONICAL_PHASE, BUILDER_IDENTITY, FLOOR_PLAN_IDENTITY]
+    fallback_behavior: BLOCK_IF_REQUIRED
+  - section_id: lot-location
+    order: 3
+    allowed_variants: [AGENT, SELLER, PUBLIC]
+    required_by_variant: [AGENT, SELLER, PUBLIC]
+    finding_types: [LOT_IDENTITY, STREET_SIDE, REAR_ADJACENCY, SIDE_ADJACENCY, CORNER_STATUS, CUL_DE_SAC_STATUS, ROAD_ADJACENCY, TRACT_ADJACENCY, OPEN_SPACE_RELATIONSHIP, VIEW_CLASSIFICATION]
+    fallback_behavior: BLOCK_IF_REQUIRED
+  - section_id: home-dna
+    order: 4
+    allowed_variants: [AGENT, SELLER, PUBLIC]
+    required_by_variant: [AGENT, SELLER, PUBLIC]
+    finding_types: [BUILDER_IDENTITY, FLOOR_PLAN_IDENTITY, POOL_STATUS, GARAGE_CLASSIFICATION]
+    fallback_behavior: BLOCK_IF_REQUIRED
+  - section_id: market-context
+    order: 5
+    allowed_variants: [AGENT, SELLER, PUBLIC]
+    required_by_variant: []
+    finding_types: [MARKET_CONTEXT, BUYER_DEPTH, PRICING_RESPONSE, CURRENT_ALTERNATIVES, BUILDER_COMPETITION]
+    fallback_behavior: OMIT_IF_EMPTY
+  - section_id: evidence
+    order: 6
+    allowed_variants: [AGENT, SELLER, PUBLIC]
+    required_by_variant: [AGENT, SELLER, PUBLIC]
+    finding_types: []
+    fallback_behavior: BLOCK_IF_REQUIRED
+  - section_id: changes
+    order: 7
+    allowed_variants: [AGENT, SELLER, PUBLIC]
+    required_by_variant: []
+    finding_types: []
+    fallback_behavior: OMIT_IF_EMPTY
+  - section_id: freshness
+    order: 8
+    allowed_variants: [AGENT, SELLER, PUBLIC]
+    required_by_variant: [AGENT, SELLER, PUBLIC]
+    finding_types: []
+    fallback_behavior: BLOCK_IF_REQUIRED
+  - section_id: glossary
+    order: 9
+    allowed_variants: [AGENT, SELLER, PUBLIC]
+    required_by_variant: []
+    finding_types: []
+    fallback_behavior: OMIT_IF_EMPTY

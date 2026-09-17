@@ -1,0 +1,17 @@
+registry_id: STH-CERTIFICATION-SCENARIOS-v1.0
+version: 1.0.0
+status: LOCKED
+scenarios:
+  NORMAL_LIFECYCLE: {suite: normal_lifecycle, hard_zero: false}
+  IDEMPOTENCY: {suite: idempotency, hard_zero: true}
+  VARIANT_ISOLATION: {suite: variant_isolation, hard_zero: true}
+  STALE_BUILD: {suite: stale_build, hard_zero: true}
+  PUBLICATION_RACE: {suite: publication_race, hard_zero: true}
+  ROLLBACK_INVALIDATION: {suite: rollback_invalidation, hard_zero: true}
+  RELEASE: {suite: release, hard_zero: false}
+  RECOVERY: {suite: recovery, hard_zero: false}
+  SECURITY_MUTATION: {suite: security_mutation, hard_zero: true}
+  LEAKAGE_NEGATIVE_FIELD: {suite: leakage_negative_field, hard_zero: true}
+  CHAOS: {suite: chaos, hard_zero: true}
+  DISASTER_RECOVERY: {suite: disaster_recovery, hard_zero: true}
+  REPRODUCIBILITY: {suite: reproducibility, hard_zero: true}

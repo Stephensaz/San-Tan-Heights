@@ -1,0 +1,20 @@
+version: 1.0.0
+patterns:
+  - id: MAX_VERSION_PLUS_ONE
+    prohibited: true
+  - id: DIRECT_STATE_UPDATE
+    prohibited: true
+  - id: DELETE_HISTORICAL_REPORT
+    prohibited: true
+  - id: DELETE_AUDIT_EVENT
+    prohibited: true
+  - id: RENDERER_QUERIES_RAW_INTELLIGENCE
+    prohibited: true
+  - id: FRONTEND_AUDIENCE_FILTERING
+    prohibited: true
+  - id: AUTO_FALLBACK_TO_INVALIDATED_HISTORY
+    prohibited: true
+  - id: ROUTINE_MANUAL_SQL_REPAIR
+    prohibited: true
+  - id: ADDRESS_AS_PRIMARY_IDENTITY
+    prohibited: true

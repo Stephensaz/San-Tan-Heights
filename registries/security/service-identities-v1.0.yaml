@@ -1,0 +1,76 @@
+registry_id: STH-SERVICE-IDENTITIES-v1.0
+version: 1.0.0
+status: LOCKED
+services:
+  - service_id: KERNEL
+    status: ACTIVE
+    trust_tier: INTERNAL_CONTROL
+    database_role: sth_kernel
+    allowed_auth_methods: [HMAC_SHA256_ASSERTION]
+    capabilities: [kernel.transition.execute, audit.event.write, reference.read]
+  - service_id: SNAPSHOT_SERVICE
+    status: ACTIVE
+    trust_tier: INTERNAL_PRODUCTION
+    database_role: sth_snapshot_service
+    allowed_auth_methods: [HMAC_SHA256_ASSERTION]
+    capabilities: [snapshot.read, snapshot.write, core.property.read, audit.event.write, reference.read]
+  - service_id: REPORT_BUILDER
+    status: ACTIVE
+    trust_tier: INTERNAL_PRODUCTION
+    database_role: sth_report_builder
+    allowed_auth_methods: [HMAC_SHA256_ASSERTION]
+    capabilities: [snapshot.read, report.read, report.write, audit.event.write, reference.read]
+  - service_id: RENDERER
+    status: ACTIVE
+    trust_tier: INTERNAL_PRODUCTION
+    database_role: sth_renderer
+    allowed_auth_methods: [HMAC_SHA256_ASSERTION]
+    capabilities: [report.read, render.read, render.write, audit.event.write, reference.read]
+  - service_id: PUBLICATION_SERVICE
+    status: ACTIVE
+    trust_tier: INTERNAL_CONTROL
+    database_role: sth_publication_service
+    allowed_auth_methods: [HMAC_SHA256_ASSERTION]
+    capabilities: [report.read, render.read, publication.read, publication.write, operations.freeze.read, audit.event.write, reference.read]
+  - service_id: REGENERATION_WORKER
+    status: ACTIVE
+    trust_tier: INTERNAL_WORKER
+    database_role: sth_regeneration_worker
+    allowed_auth_methods: [HMAC_SHA256_ASSERTION]
+    capabilities: [orchestration.regeneration.read, orchestration.regeneration.write, snapshot.read, report.read, report.write, audit.event.write, reference.read]
+  - service_id: RELEASE_SERVICE
+    status: ACTIVE
+    trust_tier: INTERNAL_CONTROL
+    database_role: sth_release_service
+    allowed_auth_methods: [HMAC_SHA256_ASSERTION]
+    capabilities: [operations.release.read, operations.release.write, publication.read, publication.write, report.read, render.read, audit.event.write, reference.read]
+  - service_id: OPERATIONS_SERVICE
+    status: ACTIVE
+    trust_tier: INTERNAL_CONTROL
+    database_role: sth_operations_service
+    allowed_auth_methods: [HMAC_SHA256_ASSERTION]
+    capabilities: [operations.read, operations.write, publication.read, publication.freeze.write, orchestration.read, audit.read, audit.event.write, reference.read]
+  - service_id: OUTBOX_WORKER
+    status: ACTIVE
+    trust_tier: INTERNAL_WORKER
+    database_role: sth_outbox_worker
+    allowed_auth_methods: [HMAC_SHA256_ASSERTION]
+    capabilities: [audit.outbox.read, audit.outbox.write, audit.event.read]
+  - service_id: AUDIT_SERVICE
+    status: ACTIVE
+    trust_tier: INTERNAL_CONTROL
+    database_role: sth_audit_service
+    allowed_auth_methods: [HMAC_SHA256_ASSERTION]
+    capabilities: [audit.event.write, reference.read]
+  - service_id: PUBLIC_DELIVERY
+    status: ACTIVE
+    trust_tier: EDGE_READ_ONLY
+    database_role: sth_public_delivery
+    allowed_auth_methods: [HMAC_SHA256_ASSERTION]
+    capabilities: [publication.current_public.read, report.public.read, render.public.read]
+  - service_id: MIGRATION
+    status: ACTIVE
+    trust_tier: ADMINISTRATIVE
+    database_role: sth_migration
+    allowed_auth_methods: [HMAC_SHA256_ASSERTION]
+    capabilities: [database.migrate]

@@ -1,0 +1,24 @@
+registry_id: STH-AUDIENCE-POLICY-v1.0
+version: 1.0.0
+status: LOCKED
+audiences:
+  PUBLIC:
+    report_variants: [PUBLIC]
+    required_classifications: [PUBLIC_DATA]
+    response_dto: PublicReportResponse
+  SELLER:
+    report_variants: [PUBLIC, SELLER]
+    required_classifications: [PUBLIC_DATA, SELLER_DATA]
+    response_dto: SellerReportResponse
+  AGENT:
+    report_variants: [PUBLIC, SELLER, AGENT]
+    required_classifications: [PUBLIC_DATA, SELLER_DATA, AGENT_INTERNAL]
+    response_dto: AgentReportResponse
+  OPERATIONS:
+    report_variants: [PUBLIC, SELLER, AGENT]
+    required_classifications: [PUBLIC_DATA, SELLER_DATA, AGENT_INTERNAL]
+    response_dto: AgentReportResponse
+  ADMIN:
+    report_variants: [PUBLIC, SELLER, AGENT]
+    required_classifications: [PUBLIC_DATA, SELLER_DATA, AGENT_INTERNAL]
+    response_dto: AgentReportResponse

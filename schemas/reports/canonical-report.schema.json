@@ -1,0 +1,22 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"sth://schemas/reports/canonical-report-v1",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["metadata","property_identity","summary","sections","findings","cards","media_slots","diagram_slots","glossary","evidence_disclosures","disclaimers","branding_reference","lineage"],
+  "properties":{
+    "metadata":{"$ref":"report-metadata.schema.json"},
+    "property_identity":{"type":"object","additionalProperties":false,"required":["property_id","address","community"],"properties":{"property_id":{"type":"string","format":"uuid"},"address":{"type":"string","minLength":1},"community":{"type":"string","const":"San Tan Heights"},"phase":{"type":["string","null"]},"builder":{"type":["string","null"]},"floor_plan":{"type":["string","null"]}}},
+    "summary":{"type":"array","items":{"type":"string","minLength":1}},
+    "sections":{"type":"array","items":{"$ref":"report-section.schema.json"}},
+    "findings":{"type":"array","items":{"$ref":"report-finding.schema.json"}},
+    "cards":{"type":"array","items":{"$ref":"report-card.schema.json"}},
+    "media_slots":{"type":"array","items":{"$ref":"media-slot.schema.json"}},
+    "diagram_slots":{"type":"array","items":{"$ref":"diagram-slot.schema.json"}},
+    "glossary":{"type":"array","items":{"$ref":"glossary-entry.schema.json"}},
+    "evidence_disclosures":{"type":"array","items":{"$ref":"evidence-disclosure.schema.json"}},
+    "disclaimers":{"type":"array","items":{"type":"string","minLength":1}},
+    "branding_reference":{"type":"object","additionalProperties":false,"required":["brand_profile_id","brand_version"],"properties":{"brand_profile_id":{"type":"string","minLength":1},"brand_version":{"type":"string","minLength":1}}},
+    "lineage":{"type":"object","additionalProperties":false,"required":["snapshot_id","dependency_manifest_hash"],"properties":{"snapshot_id":{"type":"string","format":"uuid"},"dependency_manifest_hash":{"type":"string","pattern":"^[0-9a-f]{64}$"}}}
+  }
+}

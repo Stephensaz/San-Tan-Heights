@@ -1,0 +1,10 @@
+policy_id: STH-COHORT-EVIDENCE-CERTIFICATION-v1.0
+policy_version: 1.0.0
+status: LOCKED
+require_membership_fingerprint_match: true
+require_candidate_fingerprint_match: true
+require_approval_fingerprint_match: true
+require_exact_item_count: true
+require_all_items_pass: true
+allowed_deployment_statuses:
+  - PASS

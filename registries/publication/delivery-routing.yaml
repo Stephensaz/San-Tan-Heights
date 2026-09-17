@@ -1,0 +1,15 @@
+registry_id: STH-DELIVERY-ROUTING-v1.0
+version: 1.0.0
+routes:
+  WEB:
+    path_template: /properties/{property_id}/reports/{variant}/web
+    pointer_source: publication.channel_pointers
+    render_type: WEB
+  PDF_DOWNLOAD:
+    path_template: /properties/{property_id}/reports/{variant}/pdf
+    pointer_source: publication.channel_pointers
+    render_type: PDF
+  PRINT:
+    path_template: /properties/{property_id}/reports/{variant}/print
+    pointer_source: publication.channel_pointers
+    render_type: PRINT

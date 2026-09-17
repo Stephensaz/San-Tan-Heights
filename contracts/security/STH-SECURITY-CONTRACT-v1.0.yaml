@@ -1,0 +1,12 @@
+contract_id: STH-SECURITY-CONTRACT
+version: 1.0.0
+status: LOCKED
+purpose: Define trust tiers, data classification, authorization, and least privilege.
+human_roles: [PUBLIC, SELLER, AGENT, OPERATIONS, ADMIN]
+classifications: [PUBLIC_DATA, SELLER_DATA, AGENT_INTERNAL, OPERATIONS_INTERNAL, SYSTEM_INTERNAL, RESTRICTED]
+invariants:
+  - explicit_dtos_only
+  - object_authorization_on_every_protected_request
+  - agent_is_not_admin
+  - public_reads_only_sanitized_current_publication
+  - database_roles_enforce_service_boundaries

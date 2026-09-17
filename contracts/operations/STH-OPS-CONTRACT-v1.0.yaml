@@ -1,0 +1,9 @@
+contract_id: STH-OPS-CONTRACT
+version: 1.0.0
+status: LOCKED
+purpose: Define health, reconciliation, containment, recovery, backup, and restore behavior.
+invariants:
+  - reconciliation_detects_but_does_not_silently_repair_canonical_state
+  - routine_recovery_uses_explicit_commands
+  - restored_production_starts_with_global_publication_freeze
+  - dashboards_are_read_models_not_authority

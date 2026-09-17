@@ -1,0 +1,13 @@
+policy_id: STH-LIMITED-APPROVAL-POLICY
+policy_version: 1.0.0
+status: LOCKED
+approval_type: LIMITED
+max_duration_hours: 24
+max_properties: 25
+allowed_variants:
+  - AGENT
+  - SELLER
+  - PUBLIC
+requires_shadow_acceptance: true
+requires_stop_condition_clearance: true
+prohibits_full_approval_inference: true

@@ -1,0 +1,150 @@
+name: M7 Live PostgreSQL Certification
+
+on:
+  workflow_dispatch:
+    inputs:
+      expected_candidate_fingerprint:
+        description: 'Optional expected frozen M7 candidate SHA-256 fingerprint; workflow always calculates the actual fingerprint from the committed candidate'
+        required: false
+        type: string
+  pull_request:
+    paths:
+      - 'database/migrations/**'
+      - 'scripts/certification/run_live_postgres_certification.py'
+      - 'src/production_certification/certification/**'
+      - '.github/workflows/m7-live-postgres-certification.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'database/migrations/**'
+      - 'scripts/certification/run_live_postgres_certification.py'
+      - 'src/production_certification/certification/**'
+      - '.github/workflows/m7-live-postgres-certification.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  certify-postgresql-16:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres-cert-only
+          POSTGRES_DB: postgres
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d postgres"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+
+    env:
+      PGHOST: 127.0.0.1
+      PGPORT: '5432'
+      PGUSER: postgres
+      PGPASSWORD: postgres-cert-only
+      PGMAINTENANCE_DB: postgres
+      EVIDENCE_PATH: artifacts/certification/live-postgres-evidence.json
+
+    steps:
+      - name: Check out certification candidate
+        uses: actions/checkout@v4
+
+      - name: Install PostgreSQL 16 client
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y postgresql-client-16
+          psql --version
+          pg_dump --version
+          pg_restore --version
+
+      - name: Verify PostgreSQL 16 service
+        run: |
+          test "$(psql -Atq -d postgres -c 'SHOW server_version_num;')" -ge 160000
+          psql -Atq -d postgres -c 'SELECT version();'
+
+      - name: Freeze exact committed certification candidate
+        id: candidate
+        shell: bash
+        run: |
+          EXPECTED='${{ github.event.inputs.expected_candidate_fingerprint }}'
+          ARGS=(--out artifacts/certification/candidate-binding.json)
+          if [ -n "$EXPECTED" ]; then
+            ARGS+=(--expected-fingerprint "$EXPECTED")
+          fi
+          python scripts/certification/freeze_repository_candidate.py "${ARGS[@]}"
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json
+          from pathlib import Path
+          doc = json.loads(Path('artifacts/certification/candidate-binding.json').read_text())
+          print(f"candidate_fingerprint={doc['candidate_fingerprint']}")
+          print(f"source_revision={doc['source_revision']}")
+          print(f"source_tree={doc['source_tree']}")
+          PY
+
+      - name: Run M7-027 live certification battery
+        id: live_cert
+        continue-on-error: true
+        run: |
+          python scripts/certification/run_live_postgres_certification.py \
+            --candidate-fingerprint "${{ steps.candidate.outputs.candidate_fingerprint }}" \
+            --source-revision "${{ steps.candidate.outputs.source_revision }}" \
+            --work-db sth_m7_cert \
+            --restore-db sth_m7_cert_restore \
+            --evidence-out "$EVIDENCE_PATH"
+
+      - name: Verify evidence fingerprint and all five checks
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from src.production_certification.certification import load_live_postgresql_evidence
+
+          path = Path('artifacts/certification/live-postgres-evidence.json')
+          evidence = load_live_postgresql_evidence(path)
+          required = {
+              'MIGRATIONS_EXECUTED',
+              'IMMUTABILITY_TRIGGERS_VERIFIED',
+              'LEAST_PRIVILEGE_GRANTS_VERIFIED',
+              'LOCKING_AND_CONCURRENCY_VERIFIED',
+              'BACKUP_RESTORE_VERIFIED',
+          }
+          assert evidence.candidate_fingerprint == '${{ steps.candidate.outputs.candidate_fingerprint }}', 'candidate fingerprint mismatch'
+          assert evidence.source_revision == '${{ steps.candidate.outputs.source_revision }}', 'source revision mismatch'
+          assert evidence.available, 'PostgreSQL certification environment was not available'
+          assert evidence.executed, 'PostgreSQL certification battery did not execute'
+          missing = sorted(required - set(evidence.check_statuses))
+          assert not missing, f'missing required checks: {missing}'
+          failed = {k: evidence.check_statuses[k] for k in sorted(required) if evidence.check_statuses[k] != 'PASS'}
+          assert not failed, f'live PostgreSQL certification did not pass: {failed}'
+          print(f'evidence_fingerprint={evidence.evidence_fingerprint}')
+          PY
+
+      - name: Upload immutable candidate binding
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m7-certification-candidate-binding
+          path: artifacts/certification/candidate-binding.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Upload immutable certification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m7-live-postgres-certification-evidence
+          path: artifacts/certification/live-postgres-evidence.json
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Fail job if certification harness failed
+        if: steps.live_cert.outcome != 'success'
+        run: |
+          echo 'M7-027 live PostgreSQL certification harness failed.' >&2
+          exit 1

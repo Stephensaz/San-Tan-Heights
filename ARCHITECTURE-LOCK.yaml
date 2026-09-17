@@ -1,0 +1,15 @@
+architecture_lock_id: STH-ARCHITECTURE-LOCK-v1.0
+status: LOCKED
+scope: core-platform-and-consumer-experience
+change_process: ARCHITECTURE_CHANGE_REQUEST
+rules:
+  - implementation_must_follow_locked_contracts
+  - renderer_must_not_query_raw_intelligence
+  - frontend_must_not_filter_higher_tier_data_client_side
+  - reports_are_immutable_after_ready
+  - snapshots_are_immutable_after_qa_acceptance
+  - events_transitions_and_guard_evaluations_are_append_only
+  - current_publication_is_pointer_based
+  - invalidated_history_is_never_auto_fallback
+  - routine_recovery_uses_commands_not_direct_sql
+  - property_identity_is_not_address_text

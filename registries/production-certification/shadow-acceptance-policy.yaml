@@ -1,0 +1,10 @@
+policy_id: STH-SHADOW-ACCEPTANCE-POLICY
+policy_version: 1.0.0
+status: LOCKED
+minimum_consecutive_cycles: 3
+require_all_targets_pass: true
+require_latest_cycle_manual_audit: true
+require_complete_manual_audit_sample: true
+allowed_manual_audit_statuses_for_acceptance:
+  - PASS
+require_membership_fingerprint_match: true
