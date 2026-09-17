@@ -33,9 +33,9 @@ def change(
     materiality=ChangeMateriality.MATERIAL,
     before="Before",
     after="After",
-    current_classification="PUBLIC",
+    current_classification="PUBLIC_DATA",
     current_publication_scope="PUBLIC",
-    historical_classification="PUBLIC",
+    historical_classification="PUBLIC_DATA",
     historical_publication_scope="PUBLIC",
     property_id="property-1",
     change_id="change-1",
@@ -103,10 +103,10 @@ def test_seller_and_public_omit_detail_only_changes_but_agent_can_show_them():
     detail_agent = change(
         audience=PresentationAudience.AGENT,
         materiality=ChangeMateriality.DETAIL,
-        current_classification="INTERNAL",
-        current_publication_scope="INTERNAL",
-        historical_classification="INTERNAL",
-        historical_publication_scope="INTERNAL",
+        current_classification="AGENT_INTERNAL",
+        current_publication_scope="AGENT",
+        historical_classification="AGENT_INTERNAL",
+        historical_publication_scope="AGENT",
     )
     panel = build(detail_agent, audience=PresentationAudience.AGENT)
     assert panel.groups[0].items[0].materiality is ChangeMateriality.DETAIL
@@ -128,8 +128,8 @@ def test_current_authorization_fails_closed():
     with pytest.raises(ValueError, match="not eligible"):
         build(
             change(
-                current_classification="INTERNAL",
-                current_publication_scope="INTERNAL",
+                current_classification="SELLER_DATA",
+                current_publication_scope="SELLER",
             )
         )
 
@@ -138,8 +138,8 @@ def test_historical_values_are_redacted_under_current_audience_policy():
     panel = build(
         change(
             before="Private historical value",
-            historical_classification="INTERNAL",
-            historical_publication_scope="INTERNAL",
+            historical_classification="SELLER_DATA",
+            historical_publication_scope="SELLER",
         )
     )
     item = panel.groups[0].items[0]
