@@ -1,0 +1,33 @@
+policy_id: STH-PRESENTATION-MEDIA-POLICY-v1.0
+version: 1.0.0
+status: LOCKED
+asset_kinds:
+  - IMAGE
+  - DIAGRAM
+  - DOCUMENT
+allowed_content_types:
+  IMAGE:
+    - image/jpeg
+    - image/png
+    - image/webp
+  DIAGRAM:
+    - image/svg+xml
+    - image/png
+  DOCUMENT:
+    - application/pdf
+allowed_audiences:
+  - AGENT
+  - SELLER
+  - PUBLIC
+allowed_channels:
+  - WEB
+  - PDF
+  - PRINT
+rules:
+  require_content_sha256: true
+  require_source_reference: true
+  require_accessibility_text: true
+  allow_remote_fetch: false
+  allow_content_mutation: false
+  allow_scope_broadening: false
+  allow_semantic_inference: false
