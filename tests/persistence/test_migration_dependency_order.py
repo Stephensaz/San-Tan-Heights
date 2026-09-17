@@ -62,3 +62,24 @@ def test_current_snapshot_view_exists_before_first_consumer():
     assert min(creator_indexes) < min(consumer_indexes), (
         'snapshot.current_snapshot_view must be created before any migration consumes it'
     )
+
+
+def test_shared_immutable_row_function_exists_before_first_trigger_reference():
+    files = sorted(MIGRATIONS.glob('*.sql'), key=lambda p: p.name)
+    creator_indexes = []
+    consumer_indexes = []
+    create_marker = 'CREATE OR REPLACE FUNCTION shared.raise_immutable_row()'
+    reference_marker = 'EXECUTE FUNCTION shared.raise_immutable_row()'
+
+    for index, path in enumerate(files):
+        sql = path.read_text()
+        if create_marker in sql:
+            creator_indexes.append(index)
+        if reference_marker in sql:
+            consumer_indexes.append(index)
+
+    assert creator_indexes, 'shared.raise_immutable_row() has no migration creator'
+    assert consumer_indexes, 'shared.raise_immutable_row() has no migration consumers'
+    assert min(creator_indexes) < min(consumer_indexes), (
+        'shared.raise_immutable_row() must be created before any trigger references it'
+    )
