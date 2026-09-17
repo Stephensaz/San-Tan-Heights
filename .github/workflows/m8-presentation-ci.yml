@@ -1,0 +1,56 @@
+name: M8 Presentation CI
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'src/presentation/**'
+      - 'registries/presentation/**'
+      - 'registries/friendly-labels/**'
+      - 'registries/report-variants/**'
+      - 'schemas/presentation/**'
+      - 'tests/unit/presentation/**'
+      - 'docs/implementation/M8-*.md'
+      - 'BUILD-MANIFEST.yaml'
+      - 'VERSION'
+      - '.github/workflows/m8-presentation-ci.yml'
+  pull_request:
+    paths:
+      - 'src/presentation/**'
+      - 'registries/presentation/**'
+      - 'registries/friendly-labels/**'
+      - 'registries/report-variants/**'
+      - 'schemas/presentation/**'
+      - 'tests/unit/presentation/**'
+      - 'docs/implementation/M8-*.md'
+      - 'BUILD-MANIFEST.yaml'
+      - 'VERSION'
+      - '.github/workflows/m8-presentation-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  presentation-tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest pyyaml jsonschema
+
+      - name: Run M8 presentation unit tests
+        run: pytest -q tests/unit/presentation
+
+      - name: Validate repository structure
+        run: python scripts_validate_repo.py
