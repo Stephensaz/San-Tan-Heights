@@ -1,0 +1,28 @@
+layout_registry_id: STH-RESPONSIVE-LAYOUT-v1.0
+version: 1.0.0
+status: LOCKED
+modes:
+  COMPACT:
+    min_width: 320
+    max_width: 767
+    card_columns: 1
+    media_columns: 1
+    gutter_token: md
+  STANDARD:
+    min_width: 768
+    max_width: 1199
+    card_columns: 2
+    media_columns: 2
+    gutter_token: lg
+  WIDE:
+    min_width: 1200
+    max_width: 2560
+    card_columns: 2
+    media_columns: 3
+    gutter_token: xl
+rules:
+  preserve_semantic_order: true
+  allow_content_hiding: false
+  allow_audience_reclassification: false
+  allow_semantic_reordering: false
+  allow_viewport_specific_fact_changes: false
