@@ -1,0 +1,12 @@
+mobile_navigation_id: STH-MOBILE-NAVIGATION-v1.0
+version: 1.0.0
+status: LOCKED
+rules:
+  compact_mode_only: true
+  preserve_semantic_order: true
+  require_all_sections_reachable: true
+  allow_initial_collapse: true
+  allow_content_omission: false
+  allow_semantic_reordering: false
+  allow_audience_reclassification: false
+  allow_collapsed_state_to_change_meaning: false
