@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.1.0",
+  "available": true,
+  "executed": true,
+  "candidate_fingerprint": "e29072d7e30023f51163c2076f8e2b532dac2888b94e9736afbcb4b4903a9c46",
+  "source_revision": "fc96488ea3ca7fc8f6c5c326b6ffabb1d15ce794",
+  "evidence_fingerprint": "0cd139bdd24407d89898d00419944228f3e788728162f242bbf04bd5e176f47d",
+  "check_statuses": {
+    "MIGRATIONS_EXECUTED": "PASS",
+    "IMMUTABILITY_TRIGGERS_VERIFIED": "PASS",
+    "LEAST_PRIVILEGE_GRANTS_VERIFIED": "PASS",
+    "LOCKING_AND_CONCURRENCY_VERIFIED": "PASS",
+    "BACKUP_RESTORE_VERIFIED": "PASS"
+  },
+  "detail": {
+    "server_version_num": "160015",
+    "backup_restore": {
+      "dump_size_bytes": 373418,
+      "restored_immutability_triggers": 2,
+      "restored_property": "PASS"
+    },
+    "immutability": {
+      "report_trigger": "PASS",
+      "render_trigger": "PASS"
+    },
+    "least_privilege": {
+      "base_table_read_denied": "PASS",
+      "pointer_write_denied": "PASS",
+      "public_projection_read": "PASS"
+    },
+    "locking": {
+      "second_session_wait_seconds": 1.692,
+      "serialized_counter_value": 3
+    }
+  }
+}

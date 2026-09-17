@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://san-tan-heights.local/schemas/presentation/presentation-package.schema.json",
+  "title": "San Tan Heights Presentation Package Input",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "source_report_id",
+    "source_report_version",
+    "audience",
+    "channel",
+    "canonical_payload_hash",
+    "presentation_input_hash",
+    "render_contract_version",
+    "template_id",
+    "template_version",
+    "presentation_contract_id",
+    "presentation_contract_version"
+  ],
+  "properties": {
+    "source_report_id": {"type": "string", "minLength": 1},
+    "source_report_version": {"type": "integer", "minimum": 1},
+    "audience": {"enum": ["AGENT", "SELLER", "PUBLIC"]},
+    "channel": {"enum": ["WEB", "PDF", "PRINT"]},
+    "canonical_payload_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "presentation_input_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "render_contract_version": {"type": "string", "minLength": 1},
+    "template_id": {"type": "string", "minLength": 1},
+    "template_version": {"type": "string", "minLength": 1},
+    "presentation_contract_id": {"const": "STH-PRESENTATION-CONSUMER-SYSTEM"},
+    "presentation_contract_version": {"const": "1.0.0"}
+  }
+}
