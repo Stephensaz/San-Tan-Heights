@@ -5,6 +5,7 @@ from .grammar import (
     DiagramGrammarSpec,
     DiagramRelationship,
 )
+from .renderer import LotContextDiagramRenderer, SchematicDiagramRender, SchematicRelationshipPlacement
 
 __all__ = [
     "DiagramEntity",
@@ -12,4 +13,7 @@ __all__ = [
     "DiagramGrammarRuntime",
     "DiagramGrammarSpec",
     "DiagramRelationship",
+    "LotContextDiagramRenderer",
+    "SchematicDiagramRender",
+    "SchematicRelationshipPlacement",
 ]
