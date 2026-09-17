@@ -14,6 +14,11 @@ on:
       - 'docs/implementation/M8-*.md'
       - 'BUILD-MANIFEST.yaml'
       - 'VERSION'
+      - 'web/**'
+      - 'templates/**'
+      - 'synthetic/**'
+      - 'ops/**'
+      - 'scripts_validate_repo.py'
       - '.github/workflows/m8-presentation-certification.yml'
   pull_request:
     paths:
@@ -26,6 +31,11 @@ on:
       - 'docs/implementation/M8-*.md'
       - 'BUILD-MANIFEST.yaml'
       - 'VERSION'
+      - 'web/**'
+      - 'templates/**'
+      - 'synthetic/**'
+      - 'ops/**'
+      - 'scripts_validate_repo.py'
       - '.github/workflows/m8-presentation-certification.yml'
 
 permissions:
