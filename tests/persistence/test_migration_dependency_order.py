@@ -104,3 +104,28 @@ def test_snapshot_requirement_results_exists_before_first_grant_reference():
     assert min(creator_indexes) < min(consumer_indexes), (
         'snapshot.snapshot_requirement_results must be created before any migration grants it'
     )
+
+
+def test_late_grant_objects_exist_before_first_grant_reference():
+    files = sorted(MIGRATIONS.glob('*.sql'), key=lambda p: p.name)
+    objects = (
+        ('snapshot.snapshot_diffs', 'CREATE TABLE IF NOT EXISTS snapshot.snapshot_diffs'),
+        ('snapshot.snapshot_sequence_counters', 'CREATE TABLE IF NOT EXISTS snapshot.snapshot_sequence_counters'),
+        ('reporting.report_diffs', 'CREATE TABLE IF NOT EXISTS reporting.report_diffs'),
+    )
+
+    for object_name, create_marker in objects:
+        creator_indexes = []
+        consumer_indexes = []
+        for index, path in enumerate(files):
+            sql = path.read_text()
+            if create_marker in sql:
+                creator_indexes.append(index)
+            if object_name in sql and create_marker not in sql and 'GRANT ' in sql:
+                consumer_indexes.append(index)
+
+        assert creator_indexes, f'{object_name} has no migration creator'
+        assert consumer_indexes, f'{object_name} has no grant consumer'
+        assert min(creator_indexes) < min(consumer_indexes), (
+            f'{object_name} must be created before any migration grants it'
+        )
