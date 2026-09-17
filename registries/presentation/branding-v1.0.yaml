@@ -1,0 +1,17 @@
+branding_runtime_id: STH-BRANDING-v1.0
+version: 1.0.0
+status: LOCKED
+brand:
+  brand_id: SAN_TAN_HEIGHTS
+  display_name: San Tan Heights
+  descriptor: Property Intelligence
+design_tokens:
+  registry_id: STH-DESIGN-TOKENS-v1.0
+  version: 1.0.0
+rules:
+  use_locked_design_tokens_only: true
+  branding_does_not_change_property_facts: true
+  branding_does_not_change_audience_eligibility: true
+  branding_does_not_hide_required_disclosures: true
+  allow_runtime_color_override: false
+  allow_runtime_typography_override: false
