@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 
 ROOT = Path(__file__).resolve().parents[2]
 MIGRATIONS = ROOT / 'database' / 'migrations'
@@ -129,3 +130,17 @@ def test_late_grant_objects_exist_before_first_grant_reference():
         assert min(creator_indexes) < min(consumer_indexes), (
             f'{object_name} must be created before any migration grants it'
         )
+
+
+def test_event_type_seed_inserts_always_include_version():
+    bad = []
+    insert_pattern = re.compile(r'INSERT\s+INTO\s+reference\.event_type\s*\(([^)]*)\)', re.IGNORECASE)
+
+    for path in sorted(MIGRATIONS.glob('*.sql'), key=lambda p: p.name):
+        sql = path.read_text()
+        for match in insert_pattern.finditer(sql):
+            columns = {column.strip().lower() for column in match.group(1).split(',')}
+            if 'version' not in columns:
+                bad.append(path.name)
+
+    assert not bad, f'reference.event_type seed inserts must include required version column: {bad}'

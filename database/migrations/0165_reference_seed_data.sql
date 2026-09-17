@@ -1,3 +1,4 @@
 BEGIN;
-INSERT INTO reference.event_type (code) VALUES ('PUBLICATION_CACHE_INVALIDATED') ON CONFLICT (code) DO NOTHING;
+INSERT INTO reference.event_type (code, version) VALUES ('PUBLICATION_CACHE_INVALIDATED', 1)
+ON CONFLICT (code) DO UPDATE SET version=EXCLUDED.version;
 COMMIT;
