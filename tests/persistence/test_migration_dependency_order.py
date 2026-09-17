@@ -41,3 +41,24 @@ def test_orchestration_events_exists_before_first_foreign_key_reference():
     assert min(creator_indexes) < min(consumer_indexes), (
         'audit.orchestration_events must be created before any migration references it'
     )
+
+
+def test_current_snapshot_view_exists_before_first_consumer():
+    files = sorted(MIGRATIONS.glob('*.sql'), key=lambda p: p.name)
+    creator_indexes = []
+    consumer_indexes = []
+    create_marker = 'CREATE OR REPLACE VIEW snapshot.current_snapshot_view AS'
+    reference_marker = 'snapshot.current_snapshot_view'
+
+    for index, path in enumerate(files):
+        sql = path.read_text()
+        if create_marker in sql:
+            creator_indexes.append(index)
+        if reference_marker in sql and create_marker not in sql:
+            consumer_indexes.append(index)
+
+    assert creator_indexes, 'snapshot.current_snapshot_view has no migration creator'
+    assert consumer_indexes, 'snapshot.current_snapshot_view has no migration consumers'
+    assert min(creator_indexes) < min(consumer_indexes), (
+        'snapshot.current_snapshot_view must be created before any migration consumes it'
+    )
