@@ -83,3 +83,24 @@ def test_shared_immutable_row_function_exists_before_first_trigger_reference():
     assert min(creator_indexes) < min(consumer_indexes), (
         'shared.raise_immutable_row() must be created before any trigger references it'
     )
+
+
+def test_snapshot_requirement_results_exists_before_first_grant_reference():
+    files = sorted(MIGRATIONS.glob('*.sql'), key=lambda p: p.name)
+    creator_indexes = []
+    consumer_indexes = []
+    create_marker = 'CREATE TABLE IF NOT EXISTS snapshot.snapshot_requirement_results'
+    grant_marker = 'snapshot.snapshot_requirement_results'
+
+    for index, path in enumerate(files):
+        sql = path.read_text()
+        if create_marker in sql:
+            creator_indexes.append(index)
+        if grant_marker in sql and create_marker not in sql and 'GRANT ' in sql:
+            consumer_indexes.append(index)
+
+    assert creator_indexes, 'snapshot.snapshot_requirement_results has no migration creator'
+    assert consumer_indexes, 'snapshot.snapshot_requirement_results has no grant consumer'
+    assert min(creator_indexes) < min(consumer_indexes), (
+        'snapshot.snapshot_requirement_results must be created before any migration grants it'
+    )
