@@ -7,7 +7,7 @@ from src.presentation.routing import PropertyRoutingRegistry, StablePropertyRout
 
 ROOT = Path(__file__).resolve().parents[3]
 ROUTING_REGISTRY = ROOT / "registries" / "presentation" / "property-routing-v1.0.yaml"
-PROPERTY_ID = "11111111-1111-1111-1111-111111111111"
+PROPERTY_ID = "aaaaaaaa-1111-1111-1111-111111111111"
 
 
 def router():
