@@ -1,0 +1,32 @@
+token_registry_id: STH-DESIGN-TOKENS-v1.0
+version: 1.0.0
+status: LOCKED
+colors:
+  surface_primary: '#FFFFFF'
+  surface_subtle: '#F7F7F7'
+  text_primary: '#000000'
+  text_muted: '#5F6368'
+  border_default: '#A5ACAF'
+  accent_primary: '#D3BC8D'
+spacing:
+  xs: 4
+  sm: 8
+  md: 16
+  lg: 24
+  xl: 32
+  xxl: 48
+radius:
+  sm: 4
+  md: 8
+  lg: 12
+typography:
+  body_sm: 14
+  body_md: 16
+  body_lg: 18
+  heading_sm: 20
+  heading_md: 28
+  heading_lg: 36
+layout:
+  content_max_width: 1200
+  readable_text_max_width: 760
+  page_gutter_min: 16

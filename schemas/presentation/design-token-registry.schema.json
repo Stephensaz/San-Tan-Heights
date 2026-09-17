@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://san-tan-heights.local/schemas/presentation/design-token-registry.schema.json",
+  "title": "San Tan Heights Design Token Registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["token_registry_id", "version", "status", "colors", "spacing", "radius", "typography", "layout"],
+  "properties": {
+    "token_registry_id": {"const": "STH-DESIGN-TOKENS-v1.0"},
+    "version": {"const": "1.0.0"},
+    "status": {"const": "LOCKED"},
+    "colors": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["surface_primary", "surface_subtle", "text_primary", "text_muted", "border_default", "accent_primary"],
+      "patternProperties": {"^[a-z][a-z0-9_]*$": {"type": "string", "pattern": "^#[0-9A-F]{6}$"}}
+    },
+    "spacing": {"$ref": "#/$defs/positiveNumberMap"},
+    "radius": {"$ref": "#/$defs/positiveNumberMap"},
+    "typography": {"$ref": "#/$defs/positiveNumberMap"},
+    "layout": {"$ref": "#/$defs/positiveNumberMap"}
+  },
+  "$defs": {
+    "positiveNumberMap": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {"type": "number", "exclusiveMinimum": 0}
+    }
+  }
+}
