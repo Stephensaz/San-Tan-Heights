@@ -6,6 +6,7 @@ contract_id: STH-SELLER-INTELLIGENCE
 release_candidate_version: 0.1.131
 expected_contract_sha256: da355449443a4ffe35ec833f602e698fca5f24210d467f77987d659276aa4264
 expected_m11_009_production_candidate_root: 2cca3529c4b09b0a3dc4305b9b7c1732b894fc47018dc971cfe18a98c8e269dd
+expected_certification_root_hash: 8c5c656934909c10c3c5bc52ae9d12b3c646348686f3d1d787a9b0b067ce6ccf
 
 accepted_evidence:
   M11-001: certification-evidence/m11-001/seller-opportunity-acceptance-v1.0.json
