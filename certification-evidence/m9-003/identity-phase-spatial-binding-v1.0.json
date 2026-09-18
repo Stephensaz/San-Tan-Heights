@@ -1,0 +1,56 @@
+{
+  "evidence_id": "STH-M9-003-IDENTITY-PHASE-SPATIAL-BINDING-v1.0",
+  "status": "PASS_PENDING_CI",
+  "source": {
+    "m9_001_corpus_freeze_fingerprint": "f9499c10399d79e7346f9736dfbe4a360a59f1f663d7b5795a1e845ab31b3810",
+    "m9_002_activation_roster_sha256": "38d9ca1ad5b81ce4038edf149a9a9a3a80e58d315c8a0f206173c19521bb7b54",
+    "canonical_property_master_sha256": "1e8713f61378581651831d720a360974a58c1b072bbf326f47676e0d21b380a7",
+    "geometry_metrics_sha256": "fd9a2b8539c0598f69fcd43134289de50ea7a5f4db3460f55364ff6698112948",
+    "lot_side_dna_sha256": "47003c2811162140c17f6dbc37ed3f16f080e6f7686458a79adcdf0883f02be3",
+    "block_position_sha256": "65320e750801976c86c7d69cae370eb14c36aad64a22cf4b7f34da62d2760bdc",
+    "adjacency_graph_sha256": "7edb2fa15bd4ed92d3a14d2391ba7d803b96fe4cfc0f18884f2e9c5b8c4fa438"
+  },
+  "artifact": {
+    "name": "m9_003_identity_phase_spatial_binding_v1.csv",
+    "library_file_id": "libfile_3aa28b9fcc188191838c0de6fe86b3d5",
+    "raw_size_bytes": 2580880,
+    "raw_sha256": "3c2507b0045d412633d10b10c259275c193bf27a843e7591fbf16be8abb71efd"
+  },
+  "binding": {
+    "rows": 4956,
+    "unique_canonical_property_ids": 4956,
+    "unique_county_parcelids": 4956,
+    "additions": 0,
+    "omissions": 0,
+    "parcelid_mismatches": 0,
+    "phase_bound": 4956,
+    "phase_unresolved": 0,
+    "geometry_qa_pass": 4956,
+    "lot_side_qa_pass": 4955,
+    "lot_side_review_required": 1,
+    "block_bound": 4955,
+    "block_unresolved_frontage": 1,
+    "spatial_bound": 4955,
+    "spatial_partial_unresolved": 1,
+    "adjacency_rows_bound": 23862
+  },
+  "unresolved": [
+    {
+      "canonical_property_id": "STH-516018120",
+      "recorded_phase": "C-13",
+      "state": "PARTIAL_UNRESOLVED",
+      "reason": "BLOCKED_FRONTAGE_UNRESOLVED"
+    }
+  ],
+  "governance": {
+    "new_phase_inference": false,
+    "new_spatial_inference": false,
+    "address_identity_inference": false,
+    "membership_changes": false,
+    "report_generation": false,
+    "publication": false
+  },
+  "binding_fingerprint": "e60f289c0f1921d37573db328b4c52308188152c51fde28ca1aa669b8ceae524",
+  "defects": [],
+  "waivers": []
+}
