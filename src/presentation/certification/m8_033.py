@@ -13,7 +13,7 @@ import yaml
 
 from src.presentation.accessibility import AccessibilityRuntimeRegistry
 from src.presentation.audience import AudiencePresentationPolicies
-from src.presentation.golden_fixtures import GoldenFixtureLoader, GoldenFixtureSet
+from src.presentation.golden_fixtures import GoldenFixtureLoader, GoldenFixtureSet, VisualBaselineManifest
 from src.presentation.package import PresentationAudience
 from src.presentation.routing import PropertyRoutingRegistry, StablePropertyRouter
 from src.presentation.visual_regression import VisualRegressionRegistry
@@ -373,27 +373,25 @@ class M8033CertificationRunner:
             problems.append("full-chain replay evidence hash drift")
 
         visual_root = self.root / self.manifest["visual_evidence"]["baseline_root"]
-        baseline_manifests = ()
-        if visual_root.exists():
-            baseline_manifests = tuple(
-                sorted(
-                    path
-                    for path in visual_root.rglob("*")
-                    if path.is_file()
-                    and path.suffix.lower() in {".yaml", ".yml", ".json"}
-                )
-            )
-        if not baseline_manifests:
-            problems.append(
-                "approved controlled visual baseline manifest/provenance evidence is missing"
-            )
-
+        baseline_path = visual_root / "m8-032" / "manifest.yaml"
         visual_registry = VisualRegressionRegistry.load(
             self.root / self.manifest["source_candidate"]["visual_registry"]
         )
+        try:
+            baseline = VisualBaselineManifest.load(
+                baseline_path,
+                fixture_set=fixture_set,
+                visual_registry=visual_registry,
+            )
+        except (OSError, ValueError) as exc:
+            baseline = None
+            problems.append(f"visual baseline manifest validation failed: {exc}")
+
         required_targets = set(self.manifest["visual_evidence"]["required_targets"])
         if required_targets != set(visual_registry.targets):
             problems.append("visual target coverage does not match the locked M8-031 registry")
+        if baseline is not None and required_targets != set(baseline.targets):
+            problems.append("approved visual baseline target coverage mismatch")
 
         return EvidenceRecord(
             "I",
@@ -401,7 +399,7 @@ class M8033CertificationRunner:
             (
                 f"replay_hash_1={first}",
                 f"replay_hash_2={second}",
-                f"approved_visual_baseline_manifests={len(baseline_manifests)}",
+                f"visual_baseline_fingerprint={baseline.fingerprint if baseline else 'INVALID'}",
                 f"visual_runtime_fingerprint={visual_registry.fingerprint}",
             )
             + tuple(problems),
@@ -482,14 +480,18 @@ class M8033CertificationRunner:
         responsive = fixture_set.by_id("SYNTH-RESPONSIVE-001")
         required_viewports = responsive.expected["render"].get("required_viewports") or []
         accessibility = fixture_set.by_id("SYNTH-ACCESSIBILITY-001")
-        visual_root = self.root / self.manifest["visual_evidence"]["baseline_root"]
-        baseline_manifests = ()
-        if visual_root.exists():
-            baseline_manifests = tuple(
-                path
-                for path in visual_root.rglob("*")
-                if path.is_file() and path.suffix.lower() in {".yaml", ".yml", ".json"}
+        visual_registry = VisualRegressionRegistry.load(
+            self.root / self.manifest["source_candidate"]["visual_registry"]
+        )
+        try:
+            baseline = VisualBaselineManifest.load(
+                self.root / self.manifest["visual_evidence"]["baseline_root"] / "m8-032" / "manifest.yaml",
+                fixture_set=fixture_set,
+                visual_registry=visual_registry,
             )
+            baseline_valid = True
+        except (OSError, ValueError):
+            baseline_valid = False
 
         gate_values = {
             "A": passed.get("A", False),
@@ -503,7 +505,7 @@ class M8033CertificationRunner:
                 all((fixture.expected.get("render") or {}).get(name) is True for name in ("pdf", "print"))
                 for fixture in fixture_set.fixtures
             ),
-            "I": passed.get("I", False) and bool(baseline_manifests),
+            "I": passed.get("I", False) and baseline_valid,
             "J": passed.get("H", False) and passed.get("G", False),
             "K": passed.get("B", False) and passed.get("H", False),
             "L": all(passed.get(key, False) for key in tuple("ABCDEFGH")) and passed.get("I", False),
