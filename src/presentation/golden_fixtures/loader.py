@@ -195,8 +195,13 @@ class GoldenFixtureLoader:
 
         if isinstance(value, dict):
             for key, child in value.items():
-                if str(key).lower() in prohibited_keys:
+                normalized_key = str(key).lower()
+                if normalized_key in prohibited_keys:
                     raise ValueError(f"privacy scan prohibited key at {path}.{key}")
+                if normalized_key == "forbidden_tokens":
+                    if not isinstance(child, list) or any(not isinstance(item, str) for item in child):
+                        raise ValueError(f"forbidden_tokens must be a string list at {path}.{key}")
+                    continue
                 cls._privacy_scan(child, manifest, f"{path}.{key}")
         elif isinstance(value, list):
             for index, child in enumerate(value):
