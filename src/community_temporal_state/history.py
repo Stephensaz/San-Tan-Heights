@@ -452,7 +452,7 @@ def historical_view(
         return False
 
     visible_rows = tuple(sorted((x for x in rows if visible(x)), key=_entry_sort_key))
-    payload = {
+    hash_payload = {
         "mode": mode,
         "community_id": ledger.community_id,
         "scope": scope,
@@ -461,7 +461,16 @@ def historical_view(
         "as_of_knowledge_time": as_of_knowledge_time,
         "entries": tuple(asdict(x) for x in visible_rows),
     }
-    return HistoryView(**payload, view_fingerprint=_hash(payload))
+    return HistoryView(
+        mode=mode,
+        community_id=ledger.community_id,
+        scope=scope,
+        scope_id=scope_id,
+        as_of_valid_time=as_of_valid_time,
+        as_of_knowledge_time=as_of_knowledge_time,
+        entries=visible_rows,
+        view_fingerprint=_hash(hash_payload),
+    )
 
 
 def community_history_summary(ledger: TemporalLedger) -> dict:
