@@ -1,4 +1,4 @@
-"""Consumer presentation boundary for governed San Tan Heights reports."""
+"""Consumer presentation boundary for governed property intelligence reports."""
 
 from .package import (
     PresentationAudience,
