@@ -33,7 +33,7 @@ def test_final_adjudication_replays_factory_and_portfolio_and_passes():
     assert set(result.factory_replay_fingerprints)=={"RANCHO_VISTOSO","DAYBREAK_UT"}
     assert result.portfolio_decision=="GO"
     assert result.blocking_reasons==()
-    assert len(result.certification_root_hash)==64
+    assert result.certification_root_hash=="7c74fd81bcc91816dceb81129d022e6605b65ea5f1e14ab88ec8d8b75b005913"
 
 
 def test_final_certification_root_is_deterministic():
@@ -104,18 +104,11 @@ def test_release_candidate_version_mismatch_fails_closed():
         adjudicate(r)
 
 
-def test_emit_final_certification_root_for_release_capture():
-    import warnings
-    result=adjudicate()
-    warnings.warn(
-        "M10_FINAL_ROOT="
-        + result.certification_root_hash
-        + " PORTFOLIO="
-        + result.portfolio_fingerprint
-        + " FACTORY="
-        + repr(dict(result.factory_replay_fingerprints))
-        + " EVIDENCE="
-        + repr({x.ticket:x.sha256 for x in result.ticket_receipts}),
-        RuntimeWarning,
-    )
-    assert result.status=="PASS"
+
+def test_frozen_root_mismatch_forces_no_go():
+    r=deepcopy(registry())
+    r["expected_certification_root_hash"]="0"*64
+    result=adjudicate(r)
+    assert result.status=="FAIL"
+    assert result.decision=="NO-GO"
+    assert "CERTIFICATION_ROOT_MISMATCH" in result.blocking_reasons
