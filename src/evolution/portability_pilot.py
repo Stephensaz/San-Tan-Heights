@@ -36,10 +36,9 @@ def platform_fingerprint(root: str | Path) -> str:
     root = Path(root)
     payload = {}
     for rel in (
-        "VERSION",
-        "BUILD-MANIFEST.yaml",
         "contracts/evolution/STH-COMMUNITY-ONBOARDING-v1.0.yaml",
         "registries/evolution/m10-004-progressive-build-pipeline-v1.0.yaml",
+        "certification-evidence/m10-004/progressive-build-pipeline-acceptance-v1.0.json",
     ):
         payload[rel] = sha256((root / rel).read_bytes()).hexdigest()
     return _hash(payload)
@@ -152,7 +151,13 @@ def execute_portability_pilot(
     sources = profile["source_systems"]
     assumptions = profile["onboarding_assumptions"]
     parent_fp = platform_fingerprint(root)
-    version = (root / "VERSION").read_text().strip()
+    parent_platform = profile.get("parent_platform") or {}
+    version = str(parent_platform.get("version") or "").strip()
+    immutable_evidence = str(parent_platform.get("immutable_evidence") or "").strip()
+    if version != "0.1.116":
+        raise ValueError("pilot parent platform version must be frozen at accepted M10-004 version 0.1.116")
+    if not immutable_evidence or not (root / immutable_evidence).is_file():
+        raise ValueError("pilot immutable parent evidence is missing")
 
     onboarding = CommunityOnboardingInput(
         onboarding_id="ONB-RANCHO-VISTOSO-001",
