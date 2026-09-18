@@ -50,11 +50,10 @@ def load_pipeline_registry(path: str | Path) -> dict:
     orders = [int(s["order"]) for s in stages]
     if orders != list(range(1, 9)):
         raise ValueError("M10-004 stage order must be contiguous 1..8")
+    protected = raw.get("protected_defaults")
+    if not isinstance(protected, list) or not protected:
+        raise ValueError("M10-004 protected defaults registry is required")
     return raw
-
-
-def _stage_map(registry: Mapping[str, object]) -> dict[str, dict]:
-    return {str(x["id"]): dict(x) for x in registry["stages"]}
 
 
 def _validate_stage_input(stage: StageInput) -> None:
@@ -74,12 +73,12 @@ def execute_progressive_pipeline(
     onboarding_bootstrap_fingerprint: str,
     stage_inputs: Mapping[str, StageInput],
     registry: Mapping[str, object],
-    protected_tokens: tuple[str, ...] = ("SAN_TAN_HEIGHTS", "San Tan Heights", "Pinal", "ARMLS"),
 ) -> ProgressiveBuildResult:
     if not community_id.strip():
         raise ValueError("community_id required")
-    if community_id == "SAN_TAN_HEIGHTS":
-        raise ValueError("protected San Tan Heights identity cannot be used as a new-community pipeline target")
+    protected_tokens = tuple(str(x) for x in registry.get("protected_defaults") or ())
+    if community_id in protected_tokens:
+        raise ValueError("protected community identity cannot be used as a new-community pipeline target")
     if len(onboarding_bootstrap_fingerprint) != 64:
         raise ValueError("onboarding bootstrap fingerprint must be sha256")
 
