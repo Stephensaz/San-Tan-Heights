@@ -1,0 +1,54 @@
+job_id: FACTORY-RANCHO-VISTOSO-001
+version: 1.0.0
+status: READY
+publication_allowed: false
+onboarding_id: FACTORY-ONB-RV-001
+
+community:
+  community_id: RANCHO_VISTOSO
+  display_name: Rancho Vistoso
+  state: AZ
+  county: Pima
+  property_id_prefix: RV-
+
+source_systems:
+  listing_service: MLSSAZ
+  parcel_authority: Pima County Assessor
+  recorder_authority: Pima County Recorder
+
+onboarding_assumptions:
+  community_specific:
+    - Oro Valley municipal jurisdiction
+    - Rancho Vistoso community taxonomy
+  source_specific:
+    - MLSSAZ compatibility profile
+    - Pima County parcel compatibility profile
+    - Pima County recorder compatibility profile
+
+governed_profiles:
+  - config/hardening/rancho_vistoso/community-taxonomy-profile-v1.0.yaml
+  - config/hardening/rancho_vistoso/mlssaz-compatibility-profile-v1.0.yaml
+  - config/hardening/rancho_vistoso/pima-assessor-profile-v1.0.yaml
+  - config/hardening/rancho_vistoso/pima-recorder-profile-v1.0.yaml
+
+stage_evidence:
+  ONBOARDING_BOOTSTRAP:
+    artifact: factory-generated onboarding bootstrap
+  IDENTITY_JURISDICTION:
+    artifact: governed community identity bundle
+  SOURCE_ADAPTER_READINESS:
+    artifact: governed source profile bundle
+  CORPUS_ADMISSION_READINESS:
+    artifact: synthetic corpus admission manifest
+  EVIDENCE_PASSPORT_READINESS:
+    artifact: synthetic passport readiness manifest
+  REPORT_MATERIALIZATION_READINESS:
+    artifact: synthetic report readiness manifest
+  PRESENTATION_INTEGRITY_READINESS:
+    artifact: inherited presentation integrity evidence
+  CANDIDATE_FREEZE:
+    artifact: deterministic factory candidate freeze
+
+release:
+  approval_authority: Community Release Authority
+  unresolved_exceptions: []
