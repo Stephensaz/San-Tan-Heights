@@ -121,7 +121,7 @@ def test_san_tan_baseline_mutation_is_detected(tmp_path):
     raw=Path(BASELINE).read_bytes()
     p=tmp_path/"baseline.json"
     p.write_bytes(raw+b" ")
-    with pytest.raises(ValueError,match="San Tan Heights accepted baseline changed"):
+    with pytest.raises(ValueError,match="accepted parent baseline changed"):
         execute_hardened_replay(
             repository_root=".",
             original_profile=profile(),
