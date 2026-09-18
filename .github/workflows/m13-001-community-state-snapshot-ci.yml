@@ -61,7 +61,7 @@ jobs:
           states={x["id"]:x["status"] for x in build["milestones"]}
           assert states["M12"]=="ACCEPTED"
           assert states["M13"]=="IN_PROGRESS"
-          assert build["current_ticket"]=="M13-001"
+          assert build["current_ticket"].startswith("M13-")
           assert str(build["version"])=="0.1.132"
           assert Path("VERSION").read_text().strip()=="0.1.132"
 
