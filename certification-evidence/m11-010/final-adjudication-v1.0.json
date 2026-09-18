@@ -1,0 +1,59 @@
+{
+  "evidence_id": "STH-M11-010-FINAL-ADJUDICATION-v1.0",
+  "ticket": "M11-010",
+  "status": "ACCEPTED",
+  "decision": "SELLER INTELLIGENCE RELEASED",
+  "release_candidate_version": "0.1.131",
+  "certification_root_hash": "8c5c656934909c10c3c5bc52ae9d12b3c646348686f3d1d787a9b0b067ce6ccf",
+  "seller_intelligence_contract_sha256": "da355449443a4ffe35ec833f602e698fca5f24210d467f77987d659276aa4264",
+  "accepted_evidence_sha256": {
+    "M11-001": "d7182071e28ba2c893b6e83206b888fea5e718cd27465ce2c16ce726c81a2ccb",
+    "M11-002": "d5e3a0f594e8f38e93a404dd5c6dd866025fb292c4a6b9daeff10c9517b112e0",
+    "M11-003": "a8f63a8b10935d5ca50c9a01980528cc57bbf5a28887db5fe452ef29d346c17a",
+    "M11-004": "d50dfe857503152ee8487240d72df41a12bc46095fd9ffb1c4d1d17ff5f7ff39",
+    "M11-005": "9a69c359180c0cb325552ff729f155196c764047deb9a8229526ffb346fc32d8",
+    "M11-006": "8ded15c3366da51bc4d688c719818f2a9c1188a6d025e76f808c5cf960977527",
+    "M11-007": "102483bd3bcdcfba3c2e1c30e96cfb2391588288135163676d11d9966c3a27f5",
+    "M11-008": "94233c6d2ebe12f9c2f6efcbf3734524fdcfca70c68e5698b825b4eae8a40863",
+    "M11-009": "21cc7d440a100d1a4bc839f0e862ab7806224b42166b371e6cf635ac794d5aeb"
+  },
+  "production_candidate": {
+    "root": "2cca3529c4b09b0a3dc4305b9b7c1732b894fc47018dc971cfe18a98c8e269dd",
+    "end_to_end_fingerprint": "5ac8c31d25d700a5b54639b39a1c8b91d17600784ad9fa83301c0b232f01b91b",
+    "promotion_package_fingerprint": "32028acf0d636fbd82a511fdceea1d5d567968bbe5714991e8ab9613125fbca6",
+    "rollback_rule_fingerprint": "2f39d3fa387ce45c7fe22d8b79f7c92effb47642ecb4a8a111a069b03051aae2"
+  },
+  "adjudication": {
+    "m11_001_through_009_all_accepted": true,
+    "evidence_chain_complete": true,
+    "zero_waivers": true,
+    "zero_open_defects": true,
+    "m11_009_root_reproduced": true,
+    "seller_intelligence_replay_pass": true,
+    "public_strategy_leakage": false,
+    "external_action_capability": "NONE",
+    "calibration_candidate_auto_promoted": false,
+    "certification_root_reproduced": true,
+    "partial_or_ambiguous_result_prohibited": true,
+    "blocking_reasons": []
+  },
+  "github_actions": {
+    "m11_final_seller_intelligence_certification": {
+      "run_number": 3,
+      "run_id": 35375115535,
+      "conclusion": "success"
+    },
+    "m11_seller_intelligence_ci": {
+      "run_number": 47,
+      "run_id": 35375115815,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "m11_full_suite_passed": 136,
+    "m11_final_adjudication_passed": 11,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
