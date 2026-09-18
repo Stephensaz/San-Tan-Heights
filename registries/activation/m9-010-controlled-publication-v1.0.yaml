@@ -1,0 +1,50 @@
+publication_policy_id: STH-M9-010-CONTROLLED-PUBLICATION-v1.0
+version: 1.0.0
+status: FROZEN
+purpose: Bind accepted M9 production report artifacts to the already-certified M7 controlled publication model.
+
+upstream_controls:
+  progressive_rollout_policy: STH-PROGRESSIVE-ROLLOUT-POLICY-v1.0
+  manual_publication_policy: STH-MANUAL-PUBLICATION-POLICY
+  required_m9_009_status: ACCEPTED
+
+stage_order:
+  - COHORT_25
+  - COHORT_100
+  - COHORT_500
+  - REMAINING_FLEET
+
+stages:
+  COHORT_25:
+    property_count: 25
+    prior_stage: null
+  COHORT_100:
+    property_count: 100
+    prior_stage: COHORT_25
+  COHORT_500:
+    property_count: 500
+    prior_stage: COHORT_100
+  REMAINING_FLEET:
+    property_count: ALL_REMAINING
+    prior_stage: COHORT_500
+
+allowed_tiers:
+  - AGENT
+  - SELLER
+  - PUBLIC
+
+governance:
+  publication_default_mode: MANUAL
+  exact_cohort_membership_required: true
+  prior_cohort_certification_required: true
+  stop_condition_clearance_required: true
+  candidate_fingerprint_match_required: true
+  tier_eligibility_required: true
+  quarantined_content_publication_prohibited: true
+  stale_current_content_publication_prohibited: true
+  pointer_based_publication_required: true
+  pointer_compare_and_swap_required: true
+  rollback_baseline_required: true
+  immutable_history_required: true
+  invalidated_history_auto_fallback_prohibited: true
+  unrestricted_fleet_publication_prohibited_in_m9_010: true
