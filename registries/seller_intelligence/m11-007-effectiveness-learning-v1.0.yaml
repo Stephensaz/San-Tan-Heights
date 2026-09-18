@@ -1,0 +1,99 @@
+seller_effectiveness_registry_id: STH-M11-007-EFFECTIVENESS-LEARNING-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M11-007
+contract_id: STH-SELLER-INTELLIGENCE
+parent_ticket: M11-006
+parent_evidence: certification-evidence/m11-006/seller-workspace-acceptance-v1.0.json
+
+outcome_types:
+  MARKET_RESPONSE:
+    allowed_states:
+      - IMPROVED
+      - STABLE
+      - WORSENED
+      - UNKNOWN
+  EVIDENCE_STATUS:
+    allowed_states:
+      - NEWLY_CURRENT
+      - MISSING
+      - SUPPRESSED
+      - UNCHANGED
+      - UNKNOWN
+  REVIEW_STATE:
+    allowed_states:
+      - PENDING
+      - ACKNOWLEDGED
+      - RESOLVED
+      - SUPERSEDED
+      - UNKNOWN
+
+association_types:
+  - PRECEDED_BY_REVIEW_EVENT
+  - PRECEDED_BY_HUMAN_DECISION
+  - NO_PRIOR_REVIEW_EVENT
+  - NO_PRIOR_HUMAN_DECISION
+
+calibration_candidate_rules:
+  MARKET_RESPONSE_AFTER_REVIEW_CHANGE:
+    outcome_type: MARKET_RESPONSE
+    allowed_outcome_states:
+      - IMPROVED
+      - WORSENED
+    require_prior_review_event: true
+    candidate_type: REVIEW_CONDITION_CALIBRATION
+  UNKNOWN_OUTCOME_COVERAGE:
+    outcome_type: MARKET_RESPONSE
+    allowed_outcome_states:
+      - UNKNOWN
+    require_prior_review_event: false
+    candidate_type: OUTCOME_COVERAGE_GAP
+
+governance:
+  certified_case_required: true
+  observed_outcomes_immutable: true
+  exact_prior_artifact_lineage_required: true
+  exact_human_decision_lineage_required: true
+  observation_association_hypothesis_separation_required: true
+  causation_claims_prohibited: true
+  unknown_outcomes_explicit: true
+  historical_mutation_prohibited: true
+  calibration_candidates_advisory_only: true
+  automatic_promotion_prohibited: true
+  recommended_list_price_prohibited: true
+  predicted_sale_price_prohibited: true
+  guaranteed_net_proceeds_prohibited: true
+  guaranteed_outcomes_prohibited: true
+  seller_motivation_inference_prohibited: true
+  seller_acceptance_prediction_prohibited: true
+  buyer_behavior_prediction_prohibited: true
+  protected_class_inference_prohibited: true
+  public_output_prohibited: true
+  approval_side_effects_prohibited: true
+  publication_side_effects_prohibited: true
+  scheduling_side_effects_prohibited: true
+  queueing_side_effects_prohibited: true
+  transmission_side_effects_prohibited: true
+  external_action_capability: NONE
+  deterministic_output_required: true
+
+prohibited_output_fields:
+  - causal_effect
+  - causal_impact
+  - recommended_list_price
+  - suggested_list_price
+  - predicted_sale_price
+  - estimated_sale_price
+  - guaranteed_net_proceeds
+  - predicted_net_proceeds
+  - guaranteed_outcome
+  - seller_motivation
+  - seller_intent
+  - seller_acceptance_prediction
+  - buyer_behavior_prediction
+  - approval_action
+  - publish_action
+  - schedule_action
+  - queue_action
+  - transmit_action
+  - automatic_action
