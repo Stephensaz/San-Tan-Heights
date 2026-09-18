@@ -229,6 +229,12 @@ def certify_operational_audit(
         package_payload["status"]="BLOCKED"
         package_payload["blocking_gaps"]=blocking
         operational_root=_canonical_hash(package_payload)
+    operational_root=_canonical_hash(package_payload)
+    if expected.get("operational_certification_root") and operational_root!=expected["operational_certification_root"]:
+        blocking=tuple(sorted(set(blocking) | {"M12_OPERATIONAL_CERTIFICATION_ROOT_MISMATCH"}))
+        package_payload["status"]="BLOCKED"
+        package_payload["blocking_gaps"]=blocking
+        operational_root=_canonical_hash(package_payload)
     return OperationalCertificationPackage(
         package_id=package_payload["package_id"],
         status=package_payload["status"],
