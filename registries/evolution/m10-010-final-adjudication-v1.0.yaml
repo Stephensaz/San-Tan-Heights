@@ -3,6 +3,7 @@ version: 1.0.0
 status: FROZEN
 ticket: M10-010
 release_candidate_version: 0.1.121
+expected_certification_root_hash: 7c74fd81bcc91816dceb81129d022e6605b65ea5f1e14ab88ec8d8b75b005913
 
 accepted_evidence:
   M10-001: certification-evidence/m10-001/baseline-evolution-acceptance-v1.0.json
