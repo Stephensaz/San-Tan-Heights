@@ -139,7 +139,7 @@ def test_checks_and_evidence_are_required():
 
 
 def test_san_tan_heights_cannot_be_used_as_new_community_target():
-    with pytest.raises(ValueError, match="protected San Tan Heights"):
+    with pytest.raises(ValueError, match="protected community identity"):
         execute_progressive_pipeline(
             community_id="SAN_TAN_HEIGHTS",
             onboarding_bootstrap_fingerprint="a" * 64,
