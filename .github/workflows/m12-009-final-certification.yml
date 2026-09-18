@@ -1,0 +1,38 @@
+name: M12-009 Final Integrated Certification
+
+on:
+  pull_request:
+    paths:
+      - 'contracts/listing_execution/**'
+      - 'registries/listing_execution/**'
+      - 'src/listing_execution/**'
+      - 'tests/unit/listing_execution/**'
+      - 'scripts/run_m12_final_certification.py'
+      - 'certification-evidence/m12-*/**'
+      - 'docs/implementation/M12-*.md'
+      - 'BUILD-MANIFEST.yaml'
+      - 'VERSION'
+      - '.github/workflows/m12-009-final-certification.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  final-integrated-certification:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pytest pyyaml
+      - name: Run M12-009 final certification tests
+        run: pytest -q tests/unit/listing_execution/test_final_certification.py
+      - name: Execute frozen M12-009 A through J battery
+        run: python scripts/run_m12_final_certification.py
+      - name: Run full M12 regression suite
+        run: pytest -q tests/unit/listing_execution
+      - name: Validate repository structure
+        run: python scripts_validate_repo.py
