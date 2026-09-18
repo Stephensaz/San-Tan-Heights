@@ -1,0 +1,39 @@
+seller_production_certification_id: STH-M11-009-PRODUCTION-CERTIFICATION-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M11-009
+contract_id: STH-SELLER-INTELLIGENCE
+production_candidate_version: 0.1.130
+expected_production_candidate_root: 2cca3529c4b09b0a3dc4305b9b7c1732b894fc47018dc971cfe18a98c8e269dd
+
+accepted_evidence:
+  M11-001: certification-evidence/m11-001/seller-opportunity-acceptance-v1.0.json
+  M11-002: certification-evidence/m11-002/property-seller-strategy-acceptance-v1.0.json
+  M11-003: certification-evidence/m11-003/seller-scenario-sensitivity-acceptance-v1.0.json
+  M11-004: certification-evidence/m11-004/seller-decision-timeline-acceptance-v1.0.json
+  M11-005: certification-evidence/m11-005/communication-translation-acceptance-v1.0.json
+  M11-006: certification-evidence/m11-006/seller-workspace-acceptance-v1.0.json
+  M11-007: certification-evidence/m11-007/effectiveness-learning-acceptance-v1.0.json
+  M11-008: certification-evidence/m11-008/calibration-promotion-acceptance-v1.0.json
+
+required_controls:
+  seller_tier_enforced: true
+  public_strategy_leakage_prohibited: true
+  external_action_none: true
+  recommended_list_price_prohibited: true
+  predicted_sale_price_prohibited: true
+  guaranteed_net_proceeds_prohibited: true
+  guaranteed_outcomes_prohibited: true
+  seller_motivation_inference_prohibited: true
+  seller_acceptance_prediction_prohibited: true
+  buyer_behavior_prediction_prohibited: true
+  protected_class_inference_prohibited: true
+  rollback_required: true
+  promotion_candidate_only: true
+  negative_controls_required: true
+  zero_waivers_required: true
+  zero_open_defects_required: true
+
+decision_values:
+  pass: PRODUCTION CANDIDATE
+  fail: NO-GO

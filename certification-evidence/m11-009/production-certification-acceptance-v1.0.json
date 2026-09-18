@@ -1,0 +1,39 @@
+{
+  "evidence_id": "STH-M11-009-PRODUCTION-CERTIFICATION-v1.0",
+  "ticket": "M11-009",
+  "status": "ACCEPTED",
+  "decision": "PRODUCTION CANDIDATE",
+  "production_candidate_version": "0.1.130",
+  "production_candidate_root": "2cca3529c4b09b0a3dc4305b9b7c1732b894fc47018dc971cfe18a98c8e269dd",
+  "end_to_end_fingerprint": "5ac8c31d25d700a5b54639b39a1c8b91d17600784ad9fa83301c0b232f01b91b",
+  "promotion_package_fingerprint": "32028acf0d636fbd82a511fdceea1d5d567968bbe5714991e8ab9613125fbca6",
+  "rollback_rule_fingerprint": "2f39d3fa387ce45c7fe22d8b79f7c92effb47642ecb4a8a111a069b03051aae2",
+  "controls": {
+    "complete_m11_001_through_008_replay": true,
+    "accepted_evidence_chain_complete": true,
+    "zero_waivers": true,
+    "zero_open_defects": true,
+    "seller_tier_enforced": true,
+    "public_strategy_leakage_prohibited": true,
+    "external_action_capability": "NONE",
+    "calibration_promotion_candidate_only": true,
+    "rollback_fingerprint_verified": true,
+    "uncertified_input_negative_control": true,
+    "public_leakage_negative_control": true,
+    "regression_blocks_promotion_negative_control": true,
+    "final_milestone_release_not_issued": true
+  },
+  "github_actions": {
+    "m11_seller_intelligence_ci": {
+      "run_number": 39,
+      "run_id": 35372014958,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "passed": 125,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
