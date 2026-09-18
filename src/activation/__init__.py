@@ -23,6 +23,12 @@ from .historical_population import HistoricalPopulationAudit, audit_historical_p
 from .current_market_builder import CurrentContextAudit, audit_current_context
 from .evidence_passport_materialization import EvidenceMaterializationAudit, validate_materialization
 from .report_materialization import ReportMaterializationAudit, validate_report_materialization
+from .full_corpus_qa import (
+    FullCorpusQAAudit,
+    audit_full_corpus_qa,
+    load_full_corpus_inputs,
+    run_repository_full_corpus_qa,
+)
 from .exception_quarantine import (
     ExceptionDecision,
     ExceptionLedgerAudit,
@@ -67,4 +73,8 @@ __all__ = [
     "load_exception_policy",
     "validate_exception_accounting",
     "validate_repair_replay",
+    "FullCorpusQAAudit",
+    "audit_full_corpus_qa",
+    "load_full_corpus_inputs",
+    "run_repository_full_corpus_qa",
 ]
