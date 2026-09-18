@@ -1,0 +1,78 @@
+seller_communication_registry_id: STH-M11-005-COMMUNICATION-TRANSLATION-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M11-005
+contract_id: STH-SELLER-INTELLIGENCE
+parent_tickets:
+  - M11-001
+  - M11-002
+  - M11-003
+  - M11-004
+
+allowed_audiences:
+  INTERNAL:
+    include_fact: true
+    include_hypothetical: true
+    include_monitoring: true
+  AGENT:
+    include_fact: true
+    include_hypothetical: true
+    include_monitoring: true
+  SELLER:
+    include_fact: true
+    include_hypothetical: true
+    include_monitoring: true
+
+statement_types:
+  - FACT
+  - HYPOTHETICAL
+  - MONITORING_GUIDANCE
+  - LIMITATION
+  - QUALIFIER
+
+governance:
+  certified_inputs_only: true
+  public_audience_prohibited: true
+  invented_facts_prohibited: true
+  strengthened_claims_prohibited: true
+  factual_and_hypothetical_distinction_required: true
+  monitoring_guidance_non_prescriptive: true
+  limitations_must_be_preserved: true
+  material_qualifiers_must_be_preserved: true
+  freshness_and_missing_state_must_be_preserved: true
+  exact_lineage_required: true
+  recommended_list_price_prohibited: true
+  predicted_sale_price_prohibited: true
+  guaranteed_net_proceeds_prohibited: true
+  guaranteed_outcomes_prohibited: true
+  seller_motivation_inference_prohibited: true
+  seller_acceptance_prediction_prohibited: true
+  buyer_behavior_prediction_prohibited: true
+  protected_class_inference_prohibited: true
+  approval_side_effects_prohibited: true
+  publication_side_effects_prohibited: true
+  scheduling_side_effects_prohibited: true
+  external_action_capability: NONE
+  deterministic_output_required: true
+
+required_qualifiers:
+  competitive_pressure: "Competitive pressure is a governed relative signal and is not a valuation, list-price recommendation, sale-price prediction, or outcome guarantee."
+  hypothetical: "Hypothetical scenario content is not a statement of current fact."
+  monitoring: "Monitoring guidance requires human review and does not authorize a price change, strategy change, publication, or external action."
+
+prohibited_output_fields:
+  - recommended_list_price
+  - suggested_list_price
+  - predicted_sale_price
+  - estimated_sale_price
+  - guaranteed_net_proceeds
+  - predicted_net_proceeds
+  - guaranteed_outcome
+  - seller_motivation
+  - seller_intent
+  - seller_acceptance_prediction
+  - buyer_behavior_prediction
+  - approval_action
+  - publish_action
+  - schedule_action
+  - automatic_action
