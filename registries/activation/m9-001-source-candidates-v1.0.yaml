@@ -1,0 +1,29 @@
+source_candidate_registry_id: STH-M9-001-SOURCE-CANDIDATES-v1.0
+version: 1.0.0
+status: ACTIVE
+purpose: Track candidate corpus sources evaluated before freezing production membership.
+candidates:
+  - name: San_Tan_Heights_Canonical_Property_Master_v0_1.xlsx
+    disposition: REJECTED_INCOMPLETE
+    reason: >
+      Historical property-spine workbook explicitly contains phase shells/placeholders
+      and states that parcel-level residential enumeration is incomplete.
+  - name: report_regeneration_registry_v1.csv
+    disposition: REJECTED_SUBSET
+    reason: >
+      Presentation regeneration registry contains three audience-tier rows per represented
+      property and is a partial report-regeneration working set, not the complete canonical
+      San Tan Heights production property roster.
+    observed_rows: 742
+    observed_property_pattern: approximately_one_property_per_three_tier_rows
+  - name: san_tan_heights_lot_location_verification_evidence_ledger_v1.csv
+    disposition: REJECTED_EVIDENCE_LEDGER
+    reason: >
+      Verification evidence ledger contains selected researched properties/fields and is
+      not a complete one-row-per-property production membership source.
+blocking_requirement:
+  disposition: REQUIRED
+  description: >
+    Provide or locate the authoritative full canonical San Tan Heights residential
+    property roster produced by the accepted identity/boundary work, with one canonical
+    property identifier per corpus member and source snapshot lineage suitable for hashing.

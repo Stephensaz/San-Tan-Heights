@@ -1,0 +1,219 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://san-tan-heights.local/schemas/activation/production-corpus-manifest-v1.0.schema.json",
+  "title": "San Tan Heights Production Corpus Manifest",
+  "type": "object",
+  "required": [
+    "manifest_id",
+    "version",
+    "status",
+    "community_id",
+    "declared_total",
+    "source_snapshots",
+    "members"
+  ],
+  "properties": {
+    "manifest_id": {
+      "const": "STH-PRODUCTION-CORPUS-v1.0"
+    },
+    "version": {
+      "const": "1.0.0"
+    },
+    "status": {
+      "enum": [
+        "DRAFT",
+        "FROZEN"
+      ]
+    },
+    "community_id": {
+      "const": "SAN_TAN_HEIGHTS"
+    },
+    "declared_total": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "source_snapshots": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "snapshot_id",
+          "source_kind",
+          "authority",
+          "captured_at",
+          "sha256"
+        ],
+        "properties": {
+          "snapshot_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_kind": {
+            "type": "string",
+            "enum": [
+              "CANONICAL_PROPERTY_ROSTER",
+              "COUNTY_PARCEL",
+              "RECORDED_PLAT",
+              "CANONICAL_IDENTITY",
+              "OTHER_GOVERNED"
+            ]
+          },
+          "authority": {
+            "type": "string",
+            "minLength": 1
+          },
+          "captured_at": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "members": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "canonical_property_id",
+          "admission_state",
+          "lineage_refs"
+        ],
+        "properties": {
+          "canonical_property_id": {
+            "type": "string",
+            "pattern": "^STH-[A-Z0-9-]+$"
+          },
+          "county_parcelid": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 1
+          },
+          "admission_state": {
+            "enum": [
+              "ADMITTED",
+              "QUARANTINED",
+              "EXCLUDED_WITH_GOVERNED_REASON"
+            ]
+          },
+          "quarantine_reasons": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "enum": [
+                "IDENTITY_UNRESOLVED",
+                "DUPLICATE_IDENTITY",
+                "MISSING_LINEAGE",
+                "PHASE_UNRESOLVED",
+                "SPATIAL_UNRESOLVED",
+                "SOURCE_CONFLICT",
+                "SOURCE_SNAPSHOT_UNAPPROVED",
+                "OTHER_GOVERNED"
+              ]
+            }
+          },
+          "exclusion_reason": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "NON_RESIDENTIAL_OR_COMMON_AREA",
+              "OUTSIDE_CANONICAL_BOUNDARY",
+              "RETIRED_OR_SUPERSEDED_PARCEL",
+              "DUPLICATE_SOURCE_RECORD",
+              "OTHER_GOVERNED",
+              null
+            ]
+          },
+          "lineage_refs": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "admission_state": {
+                  "const": "ADMITTED"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "quarantine_reasons": {
+                  "maxItems": 0
+                },
+                "exclusion_reason": {
+                  "type": "null"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "admission_state": {
+                  "const": "QUARANTINED"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "quarantine_reasons"
+              ],
+              "properties": {
+                "quarantine_reasons": {
+                  "minItems": 1
+                },
+                "exclusion_reason": {
+                  "type": "null"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "admission_state": {
+                  "const": "EXCLUDED_WITH_GOVERNED_REASON"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "exclusion_reason"
+              ],
+              "properties": {
+                "exclusion_reason": {
+                  "not": {
+                    "type": "null"
+                  }
+                },
+                "quarantine_reasons": {
+                  "maxItems": 0
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "additionalProperties": false
+}
