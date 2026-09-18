@@ -1,0 +1,11 @@
+profile_id: DAYBREAK-UT-SALT-LAKE-ASSESSOR-v1.0
+profile_type: PARCEL_SOURCE_COMPATIBILITY
+version: 1.0.0
+status: HARDENED
+community_id: DAYBREAK_UT
+component_class: SOURCE_SPECIFIC
+source_system: Salt Lake County Assessor
+mapping_boundary:
+  parcel_identifier: SOURCE_SPECIFIC
+  authority: Salt Lake County
+  field_level_mapping_requires_source_schema_validation: true
