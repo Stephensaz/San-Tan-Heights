@@ -46,8 +46,9 @@ blocking_requirement:
       verified residential properties and reports 4,956 exact one-to-one
       ParcelID geometry matches, zero missing parcel geometries, and zero
       duplicate residential ParcelID identities.
-    remaining_gate: >
-      Obtain a hash-preserving/raw-byte or otherwise complete deterministic
-      representation of all 4,956 roster rows. The current indexed library text
-      view is capped at index 999 and therefore cannot itself serve as the
-      membership payload or source-content hash.
+    remaining_gate: RESOLVED
+    raw_size_bytes: 1078298
+    raw_sha256: 1e8713f61378581651831d720a360974a58c1b072bbf326f47676e0d21b380a7
+    validated_rows: 4956
+    unique_canonical_property_ids: 4956
+    unique_county_parcelids: 4956
