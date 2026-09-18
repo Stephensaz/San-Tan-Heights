@@ -99,10 +99,8 @@ def test_wrong_candidate_version_fails_closed():
 
 
 
-def test_frozen_production_candidate_root_mismatch_forces_no_go():
+def test_frozen_production_candidate_root_mismatch_fails_closed():
     r=deepcopy(reg())
     r["expected_production_candidate_root"]="0"*64
-    result=certify(r)
-    assert result.status=="FAIL"
-    assert result.decision=="NO-GO"
-    assert "PRODUCTION_CANDIDATE_ROOT_MISMATCH" in result.blocking_reasons
+    with pytest.raises(ValueError,match="accepted production candidate root mismatch"):
+        certify(r)
