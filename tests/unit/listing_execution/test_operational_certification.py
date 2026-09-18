@@ -35,6 +35,9 @@ def test_operational_certification_is_ready_for_m12_009_not_final_decision():
     assert x.evidence_chain_root=="82bb94798f887e5b7115abbac55c6b6e9e0cae3130f2310d1efab1ba0dbfe92c"
     assert x.artifact_manifest_root=="6e411dfccac19bfc0fdad22011307e507bc120a2d3a568e09ffd74364956a315"
     assert x.operational_certification_root=="700b426fdf8b576c0522fce216f3af2e1853fd7d851c0dc4ebb80089824f7b84"
+    assert x.evidence_chain_root=="82bb94798f887e5b7115abbac55c6b6e9e0cae3130f2310d1efab1ba0dbfe92c"
+    assert x.artifact_manifest_root=="6e411dfccac19bfc0fdad22011307e507bc120a2d3a568e09ffd74364956a315"
+    assert x.operational_certification_root=="700b426fdf8b576c0522fce216f3af2e1853fd7d851c0dc4ebb80089824f7b84"
 
 def test_exact_seven_ticket_evidence_chain_and_twenty_one_artifacts():
     x=certify()
@@ -130,3 +133,16 @@ def test_wrong_frozen_root_fails_closed():
     x=certify_operational_audit(repository_root=".",registry=r)
     assert x.status=="BLOCKED"
     assert "M12_EVIDENCE_CHAIN_ROOT_MISMATCH" in x.blocking_gaps
+
+
+def test_wrong_frozen_evidence_root_blocks_package():
+    r=deepcopy(reg()); r["expected_roots"]["evidence_chain_root"]="0"*64
+    x=certify_operational_audit(repository_root=".",registry=r)
+    assert x.status=="BLOCKED"
+    assert "M12_EVIDENCE_CHAIN_ROOT_MISMATCH" in x.blocking_gaps
+
+def test_wrong_frozen_artifact_root_blocks_package():
+    r=deepcopy(reg()); r["expected_roots"]["artifact_manifest_root"]="0"*64
+    x=certify_operational_audit(repository_root=".",registry=r)
+    assert x.status=="BLOCKED"
+    assert "M12_ARTIFACT_MANIFEST_ROOT_MISMATCH" in x.blocking_gaps
