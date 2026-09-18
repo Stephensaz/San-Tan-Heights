@@ -27,3 +27,27 @@ blocking_requirement:
     Provide or locate the authoritative full canonical San Tan Heights residential
     property roster produced by the accepted identity/boundary work, with one canonical
     property identifier per corpus member and source snapshot lineage suitable for hashing.
+
+  - name: San_Tan_Heights_Canonical_Property_Master_v1_0.csv
+    disposition: AUTHORITATIVE_ROSTER_LOCATED
+    library_file_id: libfile_cc0da76d02a881918037413429de4479
+    library_version: "1"
+    observed_size_bytes: 1078298
+    canonical_master_version: 1.0.0
+    certified_property_count: 4956
+    supporting_evidence:
+      - VILLAGE_FINAL_PLAT_CERTIFICATION_REPORT.md
+      - SPATIAL_FOUNDATION_BUILD_REPORT.md
+    certification_summary: >
+      Upstream final-plat certification establishes 3,953 prior non-Village
+      verified residential properties plus 1,003 Village recorded residential
+      lots, for a final parcel-backed canonical total of 4,956. The spatial
+      foundation report freezes Canonical Property Master v1.0 at 4,956 current
+      verified residential properties and reports 4,956 exact one-to-one
+      ParcelID geometry matches, zero missing parcel geometries, and zero
+      duplicate residential ParcelID identities.
+    remaining_gate: >
+      Obtain a hash-preserving/raw-byte or otherwise complete deterministic
+      representation of all 4,956 roster rows. The current indexed library text
+      view is capped at index 999 and therefore cannot itself serve as the
+      membership payload or source-content hash.
