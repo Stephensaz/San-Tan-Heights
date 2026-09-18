@@ -29,7 +29,13 @@ from src.listing_execution.incident_containment import (
     execute_with_incident_guard, load_incident_registry, make_hold_release_decision,
     make_recovery_validation,
 )
-from src.listing_execution.operational_learning import OperationalImprovementCandidate
+from src.listing_execution.operational_learning import (
+    OperationalImprovementCandidate,
+    evaluate_operational_learning,
+    load_operational_learning_registry,
+    make_operational_episode,
+    make_operational_outcome,
+)
 from src.listing_execution.policy_calibration import (
     build_accepted_policy_baseline, build_policy_candidate, build_policy_fixture,
     evaluate_policy_candidate, load_policy_calibration_registry,
@@ -103,6 +109,7 @@ def _registries(root: Path):
         "v":load_verification_registry(root/"registries/listing_execution/m12-003-verification-reconciliation-v1.0.yaml"),
         "w":load_execution_workspace_registry(root/"registries/listing_execution/m12-006-execution-workspace-v1.0.yaml"),
         "i":load_incident_registry(root/"registries/listing_execution/m12-007-incident-containment-v1.0.yaml"),
+        "l":load_operational_learning_registry(root/"registries/listing_execution/m12-004-operational-learning-v1.0.yaml"),
         "c":load_policy_calibration_registry(root/"registries/listing_execution/m12-005-policy-calibration-v1.0.yaml"),
         "o":load_operational_certification_registry(root/"registries/listing_execution/m12-008-operational-certification-v1.0.yaml"),
     }
@@ -358,6 +365,29 @@ def execute_final_certification(*, repository_root: str|Path, registry: Mapping[
         else: blocking.append("WORKSPACE_HUMAN_CONTROL_FAILED")
         if unapproved.public_eligible is False:
             checks.append("WORKSPACE_NONPUBLIC")
+
+        episode=make_operational_episode(
+            episode_id="EPISODE-FINAL",subject_property_id=proposal.subject_property_id,
+            listing_id=proposal.listing_id,action_type=proposal.action_type,
+            proposal_fingerprint=proposal.proposal_fingerprint,
+            approval_fingerprint=approval.approval_fingerprint,
+            authority_fingerprint=authority.authority_fingerprint,
+            execution_receipt=receipt,verification=verified,
+            reconciliation_case=None,rollback_receipt=None,
+        )
+        outcome=make_operational_outcome(
+            outcome_id="OUTCOME-FINAL",episode_fingerprint=episode.episode_fingerprint,
+            outcome_type="OPERATIONAL_RESULT",outcome_state="SUCCEEDED",
+            observed_at="2026-09-18T09:20:00-07:00",source_fingerprint="6"*64,
+            notes_fingerprint="7"*64,registry=regs["l"],
+        )
+        learning=evaluate_operational_learning(
+            episodes=(episode,),outcomes=(outcome,),registry=regs["l"],
+        )
+        if learning.associations and all(a.causal_claim is False for a in learning.associations) and learning.external_action_capability=="NONE":
+            checks.append("NONCAUSAL_OPERATIONAL_LEARNING"); coverage.add("M12_004_NONCAUSAL_LEARNING")
+        else:
+            blocking.append("OPERATIONAL_LEARNING_CAUSALITY_BOUNDARY_FAILED")
     else: blocking.append("MISSING_WORKSPACE_FIXTURE")
     stages.append(_stage(registry["stages"][5],checks,blocking)); global_blocking.extend(blocking)
 
