@@ -8,34 +8,42 @@ exception_classes:
     owning_layer: M9-003
     is_defect: true
     quarantine_required: true
+    publication_allowed: false
   SPATIAL_EVIDENCE_GAP:
     owning_layer: M9-003
     is_defect: true
     quarantine_required: true
+    publication_allowed: false
   HISTORICAL_LINKAGE_GAP:
     owning_layer: M9-004
     is_defect: true
     quarantine_required: true
+    publication_allowed: false
   CURRENT_CONTEXT_UNAVAILABLE:
     owning_layer: M9-005
     is_defect: false
     quarantine_required: false
+    publication_allowed: false
   CURRENT_CONTEXT_STALE:
     owning_layer: M9-005
     is_defect: false
     quarantine_required: false
+    publication_allowed: false
   EVIDENCE_PASSPORT_INVALID:
     owning_layer: M9-006
     is_defect: true
     quarantine_required: true
+    publication_allowed: false
   REPORT_MATERIALIZATION_INVALID:
     owning_layer: M9-007
     is_defect: true
     quarantine_required: true
+    publication_allowed: false
   KNOWN_PARTIAL_FRONTAGE:
     owning_layer: M9-003
     is_defect: true
     quarantine_required: true
+    publication_allowed: false
 
 non_defect_condition_classes:
   - CURRENT_CONTEXT_UNAVAILABLE
