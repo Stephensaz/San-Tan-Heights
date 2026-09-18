@@ -78,6 +78,9 @@ def test_actual_repository_declared_scope_is_fully_classified():
             "src/seller_intelligence/",
             "contracts/seller_intelligence/",
             "registries/seller_intelligence/",
+            "src/listing_execution/",
+            "contracts/listing_execution/",
+            "registries/listing_execution/",
         ),
     )
     assert audit.unclassified==()
@@ -99,3 +102,18 @@ def test_post_release_scope_exclusion_is_explicit_and_narrow(tmp_path):
         exclude_prefixes=("src/seller_intelligence/",),
     )
     assert audit.unclassified==("src/mystery/x.py",)
+
+
+def test_post_m10_m12_scope_exclusion_is_explicit_and_narrow(tmp_path):
+    (tmp_path/"src/listing_execution").mkdir(parents=True)
+    (tmp_path/"src/listing_execution/action.py").write_text("VALUE = 1")
+    (tmp_path/"src/unknown_after_m10").mkdir(parents=True)
+    (tmp_path/"src/unknown_after_m10/x.py").write_text("VALUE = 2")
+    r=registry()
+    r["declared_scope"]=["src"]
+    audit=inventory_repository(
+        tmp_path,
+        r,
+        exclude_prefixes=("src/listing_execution/",),
+    )
+    assert audit.unclassified==("src/unknown_after_m10/x.py",)
