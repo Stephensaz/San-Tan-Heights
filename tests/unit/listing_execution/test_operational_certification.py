@@ -32,6 +32,9 @@ def test_operational_certification_is_ready_for_m12_009_not_final_decision():
     assert x.final_milestone_decision_issued is False
     assert x.public_eligible is False
     assert x.external_action_capability=="NONE"
+    assert x.evidence_chain_root=="82bb94798f887e5b7115abbac55c6b6e9e0cae3130f2310d1efab1ba0dbfe92c"
+    assert x.artifact_manifest_root=="6e411dfccac19bfc0fdad22011307e507bc120a2d3a568e09ffd74364956a315"
+    assert x.operational_certification_root=="700b426fdf8b576c0522fce216f3af2e1853fd7d851c0dc4ebb80089824f7b84"
 
 def test_exact_seven_ticket_evidence_chain_and_twenty_one_artifacts():
     x=certify()
@@ -119,3 +122,11 @@ def test_package_never_issues_final_milestone_decision():
     assert x.final_milestone_decision_issued is False
     assert x.status!="PASS"
     assert x.status!="GO"
+
+
+def test_wrong_frozen_root_fails_closed():
+    r=deepcopy(reg())
+    r["package"]["expected_evidence_chain_root"]="0"*64
+    x=certify_operational_audit(repository_root=".",registry=r)
+    assert x.status=="BLOCKED"
+    assert "M12_EVIDENCE_CHAIN_ROOT_MISMATCH" in x.blocking_gaps
