@@ -1,0 +1,55 @@
+{
+  "evidence_id": "STH-M11-005-COMMUNICATION-TRANSLATION-v1.0",
+  "ticket": "M11-005",
+  "status": "ACCEPTED",
+  "parent": {
+    "tickets": ["M11-001", "M11-002", "M11-003", "M11-004"]
+  },
+  "capabilities": {
+    "internal_projection": true,
+    "agent_projection": true,
+    "seller_projection": true,
+    "fact_statement_typing": true,
+    "hypothetical_statement_typing": true,
+    "monitoring_guidance_typing": true,
+    "limitation_preservation": true,
+    "qualifier_preservation": true,
+    "lineage_preservation": true,
+    "public_audience_rejected": true
+  },
+  "controls": {
+    "certified_inputs_only": true,
+    "invented_facts_prohibited": true,
+    "strengthened_claims_prohibited": true,
+    "factual_vs_hypothetical_distinction_preserved": true,
+    "monitoring_guidance_non_prescriptive": true,
+    "missing_and_limitation_states_preserved": true,
+    "recommended_list_price_prohibited": true,
+    "predicted_sale_price_prohibited": true,
+    "guaranteed_net_proceeds_prohibited": true,
+    "guaranteed_outcomes_prohibited": true,
+    "seller_motivation_inference_prohibited": true,
+    "seller_acceptance_prediction_prohibited": true,
+    "buyer_behavior_prediction_prohibited": true,
+    "protected_class_inference_prohibited": true,
+    "public_eligible": false,
+    "approval_side_effects": false,
+    "publication_side_effects": false,
+    "scheduling_side_effects": false,
+    "external_action_capability": "NONE",
+    "deterministic_output": true
+  },
+  "github_actions": {
+    "m11_seller_intelligence_ci": {
+      "run_number": 17,
+      "run_id": 35369219408,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "passed": 70,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
