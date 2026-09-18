@@ -1,0 +1,43 @@
+final_certification_policy_id: STH-M9-012-FINAL-CERTIFICATION-v1.0
+version: 1.0.0
+status: FROZEN
+purpose: Adjudicate the exact accepted M9-001 through M9-011 production-activation evidence set.
+
+required_tickets:
+  - M9-001
+  - M9-002
+  - M9-003
+  - M9-004
+  - M9-005
+  - M9-006
+  - M9-007
+  - M9-008
+  - M9-009
+  - M9-010
+  - M9-011
+
+expected_corpus_members: 4956
+expected_report_variants: 14868
+expected_production_findings: 37846
+expected_publication_decisions: 151384
+
+hard_zero_m9_009_defects:
+  - membership_fingerprint_drift
+  - historical_accounting_gaps
+  - partial_lineage_mismatches
+  - tier_leakage_violations
+  - stale_current_displayed
+  - unauthorized_publications
+  - lineage_gaps
+  - unclassified_exceptions
+  - coverage_gaps
+  - waivers
+
+governance:
+  exact_candidate_evidence_hashes_required: true
+  zero_waivers_required: true
+  conditional_go_prohibited: true
+  certification_may_not_repair_upstream: true
+  only_outcomes:
+    - PASS_GO
+    - FAIL_NO_GO

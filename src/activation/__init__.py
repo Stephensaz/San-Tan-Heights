@@ -23,6 +23,13 @@ from .historical_population import HistoricalPopulationAudit, audit_historical_p
 from .current_market_builder import CurrentContextAudit, audit_current_context
 from .evidence_passport_materialization import EvidenceMaterializationAudit, validate_materialization
 from .report_materialization import ReportMaterializationAudit, validate_report_materialization
+from .final_certification import (
+    Milestone9CertificationResult,
+    evaluate_final_certification,
+    load_evidence_set,
+    load_final_policy,
+    run_repository_final_certification,
+)
 from .refresh_replay import (
     ReplayAudit,
     ReplayRecord,
@@ -117,4 +124,9 @@ __all__ = [
     "validate_m9_011_repository_binding",
     "validate_replay_failure_isolation",
     "verify_publication_rollback",
+    "Milestone9CertificationResult",
+    "evaluate_final_certification",
+    "load_evidence_set",
+    "load_final_policy",
+    "run_repository_final_certification",
 ]

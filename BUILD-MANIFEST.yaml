@@ -33,5 +33,5 @@ milestones:
   status: ACCEPTED
 - id: M9
   name: Production Population & Community Activation
-  status: IN_PROGRESS
-version: 0.1.110
+  status: ACCEPTED
+version: 0.1.111
