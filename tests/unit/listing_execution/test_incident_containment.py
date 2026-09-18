@@ -2,7 +2,7 @@ from dataclasses import replace
 import pytest
 
 from src.listing_execution.incident_containment import (
-    close_incident_with_recovery, create_execution_hold, detect_incidents,
+    ExecutionHold, OperationalIncident, close_incident_with_recovery, create_execution_hold, detect_incidents,
     execute_with_incident_guard, load_incident_registry, make_hold_release_decision,
     make_recovery_validation,
 )
