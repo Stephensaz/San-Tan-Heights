@@ -1,0 +1,75 @@
+operational_certification_registry_id: STH-M12-008-OPERATIONAL-CERTIFICATION-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M12-008
+contract_id: STH-LISTING-EXECUTION
+
+accepted_evidence:
+  M12-001: certification-evidence/m12-001/action-proposal-acceptance-v1.0.json
+  M12-002: certification-evidence/m12-002/authorized-execution-acceptance-v1.0.json
+  M12-003: certification-evidence/m12-003/verification-reconciliation-acceptance-v1.0.json
+  M12-004: certification-evidence/m12-004/operational-learning-acceptance-v1.0.json
+  M12-005: certification-evidence/m12-005/policy-calibration-acceptance-v1.0.json
+  M12-006: certification-evidence/m12-006/execution-workspace-acceptance-v1.0.json
+  M12-007: certification-evidence/m12-007/incident-containment-acceptance-v1.0.json
+
+artifact_manifest:
+  M12-001:
+    registry: registries/listing_execution/m12-001-action-proposal-v1.0.yaml
+    implementation: src/listing_execution/action_planning.py
+    tests: tests/unit/listing_execution/test_action_planning.py
+  M12-002:
+    registry: registries/listing_execution/m12-002-authorized-execution-v1.0.yaml
+    implementation: src/listing_execution/authorized_execution.py
+    tests: tests/unit/listing_execution/test_authorized_execution.py
+  M12-003:
+    registry: registries/listing_execution/m12-003-verification-reconciliation-v1.0.yaml
+    implementation: src/listing_execution/verification_reconciliation.py
+    tests: tests/unit/listing_execution/test_verification_reconciliation.py
+  M12-004:
+    registry: registries/listing_execution/m12-004-operational-learning-v1.0.yaml
+    implementation: src/listing_execution/operational_learning.py
+    tests: tests/unit/listing_execution/test_operational_learning.py
+  M12-005:
+    registry: registries/listing_execution/m12-005-policy-calibration-v1.0.yaml
+    implementation: src/listing_execution/policy_calibration.py
+    tests: tests/unit/listing_execution/test_policy_calibration.py
+  M12-006:
+    registry: registries/listing_execution/m12-006-execution-workspace-v1.0.yaml
+    implementation: src/listing_execution/execution_workspace.py
+    tests: tests/unit/listing_execution/test_execution_workspace.py
+  M12-007:
+    registry: registries/listing_execution/m12-007-incident-containment-v1.0.yaml
+    implementation: src/listing_execution/incident_containment.py
+    tests: tests/unit/listing_execution/test_incident_containment.py
+
+control_rules:
+  allowed_false_keys:
+    - public_eligible
+  required_string_values:
+    external_action_capability: NONE
+    promotion_package_external_action_capability: NONE
+
+package:
+  status: READY_FOR_M12_009
+  final_milestone_decision_issued: false
+  public_eligible: false
+  external_action_capability: NONE
+
+governance:
+  exact_m12_001_through_007_chain_required: true
+  all_prior_tickets_accepted_required: true
+  zero_waivers_required: true
+  zero_open_defects_required: true
+  all_capabilities_true_required: true
+  controls_consistent_required: true
+  parent_chain_continuity_required: true
+  evidence_hashes_required: true
+  registry_hashes_required: true
+  implementation_hashes_required: true
+  test_hashes_required: true
+  missing_or_contradictory_gap_fails_closed: true
+  final_milestone_decision_prohibited: true
+  execution_side_effects_prohibited: true
+  policy_auto_promotion_prohibited: true
+  deterministic_output_required: true
