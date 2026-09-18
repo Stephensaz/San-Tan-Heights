@@ -1,0 +1,55 @@
+{
+  "evidence_id": "STH-M12-008-OPERATIONAL-CERTIFICATION-v1.0",
+  "ticket": "M12-008",
+  "status": "ACCEPTED",
+  "package_status": "READY_FOR_M12_009",
+  "evidence_chain_root": "82bb94798f887e5b7115abbac55c6b6e9e0cae3130f2310d1efab1ba0dbfe92c",
+  "artifact_manifest_root": "6e411dfccac19bfc0fdad22011307e507bc120a2d3a568e09ffd74364956a315",
+  "operational_certification_root": "700b426fdf8b576c0522fce216f3af2e1853fd7d851c0dc4ebb80089824f7b84",
+  "accepted_evidence_sha256": {
+    "M12-001": "7c6ebb57c47cc3200e5ead282f99e6a450ea7dbee425fe6c7844603ff641d671",
+    "M12-002": "09d37e490e86c8b27c7c5f7fc8a42663109f637b17aab46b23376e0eac41944c",
+    "M12-003": "0fdb6bfe87021af090863af74e99b5f4b770199305176ce93c56777b9035298d",
+    "M12-004": "39ab4e82f51a827e2244792079da45fd54eb4092d7c70a1b2d29fdfc56d9f5e7",
+    "M12-005": "17c050569e6cb06bc4a6d62a92a423cf2dfcc2a126a98fff423c55ebf3ed818c",
+    "M12-006": "7cd20becc2f5a6b6cf1c4bda7e477f346bfff306cdd622a71b823cc77180e94c",
+    "M12-007": "fb567919e33f229f466f2078071869e186f1b4e11421ec87149bec877d1872f4"
+  },
+  "audit": {
+    "m12_001_through_007_chain_complete": true,
+    "parent_chain_continuity_verified": true,
+    "all_prior_tickets_accepted": true,
+    "all_declared_capabilities_verified": true,
+    "all_control_values_verified": true,
+    "evidence_hashes_reproduced": true,
+    "registry_hashes_reproduced": true,
+    "implementation_hashes_reproduced": true,
+    "test_hashes_reproduced": true,
+    "artifact_manifest_entries": 21,
+    "blocking_gaps": [],
+    "zero_waivers": true,
+    "zero_open_defects": true,
+    "final_milestone_decision_issued": false,
+    "public_eligible": false,
+    "external_action_capability": "NONE"
+  },
+  "github_actions": {
+    "m12_operational_certification": {
+      "run_number": 4,
+      "run_id": 35381318535,
+      "conclusion": "success"
+    },
+    "m12_listing_execution_ci": {
+      "run_number": 33,
+      "run_id": 35381318556,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "m12_full_suite_passed": 128,
+    "m12_operational_certification_passed": 14,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
