@@ -1,0 +1,47 @@
+{
+  "evidence_id": "STH-M10-003-COMMUNITY-ONBOARDING-v1.0",
+  "ticket": "M10-003",
+  "status": "ACCEPTED",
+  "contract": {
+    "contract_id": "STH-COMMUNITY-ONBOARDING",
+    "version": "1.0.0",
+    "sha256": "2e65a4e374229f5de25edc8fa63b501a808f41a3c677b0c74bbab9b46debc125"
+  },
+  "controls": {
+    "deterministic_bootstrap_generation": true,
+    "explicit_identity_inputs_required": true,
+    "explicit_source_inputs_required": true,
+    "explicit_parent_platform_lineage_required": true,
+    "explicit_community_specific_assumptions_required": true,
+    "explicit_source_specific_assumptions_required": true,
+    "protected_san_tan_heights_reonboarding_rejected": true,
+    "hidden_san_tan_heights_defaults_prohibited": true,
+    "generated_timestamps_prohibited": true,
+    "invalid_inputs_fail_closed": true,
+    "output_fingerprints_required": true,
+    "baseline_mutation_prohibited": true
+  },
+  "github_actions": {
+    "m10_evolution_ci": {
+      "run_number": 15,
+      "run_id": 35354570696,
+      "conclusion": "success"
+    },
+    "m10_architecture_boundary": {
+      "run_number": 15,
+      "run_id": 35354570700,
+      "conclusion": "success"
+    },
+    "m9_architecture_boundary": {
+      "run_number": 67,
+      "run_id": 35354570688,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "passed": 38,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
