@@ -20,6 +20,7 @@ def test_full_final_certification_passes_and_issues_real_go_decision():
     assert len(x.stage_results)==10
     assert all(s.status=="PASS" for s in x.stage_results)
     assert x.blocking_reasons==()
+    assert x.certification_root_hash=="e56a8d039c4e0324ff694d0ea8cd5a190f48be6bb8b761d761a41f8af96e2a35"
 
 def test_all_required_coverage_is_closed():
     x=run()
@@ -49,3 +50,12 @@ def test_missing_coverage_forces_no_go():
 
 def test_no_m12_009k_exists_in_stage_sequence():
     assert all(not x.startswith("M12-009K") for x in reg()["stages"])
+
+
+def test_wrong_frozen_final_root_forces_no_go():
+    r=deepcopy(reg())
+    r["expected_certification_root_hash"]="0"*64
+    x=run(r)
+    assert x.status=="FAIL"
+    assert x.decision=="NO-GO"
+    assert "M12_FINAL_CERTIFICATION_ROOT_MISMATCH" in x.blocking_reasons
