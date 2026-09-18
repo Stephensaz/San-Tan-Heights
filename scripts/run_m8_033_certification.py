@@ -2,9 +2,11 @@ from pathlib import Path
 import argparse
 import sys
 
-from src.presentation.certification import M8033CertificationRunner, write_bundle
-
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from src.presentation.certification import M8033CertificationRunner, write_bundle
 MANIFEST = ROOT / "registries" / "presentation" / "m8-033-certification-v1.0.yaml"
 
 def main() -> int:
