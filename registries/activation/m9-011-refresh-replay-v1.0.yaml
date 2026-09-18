@@ -1,0 +1,25 @@
+replay_policy_id: STH-M9-011-REFRESH-REGEN-ROLLBACK-v1.0
+version: 1.0.0
+status: FROZEN
+purpose: Prove deterministic refresh, governed regeneration, failure isolation, and exact rollback across the accepted M9 activation stack.
+
+upstream_controls:
+  dependency_impact: M2-019
+  regeneration_worker: M3-026
+  controlled_publication: M9-010
+  rollback_containment: M7-023
+
+governance:
+  unchanged_fingerprint_stability_required: true
+  changed_records_require_governed_dependency_change: true
+  semantic_equivalence_may_no_op: true
+  failed_items_must_be_isolated: true
+  failed_items_must_be_retryable: true
+  tier_eligibility_preserved: true
+  lineage_preserved: true
+  accepted_history_immutable: true
+  pointer_based_publication_required: true
+  rollback_exact_baseline_required: true
+  invalidated_history_auto_fallback_prohibited: true
+  uncontrolled_fleet_replay_prohibited: true
+  waivers_allowed: false

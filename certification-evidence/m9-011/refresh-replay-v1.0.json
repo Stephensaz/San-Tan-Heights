@@ -1,0 +1,37 @@
+{
+  "evidence_id": "STH-M9-011-REFRESH-REGEN-ROLLBACK-v1.0",
+  "ticket": "M9-011",
+  "status": "ACCEPTED",
+  "implementation_head": "7cca620260480bfe6246e240ea7ae9373b9499e8",
+  "github_actions": {
+    "initial_m9_activation_ci": {
+      "run_number": 50,
+      "run_id": 35314678272,
+      "conclusion": "failure",
+      "failure": "legacy acceptance-record parser mismatch"
+    },
+    "repaired_m9_activation_ci": {
+      "run_number": 51,
+      "run_id": 35314721418,
+      "conclusion": "success"
+    },
+    "repaired_m9_architecture_boundary_validation": {
+      "run_number": 52,
+      "run_id": 35314721548,
+      "conclusion": "success"
+    }
+  },
+  "controls": {
+    "unimpacted_fingerprint_stability": true,
+    "governed_impacted_change_only": true,
+    "isolated_failures": true,
+    "deterministic_replay": true,
+    "exact_pointer_rollback": true,
+    "m2_019_bound": true,
+    "m3_026_bound": true,
+    "m7_023_bound": true,
+    "m9_010_bound": true
+  },
+  "binding_fingerprint": "b2014b6d3ff1f9294855d04f6a466073266a89c902ca2074898c60d0f1cd21fb",
+  "waivers": 0
+}

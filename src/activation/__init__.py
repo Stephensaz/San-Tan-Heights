@@ -23,6 +23,15 @@ from .historical_population import HistoricalPopulationAudit, audit_historical_p
 from .current_market_builder import CurrentContextAudit, audit_current_context
 from .evidence_passport_materialization import EvidenceMaterializationAudit, validate_materialization
 from .report_materialization import ReportMaterializationAudit, validate_report_materialization
+from .refresh_replay import (
+    ReplayAudit,
+    ReplayRecord,
+    audit_replay,
+    load_replay_policy,
+    validate_m9_011_repository_binding,
+    validate_replay_failure_isolation,
+    verify_publication_rollback,
+)
 from .controlled_publication import (
     FrozenPublicationCohort,
     PublicationBatchResult,
@@ -101,4 +110,11 @@ __all__ = [
     "load_publication_policy",
     "rollback_pointer_batch",
     "validate_m9_010_repository_binding",
+    "ReplayAudit",
+    "ReplayRecord",
+    "audit_replay",
+    "load_replay_policy",
+    "validate_m9_011_repository_binding",
+    "validate_replay_failure_isolation",
+    "verify_publication_rollback",
 ]
