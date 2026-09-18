@@ -1,6 +1,6 @@
 {
   "evidence_id": "STH-M9-006-EVIDENCE-PASSPORT-FINDINGS-v1.0",
-  "status": "PASS_PENDING_CI",
+  "status": "PASS",
   "adopted_governance": {
     "governance_version": "EVIDENCE_GOVERNANCE_2",
     "passport_version": "PASSPORT_2",
@@ -52,5 +52,14 @@
   },
   "materialization_fingerprint": "1804cba868eabc9cb865ce8cc2bbecb856d9fb391ba6d71d68aa1f2f6fb9cf24",
   "defects": [],
-  "waivers": []
+  "waivers": [],
+  "acceptance_evidence": {
+    "m9_activation_ci_run": 30,
+    "m9_boundary_validation_run": 31,
+    "m8_presentation_ci_run": 87,
+    "m8_presentation_certification_run": 90,
+    "m8_final_certification_run": 39,
+    "defects": 0,
+    "waivers": 0
+  }
 }
