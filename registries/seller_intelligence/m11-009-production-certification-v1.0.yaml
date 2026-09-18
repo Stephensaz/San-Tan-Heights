@@ -4,6 +4,7 @@ status: FROZEN
 ticket: M11-009
 contract_id: STH-SELLER-INTELLIGENCE
 production_candidate_version: 0.1.130
+expected_production_candidate_root: 2cca3529c4b09b0a3dc4305b9b7c1732b894fc47018dc971cfe18a98c8e269dd
 
 accepted_evidence:
   M11-001: certification-evidence/m11-001/seller-opportunity-acceptance-v1.0.json
