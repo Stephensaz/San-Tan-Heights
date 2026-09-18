@@ -1,0 +1,44 @@
+{
+  "evidence_id": "STH-M9-007-REPORT-MATERIALIZATION-v1.0",
+  "status": "PASS_PENDING_CI",
+  "population": {
+    "properties": 4956,
+    "total_variants": 14868,
+    "agent": 4956,
+    "seller": 4956,
+    "public": 4956
+  },
+  "findings": {
+    "agent_displayed": 32891,
+    "seller_displayed": 24776,
+    "public_displayed": 14866,
+    "eligibility_mismatches": 0,
+    "stale_current_competition_displayed": 0,
+    "new_analytical_intelligence_created": 0
+  },
+  "isolation": {
+    "public_subset_seller": true,
+    "seller_subset_agent": true,
+    "monotonicity_violations": 0
+  },
+  "partial": {
+    "property_id": "STH-516018120",
+    "health_status": "PARTIAL",
+    "displayed_finding_keys": [
+      "identity.community_membership"
+    ]
+  },
+  "artifact": {
+    "library_file_id": "libfile_e4266092c5d48191912d0684b19add89",
+    "raw_size_bytes": 14793073,
+    "raw_sha256": "204b026239883cc3e98204676fef3df76fb2448e46e057ed4a02fb525bda62bf",
+    "aggregate_fingerprint": "524f85ba04411e841a8960a5d8a3d22bab6682b06616db3b2001fe5212d15cf3"
+  },
+  "source_hashes": {
+    "coverage_matrix": "fd1ed78dd25e1cd6f9c9b8e8b10b1b4452534ea96731dfe4baea04409a934261",
+    "regeneration_registry": "fd921ccf9eb4be087ceb0e2be6c7372dc99b179405a7d13780fef19430eca782"
+  },
+  "publication_state": "MATERIALIZED_NOT_PUBLISHED",
+  "defects": [],
+  "waivers": []
+}
