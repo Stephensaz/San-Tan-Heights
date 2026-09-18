@@ -1,0 +1,67 @@
+contract_id: STH-TEMPORAL-IMPACT-REFRESH
+version: 1.0.0
+status: LOCKED
+milestone: M13
+ticket: M13-003
+name: Temporal Impact Propagation & Selective Intelligence Refresh
+
+depends_on:
+  - STH-COMMUNITY-DELTA
+
+purpose:
+  certified_delta_input_only: true
+  dependency_based_impact_determination: true
+  smallest_defensible_refresh_scope_required: true
+  selective_refresh_required: true
+  unaffected_state_preservation_required: true
+  refresh_and_no_refresh_proof_required: true
+  isolated_staging_required: true
+  atomic_promotion_required: true
+  immutable_refresh_history_required: true
+
+dispositions:
+  - NO_IMPACT
+  - REVALIDATE_ONLY
+  - REFRESH_REQUIRED
+  - SUPPRESS
+  - UNSUPPRESS
+  - BLOCKED
+  - UNKNOWN_IMPACT
+
+required_inputs:
+  certified_m13_002_delta: true
+  frozen_dependency_graph: true
+  current_certified_intelligence: true
+  frozen_refresh_rules: true
+  exact_engine_versions: true
+  exact_ruleset_versions: true
+  frozen_input_fingerprints: true
+
+preservation:
+  unaffected_values_hash_identical: true
+  unaffected_fingerprints_hash_identical: true
+  unaffected_certification_hash_identical: true
+  unaffected_lineage_hash_identical: true
+  failed_refresh_preserves_prior_active_state: true
+
+hard_boundaries:
+  uncertified_delta_prohibited: true
+  live_mutable_refresh_inputs_prohibited: true
+  blanket_refresh_without_dependency_proof_prohibited: true
+  unaffected_state_mutation_prohibited: true
+  silent_invalidation_prohibited: true
+  partial_promotion_prohibited: true
+  failed_refresh_promotion_prohibited: true
+  dependency_invention_prohibited: true
+  hidden_fallback_refresh_prohibited: true
+  seller_recommendations_prohibited: true
+  listing_actions_prohibited: true
+  publication_prohibited: true
+  m12_execution_mutation_prohibited: true
+  protected_field_propagation_prohibited: true
+
+determinism:
+  idempotent_planning_required: true
+  idempotent_execution_required: true
+  deterministic_proof_required: true
+  exact_delta_lineage_required: true
