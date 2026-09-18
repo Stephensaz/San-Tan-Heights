@@ -1,0 +1,36 @@
+qa_registry_id: STH-M9-009-FULL-CORPUS-QA-v1.0
+version: 1.0.0
+status: FROZEN
+purpose: Reconcile complete M9 production-corpus coverage and governance before controlled publication.
+
+required_inputs:
+  - M9-001
+  - M9-002
+  - M9-003
+  - M9-004
+  - M9-005
+  - M9-006
+  - M9-007
+  - M9-008
+
+acceptance:
+  corpus_members: 4956
+  report_variants: 14868
+  unclassified_exceptions: 0
+  tier_leakage_violations: 0
+  unauthorized_publications: 0
+  lineage_gaps: 0
+  coverage_gaps: 0
+  waivers: 0
+  conditional_go_allowed: false
+
+governance:
+  exact_corpus_accounting_required: true
+  membership_fingerprint_continuity_required: true
+  historical_unresolved_records_must_remain_non_promoted: true
+  partial_state_lineage_must_reconcile: true
+  stale_current_publication_prohibited: true
+  report_tier_monotonicity_required: true
+  new_intelligence_prohibited: true
+  publication_activation_prohibited: true
+  deterministic_qa_fingerprint_required: true
