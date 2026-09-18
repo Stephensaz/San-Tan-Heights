@@ -1,0 +1,90 @@
+name: M13-002 Temporal Change Delta CI
+
+on:
+  pull_request:
+    paths:
+      - 'contracts/community_temporal_state/**'
+      - 'registries/community_temporal_state/**'
+      - 'src/community_temporal_state/**'
+      - 'tests/unit/community_temporal_state/**'
+      - 'docs/implementation/M13-002.md'
+      - 'certification-evidence/m13-001/**'
+      - 'CONTRACT-MANIFEST.yaml'
+      - 'BUILD-MANIFEST.yaml'
+      - '.github/workflows/m13-001-community-state-snapshot-ci.yml'
+      - '.github/workflows/m13-002-temporal-change-delta-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  m13-002:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pytest pyyaml
+      - name: Validate M13-002 contract and accepted M13-001 predecessor
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          import yaml
+
+          manifest=yaml.safe_load(Path("CONTRACT-MANIFEST.yaml").read_text())
+          rows=[x for x in manifest["contracts"] if x["id"]=="STH-COMMUNITY-DELTA"]
+          assert len(rows)==1
+          row=rows[0]
+          p=Path(row["path"])
+          assert p.exists()
+          assert hashlib.sha256(p.read_bytes()).hexdigest()==row["sha256"]
+          contract=yaml.safe_load(p.read_text())
+          assert contract["status"]=="LOCKED"
+          assert contract["milestone"]=="M13"
+          assert contract["ticket"]=="M13-002"
+
+          m13_001=json.loads(Path("certification-evidence/m13-001/community-state-snapshot-acceptance-v1.0.json").read_text())
+          assert m13_001["ticket"]=="M13-001"
+          assert m13_001["status"]=="ACCEPTED"
+          assert m13_001["waivers"]==0
+          assert m13_001["open_defects"]==0
+
+          build=yaml.safe_load(Path("BUILD-MANIFEST.yaml").read_text())
+          states={x["id"]:x["status"] for x in build["milestones"]}
+          assert states["M12"]=="ACCEPTED"
+          assert states["M13"]=="IN_PROGRESS"
+          assert build["current_ticket"]=="M13-002"
+          assert str(build["version"])=="0.1.132"
+
+          for key in (
+              "live_state_substitution_prohibited",
+              "unsupported_causation_prohibited",
+              "upstream_reconciliation_prohibited",
+              "snapshot_mutation_prohibited",
+              "delta_mutation_prohibited",
+              "downstream_recalculation_prohibited",
+              "selective_refresh_prohibited",
+              "impact_execution_prohibited",
+              "seller_recommendations_prohibited",
+              "listing_actions_prohibited",
+              "publication_prohibited",
+              "m12_execution_mutation_prohibited",
+              "inferred_effective_dates_prohibited",
+              "unknown_effective_dates_must_remain_unknown",
+              "protected_field_propagation_prohibited",
+          ):
+              assert contract["hard_boundaries"][key] is True
+          assert contract["m13_003_boundary"]["no_refresh_job_creation"] is True
+          assert contract["m13_003_boundary"]["no_recalculation"] is True
+          print("PASS: M13-002 frozen delta boundary and accepted M13-001 lineage")
+          PY
+      - name: Run M13 temporal-state tests
+        run: pytest -q tests/unit/community_temporal_state
+      - name: Run inherited M12 regression
+        run: pytest -q tests/unit/listing_execution
+      - name: Validate repository structure
+        run: python scripts_validate_repo.py
