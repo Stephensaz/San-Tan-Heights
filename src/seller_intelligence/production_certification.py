@@ -37,6 +37,7 @@ from src.seller_intelligence.workspace import (
     make_human_decision,
 )
 from src.seller_intelligence.effectiveness import (
+    CalibrationCandidate,
     make_observed_outcome,
     evaluate_effectiveness,
     load_effectiveness_registry,
