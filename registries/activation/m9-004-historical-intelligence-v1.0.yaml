@@ -1,0 +1,103 @@
+historical_population_registry_id: STH-M9-004-HISTORICAL-INTELLIGENCE-v1.0
+version: 1.0.0
+status: FROZEN
+community_id: SAN_TAN_HEIGHTS
+inputs:
+  m9_003_binding:
+    row_count: 4956
+    raw_sha256: 3c2507b0045d412633d10b10c259275c193bf27a843e7591fbf16be8abb71efd
+  canonical_property_master:
+    raw_sha256: 1e8713f61378581651831d720a360974a58c1b072bbf326f47676e0d21b380a7
+    role: HISTORY_COVERAGE_AUTHORITY
+  armls_listing_episode_foundation:
+    library_file_id: libfile_3f3c8d946ce88191ac0240b562743304
+    raw_size_bytes: 4373145
+    raw_sha256: 66610a799e56a7fc841c90b3ad421c16d914925d60ff1e13e23178abad9f3584
+    rows: 8299
+    canonical_bound_rows: 8144
+    unresolved_rows: 155
+  initial_availability_windows:
+    library_file_id: libfile_93d7f8ce2ef081918d2d3036e51d83c3
+    raw_size_bytes: 1831979
+    raw_sha256: b163c666b570a3358a183fea11fed178f121fb4dcf1366e28a93f0f1ec18e5a4
+    rows: 7943
+  historical_replay_anchors:
+    library_file_id: libfile_96bb2b2feb40819189f5c7f1bb17325f
+    raw_size_bytes: 2601041
+    raw_sha256: d3bf0b1ba91029d12e0247a202474b007bf2f159c9a887fa289f6fdae7f38e40
+    rows: 19920
+  historical_replay_summary:
+    library_file_id: libfile_cd23a4d268fc81918b7bd023b7caad3f
+    raw_size_bytes: 5573333
+    raw_sha256: 582d35f48a02388abec821bce3be022264fcc325fe311103ac4983a299ffe939
+    rows: 19920
+    qa_state: PASS_WITH_SOURCE_LIMITATION
+  historical_replay_relationships:
+    library_file_id: libfile_9dc9b84d2490819193f52aa75ff6c2dd
+    raw_size_bytes: 55578389
+    raw_sha256: a5648d777cfff14e920f001eafd28764f5887efe5fc9013ba18919f4ce9f38f8
+    rows: 247451
+  legacy_listing_episodes:
+    library_file_id: libfile_968503a332c48191b7e489c3afe22e7c
+    raw_size_bytes: 2182836
+    raw_sha256: ad8fe922e2ddbbbc7fb4796672be8b914ffb9699a3a584b1021e4fe42cc07f52
+    rows: 7703
+  frozen_candidate_identity_crosswalk:
+    library_file_id: libfile_49a39609b3f081918a8bc61273562982
+    raw_size_bytes: 1754020
+    raw_sha256: e26f8fc3f09bb054fcfb539ada1777577806c235c2230d504e4908c5f8476051
+artifacts:
+  property_population:
+    name: m9_004_historical_property_population_v1.csv
+    library_file_id: libfile_2a52f39041bc8191934ca2e4c70481a0
+    raw_size_bytes: 1553508
+    raw_sha256: 925c6745dbf82691d691933846f8ea81dbe49b1df3ea1bf60a5f133bce2eb2b9
+    authoritative: false
+  legacy_episode_bridge:
+    name: m9_004_legacy_episode_identity_bridge_v1.csv
+    library_file_id: libfile_52dd2c6763c88191a6dffec619b264eb
+    raw_size_bytes: 1174247
+    raw_sha256: 0a342b069e79ef08be0925c2de1cd59669e1c053e905104bd32db2fd98b1fcf9
+    authoritative: false
+population:
+  corpus_members: 4956
+  history_available_properties: 3352
+  no_governed_history_properties: 1604
+  canonical_listing_records_attached: 8144
+  unresolved_listing_records_non_promoted: 155
+  initial_availability_windows_attached: 7943
+  replay_anchors_attached: 19920
+  replay_summary_rows: 19920
+  replay_relationship_rows: 247451
+legacy_episode_identity:
+  total_episode_ids: 7703
+  bound_to_canonical_property: 7592
+  unresolved_non_promoted: 111
+  unresolved_bad_or_missing_apn: 99
+  unresolved_likely_outside_canonical_community: 11
+  unresolved_other: 1
+source_limitations:
+  complete_event_history_available: false
+  historical_price_path_available: false
+  timeline_scope: INITIAL_AVAILABLE_WINDOW_ONLY_WHEN_ELIGIBLE;NOT_COMPLETE_EVENT_HISTORY
+  replay_scope: LOWER_BOUND_KNOWN_AVAILABLE_CHOICE_SET
+foreign_key_integrity:
+  availability_listing_ids_missing_from_foundation: 0
+  replay_summary_anchor_ids_missing_from_anchors: 0
+  replay_anchor_ids_missing_from_summary: 0
+  relationship_anchor_ids_missing_from_anchors: 0
+  replay_subject_listing_ids_missing_from_foundation: 0
+  replay_subject_properties_outside_corpus: 0
+governance:
+  preserve_listing_identity: true
+  preserve_legacy_episode_identity: true
+  unresolved_history_non_promoted: true
+  address_only_identity_substitution_prohibited: true
+  new_episode_splitting_or_merging_prohibited: true
+  new_price_interpretation_prohibited: true
+  new_market_behavior_inference_prohibited: true
+  recompute_analytical_studies_prohibited: true
+  no_history_stays_explicit: true
+  current_market_refresh_prohibited: true
+  report_generation_prohibited: true
+  publication_prohibited: true
