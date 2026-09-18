@@ -113,7 +113,9 @@ def test_emit_final_certification_root_for_release_capture():
         + " PORTFOLIO="
         + result.portfolio_fingerprint
         + " FACTORY="
-        + repr(dict(result.factory_replay_fingerprints)),
+        + repr(dict(result.factory_replay_fingerprints))
+        + " EVIDENCE="
+        + repr({x.ticket:x.sha256 for x in result.ticket_receipts}),
         RuntimeWarning,
     )
     assert result.status=="PASS"
