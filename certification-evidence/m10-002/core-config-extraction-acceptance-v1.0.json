@@ -1,0 +1,68 @@
+{
+  "evidence_id": "STH-M10-002-CORE-CONFIG-EXTRACTION-v1.0",
+  "ticket": "M10-002",
+  "status": "ACCEPTED",
+  "baseline": {
+    "baseline_id": "SAN_TAN_HEIGHTS_PRODUCTION_BASELINE",
+    "baseline_version": "1.0.0",
+    "baseline_manifest_fingerprint": "11b735c64118f5118b0fb31a52a830c859bf03e41674134f432e6316796f3d3c",
+    "immutable": true
+  },
+  "classification": {
+    "classes": [
+      "CORE_REUSABLE",
+      "COMMUNITY_CONFIGURABLE",
+      "COMMUNITY_SPECIFIC",
+      "SOURCE_SPECIFIC"
+    ],
+    "declared_scope_clean": true,
+    "unclassified_components": 0,
+    "ambiguous_components": 0,
+    "core_marker_violations": 0,
+    "residual_community_runtime_components_explicitly_classified": true
+  },
+  "github_actions": {
+    "m10_evolution_ci": {
+      "run_number": 10,
+      "run_id": 35354208309,
+      "conclusion": "success"
+    },
+    "m10_architecture_boundary": {
+      "run_number": 10,
+      "run_id": 35354208333,
+      "conclusion": "success"
+    },
+    "m8_presentation_ci": {
+      "run_number": 120,
+      "run_id": 35354208328,
+      "conclusion": "success"
+    },
+    "m8_presentation_certification": {
+      "run_number": 123,
+      "run_id": 35354208113,
+      "conclusion": "success"
+    },
+    "m8_033_final_presentation_certification": {
+      "run_number": 64,
+      "run_id": 35354208247,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "m10_evolution_passed": 21,
+    "m10_evolution_failed": 0
+  },
+  "controls": {
+    "accepted_baseline_mutation_prohibited": true,
+    "community_identity_configuration_explicit": true,
+    "source_assumptions_configuration_explicit": true,
+    "reusable_core_hidden_community_marker_scan": true,
+    "unclassified_components_fail_closed": true,
+    "ambiguous_components_fail_closed": true,
+    "longest_prefix_classification_deterministic": true,
+    "inherited_presentation_regression_gates_passed": true,
+    "waivers_allowed": false
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
