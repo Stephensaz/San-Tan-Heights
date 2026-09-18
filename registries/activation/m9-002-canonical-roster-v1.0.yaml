@@ -1,0 +1,39 @@
+activation_roster_id: STH-M9-002-CANONICAL-ROSTER-v1.0
+version: 1.0.0
+status: FROZEN
+community_id: SAN_TAN_HEIGHTS
+source:
+  m9_001_freeze_fingerprint: f9499c10399d79e7346f9736dfbe4a360a59f1f663d7b5795a1e845ab31b3810
+  canonical_roster_raw_sha256: 1e8713f61378581651831d720a360974a58c1b072bbf326f47676e0d21b380a7
+  canonical_master_version: 1.0.0
+artifact:
+  name: m9_002_activation_roster_v1.csv
+  library_file_id: libfile_466ca9abf53881919d172283c1ccc135
+  path: /M9/m9_002_activation_roster_v1.csv
+  raw_size_bytes: 763315
+  raw_sha256: 38d9ca1ad5b81ce4038edf149a9a9a3a80e58d315c8a0f206173c19521bb7b54
+  authoritative: false
+population:
+  row_count: 4956
+  unique_canonical_property_ids: 4956
+  unique_county_parcelids: 4956
+  additions_vs_m9_001: 0
+  omissions_vs_m9_001: 0
+  duplicate_canonical_property_ids: 0
+  duplicate_county_parcelids: 0
+  canonical_property_ids_sha256: 82d0c5f51d1664f9d39fee1703ea6360dcfd866522c5e7d5cf0ce476a6b6d857
+  county_parcelids_sha256: 3ea6b3f0e85b3f0f71f565547f91e7ee6922c69346384472dc7f187908035db5
+  canonical_property_id_to_parcelid_pairs_sha256: c9fb8420b38224eea6baaf9e1d07597776d94b36a99da1c107bd961bfd711e09
+lineage:
+  every_row_has_m9_001_freeze_fingerprint: true
+  member_lineage_algorithm: SHA256(canonical_property_id|county_parcelid|m9_001_freeze_fingerprint)
+  blank_member_lineage_fingerprints: 0
+  duplicate_member_lineage_fingerprints: 0
+governance:
+  no_address_identity_inference: true
+  no_phase_enrichment: true
+  no_spatial_enrichment: true
+  no_report_generation: true
+  no_publication: true
+  exact_membership_preservation_required: true
+  deterministic_replay_required: true
