@@ -1,0 +1,40 @@
+{
+  "evidence_id": "STH-M9-009-FULL-CORPUS-QA-v1.0",
+  "ticket": "M9-009",
+  "status": "ACCEPTED",
+  "implementation_head": "a43789027971c4513ac0479ddb78b3d800122da0",
+  "github_actions": {
+    "m9_activation_ci": {
+      "run_number": 44,
+      "run_id": 35313529122,
+      "conclusion": "success"
+    },
+    "m9_architecture_boundary_validation": {
+      "run_number": 45,
+      "run_id": 35313529075,
+      "conclusion": "success"
+    }
+  },
+  "corpus": {
+    "members": 4956,
+    "report_variants": 14868,
+    "production_findings": 37846,
+    "publication_decisions": 151384,
+    "partial_property_ids": [
+      "STH-516018120"
+    ]
+  },
+  "defects": {
+    "membership_fingerprint_drift": 0,
+    "historical_accounting_gaps": 0,
+    "partial_lineage_mismatches": 0,
+    "tier_leakage_violations": 0,
+    "stale_current_displayed": 0,
+    "unauthorized_publications": 0,
+    "lineage_gaps": 0,
+    "unclassified_exceptions": 0,
+    "coverage_gaps": 0,
+    "waivers": 0
+  },
+  "qa_fingerprint": "a1cfed6edb69a089f3abf4b091e09558f7a197b0e47dee55ab227ba10ea1f6f3"
+}
