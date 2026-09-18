@@ -62,11 +62,17 @@ def scan_markers(path: Path, markers: Iterable[str]) -> tuple[str,...]:
     return tuple(sorted(m for m in markers if m in text))
 
 
-def inventory_repository(root: str|Path, registry: dict) -> ExtractionAudit:
+def inventory_repository(
+    root: str|Path,
+    registry: dict,
+    *,
+    exclude_prefixes: Iterable[str] = (),
+) -> ExtractionAudit:
     root=Path(root)
     declared=tuple(registry["declared_scope"])
     markers=tuple(registry["community_markers"])
     allow=set(registry.get("core_marker_allowlist") or ())
+    excluded=tuple(str(x) for x in exclude_prefixes)
     classified=[]; unclassified=[]; ambiguous=[]; core_violations=[]
     material_suffixes={".py",".yaml",".yml",".json",".html",".md",".sql"}
 
@@ -76,6 +82,8 @@ def inventory_repository(root: str|Path, registry: dict) -> ExtractionAudit:
             continue
         for p in sorted(x for x in base.rglob("*") if x.is_file() and x.suffix.lower() in material_suffixes):
             rel=p.relative_to(root).as_posix()
+            if any(rel.startswith(prefix) for prefix in excluded):
+                continue
             try:
                 cls,prefix=classify_path(rel,registry)
             except ValueError as exc:
