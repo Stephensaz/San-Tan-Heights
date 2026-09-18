@@ -1,0 +1,153 @@
+cold_start_id: STH-M10-007-DAYBREAK-COLD-START-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M10-007
+
+community:
+  community_id: DAYBREAK_UT
+  display_name: Daybreak
+  state: UT
+  county: Salt Lake
+  municipality: South Jordan
+  property_id_prefix: DB-
+  community_type: master_planned
+  real_community: true
+
+parent_platform:
+  version: 0.1.118
+  immutable_evidence: certification-evidence/m10-006/portability-hardening-acceptance-v1.0.json
+
+source_systems:
+  listing_service: UtahRealEstate.com / Wasatch Front Regional MLS
+  parcel_authority: Salt Lake County Assessor
+  recorder_authority: Salt Lake County Recorder
+
+source_provenance:
+  community_authority:
+    name: South Jordan City GIS
+    url: https://gis2.southjordanutah.gov/server/rest/services/Planning/Daybreak_SAA/MapServer
+    supports:
+      - daybreak_community_identity
+      - south_jordan_jurisdiction
+  listing_service:
+    name: UtahRealEstate.com / Wasatch Front Regional MLS
+    url: https://www.utahrealestate.com/about
+    supports:
+      - utah_listing_service_identity
+  parcel_authority:
+    name: Salt Lake County
+    url: https://slco.org/
+    supports:
+      - salt_lake_county_parcel_authority
+  recorder_authority:
+    name: Salt Lake County Recorder
+    url: https://slco.org/recorder/
+    supports:
+      - salt_lake_county_recorded_document_authority
+
+cold_start_policy:
+  real_community_identity: true
+  synthetic_property_corpus_only: true
+  proprietary_mls_records_used: false
+  homeowner_personal_data_used: false
+  publication_allowed: false
+  prior_pilot_artifacts_allowed: false
+
+onboarding_assumptions:
+  community_specific:
+    - South Jordan municipal jurisdiction
+    - Daybreak SAA and development-area taxonomy
+    - Daybreak community identity boundary
+  source_specific:
+    - UtahRealEstate/WFRMLS listing compatibility profile
+    - Salt Lake County parcel compatibility profile
+    - Salt Lake County recorder compatibility profile
+
+governed_profiles:
+  - config/cold_start/daybreak/community-taxonomy-profile-v1.0.yaml
+  - config/cold_start/daybreak/utahrealestate-compatibility-profile-v1.0.yaml
+  - config/cold_start/daybreak/salt-lake-assessor-profile-v1.0.yaml
+  - config/cold_start/daybreak/salt-lake-recorder-profile-v1.0.yaml
+
+work_items:
+  - id: CORE-001
+    component_class: CORE_REUSABLE
+    action: REUSE_UNCHANGED
+    artifact: src/evolution/community_onboarding.py
+  - id: CORE-002
+    component_class: CORE_REUSABLE
+    action: REUSE_UNCHANGED
+    artifact: src/evolution/progressive_build_pipeline.py
+  - id: CORE-003
+    component_class: CORE_REUSABLE
+    action: REUSE_UNCHANGED
+    artifact: src/evolution/portability_profiles.py
+  - id: CORE-004
+    component_class: CORE_REUSABLE
+    action: REUSE_UNCHANGED
+    artifact: registries/evolution/m10-006-portability-hardening-v1.0.yaml
+  - id: CFG-001
+    component_class: COMMUNITY_CONFIGURABLE
+    action: CONFIGURE
+    artifact: generated M10-003 community bootstrap
+  - id: CFG-002
+    component_class: COMMUNITY_CONFIGURABLE
+    action: CONFIGURE
+    artifact: source and jurisdiction declarations
+  - id: CFG-003
+    component_class: COMMUNITY_CONFIGURABLE
+    action: CONFIGURE
+    artifact: synthetic corpus identity configuration
+  - id: COM-001
+    component_class: COMMUNITY_SPECIFIC
+    action: CONFIGURE
+    artifact: config/cold_start/daybreak/community-taxonomy-profile-v1.0.yaml
+  - id: SRC-001
+    component_class: SOURCE_SPECIFIC
+    action: CONFIGURE
+    artifact: config/cold_start/daybreak/utahrealestate-compatibility-profile-v1.0.yaml
+  - id: SRC-002
+    component_class: SOURCE_SPECIFIC
+    action: CONFIGURE
+    artifact: config/cold_start/daybreak/salt-lake-assessor-profile-v1.0.yaml
+  - id: SRC-003
+    component_class: SOURCE_SPECIFIC
+    action: CONFIGURE
+    artifact: config/cold_start/daybreak/salt-lake-recorder-profile-v1.0.yaml
+
+synthetic_corpus:
+  corpus_id: DAYBREAK_UT_SYNTHETIC_COLD_START-v1.0
+  property_count: 12
+  synthetic_only: true
+  identity_prefix: DB-SYNTH-
+
+stage_evidence:
+  ONBOARDING_BOOTSTRAP:
+    artifact: generated clean-room M10-003 bootstrap
+  IDENTITY_JURISDICTION:
+    artifact: Daybreak/South Jordan/Salt Lake identity binding
+  SOURCE_ADAPTER_READINESS:
+    artifact: governed UtahRealEstate and Salt Lake County profiles
+  CORPUS_ADMISSION_READINESS:
+    artifact: 12-property synthetic cold-start corpus
+  EVIDENCE_PASSPORT_READINESS:
+    artifact: synthetic evidence/passport readiness manifest
+  REPORT_MATERIALIZATION_READINESS:
+    artifact: synthetic Agent Seller Public materialization readiness
+  PRESENTATION_INTEGRITY_READINESS:
+    artifact: inherited presentation integrity readiness
+  CANDIDATE_FREEZE:
+    artifact: deterministic Daybreak cold-start candidate
+
+comparators:
+  pre_hardening_manual_remediation: 4
+  pre_hardening_total_work_items: 11
+  post_hardening_manual_remediation: 0
+  post_hardening_total_work_items: 11
+
+acceptance:
+  require_full_pipeline_pass: true
+  require_zero_prior_pilot_artifact_dependencies: true
+  require_zero_manual_remediation: true
+  require_zero_blocking_exceptions: true
+  require_deterministic_repeatability: true
