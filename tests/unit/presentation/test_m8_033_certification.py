@@ -19,22 +19,19 @@ def test_m8_033_manifest_is_frozen_and_exact():
     assert r.manifest["final_rules"]["allow_conditional_go"] is False
 
 
-def test_m8_033_executes_fail_closed_when_approved_visual_baseline_manifest_is_missing():
+def test_m8_033_clean_repaired_candidate_passes_every_gate():
     bundle = runner().run(verify_source_commit=False)
-    assert bundle.verdict == "FAIL / NO-GO"
-    by_layer = {item.key: item for item in bundle.layers}
-    assert by_layer["A"].passed is True
-    assert by_layer["B"].passed is True
-    assert by_layer["C"].passed is True
-    assert by_layer["D"].passed is True
-    assert by_layer["E"].passed is True
-    assert by_layer["F"].passed is True
-    assert by_layer["G"].passed is True
-    assert by_layer["H"].passed is True
-    assert by_layer["I"].passed is False
-    assert by_layer["J"].passed is False
-    assert any("approved controlled visual baseline manifest/provenance evidence is missing" in detail for detail in by_layer["I"].details)
+    assert bundle.verdict == "PASS / GO"
     assert bundle.waivers == ()
+    assert bundle.open_defects == ()
+    by_layer = {item.key: item for item in bundle.layers}
+    assert tuple(by_layer) == tuple("ABCDEFGHIJ")
+    assert all(item.passed for item in bundle.layers)
+    assert len(bundle.stage_gates) == 12
+    assert all(item.passed for item in bundle.stage_gates)
+    assert len(bundle.acceptance_criteria) == 12
+    assert all(item.passed for item in bundle.acceptance_criteria)
+    assert any("visual_baseline_fingerprint=" in detail for detail in by_layer["I"].details)
 
 
 def test_m8_033_evidence_is_deterministic_for_same_repository_state():
