@@ -373,21 +373,27 @@ class M8033CertificationRunner:
             problems.append("full-chain replay evidence hash drift")
 
         visual_root = self.root / self.manifest["visual_evidence"]["baseline_root"]
-        pngs = tuple(sorted(visual_root.rglob("*.png"))) if visual_root.exists() else ()
-        targets = set(self.manifest["visual_evidence"]["required_targets"])
-        found_targets = {
-            part
-            for path in pngs
-            for part in path.parts
-            if part in targets
-        }
-        if self.manifest["visual_evidence"].get("require_real_png_capture") is True:
-            missing = sorted(targets - found_targets)
-            if missing:
-                problems.append(
-                    "required real visual baseline captures are missing for targets: "
-                    + ", ".join(missing)
+        baseline_manifests = ()
+        if visual_root.exists():
+            baseline_manifests = tuple(
+                sorted(
+                    path
+                    for path in visual_root.rglob("*")
+                    if path.is_file()
+                    and path.suffix.lower() in {".yaml", ".yml", ".json"}
                 )
+            )
+        if not baseline_manifests:
+            problems.append(
+                "approved controlled visual baseline manifest/provenance evidence is missing"
+            )
+
+        visual_registry = VisualRegressionRegistry.load(
+            self.root / self.manifest["source_candidate"]["visual_registry"]
+        )
+        required_targets = set(self.manifest["visual_evidence"]["required_targets"])
+        if required_targets != set(visual_registry.targets):
+            problems.append("visual target coverage does not match the locked M8-031 registry")
 
         return EvidenceRecord(
             "I",
@@ -395,7 +401,8 @@ class M8033CertificationRunner:
             (
                 f"replay_hash_1={first}",
                 f"replay_hash_2={second}",
-                f"real_visual_png_count={len(pngs)}",
+                f"approved_visual_baseline_manifests={len(baseline_manifests)}",
+                f"visual_runtime_fingerprint={visual_registry.fingerprint}",
             )
             + tuple(problems),
         )
@@ -476,7 +483,13 @@ class M8033CertificationRunner:
         required_viewports = responsive.expected["render"].get("required_viewports") or []
         accessibility = fixture_set.by_id("SYNTH-ACCESSIBILITY-001")
         visual_root = self.root / self.manifest["visual_evidence"]["baseline_root"]
-        pngs = tuple(visual_root.rglob("*.png")) if visual_root.exists() else ()
+        baseline_manifests = ()
+        if visual_root.exists():
+            baseline_manifests = tuple(
+                path
+                for path in visual_root.rglob("*")
+                if path.is_file() and path.suffix.lower() in {".yaml", ".yml", ".json"}
+            )
 
         gate_values = {
             "A": passed.get("A", False),
@@ -490,7 +503,7 @@ class M8033CertificationRunner:
                 all((fixture.expected.get("render") or {}).get(name) is True for name in ("pdf", "print"))
                 for fixture in fixture_set.fixtures
             ),
-            "I": passed.get("I", False) and bool(pngs),
+            "I": passed.get("I", False) and bool(baseline_manifests),
             "J": passed.get("H", False) and passed.get("G", False),
             "K": passed.get("B", False) and passed.get("H", False),
             "L": all(passed.get(key, False) for key in tuple("ABCDEFGH")) and passed.get("I", False),
