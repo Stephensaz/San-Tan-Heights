@@ -1,0 +1,72 @@
+{
+  "evidence_id": "STH-M10-007-DAYBREAK-COLD-START-v1.0",
+  "ticket": "M10-007",
+  "status": "ACCEPTED",
+  "third_community": {
+    "community_id": "DAYBREAK_UT",
+    "display_name": "Daybreak",
+    "state": "UT",
+    "county": "Salt Lake",
+    "municipality": "South Jordan",
+    "real_community": true,
+    "synthetic_property_corpus_only": true,
+    "proprietary_mls_records_used": false,
+    "homeowner_personal_data_used": false
+  },
+  "parent_platform": {
+    "version": "0.1.118",
+    "immutable_evidence": "certification-evidence/m10-006/portability-hardening-acceptance-v1.0.json"
+  },
+  "source_boundaries": {
+    "community_authority": "South Jordan City GIS",
+    "listing_service": "UtahRealEstate.com / Wasatch Front Regional MLS",
+    "parcel_authority": "Salt Lake County Assessor",
+    "recorder_authority": "Salt Lake County Recorder"
+  },
+  "cold_start": {
+    "fresh_m10_003_bootstrap": true,
+    "m10_006_governed_profiles_created_from_scratch": 4,
+    "prior_pilot_artifact_dependencies": 0,
+    "m10_004_full_pipeline_pass": true,
+    "blocking_exceptions": 0
+  },
+  "measured_work": {
+    "total_work_items": 11,
+    "CORE_REUSABLE": 4,
+    "COMMUNITY_CONFIGURABLE": 3,
+    "COMMUNITY_SPECIFIC": 1,
+    "SOURCE_SPECIFIC": 3,
+    "reused_unchanged": 4,
+    "configured": 7,
+    "manual_remediation": 0
+  },
+  "comparison": {
+    "rancho_vistoso_pre_hardening": "4/11",
+    "rancho_vistoso_post_hardening": "0/11",
+    "daybreak_third_community_cold_start": "0/11"
+  },
+  "controls": {
+    "deterministic_bootstrap_fingerprint": true,
+    "deterministic_profile_fingerprints": true,
+    "deterministic_progressive_candidate_fingerprint": true,
+    "deterministic_repeatability_fingerprint": true,
+    "prior_pilot_dependency_rejection_tested": true,
+    "community_mismatch_rejection_tested": true,
+    "manual_remediation_rejection_tested": true,
+    "proprietary_mls_access_rejection_tested": true,
+    "publication_prohibited": true
+  },
+  "github_actions": {
+    "m10_evolution_ci": {
+      "run_number": 35,
+      "run_id": 35361790614,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "passed": 90,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
