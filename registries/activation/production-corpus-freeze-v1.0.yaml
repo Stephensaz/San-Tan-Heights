@@ -9,6 +9,13 @@ canonical_roster:
   original_library_version: "1"
   raw_size_bytes: 1078298
   raw_sha256: 1e8713f61378581651831d720a360974a58c1b072bbf326f47676e0d21b380a7
+execution_mirror:
+  role: HASH_PRESERVING_EXECUTION_MIRROR
+  library_file_id: libfile_1f4dc0329f688191be5899962232e3d1
+  path: /M9/San_Tan_Heights_Canonical_Property_Master_v1_0.csv
+  raw_size_bytes: 1078298
+  raw_sha256: 1e8713f61378581651831d720a360974a58c1b072bbf326f47676e0d21b380a7
+  authoritative: false
 membership:
   declared_total: 4956
   canonical_property_id_count: 4956
