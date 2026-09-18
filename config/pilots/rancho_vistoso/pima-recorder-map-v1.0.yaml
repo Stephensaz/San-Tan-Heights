@@ -1,0 +1,11 @@
+artifact_id: RANCHO-VISTOSO-PIMA-RECORDER-COMPATIBILITY-v1.0
+version: 1.0.0
+status: PILOT
+community_id: RANCHO_VISTOSO
+source_system: Pima County Recorder
+mapping_boundary:
+  recorded_document_authority: https://recorder.pima.gov/PublicSearch
+  document_index_mapping: SOURCE_SPECIFIC
+  historic_index_coverage_may_vary: true
+purpose: >
+  Record the Pima County recorded-document compatibility boundary for the portability pilot.

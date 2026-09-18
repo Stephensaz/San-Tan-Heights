@@ -1,0 +1,173 @@
+pilot_id: STH-M10-005-RANCHO-VISTOSO-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M10-005
+
+community:
+  community_id: RANCHO_VISTOSO
+  display_name: Rancho Vistoso
+  state: AZ
+  county: Pima
+  municipality: Oro Valley
+  property_id_prefix: RV-
+  community_type: master_planned
+  real_community: true
+
+parent_platform:
+  version: 0.1.116
+  immutable_evidence: certification-evidence/m10-004/progressive-build-pipeline-acceptance-v1.0.json
+
+source_systems:
+  listing_service: MLSSAZ
+  parcel_authority: Pima County Assessor
+  recorder_authority: Pima County Recorder
+
+source_provenance:
+  community_authority:
+    name: Town of Oro Valley
+    url: https://www.orovalleyaz.gov/files/assets/public/v/1/documents/community-and-economic-development/planning-division/planned-area-development/planned-area-dev-rancho-vistoso.pdf
+    supports:
+      - master_planned_community_identity
+      - oro_valley_jurisdiction
+  listing_service:
+    name: Multiple Listing Service of Southern Arizona
+    url: https://mlssaz.com/
+    supports:
+      - southern_arizona_listing_service_identity
+  parcel_authority:
+    name: Pima County Assessor
+    url: https://asr.pima.gov/V5/ParcelSearch
+    supports:
+      - pima_county_parcel_authority
+  recorder_authority:
+    name: Pima County Recorder
+    url: https://recorder.pima.gov/PublicSearch
+    supports:
+      - pima_county_recorded_document_authority
+
+pilot_data_policy:
+  real_community_identity: true
+  synthetic_property_corpus_only: true
+  proprietary_mls_records_used: false
+  homeowner_personal_data_used: false
+  publication_allowed: false
+
+onboarding_assumptions:
+  community_specific:
+    - Oro Valley municipal jurisdiction
+    - Rancho Vistoso PAD and neighborhood-plan taxonomy
+    - Rancho Vistoso community identity boundary
+  source_specific:
+    - MLSSAZ listing field map
+    - Pima County Assessor parcel identifier map
+    - Pima County Recorder document index map
+
+work_items:
+  - id: CORE-001
+    component_class: CORE_REUSABLE
+    description: M10-003 deterministic onboarding generator
+    action: REUSE_UNCHANGED
+    artifact: src/evolution/community_onboarding.py
+  - id: CORE-002
+    component_class: CORE_REUSABLE
+    description: M10-004 progressive certification pipeline
+    action: REUSE_UNCHANGED
+    artifact: src/evolution/progressive_build_pipeline.py
+  - id: CORE-003
+    component_class: CORE_REUSABLE
+    description: canonical SHA-256 fingerprinting behavior
+    action: REUSE_UNCHANGED
+    artifact: shared deterministic hashing pattern
+  - id: CORE-004
+    component_class: CORE_REUSABLE
+    description: fail-closed stage prerequisite behavior
+    action: REUSE_UNCHANGED
+    artifact: M10-004 stage governance
+  - id: CFG-001
+    component_class: COMMUNITY_CONFIGURABLE
+    description: community identity and display name
+    action: CONFIGURE
+    artifact: generated community bootstrap config
+  - id: CFG-002
+    component_class: COMMUNITY_CONFIGURABLE
+    description: state county municipality and property-id prefix
+    action: CONFIGURE
+    artifact: generated community bootstrap config
+  - id: CFG-003
+    component_class: COMMUNITY_CONFIGURABLE
+    description: parcel and recorder authority declarations
+    action: CONFIGURE
+    artifact: generated source authority config
+  - id: COM-001
+    component_class: COMMUNITY_SPECIFIC
+    description: Rancho Vistoso PAD and neighborhood-plan taxonomy boundary
+    action: REMEDIATE
+    artifact: config/pilots/rancho_vistoso/community-taxonomy-v1.0.yaml
+  - id: SRC-001
+    component_class: SOURCE_SPECIFIC
+    description: MLSSAZ listing field compatibility map
+    action: REMEDIATE
+    artifact: config/pilots/rancho_vistoso/mlssaz-field-map-v1.0.yaml
+  - id: SRC-002
+    component_class: SOURCE_SPECIFIC
+    description: Pima County Assessor parcel identifier compatibility map
+    action: REMEDIATE
+    artifact: config/pilots/rancho_vistoso/pima-assessor-map-v1.0.yaml
+  - id: SRC-003
+    component_class: SOURCE_SPECIFIC
+    description: Pima County Recorder document index compatibility map
+    action: REMEDIATE
+    artifact: config/pilots/rancho_vistoso/pima-recorder-map-v1.0.yaml
+
+remediation:
+  - id: REM-001
+    work_item_id: COM-001
+    status: RESOLVED
+    owner_component: COMMUNITY_CONFIGURABLE
+    resolution_artifact: config/pilots/rancho_vistoso/community-taxonomy-v1.0.yaml
+  - id: REM-002
+    work_item_id: SRC-001
+    status: RESOLVED
+    owner_component: SOURCE_SPECIFIC
+    resolution_artifact: config/pilots/rancho_vistoso/mlssaz-field-map-v1.0.yaml
+  - id: REM-003
+    work_item_id: SRC-002
+    status: RESOLVED
+    owner_component: SOURCE_SPECIFIC
+    resolution_artifact: config/pilots/rancho_vistoso/pima-assessor-map-v1.0.yaml
+  - id: REM-004
+    work_item_id: SRC-003
+    status: RESOLVED
+    owner_component: SOURCE_SPECIFIC
+    resolution_artifact: config/pilots/rancho_vistoso/pima-recorder-map-v1.0.yaml
+
+synthetic_corpus:
+  corpus_id: RANCHO_VISTOSO_SYNTHETIC_PORTABILITY_CORPUS-v1.0
+  property_count: 12
+  synthetic_only: true
+  identity_prefix: RV-SYNTH-
+
+stage_evidence:
+  ONBOARDING_BOOTSTRAP:
+    artifact: generated M10-003 bootstrap
+  IDENTITY_JURISDICTION:
+    artifact: Rancho Vistoso/Oro Valley/Pima identity binding
+  SOURCE_ADAPTER_READINESS:
+    artifact: MLSSAZ plus Pima source compatibility maps
+  CORPUS_ADMISSION_READINESS:
+    artifact: 12-property synthetic pilot corpus
+  EVIDENCE_PASSPORT_READINESS:
+    artifact: synthetic evidence/passport readiness manifest
+  REPORT_MATERIALIZATION_READINESS:
+    artifact: synthetic Agent Seller Public materialization readiness
+  PRESENTATION_INTEGRITY_READINESS:
+    artifact: inherited M8 presentation integrity readiness
+  CANDIDATE_FREEZE:
+    artifact: deterministic Rancho Vistoso portability candidate
+
+acceptance:
+  require_full_pipeline_pass: true
+  require_zero_unresolved_remediation: true
+  require_zero_blocking_exceptions: true
+  require_no_protected_default_leakage: true
+  require_deterministic_metrics: true

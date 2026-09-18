@@ -1,0 +1,13 @@
+artifact_id: RANCHO-VISTOSO-COMMUNITY-TAXONOMY-v1.0
+version: 1.0.0
+status: PILOT
+community_id: RANCHO_VISTOSO
+jurisdiction:
+  municipality: Oro Valley
+  county: Pima
+taxonomy:
+  governing_plan_type: Planned Area Development
+  neighborhood_plan_mapping_required: true
+purpose: >
+  Explicitly isolate Rancho Vistoso community-plan and neighborhood-plan assumptions
+  from reusable core platform semantics during the M10-005 portability pilot.

@@ -1,0 +1,16 @@
+artifact_id: RANCHO-VISTOSO-MLSSAZ-COMPATIBILITY-v1.0
+version: 1.0.0
+status: PILOT
+community_id: RANCHO_VISTOSO
+source_system: MLSSAZ
+data_access:
+  proprietary_records_used: false
+  live_credentials_required_for_pilot: false
+mapping_boundary:
+  listing_identifier: SOURCE_SPECIFIC
+  status_vocabulary: SOURCE_SPECIFIC
+  property_type_vocabulary: SOURCE_SPECIFIC
+  field_level_mapping_requires_future_authorized_source_access: true
+purpose: >
+  Record the source-specific compatibility boundary without fabricating or importing
+  proprietary MLSSAZ listing records during M10-005.
