@@ -1,0 +1,58 @@
+contract_id: STH-SELLER-INTELLIGENCE
+version: 1.0.0
+status: LOCKED
+milestone: M11
+name: Seller Intelligence
+depends_on:
+  - STH-MULTI-COMMUNITY-PLATFORM-EVOLUTION
+  - STH-PRODUCTION-POPULATION-ACTIVATION
+  - STH-PRESENTATION-CONSUMER-SYSTEM
+
+tickets:
+  - id: M11-001
+    name: Seller Opportunity Intelligence Layer
+  - id: M11-002
+    name: Property-Level Seller Strategy Engine
+  - id: M11-003
+    name: Seller Scenario & Strategy Sensitivity Engine
+  - id: M11-004
+    name: Seller Decision Timeline & Adaptive Monitoring Engine
+  - id: M11-005
+    name: Seller Intelligence Communication Translation Layer
+  - id: M11-006
+    name: Seller Intelligence Workspace & Case Management
+  - id: M11-007
+    name: Seller Intelligence Effectiveness & Outcome Learning Layer
+  - id: M11-008
+    name: Seller Intelligence Calibration & Version Promotion Framework
+  - id: M11-009
+    name: Seller Intelligence Production Certification & Operational Rollout
+  - id: M11-010
+    name: Milestone 11 Final Adjudication & Seller Intelligence Baseline Release
+
+hard_boundaries:
+  core_platform_modification_prohibited: true
+  certified_inputs_only: true
+  unsupported_seller_behavior_inference_prohibited: true
+  automatic_valuation_prohibited: true
+  automatic_list_price_recommendation_prohibited: true
+  sale_price_prediction_prohibited: true
+  guaranteed_outcomes_prohibited: true
+  protected_class_inference_prohibited: true
+  public_strategy_by_default_prohibited: true
+  autonomous_external_actions_prohibited: true
+  publication_side_effects_prohibited: true
+
+m11_001:
+  first_capability:
+    - Current Buyer Alternative Set
+    - Competitive Pressure
+  input_policy:
+    governed_findings_only: true
+    certified_community_baseline_required: true
+    stale_or_ineligible_inputs_suppressed: true
+  output_policy:
+    seller_opportunity_signals_only: true
+    explainable_lineage_required: true
+    deterministic_fingerprints_required: true
+    seller_tier_only_by_default: true
