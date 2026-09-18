@@ -5,7 +5,7 @@ status_values:
 - IN_PROGRESS
 - BLOCKED
 - ACCEPTED
-current_ticket: M11-008
+current_ticket: M11-009
 milestones:
 - id: M1
   name: Governed Lifecycle Kernel
@@ -40,4 +40,4 @@ milestones:
 - id: M11
   name: Seller Intelligence
   status: IN_PROGRESS
-version: 0.1.129
+version: 0.1.130
