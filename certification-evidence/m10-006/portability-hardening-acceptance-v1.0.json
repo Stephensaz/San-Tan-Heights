@@ -1,0 +1,71 @@
+{
+  "evidence_id": "STH-M10-006-PORTABILITY-HARDENING-v1.0",
+  "ticket": "M10-006",
+  "status": "ACCEPTED",
+  "parent": {
+    "m10_005_evidence": "certification-evidence/m10-005/rancho-vistoso-portability-acceptance-v1.0.json",
+    "prior_manual_remediation": 4,
+    "prior_total_work_items": 11,
+    "prior_remediation_fraction": "4/11"
+  },
+  "dispositions": {
+    "COM-001": {
+      "classification": "COMMUNITY_SPECIFIC",
+      "disposition": "GOVERNED_PROFILE_INPUT",
+      "post_action": "CONFIGURE"
+    },
+    "SRC-001": {
+      "classification": "SOURCE_SPECIFIC",
+      "disposition": "GOVERNED_PROFILE_INPUT",
+      "post_action": "CONFIGURE"
+    },
+    "SRC-002": {
+      "classification": "SOURCE_SPECIFIC",
+      "disposition": "GOVERNED_PROFILE_INPUT",
+      "post_action": "CONFIGURE"
+    },
+    "SRC-003": {
+      "classification": "SOURCE_SPECIFIC",
+      "disposition": "GOVERNED_PROFILE_INPUT",
+      "post_action": "CONFIGURE"
+    }
+  },
+  "hardening": {
+    "governed_profile_interface_added": true,
+    "community_taxonomy_profile_added": true,
+    "listing_source_profile_added": true,
+    "parcel_source_profile_added": true,
+    "recorder_source_profile_added": true,
+    "component_classification_changed": false,
+    "hidden_defaults_added": false,
+    "proprietary_mls_access_implied": false
+  },
+  "replay": {
+    "rancho_vistoso_status": "PASS",
+    "prior_manual_remediation": 4,
+    "post_manual_remediation": 0,
+    "manual_remediation_reduction": 4,
+    "prior_remediation_fraction": "4/11",
+    "post_remediation_fraction": "0/11",
+    "all_original_classifications_retained": true,
+    "full_m10_003_m10_004_replay": true
+  },
+  "baseline_controls": {
+    "san_tan_heights_accepted_baseline_guarded": true,
+    "baseline_mutation_tested": true,
+    "m10_005_evidence_not_mutated": true
+  },
+  "github_actions": {
+    "m10_evolution_ci": {
+      "run_number": 31,
+      "run_id": 35360644033,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "passed": 78,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
