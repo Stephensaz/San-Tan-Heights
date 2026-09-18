@@ -1,0 +1,51 @@
+incident_registry_id: STH-M12-007-INCIDENT-CONTAINMENT-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M12-007
+contract_id: STH-LISTING-EXECUTION
+parent_ticket: M12-006
+parent_evidence: certification-evidence/m12-006/execution-workspace-acceptance-v1.0.json
+
+incident_types:
+  - ADAPTER_DEGRADED
+  - ADAPTER_UNAVAILABLE
+  - OUTCOME_UNKNOWN
+  - OPEN_RECONCILIATION
+  - AUTHORITY_ANOMALY
+  - REPEATED_OUTCOME_UNKNOWN
+
+incident_states:
+  - OPEN
+  - CONTAINED
+  - RECOVERY_PENDING
+  - CLOSED
+
+hold_scopes:
+  - ACTION
+  - LISTING
+  - ADAPTER
+
+release_decisions:
+  - RELEASE
+  - KEEP_HOLD
+
+governance:
+  deterministic_detection_required: true
+  immutable_incident_history_required: true
+  containment_fails_closed: true
+  active_hold_blocks_governed_execution: true
+  human_release_required: true
+  fresh_prerequisite_revalidation_required: true
+  fresh_authority_revalidation_required: true
+  outcome_unknown_requires_independent_reconciliation: true
+  silent_hold_clear_prohibited: true
+  automatic_retry_prohibited: true
+  corrective_execution_prohibited: true
+  seller_approval_inference_prohibited: true
+  price_or_terms_determination_prohibited: true
+  policy_mutation_prohibited: true
+  publication_side_effects_prohibited: true
+  scheduling_side_effects_prohibited: true
+  queueing_side_effects_prohibited: true
+  transmission_side_effects_prohibited: true
+  deterministic_output_required: true
