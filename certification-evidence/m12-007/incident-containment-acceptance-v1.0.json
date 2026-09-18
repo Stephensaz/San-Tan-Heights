@@ -1,0 +1,48 @@
+{
+  "evidence_id": "STH-M12-007-INCIDENT-CONTAINMENT-v1.0",
+  "ticket": "M12-007",
+  "status": "ACCEPTED",
+  "parent": {
+    "ticket": "M12-006",
+    "evidence": "certification-evidence/m12-006/execution-workspace-acceptance-v1.0.json"
+  },
+  "capabilities": {
+    "deterministic_incident_detection": true,
+    "immutable_incident_records": true,
+    "action_listing_adapter_holds": true,
+    "blast_radius_visibility": true,
+    "governed_execution_hold_enforcement": true,
+    "explicit_human_hold_release": true,
+    "fresh_prerequisite_revalidation": true,
+    "fresh_authority_revalidation": true,
+    "outcome_unknown_independent_reconciliation_required": true,
+    "immutable_recovery_evidence": true
+  },
+  "controls": {
+    "held_work_cannot_execute_through_governed_path": true,
+    "silent_hold_clear_prohibited": true,
+    "automatic_retry_prohibited": true,
+    "outcome_unknown_silent_resolution_prohibited": true,
+    "approval_bypass_prohibited": true,
+    "authority_bypass_prohibited": true,
+    "corrective_execution_autonomy_prohibited": true,
+    "seller_approval_inference_prohibited": true,
+    "price_or_terms_determination_prohibited": true,
+    "policy_mutation_prohibited": true,
+    "publication_scheduling_queue_transmission_prohibited": true,
+    "deterministic_output": true
+  },
+  "github_actions": {
+    "m12_listing_execution_ci": {
+      "run_number": 25,
+      "run_id": 35380250688,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "passed": 114,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
