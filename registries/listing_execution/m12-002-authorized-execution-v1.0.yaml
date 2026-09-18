@@ -1,0 +1,69 @@
+execution_registry_id: STH-M12-002-AUTHORIZED-EXECUTION-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M12-002
+contract_id: STH-LISTING-EXECUTION
+parent_ticket: M12-001
+parent_evidence: certification-evidence/m12-001/action-proposal-acceptance-v1.0.json
+
+approval:
+  allowed_decisions:
+    - APPROVED
+    - REJECTED
+  required_for_authorization: APPROVED
+  exact_proposal_binding_required: true
+
+authority:
+  required_status: VALID
+  exact_listing_scope_required: true
+  exact_action_scope_required: true
+  revalidation_required_immediately_before_execution: true
+  expired_authority_prohibited: true
+
+execution:
+  authorized_state: AUTHORIZED
+  ready_state: READY_FOR_EXECUTION
+  deterministic_idempotency_required: true
+  duplicate_reexecution_prohibited: true
+  outcome_unknown_retry_prohibited: true
+  adapter_success_requires_external_receipt_id: true
+  allowed_adapter_outcomes:
+    - SUCCEEDED
+    - FAILED
+    - OUTCOME_UNKNOWN
+  receipt_outcomes:
+    - SUCCEEDED
+    - FAILED
+    - OUTCOME_UNKNOWN
+    - DUPLICATE_SUPPRESSED
+    - BLOCKED_OUTCOME_UNKNOWN
+
+governance:
+  m12_001_proposal_required: true
+  proposal_must_remain_proposed: true
+  proposal_public_eligible_must_be_false: true
+  proposal_external_action_capability_must_be_none: true
+  human_approval_cannot_be_inferred: true
+  authority_independent_from_approval: true
+  stale_or_superseded_proposal_prohibited: true
+  exact_approval_binding_required: true
+  exact_authority_scope_required: true
+  authority_revalidation_required: true
+  missing_external_receipt_cannot_be_success: true
+  adapter_exception_becomes_outcome_unknown: true
+  duplicate_side_effect_suppressed: true
+  silent_retry_prohibited: true
+  price_or_terms_payload_prohibited: true
+  seller_approval_inference_prohibited: true
+  policy_auto_promotion_prohibited: true
+  immutable_receipt_required: true
+  deterministic_output_required: true
+
+prohibited_request_fields:
+  - list_price
+  - price_change
+  - listing_terms
+  - seller_message
+  - seller_approval
+  - publish_without_authorization
+  - policy_promotion
