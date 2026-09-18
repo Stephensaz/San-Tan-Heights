@@ -23,6 +23,19 @@ from .historical_population import HistoricalPopulationAudit, audit_historical_p
 from .current_market_builder import CurrentContextAudit, audit_current_context
 from .evidence_passport_materialization import EvidenceMaterializationAudit, validate_materialization
 from .report_materialization import ReportMaterializationAudit, validate_report_materialization
+from .controlled_publication import (
+    FrozenPublicationCohort,
+    PublicationBatchResult,
+    PublicationMutation,
+    PublicationPointer,
+    PublicationVariant,
+    apply_pointer_batch,
+    build_publication_batch,
+    freeze_publication_cohort,
+    load_publication_policy,
+    rollback_pointer_batch,
+    validate_m9_010_repository_binding,
+)
 from .full_corpus_qa import (
     FullCorpusQAAudit,
     audit_full_corpus_qa,
@@ -77,4 +90,15 @@ __all__ = [
     "audit_full_corpus_qa",
     "load_full_corpus_inputs",
     "run_repository_full_corpus_qa",
+    "FrozenPublicationCohort",
+    "PublicationBatchResult",
+    "PublicationMutation",
+    "PublicationPointer",
+    "PublicationVariant",
+    "apply_pointer_batch",
+    "build_publication_batch",
+    "freeze_publication_cohort",
+    "load_publication_policy",
+    "rollback_pointer_batch",
+    "validate_m9_010_repository_binding",
 ]
