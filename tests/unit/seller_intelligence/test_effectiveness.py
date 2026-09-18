@@ -18,7 +18,7 @@ E="registries/seller_intelligence/m11-007-effectiveness-learning-v1.0.yaml"
 FP1="a"*64; FP2="b"*64; FP3="c"*64; FP4="d"*64; FP5="e"*64; FP6="f"*64
 
 
-def case(with_decision=True):
+def case_bundle(with_decision=True):
     opp=build_seller_opportunity(
         subject_property_id="SUBJECT-1",
         alternatives=[
@@ -63,13 +63,18 @@ def case(with_decision=True):
             decision_id="D-1",review_item_id=item_id,decision_type="ACKNOWLEDGE_REVIEW",
             actor_id="USER-1",decided_at="2026-09-08T10:00:00-07:00",rationale="Reviewed",registry=load_workspace_registry(W),
         )]
-    return build_seller_intelligence_case(
+    built=build_seller_intelligence_case(
         case_id="CASE-1",opportunity=opp,strategy=strat,scenario=scen,timeline=timeline,communication=comm,
         m11_001_certified=True,m11_002_certified=True,m11_003_certified=True,m11_004_certified=True,m11_005_certified=True,
         m11_001_evidence_fingerprint=FP1,m11_002_evidence_fingerprint=FP2,m11_003_evidence_fingerprint=FP3,
         m11_004_evidence_fingerprint=FP4,m11_005_evidence_fingerprint=FP5,
         human_decisions=decisions,registry=load_workspace_registry(W),
     )
+    return built,timeline
+
+
+def case(with_decision=True):
+    return case_bundle(with_decision)[0]
 
 
 def reg(): return load_effectiveness_registry(E)
@@ -82,9 +87,15 @@ def outcome(i,state="IMPROVED",kind="MARKET_RESPONSE",ts="2026-09-15T09:00:00-07
     )
 
 
-def evaluate(rows, *, c=None, certified=True):
+def evaluate(rows, *, c=None, certified=True, timeline=None):
+    if c is None:
+        c,timeline=case_bundle()
+    elif timeline is None:
+        _,timeline=case_bundle()
     return evaluate_effectiveness(
-        case=c or case(),m11_006_certified=certified,m11_006_evidence_fingerprint=FP6,
+        case=c,timeline=timeline,
+        m11_004_certified=True,m11_004_evidence_fingerprint=FP4,
+        m11_006_certified=certified,m11_006_evidence_fingerprint=FP6,
         outcomes=rows,registry=reg(),
     )
 
@@ -181,3 +192,22 @@ def test_learning_output_is_internal_nonpublic_no_action():
     assert result.output_tier=="INTERNAL"
     assert result.public_eligible is False
     assert result.external_action_capability=="NONE"
+
+
+def test_review_event_after_outcome_is_not_treated_as_preceding():
+    c,timeline=case_bundle()
+    early=outcome(9,ts="2026-09-05T09:00:00-07:00")
+    result=evaluate([early],c=c,timeline=timeline)
+    assert any(x.association_type=="NO_PRIOR_REVIEW_EVENT" for x in result.associations)
+    assert not any(x.association_type=="PRECEDED_BY_REVIEW_EVENT" for x in result.associations)
+
+
+def test_uncertified_timeline_fails_closed():
+    c,timeline=case_bundle()
+    with pytest.raises(ValueError,match="certified M11-004 timeline required"):
+        evaluate_effectiveness(
+            case=c,timeline=timeline,
+            m11_004_certified=False,m11_004_evidence_fingerprint=FP4,
+            m11_006_certified=True,m11_006_evidence_fingerprint=FP6,
+            outcomes=[outcome(1)],registry=reg(),
+        )
