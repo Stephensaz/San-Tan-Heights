@@ -19,7 +19,7 @@ def test_m8_033_manifest_is_frozen_and_exact():
     assert r.manifest["final_rules"]["allow_conditional_go"] is False
 
 
-def test_m8_033_executes_fail_closed_when_required_visual_evidence_is_missing():
+def test_m8_033_executes_fail_closed_when_approved_visual_baseline_manifest_is_missing():
     bundle = runner().run(verify_source_commit=False)
     assert bundle.verdict == "FAIL / NO-GO"
     by_layer = {item.key: item for item in bundle.layers}
@@ -33,7 +33,7 @@ def test_m8_033_executes_fail_closed_when_required_visual_evidence_is_missing():
     assert by_layer["H"].passed is True
     assert by_layer["I"].passed is False
     assert by_layer["J"].passed is False
-    assert any("real visual baseline captures are missing" in detail for detail in by_layer["I"].details)
+    assert any("approved controlled visual baseline manifest/provenance evidence is missing" in detail for detail in by_layer["I"].details)
     assert bundle.waivers == ()
 
 
