@@ -20,6 +20,7 @@ from .identity_phase_spatial_binding import (
     validate_binding_against_registry,
 )
 from .historical_population import HistoricalPopulationAudit, audit_historical_population
+from .current_market_builder import CurrentContextAudit, audit_current_context
 
 __all__ = [
     "AdmissionState",
@@ -40,4 +41,6 @@ __all__ = [
     "validate_binding_against_registry",
     "HistoricalPopulationAudit",
     "audit_historical_population",
+    "CurrentContextAudit",
+    "audit_current_context",
 ]

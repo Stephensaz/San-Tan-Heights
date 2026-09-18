@@ -1,0 +1,55 @@
+{
+  "evidence_id": "STH-M9-005-CURRENT-MARKET-BUILDER-v1.0",
+  "status": "PASS",
+  "evaluation_date": "2026-09-17",
+  "snapshot_date": "2026-09-14",
+  "snapshot_age_days": 3,
+  "freshness_state": "CURRENT",
+  "sources": {
+    "current_snapshot_sha256": "b70701fc99e8ff7243b625340f11737d07c74a9c0a3c7d53f9fd5f52e8a1df98",
+    "active_resale_sha256": "c06d9c42328febafc6e410df086bec522af67fbcf11cdb616caa4e99e1cf5e80",
+    "builder_alternatives_sha256": "1c1e96f3e70cd01c192507883c635feb7fa93ae53c2bad8145d62abccf046cbd",
+    "overlay_audit_sha256": "2acabef14f3754c4f19263ec4c7f6f42c80ed787b89ddabd29735c5e1b1e1c46"
+  },
+  "artifacts": {
+    "property_context_sha256": "18b764be9fad8b81d17e709f308f7562180417771c83a6bf6d7747f1e58e22ec",
+    "builder_context_sha256": "d8bef30fc7936621e1f6658fa1057181fb11a4c38bb805f30036cdb35e7165b1"
+  },
+  "property_population": {
+    "corpus_members": 4956,
+    "available": 4955,
+    "unavailable": 1,
+    "unavailable_property_id": "STH-516018120",
+    "unavailable_reason": "UPSTREAM_SPATIAL_FRONTAGE_UNRESOLVED"
+  },
+  "current_market": {
+    "source_rows_before_filters": 58,
+    "eligible_resale_rows": 55,
+    "unique_mls_numbers": 55,
+    "current_available_property_universe_count": 53,
+    "marketed_under_contract_property_universe_count": 5,
+    "anomaly_review_rows": 1
+  },
+  "builder_context": {
+    "alternatives": 6,
+    "direct_in_community": 1,
+    "nearby": 5,
+    "expired_by_explicit_source_date": 1,
+    "expired_context_id": "BC-006",
+    "offers_without_explicit_end_date": 5
+  },
+  "historical_layer_modified": false,
+  "pricing_conclusions_created": false,
+  "value_opinions_created": false,
+  "defects": [],
+  "waivers": [],
+  "acceptance_evidence": {
+    "m9_activation_ci_run": 27,
+    "m9_boundary_validation_run": 28,
+    "m8_presentation_ci_run": 83,
+    "m8_presentation_certification_run": 86,
+    "m8_final_certification_run": 36,
+    "defects": 0,
+    "waivers": 0
+  }
+}
