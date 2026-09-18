@@ -62,27 +62,34 @@ jobs:
 
           build = yaml.safe_load(Path("BUILD-MANIFEST.yaml").read_text())
           current_ticket = build["current_ticket"]
-          assert isinstance(current_ticket, str) and current_ticket.startswith("M9-"), (
-              f"current ticket must remain inside the frozen M9 sequence: {current_ticket}"
-          )
-          ticket_doc = Path("docs/implementation") / f"{current_ticket}.md"
-          assert ticket_doc.exists(), f"missing current M9 ticket document: {ticket_doc}"
+          assert isinstance(current_ticket, str), "current_ticket must be a string"
           m9 = [item for item in build["milestones"] if item["id"] == "M9"]
           assert len(m9) == 1
           m9_status = m9[0]["status"]
           assert m9_status in {"IN_PROGRESS", "ACCEPTED"}, f"invalid M9 status: {m9_status}"
 
           if m9_status == "IN_PROGRESS":
+              assert current_ticket.startswith("M9-"), (
+                  f"current ticket must remain inside M9 while M9 is in progress: {current_ticket}"
+              )
+              ticket_doc = Path("docs/implementation") / f"{current_ticket}.md"
+              assert ticket_doc.exists(), f"missing current M9 ticket document: {ticket_doc}"
               print(f"PASS: M9 architecture boundary is internally consistent at {current_ticket}")
           else:
-              assert current_ticket == "M9-012", "M9 may be ACCEPTED only at final certification"
+              final_doc = Path("docs/implementation/M9-012.md")
               final_path = Path("certification-evidence/m9-012/final-production-activation-v1.0.json")
+              assert final_doc.exists(), "accepted M9 requires M9-012 implementation record"
               assert final_path.exists(), "M9 ACCEPTED requires final M9-012 certification evidence"
               final = json.loads(final_path.read_text())
               assert final["status"] == "PASS", "M9 ACCEPTED requires certification status PASS"
               assert final["verdict"] == "PASS / GO", "M9 ACCEPTED requires PASS / GO"
               assert final["open_defects"] == 0, "M9 ACCEPTED requires zero open defects"
               assert final["waivers"] == 0, "M9 ACCEPTED requires zero waivers"
-              assert "Status: ACCEPTED" in ticket_doc.read_text(), "M9-012 document must be ACCEPTED"
-              print("PASS: M9 final architecture boundary is ACCEPTED with certified PASS / GO evidence")
+              assert "Status: ACCEPTED" in final_doc.read_text(), "M9-012 document must be ACCEPTED"
+              if current_ticket.startswith("M9-"):
+                  assert current_ticket == "M9-012", "accepted M9 may only point to M9-012"
+              else:
+                  current_doc = Path("docs/implementation") / f"{current_ticket}.md"
+                  assert current_doc.exists(), f"missing downstream current ticket document: {current_doc}"
+              print(f"PASS: M9 remains frozen/accepted while current work is {current_ticket}")
           PY
