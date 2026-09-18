@@ -1,0 +1,94 @@
+contract_id: STH-COMMUNITY-DELTA
+version: 1.0.0
+status: LOCKED
+milestone: M13
+ticket: M13-002
+name: Temporal Change Detection & Community Delta Engine
+
+depends_on:
+  - STH-COMMUNITY-TEMPORAL-STATE
+
+purpose:
+  certified_snapshot_comparison_only: true
+  factual_change_detection_required: true
+  field_level_before_after_required: true
+  temporal_semantics_required: true
+  evidence_lineage_required: true
+  deterministic_materiality_required: true
+  immutable_delta_required: true
+  potential_staleness_edges_allowed: true
+
+required_inputs:
+  before_snapshot_certified: true
+  after_snapshot_certified: true
+  before_snapshot_comparison_eligible: true
+  after_snapshot_comparison_eligible: true
+  same_community_required: true
+  chronological_observation_required: true
+  exact_snapshot_hashes_required: true
+  frozen_materiality_rules_required: true
+
+change_classifications:
+  - UNCHANGED
+  - ADDED
+  - REMOVED
+  - MODIFIED
+  - BECAME_KNOWN
+  - BECAME_UNKNOWN
+  - CONFLICT_INTRODUCED
+  - CONFLICT_RESOLVED
+  - SUPPRESSED
+  - REACTIVATED
+  - NOT_COMPARABLE
+
+change_causes:
+  - REAL_WORLD_CHANGE
+  - NEWLY_OBSERVED_FACT
+  - SOURCE_CORRECTION
+  - PLATFORM_CORRECTION
+  - CLASSIFICATION_CHANGE
+  - ENGINE_CHANGE
+  - UNKNOWN
+
+causation_basis:
+  - DATA_DRIVEN
+  - RULE_DRIVEN
+  - ENGINE_DRIVEN
+  - MIXED
+  - UNKNOWN_CAUSE
+
+materiality_levels:
+  - INFORMATIONAL
+  - LOW
+  - MODERATE
+  - HIGH
+  - CRITICAL
+
+temporal_fields:
+  - first_observed_at
+  - effective_at
+  - recorded_at
+  - detected_at
+
+hard_boundaries:
+  live_state_substitution_prohibited: true
+  unsupported_causation_prohibited: true
+  upstream_reconciliation_prohibited: true
+  snapshot_mutation_prohibited: true
+  delta_mutation_prohibited: true
+  downstream_recalculation_prohibited: true
+  selective_refresh_prohibited: true
+  impact_execution_prohibited: true
+  seller_recommendations_prohibited: true
+  listing_actions_prohibited: true
+  publication_prohibited: true
+  m12_execution_mutation_prohibited: true
+  inferred_effective_dates_prohibited: true
+  unknown_effective_dates_must_remain_unknown: true
+  protected_field_propagation_prohibited: true
+
+m13_003_boundary:
+  impact_edges_are_descriptive_only: true
+  potentially_stale_is_not_invalidation: true
+  no_refresh_job_creation: true
+  no_recalculation: true
