@@ -107,11 +107,10 @@ def evaluate_exception(record: dict, policy: dict) -> ExceptionDecision:
     if record["exception_class"] in policy["non_defect_condition_classes"]:
         is_defect = False
 
+    publication_allowed = bool(class_policy["publication_allowed"])
     waiver_requested = bool(record.get("waiver_requested", False))
-    if waiver_requested and quarantine_required:
+    if waiver_requested and not publication_allowed:
         publication_allowed = False
-    else:
-        publication_allowed = not quarantine_required
 
     if record["repair_state"] in {"QUARANTINED", "REPAIR_PENDING", "REPAIRED_PENDING_REPLAY"}:
         publication_allowed = False
@@ -197,7 +196,7 @@ def validate_exception_accounting(previous_records: Iterable[dict], current_reco
     for exception_id in missing:
         prior = previous[exception_id]
         replacement = [r for r in current.values() if r.get("supersedes_exception_id") == exception_id]
-        if not replacement and prior.get("repair_state") != "CLOSED":
+        if not replacement:
             raise ValueError(f"exception silently disappeared: {exception_id}")
 
 
