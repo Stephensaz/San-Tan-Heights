@@ -1,0 +1,51 @@
+seller_opportunity_registry_id: STH-M11-001-SELLER-OPPORTUNITY-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M11-001
+contract_id: STH-SELLER-INTELLIGENCE
+
+required_input_state:
+  baseline_certified: true
+  qa_status: PASS
+  output_tier: SELLER
+  freshness_state: CURRENT
+
+alternative_types:
+  - CLOSE_SUBSTITUTE
+  - STRICT_SUBSTITUTE
+  - BUILDER_ALTERNATIVE
+
+competitive_pressure:
+  levels:
+    - LOW
+    - MODERATE
+    - HIGH
+  rules:
+    HIGH:
+      min_available_alternatives: 5
+      min_builder_alternatives: 2
+    MODERATE:
+      min_available_alternatives: 2
+      min_builder_alternatives: 1
+    LOW:
+      min_available_alternatives: 0
+      min_builder_alternatives: 0
+  precedence:
+    - HIGH
+    - MODERATE
+    - LOW
+
+governance:
+  stale_inputs_suppressed: true
+  non_seller_tier_inputs_suppressed: true
+  qa_failed_inputs_suppressed: true
+  uncertified_baseline_inputs_rejected: true
+  price_recommendation_prohibited: true
+  value_opinion_prohibited: true
+  sale_price_prediction_prohibited: true
+  seller_behavior_inference_prohibited: true
+  protected_class_inference_prohibited: true
+  public_output_prohibited: true
+  external_side_effects_prohibited: true
+  deterministic_output_required: true
+  lineage_required: true
