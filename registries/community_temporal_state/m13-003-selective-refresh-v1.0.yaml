@@ -1,0 +1,76 @@
+refresh_registry_id: STH-M13-003-SELECTIVE-REFRESH-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-003
+contract_id: STH-TEMPORAL-IMPACT-REFRESH
+
+m13_002:
+  accepted_evidence: certification-evidence/m13-002/community-delta-acceptance-v1.0.json
+
+policy:
+  version: SELECTIVE-REFRESH-v1.0
+  dispositions:
+    - NO_IMPACT
+    - REVALIDATE_ONLY
+    - REFRESH_REQUIRED
+    - SUPPRESS
+    - UNSUPPRESS
+    - BLOCKED
+    - UNKNOWN_IMPACT
+  required_delta_certification_state: CERTIFIED
+  required_artifact_certification_state: CERTIFIED
+
+dependency_rules:
+  IDENTITY:
+    default_disposition: REFRESH_REQUIRED
+  PHASE:
+    default_disposition: REFRESH_REQUIRED
+  LOCATION_DNA:
+    default_disposition: REFRESH_REQUIRED
+  INTELLIGENCE:
+    default_disposition: REVALIDATE_ONLY
+  SOURCE:
+    default_disposition: REFRESH_REQUIRED
+  POLICY:
+    default_disposition: REVALIDATE_ONLY
+  RUNTIME:
+    default_disposition: REFRESH_REQUIRED
+  PROPERTY:
+    default_disposition: REFRESH_REQUIRED
+  COMMUNITY:
+    default_disposition: REVALIDATE_ONLY
+  GOVERNANCE:
+    classification_dispositions:
+      CONFLICT_INTRODUCED: BLOCKED
+      CONFLICT_RESOLVED: REVALIDATE_ONLY
+      SUPPRESSED: SUPPRESS
+      REACTIVATED: UNSUPPRESS
+      MODIFIED: REVALIDATE_ONLY
+      UNCHANGED: NO_IMPACT
+
+scope:
+  property_change_matches_same_property_only: true
+  community_or_manifest_change_matches_dependency_domain: true
+  unmatched_dependency_is_no_impact: true
+  blanket_refresh_prohibited: true
+
+execution:
+  isolated_staging_required: true
+  all_refreshes_stage_before_promotion: true
+  atomic_promotion_required: true
+  failed_stage_discards_all_staged_results: true
+  prior_certified_state_remains_active_on_failure: true
+  refresh_callback_must_be_deterministic: true
+  refresh_callback_must_return_fingerprint: true
+
+governance:
+  no_live_state_queries: true
+  no_dependency_invention: true
+  no_implicit_refresh: true
+  no_unaffected_mutation: true
+  no_partial_promotion: true
+  no_recommendations: true
+  no_listing_actions: true
+  no_publication: true
+  no_m12_execution_mutation: true
+  no_protected_fields: true
