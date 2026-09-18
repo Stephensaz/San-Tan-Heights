@@ -1,0 +1,106 @@
+name: M13-005 Evolution Patterns CI
+
+on:
+  pull_request:
+    paths:
+      - 'contracts/community_temporal_state/**'
+      - 'registries/community_temporal_state/**'
+      - 'src/community_temporal_state/**'
+      - 'tests/unit/community_temporal_state/**'
+      - 'docs/implementation/M13-005.md'
+      - 'certification-evidence/m13-004/**'
+      - 'certification-evidence/m13-005/**'
+      - 'CONTRACT-MANIFEST.yaml'
+      - 'BUILD-MANIFEST.yaml'
+      - '.github/workflows/m13-005-evolution-patterns-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  m13-005:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pytest pyyaml
+      - name: Validate M13-005 frozen boundary and predecessor
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          import yaml
+
+          manifest=yaml.safe_load(Path("CONTRACT-MANIFEST.yaml").read_text())
+          rows=[x for x in manifest["contracts"] if x["id"]=="STH-COMMUNITY-EVOLUTION-PATTERNS"]
+          assert len(rows)==1
+          row=rows[0]
+          path=Path(row["path"])
+          assert path.exists()
+          assert hashlib.sha256(path.read_bytes()).hexdigest()==row["sha256"]
+          contract=yaml.safe_load(path.read_text())
+          assert contract["status"]=="LOCKED"
+          assert contract["ticket"]=="M13-005"
+          assert len(contract["subsequence"])==12
+          assert contract["subsequence"][0]=="M13-005A_GOVERNANCE_AND_PATTERN_TAXONOMY"
+          assert contract["subsequence"][-1]=="M13-005L_FULL_CERTIFICATION_AND_ADJUDICATION"
+
+          pred=json.loads(Path("certification-evidence/m13-004/temporal-history-acceptance-v1.0.json").read_text())
+          assert pred["ticket"]=="M13-004"
+          assert pred["status"]=="ACCEPTED"
+          assert pred["waivers"]==0
+          assert pred["open_defects"]==0
+
+          build=yaml.safe_load(Path("BUILD-MANIFEST.yaml").read_text())
+          assert build["current_ticket"]=="M13-005"
+          states={x["id"]:x["status"] for x in build["milestones"]}
+          assert states["M12"]=="ACCEPTED"
+          assert states["M13"]=="IN_PROGRESS"
+
+          for key in (
+              "prediction_prohibited",
+              "avm_prohibited",
+              "autonomous_seller_decisions_prohibited",
+              "recommendations_prohibited",
+              "ranking_or_winner_selection_prohibited",
+              "hidden_utility_score_prohibited",
+              "future_outcome_claims_prohibited",
+              "causal_claim_without_governed_basis_prohibited",
+              "cherry_picking_prohibited",
+              "post_hoc_population_redefinition_prohibited",
+              "discovery_validation_leakage_prohibited",
+              "validation_holdout_reuse_prohibited",
+              "negative_result_suppression_prohibited",
+              "failed_replication_suppression_prohibited",
+              "unsupported_pattern_promotion_prohibited",
+              "stale_history_use_prohibited",
+              "lineage_bypass_prohibited",
+              "temporal_history_mutation_prohibited",
+              "m12_execution_mutation_prohibited",
+              "publication_prohibited",
+          ):
+              assert contract["hard_boundaries"][key] is True
+
+          evidence_path=Path("certification-evidence/m13-005/evolution-patterns-acceptance-v1.0.json")
+          if evidence_path.exists():
+              evidence=json.loads(evidence_path.read_text())
+              assert evidence["ticket"]=="M13-005"
+              assert evidence["status"]=="ACCEPTED"
+              assert evidence["parent"]["ticket"]=="M13-004"
+              assert evidence["community_evolution_patterns_contract_sha256"]==row["sha256"]
+              assert evidence["tests"]["failed"]==0
+              assert evidence["waivers"]==0
+              assert evidence["open_defects"]==0
+              assert all(x["conclusion"]=="success" for x in evidence["github_actions"].values())
+          print("PASS: M13-005 frozen evolution-pattern boundary and accepted M13-004 predecessor are pinned")
+          PY
+      - name: Run M13 temporal-state tests
+        run: pytest -q tests/unit/community_temporal_state
+      - name: Run inherited M12 regression
+        run: pytest -q tests/unit/listing_execution
+      - name: Validate repository structure
+        run: python scripts_validate_repo.py
