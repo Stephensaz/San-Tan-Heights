@@ -1,0 +1,33 @@
+golden_fixture_manifest_id: STH-M8-032-GOLDEN-MANIFEST-v1.0
+version: 1.0.0
+status: LOCKED
+synthetic_only: true
+schema: schemas/presentation/golden-fixture-v1.0.schema.json
+truth_set: tests/fixtures/presentation/golden/fixtures.json
+expected_set: tests/fixtures/presentation/golden/expected.json
+coverage_matrix: tests/fixtures/presentation/golden/coverage-matrix.yaml
+privacy_rules:
+  prohibited_keys:
+    - owner_name
+    - owner_email
+    - owner_phone
+    - apn
+    - parcel_number
+    - mls_number
+    - listing_id
+    - private_note
+    - client_name
+  prohibited_value_patterns:
+    - "@"
+    - "ARMLS"
+    - "APN"
+    - "MLS#"
+certification_requirements:
+  require_independent_expected_outcomes: true
+  require_all_audiences: true
+  require_all_categories: true
+  require_all_surfaces: true
+  require_deterministic_fingerprints: true
+  require_privacy_scan_pass: true
+  prohibit_live_data_access: true
+  prohibit_real_property_identity: true
