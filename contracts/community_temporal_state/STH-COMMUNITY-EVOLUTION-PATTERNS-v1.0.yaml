@@ -1,0 +1,70 @@
+contract_id: STH-COMMUNITY-EVOLUTION-PATTERNS
+version: 1.0.0
+status: LOCKED
+milestone: M13
+ticket: M13-005
+name: Community Evolution Intelligence & Governed Pattern Discovery
+
+depends_on:
+  - STH-COMMUNITY-TEMPORAL-HISTORY
+  - STH-TEMPORAL-IMPACT-REFRESH
+
+purpose:
+  governed_historical_pattern_discovery_required: true
+  explicit_population_definition_required: true
+  regime_awareness_required: true
+  confounding_controls_required: true
+  validation_and_replication_required: true
+  negative_result_preservation_required: true
+  promotion_governance_required: true
+  deterministic_replay_required: true
+  lineage_to_temporal_history_required: true
+
+subsequence:
+  - M13-005A_GOVERNANCE_AND_PATTERN_TAXONOMY
+  - M13-005B_ANALYTICAL_POPULATIONS
+  - M13-005C_PATTERN_DISCOVERY
+  - M13-005D_MARKET_REGIME_SEGMENTATION
+  - M13-005E_CONTROLS_AND_CONFOUNDING
+  - M13-005F_VALIDATION_AND_REPLICATION
+  - M13-005G_BUYER_DEPTH_AND_SCARCITY_PATTERNS
+  - M13-005H_PRICING_BEHAVIOR_PATTERNS
+  - M13-005I_NEW_CONSTRUCTION_COMPETITION_PATTERNS
+  - M13-005J_PROMOTION_AND_PRODUCTION_ELIGIBILITY
+  - M13-005K_ANALYTICAL_WORKSPACE
+  - M13-005L_FULL_CERTIFICATION_AND_ADJUDICATION
+
+hard_boundaries:
+  prediction_prohibited: true
+  avm_prohibited: true
+  autonomous_seller_decisions_prohibited: true
+  recommendations_prohibited: true
+  ranking_or_winner_selection_prohibited: true
+  hidden_utility_score_prohibited: true
+  future_outcome_claims_prohibited: true
+  causal_claim_without_governed_basis_prohibited: true
+  cherry_picking_prohibited: true
+  post_hoc_population_redefinition_prohibited: true
+  discovery_validation_leakage_prohibited: true
+  validation_holdout_reuse_prohibited: true
+  negative_result_suppression_prohibited: true
+  failed_replication_suppression_prohibited: true
+  unsupported_pattern_promotion_prohibited: true
+  stale_history_use_prohibited: true
+  lineage_bypass_prohibited: true
+  temporal_history_mutation_prohibited: true
+  m12_execution_mutation_prohibited: true
+  publication_prohibited: true
+
+acceptance:
+  reproducible_population_membership_required: true
+  regime_assignment_reproducible_required: true
+  confounder_manifest_required: true
+  discovery_validation_separation_required: true
+  independent_replication_required_for_promotion: true
+  null_and_negative_results_preserved: true
+  exact_history_lineage_required: true
+  promotion_reason_codes_required: true
+  production_eligibility_fail_closed: true
+  clean_environment_replay_required: true
+  zero_waivers_required: true
