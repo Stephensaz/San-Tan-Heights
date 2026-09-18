@@ -1,0 +1,30 @@
+portfolio_registry_id: STH-M10-009-PORTFOLIO-CERTIFICATION-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M10-009
+parent_platform:
+  version: 0.1.120
+  immutable_evidence: certification-evidence/m10-008/community-factory-acceptance-v1.0.json
+
+member_requirements:
+  factory_status: PASS
+  candidate_package_required: true
+  release_request_required: true
+  package_published_required: false
+  package_immutable_required: true
+  freshness_status: CURRENT
+  approval_status: APPROVED
+  unresolved_exceptions: ZERO
+  rollback_lineage_required: true
+
+portfolio_governance:
+  any_member_failure_forces_no_go: true
+  any_member_stale_forces_no_go: true
+  any_member_unresolved_forces_no_go: true
+  any_member_unapproved_forces_no_go: true
+  approval_is_community_scoped: true
+  rollback_is_community_scoped: true
+  namespace_isolation_required: true
+  publication_prohibited: true
+  averaging_member_status_prohibited: true
+  immutable_readiness_artifact_required: true
