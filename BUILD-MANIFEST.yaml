@@ -42,5 +42,5 @@ milestones:
   status: ACCEPTED
 - id: M12
   name: Listing Execution
-  status: IN_PROGRESS
+  status: ACCEPTED
 version: 0.1.132
