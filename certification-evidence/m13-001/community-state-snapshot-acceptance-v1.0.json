@@ -1,0 +1,89 @@
+{
+  "evidence_id": "STH-M13-001-COMMUNITY-STATE-SNAPSHOT-v1.0",
+  "ticket": "M13-001",
+  "status": "ACCEPTED",
+  "released_m12": {
+    "version": "0.1.132",
+    "certification_root": "e56a8d039c4e0324ff694d0ea8cd5a190f48be6bb8b761d761a41f8af96e2a35"
+  },
+  "community_temporal_state_contract_sha256": "ff6ffbf0fdc2bd705ac6876283be9fd5db33c8f02f472583d5e6789112e0758c",
+  "capabilities": {
+    "immutable_community_state_snapshot": true,
+    "explicit_observation_time": true,
+    "bitemporal_knowledge_cutoff": true,
+    "source_policy_runtime_manifests": true,
+    "property_projection_fingerprints": true,
+    "freshness_exclusions_conflicts": true,
+    "deterministic_semantic_hash": true,
+    "deterministic_record_hash": true,
+    "baseline_linkage": true,
+    "replay_validation": true,
+    "snapshot_certification": true,
+    "comparison_eligibility_gate": true
+  },
+  "controls": {
+    "released_certified_m12_required": true,
+    "exact_m12_release_root_required": true,
+    "future_known_source_fails_closed": true,
+    "future_effective_source_fails_closed": true,
+    "manifest_identity_uniqueness_required": true,
+    "property_identity_uniqueness_required": true,
+    "source_drift_blocks_certification": true,
+    "policy_drift_blocks_certification": true,
+    "runtime_drift_blocks_certification": true,
+    "unresolved_conflict_blocks_certification": true,
+    "semantic_tamper_detected": true,
+    "comparison_requires_certified_snapshot": true,
+    "change_detection_prohibited": true,
+    "impact_propagation_prohibited": true,
+    "upstream_identity_rewrite_prohibited": true,
+    "upstream_phase_rewrite_prohibited": true,
+    "historical_rewrite_prohibited": true,
+    "inferred_dates_or_values_prohibited": true,
+    "silent_current_data_substitution_prohibited": true,
+    "seller_recommendations_prohibited": true,
+    "listing_actions_prohibited": true,
+    "external_publication_prohibited": true,
+    "m12_execution_mutation_prohibited": true,
+    "protected_field_propagation_prohibited": true
+  },
+  "github_actions": {
+    "m13_001_community_state_snapshot_ci": {
+      "run_number": 3,
+      "run_id": 35401596549,
+      "conclusion": "success"
+    },
+    "m10_evolution_ci": {
+      "run_number": 98,
+      "run_id": 35401595859,
+      "conclusion": "success"
+    },
+    "m11_seller_intelligence_ci": {
+      "run_number": 69,
+      "run_id": 35401596125,
+      "conclusion": "success"
+    },
+    "m12_listing_execution_ci": {
+      "run_number": 46,
+      "run_id": 35401595900,
+      "conclusion": "success"
+    },
+    "m12_operational_certification": {
+      "run_number": 17,
+      "run_id": 35401595939,
+      "conclusion": "success"
+    },
+    "m12_009_final_integrated_certification": {
+      "run_number": 10,
+      "run_id": 35401596243,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "m13_001_passed": 22,
+    "inherited_m12_passed": 137,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
