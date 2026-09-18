@@ -58,6 +58,7 @@ def test_stale_context_is_condition_not_automatic_defect():
     d = evaluate_exception(r, policy())
     assert d.is_defect is False
     assert d.quarantine_required is False
+    assert d.publication_allowed is False
 
 
 def test_wrong_owner_fails():
@@ -111,3 +112,8 @@ def test_repair_replay_rejects_unaffected_fingerprint_change():
             before,
             after,
         )
+
+
+def test_closed_exception_still_cannot_disappear_from_accounting():
+    with pytest.raises(ValueError, match="silently disappeared"):
+        validate_exception_accounting([frontage(state="CLOSED", repair_evidence_fingerprint="c" * 64)], [])
