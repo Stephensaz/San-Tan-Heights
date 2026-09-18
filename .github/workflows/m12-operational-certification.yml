@@ -1,0 +1,35 @@
+name: M12 Operational Certification
+
+on:
+  pull_request:
+    paths:
+      - 'contracts/listing_execution/**'
+      - 'registries/listing_execution/**'
+      - 'src/listing_execution/**'
+      - 'tests/unit/listing_execution/**'
+      - 'scripts/run_m12_operational_certification.py'
+      - 'certification-evidence/m12-*/**'
+      - 'docs/implementation/M12-*.md'
+      - 'BUILD-MANIFEST.yaml'
+      - '.github/workflows/m12-operational-certification.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  operational-certification:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pytest pyyaml
+      - name: Run M12 operational certification tests
+        run: pytest -q tests/unit/listing_execution/test_operational_certification.py
+      - name: Build M12-009-ready operational certification package
+        run: python scripts/run_m12_operational_certification.py
+      - name: Validate repository structure
+        run: python scripts_validate_repo.py
