@@ -1,0 +1,75 @@
+seller_workspace_registry_id: STH-M11-006-SELLER-WORKSPACE-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M11-006
+contract_id: STH-SELLER-INTELLIGENCE
+parent_tickets:
+  - M11-001
+  - M11-002
+  - M11-003
+  - M11-004
+  - M11-005
+
+review_statuses:
+  - PENDING
+  - ACKNOWLEDGED
+  - RESOLVED
+  - SUPERSEDED
+
+human_decision_types:
+  - ACKNOWLEDGE_REVIEW
+  - RESOLVE_REVIEW
+  - DEFER_REVIEW
+  - RECORD_NOTE
+
+next_safe_steps:
+  OPEN_REVIEW: REVIEW_PENDING_ITEM
+  NO_OPEN_REVIEW: NO_ACTION_REQUIRED
+
+governance:
+  certified_inputs_only: true
+  one_case_per_property: true
+  machine_intelligence_immutable: true
+  human_decisions_separate_from_machine_intelligence: true
+  unresolved_review_items_cannot_be_silently_cleared: true
+  resolved_review_requires_human_decision: true
+  acknowledged_review_requires_human_decision: true
+  superseded_artifacts_remain_visible: true
+  limitations_remain_visible: true
+  stale_missing_states_remain_visible: true
+  public_output_prohibited: true
+  recommended_list_price_prohibited: true
+  predicted_sale_price_prohibited: true
+  guaranteed_net_proceeds_prohibited: true
+  guaranteed_outcomes_prohibited: true
+  seller_motivation_inference_prohibited: true
+  seller_acceptance_prediction_prohibited: true
+  buyer_behavior_prediction_prohibited: true
+  protected_class_inference_prohibited: true
+  automatic_strategy_mutation_prohibited: true
+  approval_side_effects_prohibited: true
+  publication_side_effects_prohibited: true
+  scheduling_side_effects_prohibited: true
+  queueing_side_effects_prohibited: true
+  transmission_side_effects_prohibited: true
+  external_action_capability: NONE
+  deterministic_output_required: true
+
+prohibited_output_fields:
+  - recommended_list_price
+  - suggested_list_price
+  - predicted_sale_price
+  - estimated_sale_price
+  - guaranteed_net_proceeds
+  - predicted_net_proceeds
+  - guaranteed_outcome
+  - seller_motivation
+  - seller_intent
+  - seller_acceptance_prediction
+  - buyer_behavior_prediction
+  - approval_action
+  - publish_action
+  - schedule_action
+  - queue_action
+  - transmit_action
+  - automatic_action
