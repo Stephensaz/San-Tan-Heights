@@ -1,0 +1,11 @@
+profile_id: RANCHO-VISTOSO-PIMA-ASSESSOR-HARDENED-v1.0
+profile_type: PARCEL_SOURCE_COMPATIBILITY
+version: 1.0.0
+status: HARDENED
+community_id: RANCHO_VISTOSO
+component_class: SOURCE_SPECIFIC
+source_system: Pima County Assessor
+mapping_boundary:
+  parcel_identifier: SOURCE_SPECIFIC
+  authority: Pima County Assessor
+  field_level_mapping_requires_source_schema_validation: true
