@@ -23,6 +23,16 @@ from .historical_population import HistoricalPopulationAudit, audit_historical_p
 from .current_market_builder import CurrentContextAudit, audit_current_context
 from .evidence_passport_materialization import EvidenceMaterializationAudit, validate_materialization
 from .report_materialization import ReportMaterializationAudit, validate_report_materialization
+from .exception_quarantine import (
+    ExceptionDecision,
+    ExceptionLedgerAudit,
+    RepairReplayAudit,
+    audit_exception_ledger,
+    evaluate_exception,
+    load_exception_policy,
+    validate_exception_accounting,
+    validate_repair_replay,
+)
 
 __all__ = [
     "AdmissionState",
@@ -49,4 +59,12 @@ __all__ = [
     "validate_materialization",
     "ReportMaterializationAudit",
     "validate_report_materialization",
+    "ExceptionDecision",
+    "ExceptionLedgerAudit",
+    "RepairReplayAudit",
+    "audit_exception_ledger",
+    "evaluate_exception",
+    "load_exception_policy",
+    "validate_exception_accounting",
+    "validate_repair_replay",
 ]

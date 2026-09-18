@@ -1,0 +1,42 @@
+{
+  "evidence_id": "STH-M9-008-ACCEPTANCE-v1.0",
+  "ticket": "M9-008",
+  "status": "ACCEPTED",
+  "implementation_head": "7e6f192b77cf610dae407c457c8820a2b4096b1e",
+  "focused_unit_tests": {
+    "passed": 10,
+    "failed": 0
+  },
+  "github_actions": {
+    "m9_activation_ci": {
+      "run_number": 40,
+      "run_id": 35313188232,
+      "conclusion": "success"
+    },
+    "m9_architecture_boundary_validation": {
+      "run_number": 41,
+      "run_id": 35313188217,
+      "conclusion": "success"
+    }
+  },
+  "controls": {
+    "explicit_class_owner_reason_severity_repair_state": true,
+    "silent_exception_disappearance_prohibited": true,
+    "closed_exception_history_retained": true,
+    "quarantined_publication_prohibited": true,
+    "inferred_substitution_prohibited": true,
+    "waiver_cannot_create_publishability": true,
+    "stale_unavailable_not_automatic_defects": true,
+    "non_defect_does_not_imply_publishable": true,
+    "known_frontage_exception_preserved": true,
+    "repair_replay_scoped_to_dependency_chain": true,
+    "unaffected_fingerprint_preservation": true
+  },
+  "known_governed_exception": {
+    "canonical_property_id": "STH-516018120",
+    "scope_key": "frontage",
+    "owning_layer": "M9-003",
+    "state": "UNRESOLVED_GOVERNED"
+  },
+  "waivers": 0
+}
