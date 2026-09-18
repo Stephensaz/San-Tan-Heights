@@ -1,0 +1,52 @@
+{
+  "evidence_id": "STH-M10-009-PORTFOLIO-CERTIFICATION-v1.0",
+  "ticket": "M10-009",
+  "status": "ACCEPTED",
+  "portfolio": {
+    "portfolio_id": "MULTI-COMMUNITY-PORTFOLIO-001",
+    "members": 2,
+    "communities": [
+      "RANCHO_VISTOSO",
+      "DAYBREAK_UT"
+    ],
+    "decision_when_all_members_pass": "GO",
+    "readiness_only": true,
+    "published": false
+  },
+  "isolation": {
+    "community_namespaces_unique": true,
+    "candidate_fingerprints_preserved_per_member": true,
+    "package_fingerprints_preserved_per_member": true,
+    "release_request_fingerprints_preserved_per_member": true,
+    "approval_records_unique_per_community": true,
+    "rollback_lineage_unique_per_community": true,
+    "cross_community_fingerprint_collisions_rejected": true
+  },
+  "fail_closed_rules": {
+    "member_factory_fail_forces_portfolio_no_go": true,
+    "member_stale_forces_portfolio_no_go": true,
+    "member_unresolved_forces_portfolio_no_go": true,
+    "member_unapproved_forces_portfolio_no_go": true,
+    "approval_authority_mismatch_forces_portfolio_no_go": true,
+    "partial_failure_remains_visible": true,
+    "averaging_member_status_prohibited": true
+  },
+  "rollback": {
+    "rollback_eligibility_required_per_member": true,
+    "rollback_baseline_fingerprint_required": true,
+    "rollback_collision_rejected": true
+  },
+  "github_actions": {
+    "m10_evolution_ci": {
+      "run_number": 44,
+      "run_id": 35362602347,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "passed": 117,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
