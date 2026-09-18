@@ -1,0 +1,81 @@
+{
+  "evidence_id": "STH-M12-001-ACTION-PROPOSAL-v1.0",
+  "ticket": "M12-001",
+  "status": "ACCEPTED",
+  "released_m11": {
+    "version": "0.1.131",
+    "certification_root": "8c5c656934909c10c3c5bc52ae9d12b3c646348686f3d1d787a9b0b067ce6ccf"
+  },
+  "listing_execution_contract_sha256": "49f1fb56819e53de599620e4626b2a7dec95f9a8d2fe31a7fc9e077170b25da3",
+  "capabilities": {
+    "immutable_governed_action_proposal": true,
+    "current_listing_context_binding": true,
+    "explicit_action_intent": true,
+    "system_signal_current_review_binding": true,
+    "agent_request_judgment_binding": true,
+    "exact_m11_listing_policy_lineage": true,
+    "explicit_prerequisites": true,
+    "explicit_limitations": true
+  },
+  "authority_separation": {
+    "proposal_status": "PROPOSED",
+    "approval_state": "NOT_APPROVED",
+    "authorization_state": "NOT_AUTHORIZED",
+    "schedule_state": "NOT_SCHEDULED",
+    "queue_state": "NOT_QUEUED",
+    "execution_state": "NOT_EXECUTABLE",
+    "publication_state": "NOT_PUBLISHED",
+    "transmission_state": "NOT_TRANSMITTED",
+    "requires_human_approval": true,
+    "public_eligible": false,
+    "external_action_capability": "NONE"
+  },
+  "controls": {
+    "released_certified_m11_required": true,
+    "exact_m11_release_root_required": true,
+    "stale_listing_context_fails_closed": true,
+    "stale_policy_version_fails_closed": true,
+    "resolved_or_superseded_review_fails_closed": true,
+    "property_lineage_mismatch_fails_closed": true,
+    "system_signal_requires_current_review": true,
+    "agent_request_requires_recorded_agent_judgment": true,
+    "system_determined_price_or_terms_prohibited": true,
+    "seller_decision_inference_prohibited": true,
+    "approval_prohibited": true,
+    "authorization_prohibited": true,
+    "scheduling_prohibited": true,
+    "queueing_prohibited": true,
+    "execution_prohibited": true,
+    "publication_prohibited": true,
+    "transmission_prohibited": true,
+    "deterministic_output": true
+  },
+  "github_actions": {
+    "m12_listing_execution_ci": {
+      "run_number": 3,
+      "run_id": 35376171229,
+      "conclusion": "success"
+    },
+    "m12_architecture_boundary_validation": {
+      "run_number": 3,
+      "run_id": 35376171107,
+      "conclusion": "success"
+    },
+    "m11_final_seller_intelligence_certification": {
+      "run_number": 9,
+      "run_id": 35376171192,
+      "conclusion": "success"
+    },
+    "m10_evolution_ci": {
+      "run_number": 82,
+      "run_id": 35376171109,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "passed": 18,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
