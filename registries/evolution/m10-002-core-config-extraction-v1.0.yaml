@@ -6,6 +6,7 @@ declared_scope:
   - contracts
   - registries
   - templates
+  - config/communities
 
 component_classes:
   - CORE_REUSABLE
@@ -15,33 +16,70 @@ component_classes:
 
 path_rules:
   CORE_REUSABLE:
-    - src/kernel/
-    - src/shared/
+    - src/certification/
     - src/dependency/
-    - src/regeneration/
-    - src/report_builder/
-    - src/renderer/
+    - src/kernel/
+    - src/operations/
+    - src/platform_config/
+    - src/presentation/
     - src/production_certification/
+    - src/publication/
+    - src/regeneration/
+    - src/release/
+    - src/renderer/
+    - src/report_builder/
+    - src/security/
+    - src/shared/
+    - src/snapshot/
     - src/evolution/
+    - contracts/certification/
+    - contracts/implementation/
+    - contracts/operations/
+    - contracts/orchestration/
+    - contracts/persistence/
+    - contracts/presentation/
+    - contracts/security/
+    - contracts/services/
+  COMMUNITY_CONFIGURABLE:
+    - contracts/evolution/
+    - registries/certification/
+    - registries/classifications/
+    - registries/dependency-impact/
+    - registries/diagrams/
+    - registries/error-codes/
+    - registries/events/
+    - registries/evolution/
+    - registries/friendly-labels/
+    - registries/glossary/
+    - registries/guards/
+    - registries/media/
+    - registries/operations/
+    - registries/presentation/
+    - registries/production-certification/
+    - registries/publication/
+    - registries/reason-codes/
+    - registries/reconciliation-rules/
+    - registries/reference/
+    - registries/regeneration/
+    - registries/releases/
+    - registries/render-contracts/
+    - registries/report-sections/
+    - registries/report-variants/
+    - registries/security/
+    - registries/snapshot-requirements/
+    - registries/states/
+    - registries/transitions/
+    - templates/
   COMMUNITY_SPECIFIC:
     - src/activation/
     - contracts/activation/
     - registries/activation/
-  COMMUNITY_CONFIGURABLE:
-    - templates/
-    - registries/report-variants/
-    - registries/report-sections/
-    - registries/friendly-labels/
-    - registries/glossary/
-    - registries/render-contracts/
-    - registries/evolution/
-  SOURCE_SPECIFIC:
-    - registries/production-certification/
+    - config/communities/
+  SOURCE_SPECIFIC: []
 
 community_markers:
   - SAN_TAN_HEIGHTS
   - San Tan Heights
-  - STH-
   - Pinal
   - ARMLS
 
