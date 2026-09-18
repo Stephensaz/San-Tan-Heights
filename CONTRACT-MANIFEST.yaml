@@ -97,4 +97,11 @@ contracts:
   sha256: ff6ffbf0fdc2bd705ac6876283be9fd5db33c8f02f472583d5e6789112e0758c
   depends_on:
   - STH-LISTING-EXECUTION
+- id: STH-COMMUNITY-DELTA
+  version: 1.0.0
+  status: LOCKED
+  path: contracts/community_temporal_state/STH-COMMUNITY-DELTA-v1.0.yaml
+  sha256: 8f66143425ed389831ff5f5e9f3d6fa03948fa14c815fec598d0086da4eab112
+  depends_on:
+  - STH-COMMUNITY-TEMPORAL-STATE
 hash_algorithm: SHA-256
