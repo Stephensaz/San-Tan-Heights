@@ -471,7 +471,7 @@ def build_community_delta(
         after.record_hash,
         before.m12_release_certification_root,
     } | {fp for x in changes_tuple for fp in x.evidence_fingerprints}))
-    payload = {
+    fingerprint_payload = {
         "delta_id": delta_id,
         "community_id": before.community_id,
         "before_snapshot_id": before.snapshot_id,
@@ -489,7 +489,25 @@ def build_community_delta(
         "certification_state": "DRAFT",
         "reproducible": True,
     }
-    return CommunityDelta(**payload, delta_fingerprint=_hash(payload))
+    return CommunityDelta(
+        delta_id=delta_id,
+        community_id=before.community_id,
+        before_snapshot_id=before.snapshot_id,
+        after_snapshot_id=after.snapshot_id,
+        before_snapshot_semantic_hash=before.semantic_hash,
+        after_snapshot_semantic_hash=after.semantic_hash,
+        before_observation_time=before.observation_time,
+        after_observation_time=after.observation_time,
+        detected_at=detected_at,
+        materiality_rules_version=delta_registry["materiality"]["version"],
+        changes=changes_tuple,
+        impact_edges=edges,
+        highest_materiality=highest,
+        lineage_fingerprints=lineage,
+        certification_state="DRAFT",
+        reproducible=True,
+        delta_fingerprint=_hash(fingerprint_payload),
+    )
 
 
 def validate_delta_replay(delta: CommunityDelta) -> bool:
