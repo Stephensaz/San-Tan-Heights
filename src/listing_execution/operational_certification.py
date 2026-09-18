@@ -205,6 +205,13 @@ def certify_operational_audit(
     evidence_root=_canonical_hash(evidence_payload)
     artifact_root=_canonical_hash(artifact_payload)
     blocking=tuple(sorted(set(gaps)))
+    expected_evidence=str(registry["package"].get("expected_evidence_chain_root") or "")
+    expected_artifact=str(registry["package"].get("expected_artifact_manifest_root") or "")
+    if expected_evidence and evidence_root!=expected_evidence:
+        gaps.append("M12_EVIDENCE_CHAIN_ROOT_MISMATCH")
+    if expected_artifact and artifact_root!=expected_artifact:
+        gaps.append("M12_ARTIFACT_MANIFEST_ROOT_MISMATCH")
+    blocking=tuple(sorted(set(gaps)))
     package_payload={
         "package_id":"STH-M12-008-OPERATIONAL-CERTIFICATION-PACKAGE-v1.0",
         "status":registry["package"]["status"] if not blocking else "BLOCKED",
@@ -215,6 +222,13 @@ def certify_operational_audit(
         "public_eligible":False,
         "external_action_capability":"NONE",
     }
+    operational_root=_canonical_hash(package_payload)
+    expected_operational=str(registry["package"].get("expected_operational_certification_root") or "")
+    if expected_operational and operational_root!=expected_operational:
+        blocking=tuple(sorted(set(blocking) | {"M12_OPERATIONAL_CERTIFICATION_ROOT_MISMATCH"}))
+        package_payload["status"]="BLOCKED"
+        package_payload["blocking_gaps"]=blocking
+        operational_root=_canonical_hash(package_payload)
     return OperationalCertificationPackage(
         package_id=package_payload["package_id"],
         status=package_payload["status"],
@@ -223,7 +237,7 @@ def certify_operational_audit(
         blocking_gaps=blocking,
         evidence_chain_root=evidence_root,
         artifact_manifest_root=artifact_root,
-        operational_certification_root=_canonical_hash(package_payload),
+        operational_certification_root=operational_root,
         final_milestone_decision_issued=False,
         public_eligible=False,
         external_action_capability="NONE",
