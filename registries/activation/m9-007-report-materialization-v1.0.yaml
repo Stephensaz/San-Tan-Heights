@@ -1,0 +1,103 @@
+report_materialization_registry_id: STH-M9-007-AGENT-SELLER-PUBLIC-REPORTS-v1.0
+version: 1.0.0
+status: FROZEN
+community_id: SAN_TAN_HEIGHTS
+materialization_mode: CANONICAL_REPORT_PAYLOADS_NOT_PUBLISHED
+
+inputs:
+  m9_006:
+    materialization_fingerprint: 1804cba868eabc9cb865ce8cc2bbecb856d9fb391ba6d71d68aa1f2f6fb9cf24
+    passport_summary_sha256: 1495a6e20525a842fcb785b783d024e8010ae3bcfd985add8b734e3b6f929b8d
+    findings_sha256: 646e540112a5201c43a71a4b5ee69bdfd443a2dc7f409a3a6286869959053a91
+    eligibility_sha256: 6c841911c2e03a9be969269c19970de9e513164c43ee0d34a95b8b6a15d3ec0d
+  m8_presentation:
+    contract: STH-PRESENTATION-CONSUMER-SYSTEM
+    version: 1.0.0
+    certification_id: STH-M8-033-PRESENTATION-INTEGRATION-v1.0
+    certified_source_commit: 5cbd040083065ecf3d6649fc23a9a64fe74e5401
+    current_main_acceptance_commit: ade66f773495c8f407f526f2e3180a6ad0eee161
+
+accepted_presentation_inputs:
+  report_variant_coverage_matrix:
+    library_file_id: libfile_e474886cfb208191ad3a3a45da20c196
+    raw_size_bytes: 2705605
+    raw_sha256: fd1ed78dd25e1cd6f9c9b8e8b10b1b4452534ea96731dfe4baea04409a934261
+    rows: 14868
+  report_regeneration_registry:
+    library_file_id: libfile_ca7bd037e244819189cdb5248665c8d7
+    raw_size_bytes: 4693740
+    raw_sha256: fd921ccf9eb4be087ceb0e2be6c7372dc99b179405a7d13780fef19430eca782
+    rows: 14868
+    prior_current: 3
+    prior_not_rendered: 14865
+  renderer_script:
+    raw_sha256: 710551a9106f78e3adceb055e9a89f0ab4eb2914cb37c335df7bc3248311ab13
+  regeneration_planner:
+    raw_sha256: 52079d2ba349efbb8f5590a095b510997ac2ec2fc6c9da9cf588311b6ec6095c
+
+artifact:
+  name: m9_007_canonical_report_materialization_v1.jsonl
+  library_file_id: libfile_e4266092c5d48191912d0684b19add89
+  path: /M9/m9_007_canonical_report_materialization_v1.jsonl
+  raw_size_bytes: 14793073
+  raw_sha256: 204b026239883cc3e98204676fef3df76fb2448e46e057ed4a02fb525bda62bf
+  records: 14868
+  aggregate_report_materialization_fingerprint: 524f85ba04411e841a8960a5d8a3d22bab6682b06616db3b2001fe5212d15cf3
+
+population:
+  properties: 4956
+  variants_per_property: 3
+  total_variants: 14868
+  agent_variants: 4956
+  seller_variants: 4956
+  public_variants: 4956
+  unique_report_state_keys: 14868
+
+displayed_findings:
+  agent_total: 32891
+  seller_total: 24776
+  public_total: 14866
+  eligibility_mismatches: 0
+  stale_current_competition_displayed: 0
+  new_analytical_intelligence_created: 0
+
+tier_isolation:
+  public_subset_of_seller_for_all_properties: true
+  seller_subset_of_agent_for_all_properties: true
+  monotonicity_violations: 0
+
+partial_property:
+  canonical_property_id: STH-516018120
+  health_status: PARTIAL
+  agent_displayed_findings:
+    - identity.community_membership
+  seller_displayed_findings:
+    - identity.community_membership
+  public_displayed_findings:
+    - identity.community_membership
+
+presentation_versions:
+  template_version: PROPERTY_INTELLIGENCE_REPORT_1
+  labels_version: PRESENTATION_LABELS_1
+  glossary_version: PROPERTY_INTELLIGENCE_GLOSSARY_1
+  branding_version: PROPERTY_REPORT_BRANDING_1
+  layout_version: PROPERTY_REPORT_LAYOUT_1
+
+publication_state:
+  value: MATERIALIZED_NOT_PUBLISHED
+  physical_delivery_activated: false
+  public_delivery_activated: false
+  controlled_publication_deferred_to: M9-010
+
+governance:
+  only_tier_eligible_findings_displayed: true
+  stale_current_competition_suppressed: true
+  agent_only_not_in_seller_or_public: true
+  seller_only_not_in_public: true
+  limitations_and_health_preserved: true
+  passport_fingerprint_preserved: true
+  report_state_key_preserved: true
+  presentation_layer_recomputation_prohibited: true
+  new_intelligence_prohibited: true
+  raw_source_lookup_from_renderer_prohibited: true
+  publication_prohibited_in_m9_007: true
