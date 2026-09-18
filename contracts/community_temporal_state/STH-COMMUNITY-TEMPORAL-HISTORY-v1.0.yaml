@@ -1,0 +1,65 @@
+contract_id: STH-COMMUNITY-TEMPORAL-HISTORY
+version: 1.0.0
+status: LOCKED
+milestone: M13
+ticket: M13-004
+name: Community Temporal History & Change Ledger
+
+depends_on:
+  - STH-COMMUNITY-TEMPORAL-STATE
+  - STH-COMMUNITY-DELTA
+  - STH-TEMPORAL-IMPACT-REFRESH
+
+purpose:
+  immutable_longitudinal_memory_required: true
+  property_history_required: true
+  community_history_required: true
+  reality_time_separate_from_knowledge_time: true
+  evidence_lineage_required: true
+  correction_history_required: true
+  conflict_history_required: true
+  intelligence_impact_lineage_required: true
+  deterministic_historical_reconstruction_required: true
+  read_only_workspace_required: true
+
+subsequence:
+  - M13-004A_LEDGER_SCHEMA_AND_TAXONOMY
+  - M13-004B_PROPERTY_HISTORY_MATERIALIZATION
+  - M13-004C_BITEMPORAL_RECONSTRUCTION
+  - M13-004D_EVIDENCE_CONFLICT_AND_CORRECTION_LEDGER
+  - M13-004E_INTELLIGENCE_IMPACT_LINEAGE
+  - M13-004F_COMMUNITY_HISTORY_AGGREGATION
+  - M13-004G_HISTORICAL_QUERY_AND_RECONSTRUCTION_API
+  - M13-004H_INTEGRITY_REPLAY_AND_TAMPER_CERTIFICATION
+  - M13-004I_READ_ONLY_HISTORY_WORKSPACE
+  - M13-004J_FINAL_CERTIFICATION_AND_ADJUDICATION
+
+hard_boundaries:
+  certified_history_rewrite_prohibited: true
+  certified_history_delete_prohibited: true
+  reality_knowledge_time_conflation_prohibited: true
+  inferred_dates_prohibited: true
+  fabricated_facts_prohibited: true
+  conflict_erasure_prohibited: true
+  superseded_evidence_erasure_prohibited: true
+  lineage_bypass_prohibited: true
+  ui_mutation_prohibited: true
+  unaffected_intelligence_regeneration_prohibited: true
+  competing_identity_truth_system_prohibited: true
+  competing_community_truth_system_prohibited: true
+  append_only_corrections_required: true
+  seller_recommendations_prohibited: true
+  listing_actions_prohibited: true
+  publication_prohibited: true
+  m12_execution_mutation_prohibited: true
+
+acceptance:
+  deterministic_true_now_required: true
+  deterministic_true_then_required: true
+  deterministic_known_then_required: true
+  deterministic_known_now_required: true
+  correction_chain_replay_required: true
+  conflict_visibility_required: true
+  refresh_lineage_visibility_required: true
+  tamper_detection_required: true
+  zero_waivers_required: true
