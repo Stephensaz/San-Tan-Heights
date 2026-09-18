@@ -1,0 +1,67 @@
+execution_workspace_registry_id: STH-M12-006-EXECUTION-WORKSPACE-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M12-006
+contract_id: STH-LISTING-EXECUTION
+parent_ticket: M12-005
+parent_evidence: certification-evidence/m12-005/policy-calibration-acceptance-v1.0.json
+
+operational_states:
+  - NEEDS_HUMAN_DECISION
+  - APPROVED_NOT_EXECUTED
+  - EXECUTING
+  - VERIFICATION_RECONCILIATION_REQUIRED
+  - BLOCKED
+  - COMPLETE
+
+adapter_health_states:
+  - HEALTHY
+  - DEGRADED
+  - UNAVAILABLE
+  - UNKNOWN
+
+next_safe_actions:
+  NEEDS_HUMAN_DECISION: REVIEW_AND_DECIDE
+  APPROVED_NOT_EXECUTED: REVALIDATE_AUTHORITY_AND_REVIEW_EXECUTION_READINESS
+  EXECUTING: WAIT_FOR_EXECUTION_RECEIPT
+  VERIFICATION_RECONCILIATION_REQUIRED: REVIEW_VERIFICATION_OR_RECONCILIATION
+  BLOCKED: REVIEW_BLOCKING_CONDITION
+  COMPLETE: NO_ACTION_REQUIRED
+
+governance:
+  pure_projection_only: true
+  certified_upstream_artifacts_only: true
+  exactly_one_operational_state_required: true
+  stale_approval_explicit: true
+  expired_authority_explicit: true
+  outcome_unknown_explicit: true
+  blocked_work_explicit: true
+  rollback_eligibility_not_authorization: true
+  adapter_health_visibility_only: true
+  historical_receipts_immutable: true
+  seller_intelligence_lineage_preserved: true
+  approval_capability_prohibited: true
+  authorization_capability_prohibited: true
+  execution_capability_prohibited: true
+  publication_capability_prohibited: true
+  scheduling_capability_prohibited: true
+  queueing_capability_prohibited: true
+  transmission_capability_prohibited: true
+  price_or_terms_determination_prohibited: true
+  seller_approval_inference_prohibited: true
+  policy_mutation_prohibited: true
+  deterministic_output_required: true
+
+prohibited_output_fields:
+  - approve_action
+  - authorize_action
+  - execute_action
+  - publish_action
+  - schedule_action
+  - queue_action
+  - transmit_action
+  - list_price
+  - price_change
+  - listing_terms
+  - seller_approval
+  - external_action_payload
