@@ -102,3 +102,18 @@ def test_release_candidate_version_mismatch_fails_closed():
     r["release_candidate_version"]="9.9.9"
     with pytest.raises(ValueError,match="release candidate version mismatch"):
         adjudicate(r)
+
+
+def test_emit_final_certification_root_for_release_capture():
+    import warnings
+    result=adjudicate()
+    warnings.warn(
+        "M10_FINAL_ROOT="
+        + result.certification_root_hash
+        + " PORTFOLIO="
+        + result.portfolio_fingerprint
+        + " FACTORY="
+        + repr(dict(result.factory_replay_fingerprints)),
+        RuntimeWarning,
+    )
+    assert result.status=="PASS"
