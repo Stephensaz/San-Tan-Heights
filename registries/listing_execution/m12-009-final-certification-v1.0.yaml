@@ -1,0 +1,78 @@
+final_certification_registry_id: STH-M12-009-FINAL-CERTIFICATION-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M12-009
+contract_id: STH-LISTING-EXECUTION
+release_candidate_version: 0.1.132
+
+accepted_evidence:
+  M12-001: certification-evidence/m12-001/action-proposal-acceptance-v1.0.json
+  M12-002: certification-evidence/m12-002/authorized-execution-acceptance-v1.0.json
+  M12-003: certification-evidence/m12-003/verification-reconciliation-acceptance-v1.0.json
+  M12-004: certification-evidence/m12-004/operational-learning-acceptance-v1.0.json
+  M12-005: certification-evidence/m12-005/policy-calibration-acceptance-v1.0.json
+  M12-006: certification-evidence/m12-006/execution-workspace-acceptance-v1.0.json
+  M12-007: certification-evidence/m12-007/incident-containment-acceptance-v1.0.json
+  M12-008: certification-evidence/m12-008/operational-certification-acceptance-v1.0.json
+
+expected_m12_008:
+  evidence_chain_root: 82bb94798f887e5b7115abbac55c6b6e9e0cae3130f2310d1efab1ba0dbfe92c
+  artifact_manifest_root: 6e411dfccac19bfc0fdad22011307e507bc120a2d3a568e09ffd74364956a315
+  operational_certification_root: 700b426fdf8b576c0522fce216f3af2e1853fd7d851c0dc4ebb80089824f7b84
+
+stages:
+  - M12-009A_PREFLIGHT_MANIFEST_AND_PRECONDITION_VALIDATION
+  - M12-009B_GOLDEN_PATH_AND_AUTHORITY_SEPARATION
+  - M12-009C_DUPLICATE_SIDE_EFFECT_IDEMPOTENCY_AND_OUTCOME_UNKNOWN
+  - M12-009D_VERIFICATION_RECONCILIATION_AND_FINAL_STATE
+  - M12-009E_INCIDENT_HOLD_AND_RECOVERY
+  - M12-009F_WORKSPACE_AND_HUMAN_CONTROL
+  - M12-009G_POLICY_CALIBRATION_AND_PROMOTION
+  - M12-009H_AUDIT_INTEGRITY_AND_REPRODUCIBILITY
+  - M12-009I_CROSS_LAYER_CHAOS
+  - M12-009J_FULL_REPLAY_COVERAGE_CLOSURE_AND_ADJUDICATION
+
+required_coverage:
+  - M12_001_PROPOSAL_ONLY
+  - M12_002_HUMAN_APPROVAL
+  - M12_002_INDEPENDENT_AUTHORITY
+  - M12_002_AUTHORITY_REVALIDATION
+  - M12_002_IDEMPOTENCY
+  - M12_002_OUTCOME_UNKNOWN
+  - M12_003_INDEPENDENT_VERIFICATION
+  - M12_003_RECONCILIATION
+  - M12_003_CONTROLLED_ROLLBACK
+  - M12_004_NONCAUSAL_LEARNING
+  - M12_005_SAFETY_REGRESSION_BLOCK
+  - M12_005_HUMAN_PROMOTION_APPROVAL
+  - M12_006_NO_ACTION_WORKSPACE
+  - M12_007_INCIDENT_HOLD
+  - M12_007_HUMAN_RELEASE
+  - M12_008_AUDIT_REPRODUCIBILITY
+  - M12_009_FAILURE_INJECTION
+  - NO_PUBLIC_STRATEGY
+  - NO_SYSTEM_PRICE_OR_TERMS
+  - NO_AUTONOMOUS_EXTERNAL_ACTION
+
+decision_values:
+  pass: GO
+  fail: NO-GO
+
+governance:
+  exact_a_through_j_sequence_required: true
+  all_m12_001_through_008_evidence_accepted: true
+  zero_waivers_required: true
+  zero_open_defects_required: true
+  failure_injection_required: true
+  complete_coverage_required: true
+  m12_008_root_reproduction_required: true
+  authority_separation_required: true
+  duplicate_side_effect_prohibited: true
+  outcome_unknown_silent_retry_prohibited: true
+  verification_reconciliation_required: true
+  incident_hold_recovery_required: true
+  human_control_required: true
+  unsafe_policy_promotion_prohibited: true
+  audit_reproducibility_required: true
+  final_root_reproducible: true
+  no_m12_009k: true
