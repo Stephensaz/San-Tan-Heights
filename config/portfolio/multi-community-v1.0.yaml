@@ -1,0 +1,35 @@
+portfolio_id: MULTI-COMMUNITY-PORTFOLIO-001
+version: 1.0.0
+status: READY
+publication_allowed: false
+
+members:
+  - member_id: PORTFOLIO-MEMBER-001
+    factory_job: config/factory/jobs/rancho-vistoso-v1.0.yaml
+    namespace: community/RANCHO_VISTOSO
+    freshness:
+      status: CURRENT
+      evidence_id: RV-FRESHNESS-001
+    approval:
+      status: APPROVED
+      authority: Community Release Authority
+      approval_id: RV-APPROVAL-001
+    rollback:
+      baseline_id: RANCHO-VISTOSO-PRE-RELEASE-BASELINE
+      baseline_fingerprint: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+      rollback_eligible: true
+
+  - member_id: PORTFOLIO-MEMBER-002
+    factory_job: config/factory/jobs/daybreak-v1.0.yaml
+    namespace: community/DAYBREAK_UT
+    freshness:
+      status: CURRENT
+      evidence_id: DB-FRESHNESS-001
+    approval:
+      status: APPROVED
+      authority: Community Release Authority
+      approval_id: DB-APPROVAL-001
+    rollback:
+      baseline_id: DAYBREAK-UT-PRE-RELEASE-BASELINE
+      baseline_fingerprint: bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+      rollback_eligible: true
