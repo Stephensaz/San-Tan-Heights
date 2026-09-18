@@ -1,0 +1,51 @@
+{
+  "evidence_id": "STH-M12-005-POLICY-CALIBRATION-v1.0",
+  "ticket": "M12-005",
+  "status": "ACCEPTED",
+  "parent": {
+    "ticket": "M12-004",
+    "evidence": "certification-evidence/m12-004/operational-learning-acceptance-v1.0.json"
+  },
+  "capabilities": {
+    "isolated_policy_candidate_versions": true,
+    "exact_parent_policy_lineage": true,
+    "side_effect_free_replay": true,
+    "current_vs_candidate_diff": true,
+    "safety_regression_detection": true,
+    "separate_human_promotion_approval": true,
+    "rollback_lineage": true,
+    "controlled_promotion_package": true
+  },
+  "controls": {
+    "accepted_baseline_mutation_prohibited": true,
+    "automatic_promotion_prohibited": true,
+    "human_approval_regression_blocked": true,
+    "authority_regression_blocked": true,
+    "revalidation_regression_blocked": true,
+    "idempotency_regression_blocked": true,
+    "duplicate_suppression_regression_blocked": true,
+    "outcome_unknown_silent_retry_regression_blocked": true,
+    "verification_regression_blocked": true,
+    "reconciliation_regression_blocked": true,
+    "rollback_regression_blocked": true,
+    "immutable_receipt_regression_blocked": true,
+    "seller_approval_inference_prohibited": true,
+    "system_determined_price_or_terms_prohibited": true,
+    "public_strategy_exposure_prohibited": true,
+    "promotion_package_external_action_capability": "NONE",
+    "deterministic_output": true
+  },
+  "github_actions": {
+    "m12_listing_execution_ci": {
+      "run_number": 17,
+      "run_id": 35379253370,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "passed": 92,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
