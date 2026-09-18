@@ -1,0 +1,47 @@
+{
+  "evidence_id": "STH-M9-010-CONTROLLED-PUBLICATION-v1.0",
+  "ticket": "M9-010",
+  "status": "ACCEPTED",
+  "implementation_head": "e61fa914270f150e3fd7a9bbd3dd44ba701ba943",
+  "github_actions": {
+    "m9_activation_ci": {
+      "run_number": 47,
+      "run_id": 35314447395,
+      "conclusion": "success"
+    },
+    "m9_architecture_boundary_validation": {
+      "run_number": 48,
+      "run_id": 35314447388,
+      "conclusion": "success"
+    }
+  },
+  "rollout": {
+    "stage_order": [
+      "COHORT_25",
+      "COHORT_100",
+      "COHORT_500",
+      "REMAINING_FLEET"
+    ],
+    "allowed_tiers": [
+      "AGENT",
+      "SELLER",
+      "PUBLIC"
+    ],
+    "manual_default": true,
+    "unrestricted_fleet_publication": false
+  },
+  "controls": {
+    "exact_cohort_membership": true,
+    "prior_cohort_exclusion": true,
+    "missing_tier_fail_closed": true,
+    "quarantined_content_blocked": true,
+    "stale_current_content_blocked": true,
+    "pointer_compare_and_swap": true,
+    "rollback_baseline": true,
+    "m9_009_prerequisite": true,
+    "m7_rollout_policy_bound": true,
+    "m7_manual_publication_policy_bound": true
+  },
+  "binding_fingerprint": "0aeb9c4325729952c1713c7c28fb737a96f7485cad8f47c7d530449c7db90efc",
+  "waivers": 0
+}
