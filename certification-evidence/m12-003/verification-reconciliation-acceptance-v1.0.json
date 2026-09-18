@@ -1,0 +1,51 @@
+{
+  "evidence_id": "STH-M12-003-VERIFICATION-RECONCILIATION-v1.0",
+  "ticket": "M12-003",
+  "status": "ACCEPTED",
+  "parent": {
+    "ticket": "M12-002",
+    "evidence": "certification-evidence/m12-002/authorized-execution-acceptance-v1.0.json"
+  },
+  "capabilities": {
+    "independent_post_execution_verification": true,
+    "observed_state_evidence_registration": true,
+    "verification_state_classification": true,
+    "reconciliation_case_creation": true,
+    "rollback_eligibility": true,
+    "separate_rollback_approval": true,
+    "separate_rollback_authority": true,
+    "exact_original_chain_lineage": true,
+    "rollback_idempotency": true,
+    "immutable_rollback_receipts": true
+  },
+  "controls": {
+    "execution_receipt_not_treated_as_final_state_proof": true,
+    "independent_observation_required": true,
+    "mismatch_remains_explicit": true,
+    "outcome_unknown_remains_explicit": true,
+    "silent_reconciliation_close_prohibited": true,
+    "automatic_rollback_prohibited": true,
+    "rollback_requires_explicit_human_approval": true,
+    "rollback_requires_separate_authority": true,
+    "rollback_authority_revalidated_at_execution": true,
+    "duplicate_rollback_suppressed": true,
+    "unknown_rollback_retry_prohibited": true,
+    "price_or_terms_determination_prohibited": true,
+    "seller_approval_inference_prohibited": true,
+    "policy_auto_promotion_prohibited": true,
+    "deterministic_output": true
+  },
+  "github_actions": {
+    "m12_listing_execution_ci": {
+      "run_number": 10,
+      "run_id": 35377313903,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "passed": 47,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}

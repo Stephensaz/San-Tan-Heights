@@ -1,0 +1,62 @@
+verification_registry_id: STH-M12-003-VERIFICATION-RECONCILIATION-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M12-003
+contract_id: STH-LISTING-EXECUTION
+parent_ticket: M12-002
+parent_evidence: certification-evidence/m12-002/authorized-execution-acceptance-v1.0.json
+
+verification:
+  states:
+    - VERIFIED
+    - MISMATCH
+    - OUTCOME_UNKNOWN
+    - NOT_APPLICABLE
+  executable_receipt_outcomes:
+    - SUCCEEDED
+    - FAILED
+    - OUTCOME_UNKNOWN
+    - BLOCKED_OUTCOME_UNKNOWN
+    - DUPLICATE_SUPPRESSED
+  independent_observation_required: true
+  observed_state_must_not_be_derived_from_execution_receipt: true
+
+reconciliation:
+  case_states:
+    - OPEN
+    - RESOLVED
+  mismatch_requires_case: true
+  outcome_unknown_requires_case: true
+  silent_resolution_prohibited: true
+
+rollback:
+  eligibility_states:
+    - ELIGIBLE
+    - NOT_ELIGIBLE
+  eligible_verification_states:
+    - MISMATCH
+  separate_approval_required: true
+  separate_authority_required: true
+  deterministic_idempotency_required: true
+  duplicate_rollback_prohibited: true
+  outcome_unknown_retry_prohibited: true
+  allowed_adapter_outcomes:
+    - SUCCEEDED
+    - FAILED
+    - OUTCOME_UNKNOWN
+
+governance:
+  m12_002_receipt_immutable_required: true
+  verification_is_independent_from_execution_claim: true
+  execution_receipt_rewrite_prohibited: true
+  outcome_unknown_silent_close_prohibited: true
+  mismatch_silent_close_prohibited: true
+  rollback_auto_execution_prohibited: true
+  rollback_requires_explicit_human_approval: true
+  rollback_requires_separate_authority: true
+  rollback_authority_revalidation_required: true
+  exact_original_chain_lineage_required: true
+  seller_approval_inference_prohibited: true
+  price_or_terms_determination_prohibited: true
+  policy_auto_promotion_prohibited: true
+  deterministic_output_required: true
