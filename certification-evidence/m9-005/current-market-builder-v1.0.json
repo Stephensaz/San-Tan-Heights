@@ -1,6 +1,6 @@
 {
   "evidence_id": "STH-M9-005-CURRENT-MARKET-BUILDER-v1.0",
-  "status": "PASS_PENDING_CI",
+  "status": "PASS",
   "evaluation_date": "2026-09-17",
   "snapshot_date": "2026-09-14",
   "snapshot_age_days": 3,
@@ -42,5 +42,14 @@
   "pricing_conclusions_created": false,
   "value_opinions_created": false,
   "defects": [],
-  "waivers": []
+  "waivers": [],
+  "acceptance_evidence": {
+    "m9_activation_ci_run": 27,
+    "m9_boundary_validation_run": 28,
+    "m8_presentation_ci_run": 83,
+    "m8_presentation_certification_run": 86,
+    "m8_final_certification_run": 36,
+    "defects": 0,
+    "waivers": 0
+  }
 }
