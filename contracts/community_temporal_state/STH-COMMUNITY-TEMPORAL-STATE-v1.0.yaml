@@ -1,0 +1,82 @@
+contract_id: STH-COMMUNITY-TEMPORAL-STATE
+version: 1.0.0
+status: LOCKED
+milestone: M13
+ticket: M13-001
+name: Community State Snapshot & Temporal Baseline
+
+depends_on:
+  - STH-LISTING-EXECUTION
+
+released_m12:
+  version: 0.1.132
+  certification_root: e56a8d039c4e0324ff694d0ea8cd5a190f48be6bb8b761d761a41f8af96e2a35
+
+purpose:
+  immutable_reproducible_time_bounded_community_snapshot: true
+  observation_time_required: true
+  materialized_at_required: true
+  knowledge_cutoff_required: true
+  exact_source_manifest_required: true
+  exact_policy_manifest_required: true
+  exact_runtime_manifest_required: true
+  deterministic_hashes_required: true
+  replay_required: true
+  certification_required: true
+
+snapshot_requirements:
+  community_id_required: true
+  corpus_projection_required: true
+  property_projection_required: true
+  freshness_state_required: true
+  exclusions_required: true
+  conflicts_required: true
+  source_lineage_required: true
+  baseline_linkage_required: true
+  certification_state_required: true
+  comparison_eligibility_explicit: true
+
+certification_states:
+  - DRAFT
+  - VALIDATED
+  - CERTIFIED
+  - REJECTED
+
+comparison_eligibility:
+  allowed_states:
+    - CERTIFIED
+  required_freshness:
+    - CURRENT
+    - CURRENT_WITH_LIMITATIONS
+  blocking_conditions:
+    - SOURCE_DRIFT
+    - POLICY_DRIFT
+    - RUNTIME_DRIFT
+    - UNRESOLVED_CONFLICT
+    - NONREPRODUCIBLE
+    - KNOWLEDGE_CUTOFF_VIOLATION
+
+hard_boundaries:
+  change_detection_prohibited: true
+  impact_propagation_prohibited: true
+  upstream_identity_rewrite_prohibited: true
+  upstream_phase_rewrite_prohibited: true
+  historical_rewrite_prohibited: true
+  inferred_dates_prohibited: true
+  inferred_values_prohibited: true
+  silent_current_data_substitution_prohibited: true
+  seller_recommendations_prohibited: true
+  listing_actions_prohibited: true
+  publication_prohibited: true
+  m12_execution_mutation_prohibited: true
+  external_publication_prohibited: true
+  protected_field_propagation_prohibited: true
+  silent_manifest_drift_prohibited: true
+  comparison_requires_certified_snapshot: true
+
+determinism:
+  canonical_json_required: true
+  sorted_property_projection_required: true
+  sorted_manifest_entries_required: true
+  stable_hash_algorithm: SHA-256
+  materialized_at_excluded_from_semantic_hash: true

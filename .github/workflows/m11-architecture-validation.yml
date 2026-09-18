@@ -64,7 +64,11 @@ jobs:
               assert build["current_ticket"].startswith("M11-")
               assert Path("docs/implementation",build["current_ticket"]+".md").exists()
           if states["M11"]=="ACCEPTED":
-              assert build["current_ticket"]=="M11-010" or build["current_ticket"].startswith("M12-")
+              assert (
+                  build["current_ticket"]=="M11-010"
+                  or build["current_ticket"].startswith("M12-")
+                  or build["current_ticket"].startswith("M13-")
+              )
               final_evidence=Path("certification-evidence/m11-010/final-adjudication-v1.0.json")
               assert final_evidence.exists()
               import json

@@ -55,10 +55,11 @@ jobs:
           states={x["id"]:x["status"] for x in build["milestones"]}
           assert states["M11"]=="ACCEPTED"
           assert states["M12"] in {"IN_PROGRESS","ACCEPTED"}
-          assert build["current_ticket"].startswith("M12-")
-          assert Path("docs/implementation",build["current_ticket"]+".md").exists()
+          if states["M12"]=="IN_PROGRESS":
+              assert build["current_ticket"].startswith("M12-")
+              assert Path("docs/implementation",build["current_ticket"]+".md").exists()
           if states["M12"]=="ACCEPTED":
-              assert build["current_ticket"]=="M12-009"
+              assert build["current_ticket"]=="M12-009" or build["current_ticket"].startswith("M13-")
               final_evidence=Path("certification-evidence/m12-009/final-certification-v1.0.json")
               assert final_evidence.exists()
               final=json.loads(final_evidence.read_text())

@@ -1,0 +1,61 @@
+snapshot_registry_id: STH-M13-001-COMMUNITY-STATE-SNAPSHOT-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-001
+contract_id: STH-COMMUNITY-TEMPORAL-STATE
+
+released_m12:
+  version: 0.1.132
+  certification_root: e56a8d039c4e0324ff694d0ea8cd5a190f48be6bb8b761d761a41f8af96e2a35
+
+policy:
+  version: COMMUNITY-STATE-SNAPSHOT-v1.0
+  allowed_freshness_states:
+    - CURRENT
+    - CURRENT_WITH_LIMITATIONS
+    - STALE
+    - UNKNOWN
+  comparison_eligible_freshness:
+    - CURRENT
+    - CURRENT_WITH_LIMITATIONS
+  certification_states:
+    - DRAFT
+    - VALIDATED
+    - CERTIFIED
+    - REJECTED
+  comparison_eligible_certification_state: CERTIFIED
+
+blocking_conditions:
+  - SOURCE_DRIFT
+  - POLICY_DRIFT
+  - RUNTIME_DRIFT
+  - UNRESOLVED_CONFLICT
+  - NONREPRODUCIBLE
+  - KNOWLEDGE_CUTOFF_VIOLATION
+
+governance:
+  released_certified_m12_required: true
+  exact_m12_release_root_required: true
+  exact_manifest_lineage_required: true
+  knowledge_cutoff_enforced: true
+  future_known_sources_prohibited: true
+  future_effective_sources_prohibited: true
+  deterministic_semantic_hash_required: true
+  deterministic_replay_required: true
+  materialized_at_excluded_from_semantic_hash: true
+  change_detection_prohibited: true
+  impact_propagation_prohibited: true
+  upstream_identity_rewrite_prohibited: true
+  upstream_phase_rewrite_prohibited: true
+  historical_rewrite_prohibited: true
+  inferred_dates_prohibited: true
+  inferred_values_prohibited: true
+  silent_current_data_substitution_prohibited: true
+  seller_recommendations_prohibited: true
+  listing_actions_prohibited: true
+  publication_prohibited: true
+  m12_execution_mutation_prohibited: true
+  external_publication_prohibited: true
+  protected_field_propagation_prohibited: true
+  silent_manifest_drift_prohibited: true
+  comparison_requires_certified_snapshot: true
