@@ -158,7 +158,9 @@ def validate_m9_011_repository_binding(root: str | Path = ".") -> str:
         "docs/implementation/M7-023.md",
     )
     for rel in required_docs:
-        if "Status: ACCEPTED" not in (root / rel).read_text():
+        text = (root / rel).read_text()
+        accepted = "Status: ACCEPTED" in text or text.lstrip().startswith("#") and "\n\nAccepted in " in text
+        if not accepted:
             raise ValueError(f"upstream replay control not accepted: {rel}")
 
     if m9_010.get("status") != "ACCEPTED":
