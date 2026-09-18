@@ -1,0 +1,48 @@
+pipeline_registry_id: STH-M10-004-PROGRESSIVE-BUILD-PIPELINE-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M10-004
+
+stages:
+  - id: ONBOARDING_BOOTSTRAP
+    order: 1
+    requires: []
+  - id: IDENTITY_JURISDICTION
+    order: 2
+    requires:
+      - ONBOARDING_BOOTSTRAP
+  - id: SOURCE_ADAPTER_READINESS
+    order: 3
+    requires:
+      - IDENTITY_JURISDICTION
+  - id: CORPUS_ADMISSION_READINESS
+    order: 4
+    requires:
+      - SOURCE_ADAPTER_READINESS
+  - id: EVIDENCE_PASSPORT_READINESS
+    order: 5
+    requires:
+      - CORPUS_ADMISSION_READINESS
+  - id: REPORT_MATERIALIZATION_READINESS
+    order: 6
+    requires:
+      - EVIDENCE_PASSPORT_READINESS
+  - id: PRESENTATION_INTEGRITY_READINESS
+    order: 7
+    requires:
+      - REPORT_MATERIALIZATION_READINESS
+  - id: CANDIDATE_FREEZE
+    order: 8
+    requires:
+      - PRESENTATION_INTEGRITY_READINESS
+
+governance:
+  predecessor_pass_required: true
+  failed_stage_stops_pipeline: true
+  skipped_stage_prohibited: true
+  deterministic_stage_evidence_required: true
+  deterministic_candidate_fingerprint_required: true
+  generated_timestamp_prohibited: true
+  protected_san_tan_heights_defaults_prohibited: true
+  publication_prohibited: true
+  waiver_prohibited: true
