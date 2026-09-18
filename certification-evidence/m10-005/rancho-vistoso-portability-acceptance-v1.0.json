@@ -1,0 +1,81 @@
+{
+  "evidence_id": "STH-M10-005-RANCHO-VISTOSO-PORTABILITY-v1.0",
+  "ticket": "M10-005",
+  "status": "ACCEPTED",
+  "pilot": {
+    "pilot_id": "STH-M10-005-RANCHO-VISTOSO-v1.0",
+    "community_id": "RANCHO_VISTOSO",
+    "display_name": "Rancho Vistoso",
+    "state": "AZ",
+    "county": "Pima",
+    "municipality": "Oro Valley",
+    "real_community": true,
+    "synthetic_property_corpus_only": true,
+    "proprietary_mls_records_used": false,
+    "homeowner_personal_data_used": false
+  },
+  "parent_platform": {
+    "version": "0.1.116",
+    "immutable_evidence": "certification-evidence/m10-004/progressive-build-pipeline-acceptance-v1.0.json",
+    "lineage_frozen": true
+  },
+  "measured_work": {
+    "total_work_items": 11,
+    "CORE_REUSABLE": 4,
+    "COMMUNITY_CONFIGURABLE": 3,
+    "COMMUNITY_SPECIFIC": 1,
+    "SOURCE_SPECIFIC": 3,
+    "reuse_unchanged": 4,
+    "configured": 3,
+    "remediated": 4,
+    "reuse_fraction": "4/11",
+    "remediation_fraction": "4/11"
+  },
+  "manual_remediation": {
+    "items": [
+      "COM-001",
+      "SRC-001",
+      "SRC-002",
+      "SRC-003"
+    ],
+    "resolved": 4,
+    "unresolved": 0,
+    "resolution_artifacts_required_and_present": true
+  },
+  "progressive_pipeline": {
+    "m10_003_onboarding_used": true,
+    "m10_004_full_pipeline_pass_required": true,
+    "all_eight_stages_passed_in_tests": true,
+    "blocking_exceptions": 0
+  },
+  "source_boundaries": {
+    "listing_service": "MLSSAZ",
+    "parcel_authority": "Pima County Assessor",
+    "recorder_authority": "Pima County Recorder",
+    "community_authority": "Town of Oro Valley",
+    "source_provenance_required": true
+  },
+  "controls": {
+    "deterministic_bootstrap_fingerprint": true,
+    "deterministic_progressive_candidate_fingerprint": true,
+    "deterministic_pilot_fingerprint": true,
+    "immutable_parent_lineage": true,
+    "protected_san_tan_heights_default_leakage_prohibited": true,
+    "publication_prohibited": true,
+    "proprietary_mls_access_not_implied": true,
+    "baseline_mutation_prohibited": true
+  },
+  "github_actions": {
+    "m10_evolution_ci": {
+      "run_number": 26,
+      "run_id": 35360103363,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "passed": 68,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
