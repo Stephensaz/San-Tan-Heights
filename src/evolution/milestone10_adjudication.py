@@ -175,6 +175,9 @@ def execute_final_adjudication(
         "published":False,
     }
     certification_root=_canonical_hash(root_payload)
+    expected_root=str(registry.get("expected_certification_root_hash") or "")
+    if expected_root and certification_root!=expected_root:
+        blocking.append("CERTIFICATION_ROOT_MISMATCH")
     final_blocking=tuple(sorted(set(blocking)))
     passed=not final_blocking
     return FinalAdjudicationResult(
