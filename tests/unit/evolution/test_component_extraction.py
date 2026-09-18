@@ -26,6 +26,17 @@ def test_known_paths_classify_deterministically():
     assert classify_path("registries/activation/m9-001-source-candidates-v1.0.yaml",r)[0]=="COMMUNITY_SPECIFIC"
     assert classify_path("templates/example.html",r)[0]=="COMMUNITY_CONFIGURABLE"
 
+def test_residual_san_tan_heights_runtime_files_are_explicitly_community_specific():
+    r=registry()
+    expected=(
+        "src/presentation/branding/runtime.py",
+        "src/presentation/golden_fixtures/loader.py",
+        "src/renderer/adapters/pdf.py",
+        "src/report_builder/payload/builder.py",
+    )
+    for path in expected:
+        assert classify_path(path,r)[0]=="COMMUNITY_SPECIFIC"
+
 def test_unclassified_path_fails_closed():
     with pytest.raises(ValueError,match="unclassified"): classify_path("src/mystery/x.py",registry())
 
@@ -58,7 +69,6 @@ def test_mutated_baseline_fails(tmp_path):
     raw=Path(B).read_bytes(); p=tmp_path/"baseline.json"; p.write_bytes(raw+b" ")
     fp=hashlib.sha256(raw).hexdigest()
     with pytest.raises(ValueError,match="baseline changed"): assert_baseline_preserved(frozen_fingerprint=fp,current_baseline_path=p)
-
 
 def test_actual_repository_declared_scope_is_fully_classified():
     audit=inventory_repository(".",registry())
