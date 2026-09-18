@@ -184,25 +184,28 @@ def validate_binding_against_registry(
     spatial = registry["spatial_binding"]
     governance = registry["governance"]
 
-    exact_checks = {
-        population["row_count"]: audit.row_count,
-        population["unique_canonical_property_ids"]: audit.unique_canonical_property_ids,
-        population["unique_county_parcelids"]: audit.unique_county_parcelids,
-        population["additions_vs_m9_002"]: audit.additions_vs_activation,
-        population["omissions_vs_m9_002"]: audit.omissions_vs_activation,
-        population["parcelid_mismatches_vs_m9_002"]: audit.parcelid_mismatches_vs_activation,
-        phase["bound"]: audit.phase_bound,
-        phase["unresolved"]: audit.phase_unresolved,
-        geometry["qa_pass"]: audit.geometry_pass,
-        lot["qa_pass"]: audit.lot_side_pass,
-        lot["review_required"]: audit.lot_side_review_required,
-        block["bound"]: audit.block_bound,
-        block["unresolved_frontage"]: audit.block_unresolved,
-        spatial["bound"]: audit.spatial_bound,
-        spatial["partial_unresolved"]: audit.spatial_partial_unresolved,
-    }
-    if any(expected != actual for expected, actual in exact_checks.items()):
-        raise ValueError("M9-003 registry count mismatch")
+    exact_checks = (
+        ("row_count", population["row_count"], audit.row_count),
+        ("unique_canonical_property_ids", population["unique_canonical_property_ids"], audit.unique_canonical_property_ids),
+        ("unique_county_parcelids", population["unique_county_parcelids"], audit.unique_county_parcelids),
+        ("additions_vs_m9_002", population["additions_vs_m9_002"], audit.additions_vs_activation),
+        ("omissions_vs_m9_002", population["omissions_vs_m9_002"], audit.omissions_vs_activation),
+        ("parcelid_mismatches_vs_m9_002", population["parcelid_mismatches_vs_m9_002"], audit.parcelid_mismatches_vs_activation),
+        ("phase_bound", phase["bound"], audit.phase_bound),
+        ("phase_unresolved", phase["unresolved"], audit.phase_unresolved),
+        ("geometry_qa_pass", geometry["qa_pass"], audit.geometry_pass),
+        ("lot_side_qa_pass", lot["qa_pass"], audit.lot_side_pass),
+        ("lot_side_review_required", lot["review_required"], audit.lot_side_review_required),
+        ("block_bound", block["bound"], audit.block_bound),
+        ("block_unresolved_frontage", block["unresolved_frontage"], audit.block_unresolved),
+        ("spatial_bound", spatial["bound"], audit.spatial_bound),
+        ("spatial_partial_unresolved", spatial["partial_unresolved"], audit.spatial_partial_unresolved),
+    )
+    for name, expected, actual in exact_checks:
+        if expected != actual:
+            raise ValueError(
+                f"M9-003 registry count mismatch for {name}: expected={expected}, actual={actual}"
+            )
 
     if tuple(spatial["unresolved_property_ids"]) != audit.unresolved_property_ids:
         raise ValueError("M9-003 unresolved property set mismatch")
