@@ -312,7 +312,18 @@ def execute_production_certification(
     registry: Mapping[str,object],
 ) -> ProductionCertificationResult:
     root=Path(repository_root)
-    if (root/"VERSION").read_text().strip()!=str(registry["production_candidate_version"]):
+    live_version=(root/"VERSION").read_text().strip()
+    candidate_version=str(registry["production_candidate_version"])
+    accepted_evidence_path=root/"certification-evidence/m11-009/production-certification-acceptance-v1.0.json"
+    if accepted_evidence_path.is_file():
+        accepted=json.loads(accepted_evidence_path.read_text())
+        if str(accepted.get("production_candidate_version") or "")!=candidate_version:
+            raise ValueError("M11-009 production candidate version mismatch")
+        if accepted.get("status")!="ACCEPTED" or accepted.get("decision")!="PRODUCTION CANDIDATE":
+            raise ValueError("M11-009 accepted production candidate evidence invalid")
+        if str(accepted.get("production_candidate_root") or "")!=str(registry.get("expected_production_candidate_root") or ""):
+            raise ValueError("M11-009 accepted production candidate root mismatch")
+    elif live_version!=candidate_version:
         raise ValueError("M11-009 production candidate version mismatch")
 
     receipts,blocking=_verify_evidence(root,registry)
