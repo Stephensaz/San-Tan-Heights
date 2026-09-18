@@ -1,0 +1,148 @@
+{
+  "evidence_id": "STH-M13-004-TEMPORAL-HISTORY-v1.0",
+  "ticket": "M13-004",
+  "status": "ACCEPTED",
+  "parent": {
+    "ticket": "M13-003",
+    "evidence": "certification-evidence/m13-003/selective-refresh-acceptance-v1.0.json"
+  },
+  "community_temporal_history_contract_sha256": "77a3c895761f4a5d66f3863063f76539605e16e11e475a6c3130f2282fe19e52",
+  "capabilities": {
+    "append_only_longitudinal_memory": true,
+    "property_history_materialization": true,
+    "community_history_materialization": true,
+    "reality_and_knowledge_time_separation": true,
+    "correction_chain_preservation": true,
+    "conflict_and_superseded_evidence_preservation": true,
+    "delta_lineage": true,
+    "refresh_lineage": true,
+    "deterministic_true_now": true,
+    "deterministic_true_then": true,
+    "deterministic_known_then": true,
+    "deterministic_known_now": true,
+    "community_history_aggregation": true,
+    "tamper_detection": true,
+    "read_only_history_projection": true
+  },
+  "controls": {
+    "certified_history_rewrite_prohibited": true,
+    "certified_history_delete_prohibited": true,
+    "inferred_dates_prohibited": true,
+    "fabricated_facts_prohibited": true,
+    "conflict_erasure_prohibited": true,
+    "superseded_evidence_erasure_prohibited": true,
+    "lineage_bypass_prohibited": true,
+    "ui_mutation_prohibited": true,
+    "competing_truth_system_prohibited": true,
+    "append_only_corrections_required": true,
+    "seller_recommendations_prohibited": true,
+    "listing_actions_prohibited": true,
+    "publication_prohibited": true,
+    "m12_execution_mutation_prohibited": true
+  },
+  "github_actions": {
+    "m13_004_temporal_history_ci": {
+      "run_number": 3,
+      "run_id": 35403746826,
+      "conclusion": "success"
+    },
+    "m13_003_selective_refresh_ci": {
+      "run_number": 7,
+      "run_id": 35403746933,
+      "conclusion": "success"
+    },
+    "m13_002_temporal_change_delta_ci": {
+      "run_number": 11,
+      "run_id": 35403746895,
+      "conclusion": "success"
+    },
+    "m13_001_community_state_snapshot_ci": {
+      "run_number": 16,
+      "run_id": 35403746965,
+      "conclusion": "success"
+    },
+    "m10_evolution_ci": {
+      "run_number": 111,
+      "run_id": 35403746897,
+      "conclusion": "success"
+    },
+    "m10_architecture_boundary_validation": {
+      "run_number": 95,
+      "run_id": 35403746940,
+      "conclusion": "success"
+    },
+    "m11_seller_intelligence_ci": {
+      "run_number": 82,
+      "run_id": 35403746917,
+      "conclusion": "success"
+    },
+    "m11_architecture_boundary_validation": {
+      "run_number": 65,
+      "run_id": 35403746920,
+      "conclusion": "success"
+    },
+    "m11_final_seller_intelligence_certification": {
+      "run_number": 38,
+      "run_id": 35403746900,
+      "conclusion": "success"
+    },
+    "m12_listing_execution_ci": {
+      "run_number": 59,
+      "run_id": 35403746862,
+      "conclusion": "success"
+    },
+    "m12_architecture_boundary_validation": {
+      "run_number": 43,
+      "run_id": 35403746959,
+      "conclusion": "success"
+    },
+    "m12_operational_certification": {
+      "run_number": 30,
+      "run_id": 35403746883,
+      "conclusion": "success"
+    },
+    "m12_009_final_integrated_certification": {
+      "run_number": 23,
+      "run_id": 35403746914,
+      "conclusion": "success"
+    },
+    "m8_presentation_ci": {
+      "run_number": 226,
+      "run_id": 35403746955,
+      "conclusion": "success"
+    },
+    "m8_presentation_certification": {
+      "run_number": 229,
+      "run_id": 35403746969,
+      "conclusion": "success"
+    },
+    "m8_033_final_presentation_certification": {
+      "run_number": 139,
+      "run_id": 35403746942,
+      "conclusion": "success"
+    },
+    "m9_activation_ci": {
+      "run_number": 136,
+      "run_id": 35403746931,
+      "conclusion": "success"
+    },
+    "m9_architecture_boundary_validation": {
+      "run_number": 139,
+      "run_id": 35403746943,
+      "conclusion": "success"
+    },
+    "m9_final_production_activation_certification": {
+      "run_number": 82,
+      "run_id": 35403746911,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "m13_004_specific_tests": 12,
+    "m13_temporal_state_total_passed": 74,
+    "inherited_m12_passed": 137,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}

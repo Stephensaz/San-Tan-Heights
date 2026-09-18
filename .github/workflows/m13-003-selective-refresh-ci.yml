@@ -56,7 +56,7 @@ jobs:
           states={x["id"]:x["status"] for x in build["milestones"]}
           assert states["M12"]=="ACCEPTED"
           assert states["M13"]=="IN_PROGRESS"
-          assert build["current_ticket"]=="M13-003"
+          assert build["current_ticket"].startswith("M13-")
 
           for key in (
               "uncertified_delta_prohibited",

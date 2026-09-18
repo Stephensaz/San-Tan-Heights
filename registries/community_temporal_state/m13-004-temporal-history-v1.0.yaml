@@ -1,0 +1,56 @@
+temporal_history_registry_id: STH-M13-004-TEMPORAL-HISTORY-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-004
+contract_id: STH-COMMUNITY-TEMPORAL-HISTORY
+
+entry_types:
+  - SNAPSHOT
+  - DELTA
+  - REFRESH_PLAN
+  - REFRESH_RESULT
+  - CORRECTION
+  - CONFLICT
+  - VERSION_TRANSITION
+
+scopes:
+  - PROPERTY
+  - COMMUNITY
+  - MANIFEST
+  - INTELLIGENCE
+
+truth_states:
+  - ASSERTED
+  - SUPERSEDED
+  - CORRECTED
+  - CONFLICTED
+  - RESOLVED
+
+policy:
+  append_only: true
+  timezone_aware_timestamps_required: true
+  known_at_required: true
+  valid_from_required: true
+  valid_to_nullable: true
+  immutable_entry_fingerprint_required: true
+  previous_entry_link_required_for_correction: true
+  source_fingerprints_required: true
+  query_order:
+    - valid_from
+    - known_at
+    - entry_id
+
+query_modes:
+  - TRUE_NOW
+  - TRUE_THEN
+  - KNOWN_THEN
+  - KNOWN_NOW
+
+governance:
+  read_only_queries: true
+  read_only_workspace: true
+  corrections_append_only: true
+  conflicts_preserved: true
+  superseded_evidence_preserved: true
+  deterministic_replay: true
+  direct_upstream_mutation: false
