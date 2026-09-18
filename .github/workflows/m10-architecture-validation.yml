@@ -41,9 +41,20 @@ jobs:
           build=yaml.safe_load(Path("BUILD-MANIFEST.yaml").read_text())
           states={x["id"]:x["status"] for x in build["milestones"]}
           assert states["M9"]=="ACCEPTED"
-          assert states["M10"]=="IN_PROGRESS"
+          assert states["M10"] in {"IN_PROGRESS","ACCEPTED"}
           assert build["current_ticket"].startswith("M10-")
           assert Path("docs/implementation",build["current_ticket"]+".md").exists()
+          if states["M10"]=="ACCEPTED":
+              assert build["current_ticket"]=="M10-010"
+              final_evidence=Path("certification-evidence/m10-010/final-adjudication-v1.0.json")
+              assert final_evidence.exists()
+              import json
+              final=json.loads(final_evidence.read_text())
+              assert final["ticket"]=="M10-010"
+              assert final["status"]=="ACCEPTED"
+              assert final["decision"]=="PLATFORM RELEASED"
+              assert final["waivers"]==0
+              assert final["open_defects"]==0
           baseline=Path("certification-evidence/m10-001/san-tan-heights-production-baseline-v1.0.0.json")
           assert baseline.exists()
           print("PASS: M10 frozen boundary and immutable M9 baseline lineage are present")
