@@ -1,0 +1,1056 @@
+{
+  "expected_set_id": "STH-M8-032-EXPECTED-v1.0",
+  "version": "1.0.0",
+  "outcomes": [
+    {
+      "fixture_id": "SYNTH-NORMAL-001",
+      "expected": {
+        "AGENT": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": true,
+          "private_lineage_visible": true
+        },
+        "SELLER": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false
+        },
+        "PUBLIC": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false
+        },
+        "render": {
+          "web": true,
+          "pdf": true,
+          "print": true,
+          "required_limitation_visibility": true,
+          "required_freshness_visibility": true,
+          "no_clipping": true,
+          "no_overflow": true
+        },
+        "topology": {
+          "diagram_required": false,
+          "nonvisual_equivalent_required": false
+        },
+        "accessibility": {
+          "semantic_order_required": true,
+          "accessible_names_required": true,
+          "diagram_equivalent_required": false
+        },
+        "pagination": {
+          "multi_page_expected": false,
+          "orphan_heading_prohibited": true,
+          "repeated_property_identity_required": false
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-SPARSE-001",
+      "expected": {
+        "AGENT": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": true,
+          "private_lineage_visible": true
+        },
+        "SELLER": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false
+        },
+        "PUBLIC": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false,
+          "expected_availability_state": "MISSING"
+        },
+        "render": {
+          "web": true,
+          "pdf": true,
+          "print": true,
+          "required_limitation_visibility": true,
+          "required_freshness_visibility": true,
+          "no_clipping": true,
+          "no_overflow": true
+        },
+        "topology": {
+          "diagram_required": false,
+          "nonvisual_equivalent_required": false
+        },
+        "accessibility": {
+          "semantic_order_required": true,
+          "accessible_names_required": true,
+          "diagram_equivalent_required": false
+        },
+        "pagination": {
+          "multi_page_expected": false,
+          "orphan_heading_prohibited": true,
+          "repeated_property_identity_required": false
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-DENSE-001",
+      "expected": {
+        "AGENT": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": true,
+          "private_lineage_visible": true
+        },
+        "SELLER": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false
+        },
+        "PUBLIC": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false
+        },
+        "render": {
+          "web": true,
+          "pdf": true,
+          "print": true,
+          "required_limitation_visibility": true,
+          "required_freshness_visibility": true,
+          "no_clipping": true,
+          "no_overflow": true
+        },
+        "topology": {
+          "diagram_required": false,
+          "nonvisual_equivalent_required": false
+        },
+        "accessibility": {
+          "semantic_order_required": true,
+          "accessible_names_required": true,
+          "diagram_equivalent_required": false
+        },
+        "pagination": {
+          "multi_page_expected": true,
+          "orphan_heading_prohibited": true,
+          "repeated_property_identity_required": false
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-UNCERTAIN-001",
+      "expected": {
+        "AGENT": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": true,
+          "private_lineage_visible": true
+        },
+        "SELLER": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false
+        },
+        "PUBLIC": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false,
+          "expected_availability_state": "MISSING"
+        },
+        "render": {
+          "web": true,
+          "pdf": true,
+          "print": true,
+          "required_limitation_visibility": true,
+          "required_freshness_visibility": true,
+          "no_clipping": true,
+          "no_overflow": true
+        },
+        "topology": {
+          "diagram_required": false,
+          "nonvisual_equivalent_required": false
+        },
+        "accessibility": {
+          "semantic_order_required": true,
+          "accessible_names_required": true,
+          "diagram_equivalent_required": false
+        },
+        "pagination": {
+          "multi_page_expected": false,
+          "orphan_heading_prohibited": true,
+          "repeated_property_identity_required": false
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-CONFLICTED-001",
+      "expected": {
+        "AGENT": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": true,
+          "private_lineage_visible": true,
+          "expected_conflict_state": "VISIBLE"
+        },
+        "SELLER": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false
+        },
+        "PUBLIC": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false
+        },
+        "render": {
+          "web": true,
+          "pdf": true,
+          "print": true,
+          "required_limitation_visibility": true,
+          "required_freshness_visibility": true,
+          "no_clipping": true,
+          "no_overflow": true
+        },
+        "topology": {
+          "diagram_required": false,
+          "nonvisual_equivalent_required": false
+        },
+        "accessibility": {
+          "semantic_order_required": true,
+          "accessible_names_required": true,
+          "diagram_equivalent_required": false
+        },
+        "pagination": {
+          "multi_page_expected": false,
+          "orphan_heading_prohibited": true,
+          "repeated_property_identity_required": false
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-STALE-001",
+      "expected": {
+        "AGENT": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": true,
+          "private_lineage_visible": true
+        },
+        "SELLER": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false
+        },
+        "PUBLIC": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false,
+          "expected_freshness_state": "STALE"
+        },
+        "render": {
+          "web": true,
+          "pdf": true,
+          "print": true,
+          "required_limitation_visibility": true,
+          "required_freshness_visibility": true,
+          "no_clipping": true,
+          "no_overflow": true
+        },
+        "topology": {
+          "diagram_required": false,
+          "nonvisual_equivalent_required": false
+        },
+        "accessibility": {
+          "semantic_order_required": true,
+          "accessible_names_required": true,
+          "diagram_equivalent_required": false
+        },
+        "pagination": {
+          "multi_page_expected": false,
+          "orphan_heading_prohibited": true,
+          "repeated_property_identity_required": false
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-SPATIAL-001",
+      "expected": {
+        "AGENT": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": true,
+          "private_lineage_visible": true
+        },
+        "SELLER": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false
+        },
+        "PUBLIC": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false
+        },
+        "render": {
+          "web": true,
+          "pdf": true,
+          "print": true,
+          "required_limitation_visibility": true,
+          "required_freshness_visibility": true,
+          "no_clipping": true,
+          "no_overflow": true
+        },
+        "topology": {
+          "diagram_required": true,
+          "nonvisual_equivalent_required": true
+        },
+        "accessibility": {
+          "semantic_order_required": true,
+          "accessible_names_required": true,
+          "diagram_equivalent_required": true
+        },
+        "pagination": {
+          "multi_page_expected": false,
+          "orphan_heading_prohibited": true,
+          "repeated_property_identity_required": false
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-MEDIA-001",
+      "expected": {
+        "AGENT": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": true,
+          "private_lineage_visible": true
+        },
+        "SELLER": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false
+        },
+        "PUBLIC": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false,
+          "expected_media_state": "NO_PHOTO_PLACEHOLDER"
+        },
+        "render": {
+          "web": true,
+          "pdf": true,
+          "print": true,
+          "required_limitation_visibility": true,
+          "required_freshness_visibility": true,
+          "no_clipping": true,
+          "no_overflow": true
+        },
+        "topology": {
+          "diagram_required": false,
+          "nonvisual_equivalent_required": false
+        },
+        "accessibility": {
+          "semantic_order_required": true,
+          "accessible_names_required": true,
+          "diagram_equivalent_required": false
+        },
+        "pagination": {
+          "multi_page_expected": false,
+          "orphan_heading_prohibited": true,
+          "repeated_property_identity_required": false
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-ANALYTICAL-001",
+      "expected": {
+        "AGENT": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": true,
+          "private_lineage_visible": true,
+          "analysis_detail_expected": true
+        },
+        "SELLER": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false
+        },
+        "PUBLIC": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false
+        },
+        "render": {
+          "web": true,
+          "pdf": true,
+          "print": true,
+          "required_limitation_visibility": true,
+          "required_freshness_visibility": true,
+          "no_clipping": true,
+          "no_overflow": true
+        },
+        "topology": {
+          "diagram_required": false,
+          "nonvisual_equivalent_required": false
+        },
+        "accessibility": {
+          "semantic_order_required": true,
+          "accessible_names_required": true,
+          "diagram_equivalent_required": false
+        },
+        "pagination": {
+          "multi_page_expected": false,
+          "orphan_heading_prohibited": true,
+          "repeated_property_identity_required": false
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-HISTORICAL-001",
+      "expected": {
+        "AGENT": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": true,
+          "private_lineage_visible": true
+        },
+        "SELLER": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false
+        },
+        "PUBLIC": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false,
+          "expected_report_designation": "HISTORICAL"
+        },
+        "render": {
+          "web": true,
+          "pdf": true,
+          "print": true,
+          "required_limitation_visibility": true,
+          "required_freshness_visibility": true,
+          "no_clipping": true,
+          "no_overflow": true
+        },
+        "topology": {
+          "diagram_required": false,
+          "nonvisual_equivalent_required": false
+        },
+        "accessibility": {
+          "semantic_order_required": true,
+          "accessible_names_required": true,
+          "diagram_equivalent_required": false
+        },
+        "pagination": {
+          "multi_page_expected": false,
+          "orphan_heading_prohibited": true,
+          "repeated_property_identity_required": false
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-CHANGE-001",
+      "expected": {
+        "AGENT": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": true,
+          "private_lineage_visible": true
+        },
+        "SELLER": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false
+        },
+        "PUBLIC": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false,
+          "what_changed_required": true
+        },
+        "render": {
+          "web": true,
+          "pdf": true,
+          "print": true,
+          "required_limitation_visibility": true,
+          "required_freshness_visibility": true,
+          "no_clipping": true,
+          "no_overflow": true
+        },
+        "topology": {
+          "diagram_required": false,
+          "nonvisual_equivalent_required": false
+        },
+        "accessibility": {
+          "semantic_order_required": true,
+          "accessible_names_required": true,
+          "diagram_equivalent_required": false
+        },
+        "pagination": {
+          "multi_page_expected": false,
+          "orphan_heading_prohibited": true,
+          "repeated_property_identity_required": false
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-EMPTY-001",
+      "expected": {
+        "AGENT": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": true,
+          "private_lineage_visible": true
+        },
+        "SELLER": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false
+        },
+        "PUBLIC": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false,
+          "expected_availability_state": "EMPTY"
+        },
+        "render": {
+          "web": true,
+          "pdf": true,
+          "print": true,
+          "required_limitation_visibility": true,
+          "required_freshness_visibility": true,
+          "no_clipping": true,
+          "no_overflow": true
+        },
+        "topology": {
+          "diagram_required": false,
+          "nonvisual_equivalent_required": false
+        },
+        "accessibility": {
+          "semantic_order_required": true,
+          "accessible_names_required": true,
+          "diagram_equivalent_required": false
+        },
+        "pagination": {
+          "multi_page_expected": false,
+          "orphan_heading_prohibited": true,
+          "repeated_property_identity_required": false
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-RESPONSIVE-001",
+      "expected": {
+        "AGENT": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": true,
+          "private_lineage_visible": true
+        },
+        "SELLER": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false
+        },
+        "PUBLIC": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false
+        },
+        "render": {
+          "web": true,
+          "pdf": true,
+          "print": true,
+          "required_limitation_visibility": true,
+          "required_freshness_visibility": true,
+          "no_clipping": true,
+          "no_overflow": true,
+          "required_viewports": [
+            "desktop_large",
+            "desktop",
+            "tablet",
+            "mobile",
+            "mobile_narrow"
+          ]
+        },
+        "topology": {
+          "diagram_required": false,
+          "nonvisual_equivalent_required": false
+        },
+        "accessibility": {
+          "semantic_order_required": true,
+          "accessible_names_required": true,
+          "diagram_equivalent_required": false
+        },
+        "pagination": {
+          "multi_page_expected": false,
+          "orphan_heading_prohibited": true,
+          "repeated_property_identity_required": false
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-PAGINATION-001",
+      "expected": {
+        "AGENT": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": true,
+          "private_lineage_visible": true
+        },
+        "SELLER": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false
+        },
+        "PUBLIC": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false
+        },
+        "render": {
+          "web": true,
+          "pdf": true,
+          "print": true,
+          "required_limitation_visibility": true,
+          "required_freshness_visibility": true,
+          "no_clipping": true,
+          "no_overflow": true
+        },
+        "topology": {
+          "diagram_required": false,
+          "nonvisual_equivalent_required": false
+        },
+        "accessibility": {
+          "semantic_order_required": true,
+          "accessible_names_required": true,
+          "diagram_equivalent_required": false
+        },
+        "pagination": {
+          "multi_page_expected": true,
+          "orphan_heading_prohibited": true,
+          "repeated_property_identity_required": true
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-PRIVACY_ADVERSARIAL-001",
+      "expected": {
+        "AGENT": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": true,
+          "private_lineage_visible": true
+        },
+        "SELLER": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false,
+          "forbidden_tokens": [
+            "private_note",
+            "agent_diagnostic"
+          ]
+        },
+        "PUBLIC": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false,
+          "forbidden_tokens": [
+            "owner_name",
+            "apn",
+            "mls_number",
+            "private_note"
+          ]
+        },
+        "render": {
+          "web": true,
+          "pdf": true,
+          "print": true,
+          "required_limitation_visibility": true,
+          "required_freshness_visibility": true,
+          "no_clipping": true,
+          "no_overflow": true
+        },
+        "topology": {
+          "diagram_required": false,
+          "nonvisual_equivalent_required": false
+        },
+        "accessibility": {
+          "semantic_order_required": true,
+          "accessible_names_required": true,
+          "diagram_equivalent_required": false
+        },
+        "pagination": {
+          "multi_page_expected": false,
+          "orphan_heading_prohibited": true,
+          "repeated_property_identity_required": false
+        }
+      }
+    },
+    {
+      "fixture_id": "SYNTH-ACCESSIBILITY-001",
+      "expected": {
+        "AGENT": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": true,
+          "private_lineage_visible": true
+        },
+        "SELLER": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false
+        },
+        "PUBLIC": {
+          "visible_sections": [
+            "summary",
+            "property-identity",
+            "lot-location",
+            "home-dna",
+            "evidence",
+            "freshness"
+          ],
+          "diagnostics_visible": false,
+          "private_lineage_visible": false
+        },
+        "render": {
+          "web": true,
+          "pdf": true,
+          "print": true,
+          "required_limitation_visibility": true,
+          "required_freshness_visibility": true,
+          "no_clipping": true,
+          "no_overflow": true
+        },
+        "topology": {
+          "diagram_required": false,
+          "nonvisual_equivalent_required": true
+        },
+        "accessibility": {
+          "semantic_order_required": true,
+          "accessible_names_required": true,
+          "diagram_equivalent_required": true
+        },
+        "pagination": {
+          "multi_page_expected": false,
+          "orphan_heading_prohibited": true,
+          "repeated_property_identity_required": false
+        }
+      }
+    }
+  ]
+}

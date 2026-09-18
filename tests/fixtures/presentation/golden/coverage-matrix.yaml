@@ -1,0 +1,47 @@
+coverage_matrix_id: STH-M8-032-COVERAGE-v1.0
+version: 1.0.0
+status: LOCKED
+required_categories:
+  - NORMAL
+  - SPARSE
+  - DENSE
+  - UNCERTAIN
+  - CONFLICTED
+  - STALE
+  - SPATIAL
+  - MEDIA
+  - ANALYTICAL
+  - HISTORICAL
+  - CHANGE
+  - EMPTY
+  - RESPONSIVE
+  - PAGINATION
+  - PRIVACY_ADVERSARIAL
+  - ACCESSIBILITY
+required_audiences:
+  - AGENT
+  - SELLER
+  - PUBLIC
+required_surfaces:
+  - WEB
+  - PDF
+  - PRINT
+required_edge_cases:
+  standard-interior: SYNTH-NORMAL-001
+  limited-evidence: SYNTH-SPARSE-001
+  uncertainty: SYNTH-UNCERTAIN-001
+  conflict: SYNTH-CONFLICTED-001
+  stale: SYNTH-STALE-001
+  corner: SYNTH-SPATIAL-001
+  cul-de-sac: SYNTH-SPATIAL-001
+  common-area: SYNTH-SPATIAL-001
+  road-adjacency: SYNTH-SPATIAL-001
+  no-photo: SYNTH-MEDIA-001
+  analytical: SYNTH-ANALYTICAL-001
+  historical: SYNTH-HISTORICAL-001
+  many-changes: SYNTH-CHANGE-001
+  empty: SYNTH-EMPTY-001
+  responsive: SYNTH-RESPONSIVE-001
+  pagination: SYNTH-PAGINATION-001
+  privacy-adversarial: SYNTH-PRIVACY_ADVERSARIAL-001
+  accessibility: SYNTH-ACCESSIBILITY-001

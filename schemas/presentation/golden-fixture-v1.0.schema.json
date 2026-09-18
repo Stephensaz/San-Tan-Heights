@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://san-tan-heights.local/schemas/presentation/golden-fixture-v1.0.schema.json",
+  "title": "M8-032 Golden Presentation Fixture",
+  "type": "object",
+  "required": [
+    "fixture_id",
+    "category",
+    "synthetic_only",
+    "property",
+    "truth",
+    "audience_projection"
+  ],
+  "properties": {
+    "fixture_id": {
+      "type": "string",
+      "pattern": "^SYNTH-[A-Z0-9_-]+$"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "NORMAL",
+        "SPARSE",
+        "DENSE",
+        "UNCERTAIN",
+        "CONFLICTED",
+        "STALE",
+        "SPATIAL",
+        "MEDIA",
+        "ANALYTICAL",
+        "HISTORICAL",
+        "CHANGE",
+        "EMPTY",
+        "RESPONSIVE",
+        "PAGINATION",
+        "PRIVACY_ADVERSARIAL",
+        "ACCESSIBILITY"
+      ]
+    },
+    "synthetic_only": {
+      "const": true
+    },
+    "property": {
+      "type": "object",
+      "required": [
+        "property_id",
+        "address",
+        "community"
+      ],
+      "properties": {
+        "property_id": {
+          "type": "string",
+          "pattern": "^SYNTH-PROP-[A-Z0-9-]+$"
+        },
+        "address": {
+          "type": "string",
+          "pattern": "^(?:[0-9]+ )?(?:Example|Test|Sample) "
+        },
+        "community": {
+          "const": "San Tan Heights Synthetic"
+        }
+      },
+      "additionalProperties": true
+    },
+    "truth": {
+      "type": "object"
+    },
+    "audience_projection": {
+      "type": "object",
+      "required": [
+        "AGENT",
+        "SELLER",
+        "PUBLIC"
+      ],
+      "properties": {
+        "AGENT": {
+          "type": "object"
+        },
+        "SELLER": {
+          "type": "object"
+        },
+        "PUBLIC": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
