@@ -1,0 +1,52 @@
+{
+  "evidence_id": "STH-M12-006-EXECUTION-WORKSPACE-v1.0",
+  "ticket": "M12-006",
+  "status": "ACCEPTED",
+  "parent": {
+    "ticket": "M12-005",
+    "evidence": "certification-evidence/m12-005/policy-calibration-acceptance-v1.0.json"
+  },
+  "capabilities": {
+    "pure_governed_operational_projection": true,
+    "exactly_one_state_per_item": true,
+    "stale_approval_visibility": true,
+    "expired_authority_visibility": true,
+    "adapter_health_visibility": true,
+    "blocked_work_visibility": true,
+    "outcome_unknown_visibility": true,
+    "verification_reconciliation_visibility": true,
+    "rollback_eligibility_visibility": true,
+    "historical_receipt_visibility": true,
+    "full_m11_m12_lineage": true,
+    "next_safe_action_guidance": true
+  },
+  "controls": {
+    "approval_capability_prohibited": true,
+    "authorization_capability_prohibited": true,
+    "execution_capability_prohibited": true,
+    "publication_capability_prohibited": true,
+    "scheduling_capability_prohibited": true,
+    "queueing_capability_prohibited": true,
+    "transmission_capability_prohibited": true,
+    "price_or_terms_determination_prohibited": true,
+    "seller_approval_inference_prohibited": true,
+    "policy_mutation_prohibited": true,
+    "rollback_eligibility_not_authorization": true,
+    "public_eligible": false,
+    "external_action_capability": "NONE",
+    "deterministic_output": true
+  },
+  "github_actions": {
+    "m12_listing_execution_ci": {
+      "run_number": 21,
+      "run_id": 35379664716,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "passed": 107,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
