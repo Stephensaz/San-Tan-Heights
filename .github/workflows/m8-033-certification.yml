@@ -1,0 +1,57 @@
+name: M8-033 Final Presentation Certification
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'src/presentation/**'
+      - 'registries/presentation/**'
+      - 'schemas/presentation/**'
+      - 'tests/fixtures/presentation/**'
+      - 'tests/visual/**'
+      - 'tests/unit/presentation/**'
+      - 'scripts/run_m8_033_certification.py'
+      - 'docs/implementation/M8-*.md'
+      - 'BUILD-MANIFEST.yaml'
+      - 'VERSION'
+      - '.github/workflows/m8-033-certification.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  final-certification:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Check out full repository history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install certification dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install pytest pyyaml jsonschema
+
+      - name: Run presentation regression suite
+        run: python -m pytest -q tests/unit/presentation
+
+      - name: Validate repository structure
+        run: python scripts_validate_repo.py
+
+      - name: Execute frozen M8-033 A-J certification
+        run: python scripts/run_m8_033_certification.py --output certification-evidence/m8-033/latest.json
+
+      - name: Upload certification evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: m8-033-certification-evidence
+          path: certification-evidence/m8-033/latest.json
+          if-no-files-found: error
