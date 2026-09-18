@@ -75,6 +75,10 @@ path_rules:
     - templates/
   COMMUNITY_SPECIFIC:
     - src/activation/
+    - src/presentation/branding/runtime.py
+    - src/presentation/golden_fixtures/loader.py
+    - src/renderer/adapters/pdf.py
+    - src/report_builder/payload/builder.py
     - contracts/activation/
     - registries/activation/
     - config/communities/
