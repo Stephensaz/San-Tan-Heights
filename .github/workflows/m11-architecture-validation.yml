@@ -59,9 +59,17 @@ jobs:
           build=yaml.safe_load(Path("BUILD-MANIFEST.yaml").read_text())
           states={x["id"]:x["status"] for x in build["milestones"]}
           assert states["M10"]=="ACCEPTED"
-          assert states["M11"]=="IN_PROGRESS"
+          assert states["M11"] in {"IN_PROGRESS","ACCEPTED"}
           assert build["current_ticket"].startswith("M11-")
           assert Path("docs/implementation",build["current_ticket"]+".md").exists()
+          if states["M11"]=="ACCEPTED":
+              assert build["current_ticket"]=="M11-010"
+              final_evidence=Path("certification-evidence/m11-010/final-adjudication-v1.0.json")
+              assert final_evidence.exists()
+              import json
+              released=json.loads(final_evidence.read_text())
+              assert released["status"]=="ACCEPTED"
+              assert released["decision"]=="SELLER INTELLIGENCE RELEASED"
           m10=Path("certification-evidence/m10-010/final-adjudication-v1.0.json")
           assert m10.exists()
           print("PASS: M11 frozen Seller Intelligence boundary and released M10 baseline are present")
