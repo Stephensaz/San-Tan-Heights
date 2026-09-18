@@ -1,0 +1,16 @@
+profile_id: RANCHO-VISTOSO-MLSSAZ-HARDENED-v1.0
+profile_type: LISTING_SOURCE_COMPATIBILITY
+version: 1.0.0
+status: HARDENED
+community_id: RANCHO_VISTOSO
+component_class: SOURCE_SPECIFIC
+source_system: MLSSAZ
+mapping_boundary:
+  listing_identifier: SOURCE_SPECIFIC
+  status_vocabulary: SOURCE_SPECIFIC
+  property_type_vocabulary: SOURCE_SPECIFIC
+  field_level_mapping_requires_authorized_source_access: true
+access_policy:
+  proprietary_records_used: false
+  credentials_available: false
+  synthetic_validation_only: true
