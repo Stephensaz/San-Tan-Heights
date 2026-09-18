@@ -1,0 +1,36 @@
+name: M11 Final Seller Intelligence Certification
+
+on:
+  pull_request:
+    paths:
+      - 'contracts/seller_intelligence/**'
+      - 'registries/seller_intelligence/**'
+      - 'src/seller_intelligence/**'
+      - 'tests/unit/seller_intelligence/**'
+      - 'scripts/run_m11_final_adjudication.py'
+      - 'certification-evidence/m11-*/**'
+      - 'docs/implementation/M11-*.md'
+      - 'BUILD-MANIFEST.yaml'
+      - 'VERSION'
+      - '.github/workflows/m11-final-certification.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  final-seller-intelligence-certification:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pytest pyyaml
+      - name: Run M11 final adjudication tests
+        run: pytest -q tests/unit/seller_intelligence/test_final_adjudication.py
+      - name: Execute M11 final adjudication
+        run: python scripts/run_m11_final_adjudication.py
+      - name: Validate repository structure
+        run: python scripts_validate_repo.py

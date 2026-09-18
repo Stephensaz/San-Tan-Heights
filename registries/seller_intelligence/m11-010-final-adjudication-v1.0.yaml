@@ -1,0 +1,40 @@
+seller_final_adjudication_id: STH-M11-010-FINAL-ADJUDICATION-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M11-010
+contract_id: STH-SELLER-INTELLIGENCE
+release_candidate_version: 0.1.131
+expected_contract_sha256: da355449443a4ffe35ec833f602e698fca5f24210d467f77987d659276aa4264
+expected_m11_009_production_candidate_root: 2cca3529c4b09b0a3dc4305b9b7c1732b894fc47018dc971cfe18a98c8e269dd
+expected_certification_root_hash: 8c5c656934909c10c3c5bc52ae9d12b3c646348686f3d1d787a9b0b067ce6ccf
+
+accepted_evidence:
+  M11-001: certification-evidence/m11-001/seller-opportunity-acceptance-v1.0.json
+  M11-002: certification-evidence/m11-002/property-seller-strategy-acceptance-v1.0.json
+  M11-003: certification-evidence/m11-003/seller-scenario-sensitivity-acceptance-v1.0.json
+  M11-004: certification-evidence/m11-004/seller-decision-timeline-acceptance-v1.0.json
+  M11-005: certification-evidence/m11-005/communication-translation-acceptance-v1.0.json
+  M11-006: certification-evidence/m11-006/seller-workspace-acceptance-v1.0.json
+  M11-007: certification-evidence/m11-007/effectiveness-learning-acceptance-v1.0.json
+  M11-008: certification-evidence/m11-008/calibration-promotion-acceptance-v1.0.json
+  M11-009: certification-evidence/m11-009/production-certification-acceptance-v1.0.json
+
+replay:
+  production_certification_registry: registries/seller_intelligence/m11-009-production-certification-v1.0.yaml
+
+release_rules:
+  exact_m11_001_through_009_chain_required: true
+  all_prior_tickets_must_be_accepted: true
+  zero_waivers_required: true
+  zero_open_defects_required: true
+  m11_009_root_must_reproduce: true
+  seller_intelligence_replay_pass_required: true
+  public_strategy_leakage_prohibited: true
+  external_action_capability_must_be_none: true
+  calibration_candidate_auto_promotion_prohibited: true
+  partial_or_ambiguous_result_prohibited: true
+  reproducible_final_root_required: true
+
+decision_values:
+  pass: SELLER INTELLIGENCE RELEASED
+  fail: NO-GO
