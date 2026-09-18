@@ -95,3 +95,16 @@ def test_wrong_candidate_version_fails_closed():
     r=deepcopy(reg()); r["production_candidate_version"]="9.9.9"
     with pytest.raises(ValueError,match="production candidate version mismatch"):
         certify(r)
+
+
+def test_emit_m11_009_candidate_fingerprints():
+    import warnings
+    x=certify()
+    warnings.warn(
+        "M11_009_ROOT="+x.production_candidate_root
+        +" END_TO_END="+x.end_to_end_fingerprint
+        +" PACKAGE="+x.promotion_package_fingerprint
+        +" ROLLBACK="+x.rollback_rule_fingerprint,
+        RuntimeWarning,
+    )
+    assert x.status=="PASS"
