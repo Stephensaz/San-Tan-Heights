@@ -1,0 +1,68 @@
+exception_policy_id: STH-M9-008-EXCEPTION-QUARANTINE-v1.0
+version: 1.0.0
+status: FROZEN
+purpose: Govern classification, quarantine, repair ownership, replay, and accounting for M9 production activation exceptions.
+
+exception_classes:
+  IDENTITY_OR_PHASE_CONFLICT:
+    owning_layer: M9-003
+    is_defect: true
+    quarantine_required: true
+  SPATIAL_EVIDENCE_GAP:
+    owning_layer: M9-003
+    is_defect: true
+    quarantine_required: true
+  HISTORICAL_LINKAGE_GAP:
+    owning_layer: M9-004
+    is_defect: true
+    quarantine_required: true
+  CURRENT_CONTEXT_UNAVAILABLE:
+    owning_layer: M9-005
+    is_defect: false
+    quarantine_required: false
+  CURRENT_CONTEXT_STALE:
+    owning_layer: M9-005
+    is_defect: false
+    quarantine_required: false
+  EVIDENCE_PASSPORT_INVALID:
+    owning_layer: M9-006
+    is_defect: true
+    quarantine_required: true
+  REPORT_MATERIALIZATION_INVALID:
+    owning_layer: M9-007
+    is_defect: true
+    quarantine_required: true
+  KNOWN_PARTIAL_FRONTAGE:
+    owning_layer: M9-003
+    is_defect: true
+    quarantine_required: true
+
+non_defect_condition_classes:
+  - CURRENT_CONTEXT_UNAVAILABLE
+  - CURRENT_CONTEXT_STALE
+
+known_governed_exception:
+  canonical_property_id: STH-516018120
+  scope_type: FIELD
+  scope_key: frontage
+  exception_class: KNOWN_PARTIAL_FRONTAGE
+  owning_layer: M9-003
+  publication_behavior: PARTIAL_SUPPRESSION_ONLY
+  inference_prohibited: true
+  waiver_cannot_publish: true
+
+governance:
+  explicit_class_required: true
+  explicit_owner_required: true
+  explicit_reason_required: true
+  explicit_severity_required: true
+  explicit_repair_state_required: true
+  silent_disappearance_prohibited: true
+  quarantined_publication_prohibited: true
+  inferred_substitution_prohibited: true
+  repair_in_owning_layer_required: true
+  downstream_replay_required: true
+  historical_accepted_artifacts_immutable: true
+  stale_expired_unavailable_not_automatically_defects: true
+  waiver_cannot_create_publishability: true
+  unaffected_fingerprint_preservation_required: true
