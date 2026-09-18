@@ -1,0 +1,14 @@
+profile_id: RANCHO-VISTOSO-COMMUNITY-TAXONOMY-HARDENED-v1.0
+profile_type: COMMUNITY_TAXONOMY
+version: 1.0.0
+status: HARDENED
+community_id: RANCHO_VISTOSO
+component_class: COMMUNITY_SPECIFIC
+authority:
+  name: Town of Oro Valley
+  governing_plan_type: Planned Area Development
+semantics:
+  municipality: Oro Valley
+  county: Pima
+  neighborhood_plan_mapping_required: true
+  platform_default_prohibited: true
