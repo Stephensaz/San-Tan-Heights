@@ -7,6 +7,7 @@ from .corpus import (
     QuarantineReason,
     SourceSnapshot,
 )
+from .corpus_freeze import ProductionCorpusFreeze, ProductionCorpusFreezeValidator
 
 __all__ = [
     "AdmissionState",
@@ -14,6 +15,8 @@ __all__ = [
     "ExclusionReason",
     "ProductionCorpusManifest",
     "ProductionCorpusManifestLoader",
+    "ProductionCorpusFreeze",
+    "ProductionCorpusFreezeValidator",
     "QuarantineReason",
     "SourceSnapshot",
 ]
