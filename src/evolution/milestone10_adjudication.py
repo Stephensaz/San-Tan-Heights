@@ -112,7 +112,15 @@ def execute_final_adjudication(
 ) -> FinalAdjudicationResult:
     root=Path(repository_root)
     version=(root/"VERSION").read_text().strip()
-    if version!=str(registry["release_candidate_version"]):
+    release_version=str(registry["release_candidate_version"])
+    final_evidence_path=root/"certification-evidence/m10-010/final-adjudication-v1.0.json"
+    if final_evidence_path.is_file():
+        final_evidence=json.loads(final_evidence_path.read_text())
+        if str(final_evidence.get("release_candidate_version") or "")!=release_version:
+            raise ValueError("M10-010 release candidate version mismatch")
+        if final_evidence.get("status")!="ACCEPTED" or final_evidence.get("decision")!="PLATFORM RELEASED":
+            raise ValueError("M10-010 final release evidence is not accepted")
+    elif version!=release_version:
         raise ValueError("M10-010 release candidate version mismatch")
 
     receipts,blocking=_verify_evidence_chain(root,registry)
