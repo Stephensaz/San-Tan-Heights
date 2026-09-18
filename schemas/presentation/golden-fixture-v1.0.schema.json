@@ -14,7 +14,7 @@
   "properties": {
     "fixture_id": {
       "type": "string",
-      "pattern": "^SYNTH-[A-Z0-9-]+$"
+      "pattern": "^SYNTH-[A-Z0-9_-]+$"
     },
     "category": {
       "type": "string",
