@@ -1,6 +1,6 @@
 {
   "evidence_id": "STH-M9-003-IDENTITY-PHASE-SPATIAL-BINDING-v1.0",
-  "status": "PASS_PENDING_CI",
+  "status": "PASS",
   "source": {
     "m9_001_corpus_freeze_fingerprint": "f9499c10399d79e7346f9736dfbe4a360a59f1f663d7b5795a1e845ab31b3810",
     "m9_002_activation_roster_sha256": "38d9ca1ad5b81ce4038edf149a9a9a3a80e58d315c8a0f206173c19521bb7b54",
@@ -52,5 +52,14 @@
   },
   "binding_fingerprint": "e60f289c0f1921d37573db328b4c52308188152c51fde28ca1aa669b8ceae524",
   "defects": [],
-  "waivers": []
+  "waivers": [],
+  "acceptance_evidence": {
+    "m9_activation_ci_run": 13,
+    "m9_boundary_validation_run": 14,
+    "m8_presentation_ci_run": 67,
+    "m8_presentation_certification_run": 70,
+    "m8_final_certification_run": 22,
+    "defects": 0,
+    "waivers": 0
+  }
 }
