@@ -1,0 +1,135 @@
+evidence_materialization_registry_id: STH-M9-006-EVIDENCE-PASSPORT-FINDINGS-v1.0
+version: 1.0.0
+status: FROZEN
+community_id: SAN_TAN_HEIGHTS
+materialization_mode: ADOPT_CERTIFIED_EVIDENCE_GOVERNANCE_V2
+
+accepted_activation_inputs:
+  m9_001:
+    corpus_members: 4956
+    corpus_freeze_fingerprint: f9499c10399d79e7346f9736dfbe4a360a59f1f663d7b5795a1e845ab31b3810
+    canonical_master_sha256: 1e8713f61378581651831d720a360974a58c1b072bbf326f47676e0d21b380a7
+  m9_002:
+    activation_roster_sha256: 38d9ca1ad5b81ce4038edf149a9a9a3a80e58d315c8a0f206173c19521bb7b54
+    corpus_members: 4956
+  m9_003:
+    identity_phase_spatial_binding_sha256: 3c2507b0045d412633d10b10c259275c193bf27a843e7591fbf16be8abb71efd
+    spatial_bound: 4955
+    partial_unresolved: 1
+  m9_004:
+    historical_property_population_sha256: 925c6745dbf82691d691933846f8ea81dbe49b1df3ea1bf60a5f133bce2eb2b9
+    legacy_episode_bridge_sha256: 0a342b069e79ef08be0925c2de1cd59669e1c053e905104bd32db2fd98b1fcf9
+  m9_005:
+    current_property_context_sha256: 18b764be9fad8b81d17e709f308f7562180417771c83a6bf6d7747f1e58e22ec
+    builder_context_sha256: d8bef30fc7936621e1f6658fa1057181fb11a4c38bb805f30036cdb35e7165b1
+    current_competition_source_sha256: b70701fc99e8ff7243b625340f11737d07c74a9c0a3c7d53f9fd5f52e8a1df98
+
+adopted_governance:
+  governance_version: EVIDENCE_GOVERNANCE_2
+  passport_version: PASSPORT_2
+  finding_policy_version: FINDING_POLICY_2
+  property_evidence_passport:
+    library_file_id: libfile_905b155f51288191b306b6bdcd2612c8
+    raw_size_bytes: 62311266
+    raw_sha256: 10b72c9af73931018cf44f5a0c3fe64efa5ce948d104e1eefec42beb3eb82e57
+    records: 4956
+  passport_summary:
+    library_file_id: libfile_be79278a57408191b3caa69219560abf
+    raw_size_bytes: 818122
+    raw_sha256: 1495a6e20525a842fcb785b783d024e8010ae3bcfd985add8b734e3b6f929b8d
+    records: 4956
+  production_finding_candidates:
+    library_file_id: libfile_6c1258895a308191a1a221e2da7ba57e
+    raw_size_bytes: 53454163
+    raw_sha256: 646e540112a5201c43a71a4b5ee69bdfd443a2dc7f409a3a6286869959053a91
+    records: 37846
+  publication_eligibility:
+    library_file_id: libfile_e17316614b808191aeec625a011c60f8
+    raw_size_bytes: 17413966
+    raw_sha256: 6c841911c2e03a9be969269c19970de9e513164c43ee0d34a95b8b6a15d3ec0d
+    records: 151384
+  finding_policy_registry:
+    library_file_id: libfile_8230e048e4588191a53d580265ab5ddf
+    raw_size_bytes: 3845
+    raw_sha256: dea8ec51d75c456d822bb03ae536402649c47137c4a81a208adfd8548e657a39
+    finding_families: 8
+  artifact_lineage_registry:
+    library_file_id: libfile_5340c33706cc8191b8f93e486397a6dd
+    raw_size_bytes: 3366
+    raw_sha256: a8020236583ef493fa47b001e80bbb26b83905323d07b9e24c5440fc7a0f5b0a
+  governance_qa:
+    library_file_id: libfile_ea55b387f1e0819191ae6132097c8624
+    raw_size_bytes: 421
+    raw_sha256: 135d86fccca61612fb6c8b78f8ad033d8b404815576d4d9ce9f410e6d4d936c7
+    all_checks_pass: true
+
+passport_population:
+  total: 4956
+  ready_with_limitations: 4955
+  partial: 1
+  partial_property_ids:
+    - STH-516018120
+
+findings:
+  total: 37846
+  families:
+    identity.community_membership: 4956
+    frontage.street_side: 4955
+    boundary.context: 4955
+    micro_market.membership: 4955
+    configuration.current: 4955
+    substitution.density: 4955
+    competition.current: 4955
+    buyer_response.profile: 3160
+  all_have_direct_artifact_sha256: true
+  all_have_source_row_fingerprint: true
+  all_have_lineage: true
+  all_have_model_or_calculation_version: true
+  all_have_policy_version: true
+  policy_version: FINDING_POLICY_2
+
+publication_eligibility:
+  decision_rows: 151384
+  internal_eligible: 37846
+  agent_eligible: 32891
+  seller_eligible: 24776
+  public_eligible: 14866
+  stale_current_competition:
+    findings: 4955
+    internal_eligible: 4955
+    agent_eligible: 0
+    seller_eligible: 0
+    public_eligible: 0
+    freshness_rule: 36_HOURS_MAX_FOR_CURRENT_PUBLICATION
+
+non_promoted_governed_context:
+  m9_005_builder_context:
+    source_sha256: d8bef30fc7936621e1f6658fa1057181fb11a4c38bb805f30036cdb35e7165b1
+    reason: NO_FINDING_POLICY_2_PROPERTY_FINDING_FAMILY
+    property_finding_created: false
+    retained_for_downstream_context_use_only: true
+
+integrity:
+  passport_jsonl_summary_fingerprint_mismatches: 0
+  passport_jsonl_summary_health_mismatches: 0
+  passport_jsonl_summary_finding_count_mismatches: 0
+  corpus_membership_mismatches: 0
+  unsupported_finding_families: 0
+  stale_current_noninternal_eligible: 0
+
+materialization_fingerprint: 1804cba868eabc9cb865ce8cc2bbecb856d9fb391ba6d71d68aa1f2f6fb9cf24
+
+governance:
+  create_new_analytical_facts: false
+  invent_missing_findings: false
+  preserve_allowed_wording: true
+  preserve_required_qualifiers: true
+  preserve_prohibited_interpretations: true
+  preserve_confidence_and_qa: true
+  preserve_freshness: true
+  preserve_tier_eligibility: true
+  preserve_limitations: true
+  preserve_lineage: true
+  renderer_tier_inference_prohibited: true
+  report_rendering_prohibited: true
+  publication_prohibited: true

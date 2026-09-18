@@ -21,6 +21,7 @@ from .identity_phase_spatial_binding import (
 )
 from .historical_population import HistoricalPopulationAudit, audit_historical_population
 from .current_market_builder import CurrentContextAudit, audit_current_context
+from .evidence_passport_materialization import EvidenceMaterializationAudit, validate_materialization
 
 __all__ = [
     "AdmissionState",
@@ -43,4 +44,6 @@ __all__ = [
     "audit_historical_population",
     "CurrentContextAudit",
     "audit_current_context",
+    "EvidenceMaterializationAudit",
+    "validate_materialization",
 ]

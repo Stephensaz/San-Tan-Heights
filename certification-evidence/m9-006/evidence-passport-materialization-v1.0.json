@@ -1,0 +1,65 @@
+{
+  "evidence_id": "STH-M9-006-EVIDENCE-PASSPORT-FINDINGS-v1.0",
+  "status": "PASS",
+  "adopted_governance": {
+    "governance_version": "EVIDENCE_GOVERNANCE_2",
+    "passport_version": "PASSPORT_2",
+    "finding_policy_version": "FINDING_POLICY_2"
+  },
+  "population": {
+    "passports": 4956,
+    "ready_with_limitations": 4955,
+    "partial": 1,
+    "partial_property_id": "STH-516018120"
+  },
+  "findings": {
+    "total": 37846,
+    "families": 8,
+    "all_have_direct_hash": true,
+    "all_have_row_fingerprint": true,
+    "all_have_lineage": true,
+    "all_have_model_version": true,
+    "all_have_policy": true
+  },
+  "eligibility": {
+    "rows": 151384,
+    "internal": 37846,
+    "agent": 32891,
+    "seller": 24776,
+    "public": 14866,
+    "stale_current_noninternal_eligible": 0
+  },
+  "stale_current_competition": {
+    "findings": 4955,
+    "internal_eligible": 4955,
+    "agent_eligible": 0,
+    "seller_eligible": 0,
+    "public_eligible": 0,
+    "freshness_rule": "36_HOURS_MAX_FOR_CURRENT_PUBLICATION"
+  },
+  "builder_context": {
+    "property_finding_created": false,
+    "reason": "NO_FINDING_POLICY_2_PROPERTY_FINDING_FAMILY"
+  },
+  "artifact_hashes": {
+    "passport_jsonl": "10b72c9af73931018cf44f5a0c3fe64efa5ce948d104e1eefec42beb3eb82e57",
+    "passport_summary": "1495a6e20525a842fcb785b783d024e8010ae3bcfd985add8b734e3b6f929b8d",
+    "findings": "646e540112a5201c43a71a4b5ee69bdfd443a2dc7f409a3a6286869959053a91",
+    "eligibility": "6c841911c2e03a9be969269c19970de9e513164c43ee0d34a95b8b6a15d3ec0d",
+    "policy": "dea8ec51d75c456d822bb03ae536402649c47137c4a81a208adfd8548e657a39",
+    "lineage": "a8020236583ef493fa47b001e80bbb26b83905323d07b9e24c5440fc7a0f5b0a",
+    "qa": "135d86fccca61612fb6c8b78f8ad033d8b404815576d4d9ce9f410e6d4d936c7"
+  },
+  "materialization_fingerprint": "1804cba868eabc9cb865ce8cc2bbecb856d9fb391ba6d71d68aa1f2f6fb9cf24",
+  "defects": [],
+  "waivers": [],
+  "acceptance_evidence": {
+    "m9_activation_ci_run": 30,
+    "m9_boundary_validation_run": 31,
+    "m8_presentation_ci_run": 87,
+    "m8_presentation_certification_run": 90,
+    "m8_final_certification_run": 39,
+    "defects": 0,
+    "waivers": 0
+  }
+}
