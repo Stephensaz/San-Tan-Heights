@@ -19,6 +19,7 @@ from .identity_phase_spatial_binding import (
     audit_binding,
     validate_binding_against_registry,
 )
+from .historical_population import HistoricalPopulationAudit, audit_historical_population
 
 __all__ = [
     "AdmissionState",
@@ -37,4 +38,6 @@ __all__ = [
     "BindingAudit",
     "audit_binding",
     "validate_binding_against_registry",
+    "HistoricalPopulationAudit",
+    "audit_historical_population",
 ]
