@@ -93,6 +93,20 @@ jobs:
               assert evidence["waivers"]==0
               assert evidence["open_defects"]==0
               assert all(x["conclusion"]=="success" for x in evidence["github_actions"].values())
+          evidence_path=Path("certification-evidence/m13-004/temporal-history-acceptance-v1.0.json")
+          if evidence_path.exists():
+              evidence=json.loads(evidence_path.read_text())
+              assert evidence["ticket"]=="M13-004"
+              assert evidence["status"]=="ACCEPTED"
+              assert evidence["parent"]["ticket"]=="M13-003"
+              assert evidence["community_temporal_history_contract_sha256"]==row["sha256"]
+              assert evidence["tests"]["m13_004_specific_tests"]==12
+              assert evidence["tests"]["m13_temporal_state_total_passed"]==74
+              assert evidence["tests"]["inherited_m12_passed"]==137
+              assert evidence["tests"]["failed"]==0
+              assert evidence["waivers"]==0
+              assert evidence["open_defects"]==0
+              assert all(x["conclusion"]=="success" for x in evidence["github_actions"].values())
           print("PASS: M13-004 frozen temporal-history boundary and accepted M13-003 predecessor are pinned")
           PY
       - name: Run M13 temporal-state tests
