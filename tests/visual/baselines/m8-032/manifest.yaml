@@ -1,0 +1,50 @@
+visual_baseline_manifest_id: STH-M8-032-VISUAL-BASELINES-v1.0
+version: 1.0.0
+status: LOCKED
+source_fixture_set_fingerprint: 99c8d26bc9b6a9f0be627163af47c324395142f97340162954e48ee53bfb45fc
+visual_runtime_fingerprint: 896ec9dbea58efc2f1752b83277019d56fc41f811230a35d216e755f25518525
+fixture_ids:
+  - SYNTH-NORMAL-001
+  - SYNTH-SPARSE-001
+  - SYNTH-DENSE-001
+  - SYNTH-UNCERTAIN-001
+  - SYNTH-CONFLICTED-001
+  - SYNTH-STALE-001
+  - SYNTH-SPATIAL-001
+  - SYNTH-MEDIA-001
+  - SYNTH-ANALYTICAL-001
+  - SYNTH-HISTORICAL-001
+  - SYNTH-CHANGE-001
+  - SYNTH-EMPTY-001
+  - SYNTH-RESPONSIVE-001
+  - SYNTH-PAGINATION-001
+  - SYNTH-PRIVACY_ADVERSARIAL-001
+  - SYNTH-ACCESSIBILITY-001
+targets:
+  PUBLIC_WEB:
+    viewports: [desktop_large, desktop, tablet, mobile, mobile_narrow]
+  SELLER_WEB:
+    viewports: [desktop, tablet, mobile]
+  AGENT_WEB:
+    viewports: [desktop_large, desktop]
+  PDF:
+    viewports: [desktop]
+  PRINT:
+    viewports: [desktop]
+required_structural_assertions:
+  - NO_CLIPPING
+  - NO_OVERFLOW
+  - NO_OVERLAP
+  - NO_ZERO_SIZE
+  - REQUIRED_LIMITATIONS_VISIBLE
+  - REQUIRED_DISCLOSURES_VISIBLE
+  - FRESHNESS_VISIBLE
+baseline_rules:
+  deterministic_fixture_manifest_only: true
+  live_data_prohibited: true
+  source_fixture_membership_must_match: true
+  visual_runtime_must_match: true
+  all_required_targets_must_be_present: true
+  all_required_viewports_must_be_present: true
+  unresolved_visual_diff_count_must_be_zero: true
+  structural_hard_failures_must_be_zero: true
