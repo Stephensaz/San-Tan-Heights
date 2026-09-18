@@ -1,0 +1,59 @@
+extraction_registry_id: STH-M10-002-CORE-CONFIG-EXTRACTION-v1.0
+version: 1.0.0
+status: FROZEN
+declared_scope:
+  - src
+  - contracts
+  - registries
+  - templates
+
+component_classes:
+  - CORE_REUSABLE
+  - COMMUNITY_CONFIGURABLE
+  - COMMUNITY_SPECIFIC
+  - SOURCE_SPECIFIC
+
+path_rules:
+  CORE_REUSABLE:
+    - src/kernel/
+    - src/shared/
+    - src/dependency/
+    - src/regeneration/
+    - src/report_builder/
+    - src/renderer/
+    - src/production_certification/
+    - src/evolution/
+  COMMUNITY_SPECIFIC:
+    - src/activation/
+    - contracts/activation/
+    - registries/activation/
+  COMMUNITY_CONFIGURABLE:
+    - templates/
+    - registries/report-variants/
+    - registries/report-sections/
+    - registries/friendly-labels/
+    - registries/glossary/
+    - registries/render-contracts/
+    - registries/evolution/
+  SOURCE_SPECIFIC:
+    - registries/production-certification/
+
+community_markers:
+  - SAN_TAN_HEIGHTS
+  - San Tan Heights
+  - STH-
+  - Pinal
+  - ARMLS
+
+core_marker_allowlist:
+  - src/evolution/component_extraction.py
+
+governance:
+  every_material_component_requires_classification: true
+  longest_prefix_rule_wins: true
+  ambiguous_classification_fails_closed: true
+  core_community_marker_fails_closed: true
+  community_config_is_explicit: true
+  source_specific_behavior_is_explicit: true
+  accepted_baseline_behavior_must_not_change: true
+  accepted_baseline_mutation_prohibited: true
