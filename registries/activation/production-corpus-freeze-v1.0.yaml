@@ -1,0 +1,62 @@
+production_corpus_freeze_id: STH-PRODUCTION-CORPUS-FREEZE-v1.0
+version: 1.0.0
+status: FROZEN
+community_id: SAN_TAN_HEIGHTS
+canonical_roster:
+  name: San_Tan_Heights_Canonical_Property_Master_v1_0.csv
+  canonical_master_version: 1.0.0
+  original_library_file_id: libfile_cc0da76d02a881918037413429de4479
+  original_library_version: "1"
+  raw_size_bytes: 1078298
+  raw_sha256: 1e8713f61378581651831d720a360974a58c1b072bbf326f47676e0d21b380a7
+execution_mirror:
+  role: HASH_PRESERVING_EXECUTION_MIRROR
+  library_file_id: libfile_1f4dc0329f688191be5899962232e3d1
+  path: /M9/San_Tan_Heights_Canonical_Property_Master_v1_0.csv
+  raw_size_bytes: 1078298
+  raw_sha256: 1e8713f61378581651831d720a360974a58c1b072bbf326f47676e0d21b380a7
+  authoritative: false
+membership:
+  declared_total: 4956
+  canonical_property_id_count: 4956
+  unique_canonical_property_id_count: 4956
+  county_parcelid_count: 4956
+  unique_county_parcelid_count: 4956
+  blank_canonical_property_id_count: 0
+  blank_county_parcelid_count: 0
+  canonical_property_ids_sha256: 82d0c5f51d1664f9d39fee1703ea6360dcfd866522c5e7d5cf0ce476a6b6d857
+  county_parcelids_sha256: 3ea6b3f0e85b3f0f71f565547f91e7ee6922c69346384472dc7f187908035db5
+  canonical_property_id_to_parcelid_pairs_sha256: c9fb8420b38224eea6baaf9e1d07597776d94b36a99da1c107bd961bfd711e09
+admission:
+  admitted: 4956
+  quarantined: 0
+  excluded_with_governed_reason: 0
+  admission_basis:
+    community_membership_status: VERIFIED_RECORDED_SAN_TAN_HEIGHTS
+    parcel_role: RESIDENTIAL_LOT
+    canonical_master_version: 1.0.0
+quality:
+  all_members_verified_recorded_san_tan_heights: true
+  all_members_residential_lot: true
+  all_members_master_version_1_0_0: true
+  one_to_one_canonical_id_parcelid: true
+  duplicate_canonical_property_ids: 0
+  duplicate_county_parcelids: 0
+  missing_canonical_property_ids: 0
+  missing_county_parcelids: 0
+upstream_certification:
+  final_village_residential_lots: 1003
+  prior_non_village_residential_properties: 3953
+  final_canonical_total: 4956
+  exact_one_to_one_geometry_matches: 4956
+  missing_parcel_geometries: 0
+  duplicate_residential_parcelid_identities: 0
+  evidence:
+    - VILLAGE_FINAL_PLAT_CERTIFICATION_REPORT.md
+    - SPATIAL_FOUNDATION_BUILD_REPORT.md
+governance:
+  membership_payload_is_canonical_csv: true
+  duplicate_roster_prohibited: true
+  membership_changes_require_evidence_backed_change_event: true
+  all_members_accounted: true
+  conditional_go_prohibited: true
