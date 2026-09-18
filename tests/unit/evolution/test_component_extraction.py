@@ -71,8 +71,31 @@ def test_mutated_baseline_fails(tmp_path):
     with pytest.raises(ValueError,match="baseline changed"): assert_baseline_preserved(frozen_fingerprint=fp,current_baseline_path=p)
 
 def test_actual_repository_declared_scope_is_fully_classified():
-    audit=inventory_repository(".",registry())
+    audit=inventory_repository(
+        ".",
+        registry(),
+        exclude_prefixes=(
+            "src/seller_intelligence/",
+            "contracts/seller_intelligence/",
+            "registries/seller_intelligence/",
+        ),
+    )
     assert audit.unclassified==()
     assert audit.ambiguous==()
     assert audit.core_marker_violations==()
     assert len(audit.classified)>0
+
+
+def test_post_release_scope_exclusion_is_explicit_and_narrow(tmp_path):
+    (tmp_path/"src/seller_intelligence").mkdir(parents=True)
+    (tmp_path/"src/seller_intelligence/new.py").write_text("VALUE = 1")
+    (tmp_path/"src/mystery").mkdir(parents=True)
+    (tmp_path/"src/mystery/x.py").write_text("VALUE = 2")
+    r=registry()
+    r["declared_scope"]=["src"]
+    audit=inventory_repository(
+        tmp_path,
+        r,
+        exclude_prefixes=("src/seller_intelligence/",),
+    )
+    assert audit.unclassified==("src/mystery/x.py",)
