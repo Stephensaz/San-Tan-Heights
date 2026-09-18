@@ -1,0 +1,82 @@
+certification_id: STH-M8-033-PRESENTATION-INTEGRATION-v1.0
+version: 1.0.0
+status: LOCKED
+source_candidate:
+  milestone: M8-032
+  commit_sha: 5cbd040083065ecf3d6649fc23a9a64fe74e5401
+  fixture_manifest: registries/presentation/golden-fixture-manifest-v1.0.yaml
+  visual_registry: registries/presentation/visual-regression-v1.0.yaml
+  presentation_contract: contracts/presentation/STH-PRESENTATION-CONSUMER-SYSTEM-v1.0.yaml
+required_source_paths:
+  - schemas/presentation/golden-fixture-v1.0.schema.json
+  - registries/presentation/golden-fixture-manifest-v1.0.yaml
+  - registries/presentation/visual-regression-v1.0.yaml
+  - tests/fixtures/presentation/golden/fixtures.json
+  - tests/fixtures/presentation/golden/expected.json
+  - tests/fixtures/presentation/golden/coverage-matrix.yaml
+  - src/presentation/golden_fixtures/loader.py
+  - src/presentation/golden_fixtures/visual_baseline.py
+  - tests/visual/baselines/m8-032/manifest.yaml
+  - src/presentation/visual_regression/capture.py
+  - src/presentation/visual_regression/compare.py
+  - src/presentation/visual_regression/diff_classifier.py
+layers:
+  A: Harness & Manifest Bootstrap
+  B: Harness Self-Certification & Baseline
+  C: Agent Presentation Certification
+  D: Seller Presentation Certification
+  E: Public Presentation Certification
+  F: Cross-Tier Isolation & Noninterference
+  G: Regeneration, Version-Lineage & Historical Replay
+  H: Delivery, Publication & Consumer-Surface
+  I: Full-Chain Regression & Certification Replay
+  J: Final Certification Adjudication & Production-Candidate Gate
+stage_gates:
+  A: Fixture Integrity
+  B: Audience Projection
+  C: Semantic Assembly
+  D: Privacy / Canary
+  E: Routing / Delivery
+  F: Responsive / Interaction
+  G: Accessibility
+  H: PDF / Print
+  I: Visual Regression
+  J: Cross-Surface Reconciliation
+  K: Failure / Revocation / Cache
+  L: Final Manifest
+acceptance_criteria:
+  - INTCERT-AC1_FULL_CHAIN_AUDIENCE_FIDELITY
+  - INTCERT-AC2_TIER_ISOLATION
+  - INTCERT-AC3_PROPERTY_IDENTITY_BINDING
+  - INTCERT-AC4_SEMANTIC_PRESERVATION
+  - INTCERT-AC5_EVIDENCE_LIMITATION_INTEGRITY
+  - INTCERT-AC6_STATIC_ARTIFACT_EQUIVALENCE
+  - INTCERT-AC7_TEMPORAL_INTEGRITY
+  - INTCERT-AC8_ROUTE_DELIVERY_INTEGRITY
+  - INTCERT-AC9_ACCESSIBILITY
+  - INTCERT-AC10_VISUAL_INTEGRITY
+  - INTCERT-AC11_REPRODUCIBILITY
+  - INTCERT-AC12_ALL_OR_NOTHING_PASS_GO
+visual_evidence:
+  baseline_root: tests/visual/baselines
+  baseline_mode: approved_capture_manifest
+  required_targets:
+    - PUBLIC_WEB
+    - SELLER_WEB
+    - AGENT_WEB
+    - PDF
+    - PRINT
+  require_controlled_runtime_match: true
+  require_structural_assertions_pass: true
+  require_deterministic_replay: true
+final_rules:
+  allow_waivers: false
+  allow_conditional_go: false
+  require_all_layers_pass: true
+  require_all_stage_gates_pass: true
+  require_all_acceptance_criteria_pass: true
+  require_zero_open_defects: true
+  require_zero_drift: true
+  verdicts:
+    pass: PASS / GO
+    fail: FAIL / NO-GO
