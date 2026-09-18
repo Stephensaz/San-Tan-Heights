@@ -5,7 +5,7 @@ status_values:
 - IN_PROGRESS
 - BLOCKED
 - ACCEPTED
-current_ticket: M9-012
+current_ticket: M10-002
 milestones:
 - id: M1
   name: Governed Lifecycle Kernel
@@ -34,4 +34,7 @@ milestones:
 - id: M9
   name: Production Population & Community Activation
   status: ACCEPTED
-version: 0.1.111
+- id: M10
+  name: Multi-Community Platform Evolution & Portability
+  status: IN_PROGRESS
+version: 0.1.113

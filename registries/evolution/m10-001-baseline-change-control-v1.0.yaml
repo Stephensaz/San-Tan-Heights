@@ -1,0 +1,65 @@
+change_control_registry_id: STH-M10-001-BASELINE-EVOLUTION-v1.0
+version: 1.0.0
+status: FROZEN
+baseline:
+  baseline_id: SAN_TAN_HEIGHTS_PRODUCTION_BASELINE
+  baseline_version: 1.0.0
+  evidence_path: certification-evidence/m10-001/san-tan-heights-production-baseline-v1.0.0.json
+  immutable: true
+
+change_classes:
+  DATA_REFRESH:
+    default_version_class: PATCH
+    recertification_scopes: [DATA, DEPENDENCY, REPORT, PUBLICATION]
+  ANALYTIC_RULE_CHANGE:
+    default_version_class: MINOR
+    recertification_scopes: [INTELLIGENCE, EVIDENCE, REPORT, PUBLICATION]
+  PRESENTATION_CHANGE:
+    default_version_class: PATCH
+    recertification_scopes: [PRESENTATION, REPORT, PUBLICATION]
+  POLICY_CHANGE:
+    default_version_class: MINOR
+    recertification_scopes: [POLICY, EVIDENCE, REPORT, PUBLICATION]
+  ADAPTER_CHANGE:
+    default_version_class: PATCH
+    recertification_scopes: [ADAPTER, INTEGRATION, PUBLICATION]
+  RUNTIME_CHANGE:
+    default_version_class: PATCH
+    recertification_scopes: [RUNTIME, INTEGRATION]
+  SCHEMA_CHANGE:
+    default_version_class: MINOR
+    recertification_scopes: [SCHEMA, PERSISTENCE, INTEGRATION]
+  BUG_FIX:
+    default_version_class: PATCH
+    recertification_scopes: [OWNING_COMPONENT, REGRESSION]
+  NEW_FEATURE:
+    default_version_class: MINOR
+    recertification_scopes: [OWNING_COMPONENT, INTEGRATION, REGRESSION]
+  NEW_DATA_SOURCE:
+    default_version_class: MINOR
+    recertification_scopes: [SOURCE, LINEAGE, EVIDENCE, REPORT]
+  NEW_COMMUNITY_PORT:
+    default_version_class: MAJOR
+    recertification_scopes: [PORTABILITY, COMMUNITY, INTEGRATION, CERTIFICATION]
+
+component_classes:
+  - CORE_REUSABLE
+  - COMMUNITY_CONFIGURABLE
+  - COMMUNITY_SPECIFIC
+  - SOURCE_SPECIFIC
+
+governance:
+  accepted_baseline_in_place_mutation_prohibited: true
+  change_request_required: true
+  parent_lineage_required: true
+  candidate_manifest_required: true
+  impact_scope_required: true
+  structured_diff_required: true
+  recertification_scope_required: true
+  emergency_bypass_prohibited: true
+  parallel_baseline_candidate_required: true
+  promotion_requires_zero_blocking_exceptions: true
+  promotion_requires_all_required_evidence_pass: true
+  rollback_requires_exact_artifact: true
+  superseded_baselines_immutable: true
+  waivers_allowed: false

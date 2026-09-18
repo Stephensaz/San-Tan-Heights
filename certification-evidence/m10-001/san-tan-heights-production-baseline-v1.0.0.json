@@ -1,0 +1,13 @@
+{
+  "baseline_id": "SAN_TAN_HEIGHTS_PRODUCTION_BASELINE",
+  "baseline_version": "1.0.0",
+  "status": "ACCEPTED_IMMUTABLE",
+  "community_id": "SAN_TAN_HEIGHTS",
+  "source_revision": "90dc065021610cf34d9c80bdebb5ac1e9a3fed1a",
+  "build_version": "0.1.111",
+  "m9_candidate_fingerprint": "722fc69461bf1d7bd171e0a582a41811f3a46c878e7a81030784f57c828eadd8",
+  "m9_certification_root_hash": "a66dc169ec51cfd9a243f49fb922d5c70a7cc11bdd0e5e621ac49eda9cd20704",
+  "production_corpus_members": 4956,
+  "immutable": true,
+  "in_place_mutation_allowed": false
+}

@@ -1,0 +1,94 @@
+contract_id: STH-MULTI-COMMUNITY-PLATFORM-EVOLUTION
+version: 1.0.0
+status: LOCKED
+milestone: M10
+name: Multi-Community Platform Evolution & Portability
+purpose: >
+  Protect the immutable accepted San Tan Heights production baseline while
+  extracting reusable platform capabilities, governing all post-release
+  evolution through versioned candidates, and proving that the certified
+  system can be onboarded to additional communities without mutating the
+  original production baseline.
+locked_inputs:
+  - accepted M1-M9 architecture and implementation
+  - certified San Tan Heights production activation baseline
+  - accepted candidate-freeze, dependency, certification, publication, rollback, and audit controls
+hard_boundaries:
+  - no_in_place_mutation_of_accepted_san_tan_heights_baseline
+  - every_post_release_change_requires_classification
+  - every_material_change_requires_versioned_candidate
+  - emergency_changes_remain_governed
+  - superseded_baselines_remain_immutable
+  - community_specific_configuration_must_not_leak_into_core_platform_semantics
+  - no_new_property_intelligence_methods_inside_portability_work
+  - no_silent_cross_community_assumption_reuse
+  - no_uncontrolled_multi_community_release
+change_classes:
+  - DATA_REFRESH
+  - ANALYTIC_RULE_CHANGE
+  - PRESENTATION_CHANGE
+  - POLICY_CHANGE
+  - ADAPTER_CHANGE
+  - RUNTIME_CHANGE
+  - SCHEMA_CHANGE
+  - BUG_FIX
+  - NEW_FEATURE
+  - NEW_DATA_SOURCE
+  - NEW_COMMUNITY_PORT
+semantic_version_classes:
+  - PATCH
+  - MINOR
+  - MAJOR
+component_classification:
+  - CORE_REUSABLE
+  - COMMUNITY_CONFIGURABLE
+  - COMMUNITY_SPECIFIC
+  - SOURCE_SPECIFIC
+baseline_evolution:
+  baseline_id: SAN_TAN_HEIGHTS_PRODUCTION_BASELINE
+  baseline_version: 1.0.0
+  immutable_after_acceptance: true
+  require_change_request: true
+  require_parent_baseline_lineage: true
+  require_impact_graph: true
+  require_regression_scope: true
+  require_structured_diff: true
+  require_candidate_manifest: true
+  require_parallel_baseline_candidate_support: true
+  require_governed_promotion: true
+  require_governed_rollback: true
+  promotion_requires_zero_blocking_exceptions: true
+portability:
+  preserve_community_identity_boundaries: true
+  onboarding_contract_required: true
+  progressive_certification_required: true
+  cross_community_validation_required: true
+  measured_rebuild_proof_required: true
+  third_community_cold_start_required_before_factory_release: true
+acceptance_model:
+  require_zero_silent_baseline_mutations: true
+  require_zero_unclassified_material_changes: true
+  require_zero_blocking_exceptions_before_promotion: true
+  require_reproducible_candidates: true
+  require_exact_parent_lineage: true
+  require_multi_community_release_certification: true
+  allow_waivers: false
+  allow_conditional_platform_release: false
+ticket_sequence:
+  - M10-001 Baseline Evolution Governance & Change-Control
+  - M10-002 Core Platform vs San Tan Heights Configuration Extraction
+  - M10-003 Community Onboarding Contract & Bootstrap Generator
+  - M10-004 New-Community Build Pipeline & Progressive Certification
+  - M10-005 Community Portability Pilot & Measured Rebuild Proof
+  - M10-006 Portability Remediation & Platform Hardening
+  - M10-007 Third-Community Cold-Start Validation & Repeatability
+  - M10-008 Community Factory Operating Model & Release Automation
+  - M10-009 Portfolio Release Governance & Multi-Community Production Certification
+  - M10-010 Milestone 10 Final Adjudication & Multi-Community Platform Release
+first_ticket:
+  id: M10-001
+  objective: >
+    Protect the immutable San Tan Heights Production Baseline v1.0.0 by
+    requiring every post-release change to be classified, versioned as a
+    candidate, bound to exact parent lineage, scoped for regression and
+    recertification, and promoted only through governed evidence.
