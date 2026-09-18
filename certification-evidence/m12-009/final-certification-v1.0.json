@@ -1,0 +1,94 @@
+{
+  "evidence_id": "STH-M12-009-FINAL-CERTIFICATION-v1.0",
+  "ticket": "M12-009",
+  "status": "ACCEPTED",
+  "decision": "GO",
+  "release_candidate_version": "0.1.132",
+  "certification_root_hash": "e56a8d039c4e0324ff694d0ea8cd5a190f48be6bb8b761d761a41f8af96e2a35",
+  "m12_008_operational_certification_root": "700b426fdf8b576c0522fce216f3af2e1853fd7d851c0dc4ebb80089824f7b84",
+  "coverage": [
+    "M12_001_PROPOSAL_ONLY",
+    "M12_002_AUTHORITY_REVALIDATION",
+    "M12_002_HUMAN_APPROVAL",
+    "M12_002_IDEMPOTENCY",
+    "M12_002_INDEPENDENT_AUTHORITY",
+    "M12_002_OUTCOME_UNKNOWN",
+    "M12_003_CONTROLLED_ROLLBACK",
+    "M12_003_INDEPENDENT_VERIFICATION",
+    "M12_003_RECONCILIATION",
+    "M12_004_NONCAUSAL_LEARNING",
+    "M12_005_HUMAN_PROMOTION_APPROVAL",
+    "M12_005_SAFETY_REGRESSION_BLOCK",
+    "M12_006_NO_ACTION_WORKSPACE",
+    "M12_007_HUMAN_RELEASE",
+    "M12_007_INCIDENT_HOLD",
+    "M12_008_AUDIT_REPRODUCIBILITY",
+    "M12_009_FAILURE_INJECTION",
+    "NO_AUTONOMOUS_EXTERNAL_ACTION",
+    "NO_PUBLIC_STRATEGY",
+    "NO_SYSTEM_PRICE_OR_TERMS"
+  ],
+  "stage_results": {
+    "M12-009A": {"status":"PASS","fingerprint":"b9061950cb9638a9b8602bbdbeb536bffd7077556a97297e99b73defc6eb934c"},
+    "M12-009B": {"status":"PASS","fingerprint":"356f99b7d88eb2c629c3f67d3a95e282783c17d149766a4331423b91aa5a4d2a"},
+    "M12-009C": {"status":"PASS","fingerprint":"7bdccec7fca9fd9a6e4f014c4879f9f3b30bce8d8f81d4175ba1bced969a6e38"},
+    "M12-009D": {"status":"PASS","fingerprint":"b3e4654cdad7e5b5114198857d256882a6feac4207b4f81bbf16e734426e46f3"},
+    "M12-009E": {"status":"PASS","fingerprint":"5a5a32890953a772231aa0cc1f511f1a59414bd46c25aaabb679b7fc51a22778"},
+    "M12-009F": {"status":"PASS","fingerprint":"944d31810d7218203b21f618eedd6204f1c92c0a641c52f6f8c4f7733a399aef"},
+    "M12-009G": {"status":"PASS","fingerprint":"d1296ef50e1a950f0851a9f76614ecd9637605150d75f9c110cc6cc917c6b35d"},
+    "M12-009H": {"status":"PASS","fingerprint":"be0f7859123e0da811492e61accf1c550ae8730384355f905021aebdb9821171"},
+    "M12-009I": {"status":"PASS","fingerprint":"7fd6ca674403bd3077da3145c41b36ca57e7bf16314ba1d3dab003af9011b952"},
+    "M12-009J": {"status":"PASS","fingerprint":"fe20d5ff8f5574fd7548f50593913f1bfd2ca6d2052c406e79a6572dc592741c"}
+  },
+  "accepted_evidence_sha256": {
+    "M12-001": "7c6ebb57c47cc3200e5ead282f99e6a450ea7dbee425fe6c7844603ff641d671",
+    "M12-002": "09d37e490e86c8b27c7c5f7fc8a42663109f637b17aab46b23376e0eac41944c",
+    "M12-003": "0fdb6bfe87021af090863af74e99b5f4b770199305176ce93c56777b9035298d",
+    "M12-004": "39ab4e82f51a827e2244792079da45fd54eb4092d7c70a1b2d29fdfc56d9f5e7",
+    "M12-005": "17c050569e6cb06bc4a6d62a92a423cf2dfcc2a126a98fff423c55ebf3ed818c",
+    "M12-006": "7cd20becc2f5a6b6cf1c4bda7e477f346bfff306cdd622a71b823cc77180e94c",
+    "M12-007": "fb567919e33f229f466f2078071869e186f1b4e11421ec87149bec877d1872f4",
+    "M12-008": "1bca376d1486a3603f3a843927d8f2969d63c7534d8a4c7049bd099df60aed94"
+  },
+  "adjudication": {
+    "a_through_j_all_pass": true,
+    "all_required_coverage_closed": true,
+    "m12_008_root_reproduced": true,
+    "zero_waivers": true,
+    "zero_open_defects": true,
+    "zero_blocking_reasons": true,
+    "duplicate_side_effect_suppression_verified": true,
+    "outcome_unknown_no_silent_retry_verified": true,
+    "independent_verification_reconciliation_verified": true,
+    "incident_hold_recovery_verified": true,
+    "human_control_verified": true,
+    "unsafe_policy_promotion_blocked": true,
+    "audit_reproducibility_verified": true,
+    "cross_layer_failure_injection_verified": true,
+    "no_m12_009k": true
+  },
+  "github_actions": {
+    "m12_009_final_integrated_certification": {
+      "run_number": 3,
+      "run_id": 35383557585,
+      "conclusion": "success"
+    },
+    "m12_listing_execution_ci": {
+      "run_number": 39,
+      "run_id": 35383557484,
+      "conclusion": "success"
+    },
+    "m12_operational_certification": {
+      "run_number": 10,
+      "run_id": 35383557566,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "m12_full_suite_passed": 137,
+    "m12_009_final_tests_passed": 9,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
