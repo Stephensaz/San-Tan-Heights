@@ -98,12 +98,21 @@ def test_protected_regression_fails_closed_and_blocks_package():
         candidate_id="CAND-BAD",advisory_candidate=advisory(),baseline=base,
         rule_changes={"DAY_7_HIGH_PRESSURE_REVIEW_ENABLED":False},registry=reg(),
     )
+    isolated=[
+        build_fixture(
+            fixture_id="F-HIGH-ONLY",competitive_pressure="HIGH",buyer_depth="DEEP",
+            pricing_response_environment="RESPONSIVE",new_construction_pressure="LOW",
+            verified_differentiation="STRONG",week_over_week_direction="STABLE",
+            protected_behavior=True,
+        )
+    ]
     approval=make_promotion_approval(
         approval_id="A-1",candidate_rule_fingerprint=c.rule_fingerprint,
         authority_id="HUMAN-1",status="APPROVED",
     )
-    result=evaluate_candidate(baseline=base,candidate=c,fixtures=fixtures(),registry=reg(),approval=approval)
-    assert result.regression_count>0
+    result=evaluate_candidate(baseline=base,candidate=c,fixtures=isolated,registry=reg(),approval=approval)
+    assert result.regression_count==1
+    assert "PROTECTED_REVIEW_TRIGGER_REMOVED:7" in result.comparisons[0].regression_reasons
     assert result.promotion_package is None
 
 
