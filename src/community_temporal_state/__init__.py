@@ -35,6 +35,23 @@ from .impact_refresh import (
     validate_refresh_result_replay,
 )
 
+from .history import (
+    TemporalLedgerEntry,
+    TemporalLedger,
+    HistoryView,
+    append_correction,
+    append_entries,
+    build_temporal_ledger,
+    community_history_summary,
+    delta_entries,
+    historical_view,
+    load_temporal_history_registry,
+    make_temporal_entry,
+    refresh_entries,
+    snapshot_entries,
+    validate_ledger_replay,
+)
+
 __all__ = [
     "CommunityStateSnapshot",
     "PropertyStateProjection",
@@ -65,4 +82,18 @@ __all__ = [
     "policy_fingerprint",
     "validate_refresh_plan_replay",
     "validate_refresh_result_replay",
+    "TemporalLedgerEntry",
+    "TemporalLedger",
+    "HistoryView",
+    "append_correction",
+    "append_entries",
+    "build_temporal_ledger",
+    "community_history_summary",
+    "delta_entries",
+    "historical_view",
+    "load_temporal_history_registry",
+    "make_temporal_entry",
+    "refresh_entries",
+    "snapshot_entries",
+    "validate_ledger_replay",
 ]
