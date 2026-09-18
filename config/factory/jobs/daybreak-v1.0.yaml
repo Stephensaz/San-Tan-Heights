@@ -1,0 +1,54 @@
+job_id: FACTORY-DAYBREAK-001
+version: 1.0.0
+status: READY
+publication_allowed: false
+onboarding_id: FACTORY-ONB-DAYBREAK-001
+
+community:
+  community_id: DAYBREAK_UT
+  display_name: Daybreak
+  state: UT
+  county: Salt Lake
+  property_id_prefix: DB-
+
+source_systems:
+  listing_service: UtahRealEstate.com / Wasatch Front Regional MLS
+  parcel_authority: Salt Lake County Assessor
+  recorder_authority: Salt Lake County Recorder
+
+onboarding_assumptions:
+  community_specific:
+    - South Jordan municipal jurisdiction
+    - Daybreak community taxonomy
+  source_specific:
+    - Utah listing compatibility profile
+    - Salt Lake County parcel compatibility profile
+    - Salt Lake County recorder compatibility profile
+
+governed_profiles:
+  - config/cold_start/daybreak/community-taxonomy-profile-v1.0.yaml
+  - config/cold_start/daybreak/utahrealestate-compatibility-profile-v1.0.yaml
+  - config/cold_start/daybreak/salt-lake-assessor-profile-v1.0.yaml
+  - config/cold_start/daybreak/salt-lake-recorder-profile-v1.0.yaml
+
+stage_evidence:
+  ONBOARDING_BOOTSTRAP:
+    artifact: factory-generated onboarding bootstrap
+  IDENTITY_JURISDICTION:
+    artifact: governed community identity bundle
+  SOURCE_ADAPTER_READINESS:
+    artifact: governed source profile bundle
+  CORPUS_ADMISSION_READINESS:
+    artifact: synthetic corpus admission manifest
+  EVIDENCE_PASSPORT_READINESS:
+    artifact: synthetic passport readiness manifest
+  REPORT_MATERIALIZATION_READINESS:
+    artifact: synthetic report readiness manifest
+  PRESENTATION_INTEGRITY_READINESS:
+    artifact: inherited presentation integrity evidence
+  CANDIDATE_FREEZE:
+    artifact: deterministic factory candidate freeze
+
+release:
+  approval_authority: Community Release Authority
+  unresolved_exceptions: []

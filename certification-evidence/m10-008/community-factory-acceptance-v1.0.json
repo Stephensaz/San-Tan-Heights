@@ -1,0 +1,54 @@
+{
+  "evidence_id": "STH-M10-008-COMMUNITY-FACTORY-v1.0",
+  "ticket": "M10-008",
+  "status": "ACCEPTED",
+  "factory": {
+    "single_runner": true,
+    "job_manifest_driven": true,
+    "communities_exercised": [
+      "RANCHO_VISTOSO",
+      "DAYBREAK_UT"
+    ],
+    "community_defaults_embedded_in_core": false
+  },
+  "automation": {
+    "governed_profile_bundle_assembly": true,
+    "m10_003_bootstrap_generation": true,
+    "m10_004_progressive_pipeline_execution": true,
+    "deterministic_stage_receipts": true,
+    "immutable_candidate_packaging": true,
+    "candidate_published": false,
+    "release_request_generation": true
+  },
+  "authority": {
+    "human_release_approval_required": true,
+    "automatic_promotion_prohibited": true,
+    "automatic_publication_prohibited": true,
+    "unresolved_exceptions_block_release_request_completion": true
+  },
+  "retry_resume": {
+    "resume_without_prior_state_rejected": true,
+    "skip_failed_stage_rejected": true,
+    "resume_must_start_at_first_failed_or_incomplete_stage": true,
+    "failed_pipeline_produces_candidate": false,
+    "failed_pipeline_produces_release_request": false
+  },
+  "determinism": {
+    "factory_run_fingerprint": true,
+    "candidate_package_fingerprint": true,
+    "release_request_fingerprint": true
+  },
+  "github_actions": {
+    "m10_evolution_ci": {
+      "run_number": 39,
+      "run_id": 35362180362,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "passed": 103,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}

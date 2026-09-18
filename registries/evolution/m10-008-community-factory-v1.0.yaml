@@ -1,0 +1,35 @@
+factory_registry_id: STH-M10-008-COMMUNITY-FACTORY-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M10-008
+parent_platform:
+  version: 0.1.119
+  immutable_evidence: certification-evidence/m10-007/daybreak-cold-start-acceptance-v1.0.json
+
+required_profile_types:
+  - COMMUNITY_TAXONOMY
+  - LISTING_SOURCE_COMPATIBILITY
+  - PARCEL_SOURCE_COMPATIBILITY
+  - RECORDER_SOURCE_COMPATIBILITY
+
+machine_steps:
+  - VALIDATE_JOB
+  - ASSEMBLE_PROFILES
+  - GENERATE_BOOTSTRAP
+  - EXECUTE_PROGRESSIVE_PIPELINE
+  - COLLECT_EVIDENCE
+  - PACKAGE_CANDIDATE
+  - GENERATE_RELEASE_REQUEST
+
+human_gates:
+  - RELEASE_AUTHORITY_APPROVAL
+
+governance:
+  publication_prohibited: true
+  promotion_prohibited: true
+  hidden_defaults_prohibited: true
+  retry_may_not_skip_failed_stage: true
+  resume_from_first_incomplete_or_failed_stage: true
+  candidate_package_immutable: true
+  release_request_requires_human_approval: true
+  unresolved_exceptions_block_release_request_completion: true
