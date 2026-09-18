@@ -56,7 +56,8 @@ acceptance_criteria:
   - INTCERT-AC11_REPRODUCIBILITY
   - INTCERT-AC12_ALL_OR_NOTHING_PASS_GO
 visual_evidence:
-  baseline_mode: deterministic_fixture_manifest
+  baseline_root: tests/visual/baselines
+  baseline_mode: approved_capture_manifest
   required_targets:
     - PUBLIC_WEB
     - SELLER_WEB
