@@ -1,0 +1,57 @@
+{
+  "evidence_id": "STH-M11-007-EFFECTIVENESS-LEARNING-v1.0",
+  "ticket": "M11-007",
+  "status": "ACCEPTED",
+  "parent": {
+    "tickets": ["M11-004", "M11-006"],
+    "evidence": [
+      "certification-evidence/m11-004/seller-decision-timeline-acceptance-v1.0.json",
+      "certification-evidence/m11-006/seller-workspace-acceptance-v1.0.json"
+    ]
+  },
+  "capabilities": {
+    "observed_outcome_registration": true,
+    "immutable_outcome_records": true,
+    "chronological_review_event_association": true,
+    "chronological_human_decision_association": true,
+    "unknown_outcome_visibility": true,
+    "advisory_calibration_candidates": true,
+    "outcome_coverage_gap_candidates": true
+  },
+  "controls": {
+    "certified_m11_004_timeline_required": true,
+    "certified_m11_006_case_required": true,
+    "case_timeline_binding_required": true,
+    "association_not_causation": true,
+    "review_event_must_precede_outcome": true,
+    "human_decision_must_precede_outcome": true,
+    "historical_mutation_prohibited": true,
+    "unknown_outcomes_explicit": true,
+    "calibration_candidates_advisory_only": true,
+    "automatic_promotion_prohibited": true,
+    "recommended_list_price_prohibited": true,
+    "predicted_sale_price_prohibited": true,
+    "guaranteed_net_proceeds_prohibited": true,
+    "guaranteed_outcomes_prohibited": true,
+    "seller_motivation_inference_prohibited": true,
+    "seller_acceptance_prediction_prohibited": true,
+    "buyer_behavior_prediction_prohibited": true,
+    "protected_class_inference_prohibited": true,
+    "public_eligible": false,
+    "external_action_capability": "NONE",
+    "deterministic_output": true
+  },
+  "github_actions": {
+    "m11_seller_intelligence_ci": {
+      "run_number": 27,
+      "run_id": 35370880094,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "passed": 101,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
