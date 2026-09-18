@@ -1,5 +1,10 @@
 from __future__ import annotations
 import json
+from pathlib import Path
+import sys
+
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
+
 from src.seller_intelligence.final_adjudication import execute_final_adjudication, load_final_adjudication_registry
 
 if __name__=="__main__":
