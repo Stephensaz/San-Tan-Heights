@@ -10,6 +10,16 @@ from .snapshot import (
     validate_comparison_eligibility,
     validate_snapshot_replay,
 )
+from .delta import (
+    ChangeCause,
+    CommunityDelta,
+    FieldChange,
+    ImpactEdge,
+    build_community_delta,
+    certify_delta,
+    load_delta_registry,
+    validate_delta_replay,
+)
 
 __all__ = [
     "CommunityStateSnapshot",
@@ -22,4 +32,12 @@ __all__ = [
     "make_property_projection",
     "validate_comparison_eligibility",
     "validate_snapshot_replay",
+    "ChangeCause",
+    "CommunityDelta",
+    "FieldChange",
+    "ImpactEdge",
+    "build_community_delta",
+    "certify_delta",
+    "load_delta_registry",
+    "validate_delta_replay",
 ]

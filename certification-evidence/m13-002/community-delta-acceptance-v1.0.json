@@ -1,0 +1,89 @@
+{
+  "evidence_id": "STH-M13-002-COMMUNITY-DELTA-v1.0",
+  "ticket": "M13-002",
+  "status": "ACCEPTED",
+  "parent": {
+    "ticket": "M13-001",
+    "evidence": "certification-evidence/m13-001/community-state-snapshot-acceptance-v1.0.json"
+  },
+  "community_delta_contract_sha256": "8f66143425ed389831ff5f5e9f3d6fa03948fa14c815fec598d0086da4eab112",
+  "capabilities": {
+    "certified_snapshot_comparison": true,
+    "field_level_before_after_delta": true,
+    "frozen_change_classification": true,
+    "temporal_semantics": true,
+    "unknown_effective_date_preservation": true,
+    "governed_causation": true,
+    "versioned_materiality": true,
+    "snapshot_and_evidence_lineage": true,
+    "descriptive_potential_staleness_edges": true,
+    "deterministic_delta_replay": true,
+    "explicit_delta_certification": true
+  },
+  "controls": {
+    "certified_m13_001_snapshots_only": true,
+    "comparison_eligibility_required": true,
+    "same_community_required": true,
+    "chronological_comparison_required": true,
+    "live_state_substitution_prohibited": true,
+    "unsupported_causation_prohibited": true,
+    "unknown_cause_preserved": true,
+    "inferred_effective_dates_prohibited": true,
+    "snapshot_mutation_prohibited": true,
+    "delta_mutation_prohibited": true,
+    "downstream_recalculation_prohibited": true,
+    "selective_refresh_prohibited": true,
+    "impact_execution_prohibited": true,
+    "potentially_stale_is_not_invalidation": true,
+    "seller_recommendations_prohibited": true,
+    "listing_actions_prohibited": true,
+    "publication_prohibited": true,
+    "m12_execution_mutation_prohibited": true,
+    "protected_field_propagation_prohibited": true
+  },
+  "github_actions": {
+    "m13_002_temporal_change_delta_ci": {
+      "run_number": 2,
+      "run_id": 35402118276,
+      "conclusion": "success"
+    },
+    "m13_001_community_state_snapshot_ci": {
+      "run_number": 7,
+      "run_id": 35402118341,
+      "conclusion": "success"
+    },
+    "m10_evolution_ci": {
+      "run_number": 102,
+      "run_id": 35402118242,
+      "conclusion": "success"
+    },
+    "m11_seller_intelligence_ci": {
+      "run_number": 73,
+      "run_id": 35402118257,
+      "conclusion": "success"
+    },
+    "m12_listing_execution_ci": {
+      "run_number": 50,
+      "run_id": 35402118259,
+      "conclusion": "success"
+    },
+    "m12_operational_certification": {
+      "run_number": 21,
+      "run_id": 35402118180,
+      "conclusion": "success"
+    },
+    "m12_009_final_integrated_certification": {
+      "run_number": 14,
+      "run_id": 35402118232,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "m13_002_delta_tests": 27,
+    "m13_temporal_state_total_passed": 49,
+    "inherited_m12_passed": 137,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}

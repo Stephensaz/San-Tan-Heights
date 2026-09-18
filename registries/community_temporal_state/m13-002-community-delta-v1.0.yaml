@@ -1,0 +1,96 @@
+delta_registry_id: STH-M13-002-COMMUNITY-DELTA-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-002
+contract_id: STH-COMMUNITY-DELTA
+
+m13_001:
+  accepted_evidence: certification-evidence/m13-001/community-state-snapshot-acceptance-v1.0.json
+  registry: registries/community_temporal_state/m13-001-community-state-snapshot-v1.0.yaml
+
+policy:
+  version: COMMUNITY-DELTA-v1.0
+  certification_states:
+    - DRAFT
+    - CERTIFIED
+    - REJECTED
+  change_classifications:
+    - UNCHANGED
+    - ADDED
+    - REMOVED
+    - MODIFIED
+    - BECAME_KNOWN
+    - BECAME_UNKNOWN
+    - CONFLICT_INTRODUCED
+    - CONFLICT_RESOLVED
+    - SUPPRESSED
+    - REACTIVATED
+    - NOT_COMPARABLE
+  change_causes:
+    - REAL_WORLD_CHANGE
+    - NEWLY_OBSERVED_FACT
+    - SOURCE_CORRECTION
+    - PLATFORM_CORRECTION
+    - CLASSIFICATION_CHANGE
+    - ENGINE_CHANGE
+    - UNKNOWN
+  causation_basis:
+    - DATA_DRIVEN
+    - RULE_DRIVEN
+    - ENGINE_DRIVEN
+    - MIXED
+    - UNKNOWN_CAUSE
+  materiality_levels:
+    - INFORMATIONAL
+    - LOW
+    - MODERATE
+    - HIGH
+    - CRITICAL
+
+materiality:
+  version: COMMUNITY-DELTA-MATERIALITY-v1.0
+  domain_defaults:
+    COMMUNITY: MODERATE
+    PROPERTY: HIGH
+    IDENTITY: HIGH
+    PHASE: HIGH
+    LOCATION_DNA: HIGH
+    INTELLIGENCE: MODERATE
+    GOVERNANCE: HIGH
+    SOURCE: MODERATE
+    POLICY: HIGH
+    RUNTIME: HIGH
+  classification_overrides:
+    UNCHANGED: INFORMATIONAL
+    CONFLICT_INTRODUCED: CRITICAL
+    CONFLICT_RESOLVED: MODERATE
+    NOT_COMPARABLE: CRITICAL
+
+potential_staleness:
+  domains:
+    - IDENTITY
+    - PHASE
+    - LOCATION_DNA
+    - SOURCE
+    - POLICY
+    - RUNTIME
+  affected_object_type: DERIVED_INTELLIGENCE
+
+governance:
+  certified_m13_001_snapshots_only: true
+  same_community_required: true
+  chronological_comparison_required: true
+  deterministic_output_required: true
+  exact_snapshot_lineage_required: true
+  unknown_cause_is_valid: true
+  unsupported_causation_prohibited: true
+  unknown_effective_date_is_valid: true
+  inferred_effective_date_prohibited: true
+  no_live_state_queries: true
+  no_snapshot_mutation: true
+  no_downstream_refresh: true
+  no_invalidation: true
+  no_recalculation: true
+  no_recommendations: true
+  no_actions: true
+  no_publication: true
