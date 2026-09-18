@@ -15,6 +15,8 @@ accepted_evidence:
   M12-007: certification-evidence/m12-007/incident-containment-acceptance-v1.0.json
   M12-008: certification-evidence/m12-008/operational-certification-acceptance-v1.0.json
 
+expected_certification_root_hash: e56a8d039c4e0324ff694d0ea8cd5a190f48be6bb8b761d761a41f8af96e2a35
+
 expected_m12_008:
   evidence_chain_root: 82bb94798f887e5b7115abbac55c6b6e9e0cae3130f2310d1efab1ba0dbfe92c
   artifact_manifest_root: 6e411dfccac19bfc0fdad22011307e507bc120a2d3a568e09ffd74364956a315
