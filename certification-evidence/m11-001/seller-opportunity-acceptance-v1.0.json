@@ -1,0 +1,50 @@
+{
+  "evidence_id": "STH-M11-001-SELLER-OPPORTUNITY-v1.0",
+  "ticket": "M11-001",
+  "status": "ACCEPTED",
+  "contract": {
+    "contract_id": "STH-SELLER-INTELLIGENCE",
+    "version": "1.0.0",
+    "sha256": "da355449443a4ffe35ec833f602e698fca5f24210d467f77987d659276aa4264"
+  },
+  "capability": {
+    "current_buyer_alternative_set": true,
+    "competitive_pressure": true
+  },
+  "controls": {
+    "certified_inputs_only": true,
+    "stale_inputs_suppressed": true,
+    "non_seller_tier_inputs_suppressed": true,
+    "qa_failed_inputs_suppressed": true,
+    "uncertified_baseline_inputs_fail_closed": true,
+    "deterministic_output": true,
+    "lineage_preserved": true,
+    "seller_only_by_default": true,
+    "public_eligible": false,
+    "external_action_capability": "NONE",
+    "valuation_prohibited": true,
+    "list_price_recommendation_prohibited": true,
+    "sale_price_prediction_prohibited": true,
+    "outcome_guarantee_prohibited": true,
+    "seller_behavior_inference_prohibited": true,
+    "protected_class_inference_prohibited": true
+  },
+  "github_actions": {
+    "m11_seller_intelligence_ci": {
+      "run_number": 1,
+      "run_id": 35364029224,
+      "conclusion": "success"
+    },
+    "m11_architecture_boundary": {
+      "run_number": 1,
+      "run_id": 35364029086,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "passed": 10,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
