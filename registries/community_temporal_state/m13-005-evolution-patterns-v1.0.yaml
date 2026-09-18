@@ -1,0 +1,60 @@
+evolution_pattern_registry_id: STH-M13-005-EVOLUTION-PATTERNS-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-005
+contract_id: STH-COMMUNITY-EVOLUTION-PATTERNS
+
+domains:
+  - BUYER_DEPTH
+  - SCARCITY
+  - PRICING_BEHAVIOR
+  - NEW_CONSTRUCTION_COMPETITION
+
+candidate_states:
+  - DISCOVERED
+  - NULL_RESULT
+  - NEGATIVE_RESULT
+  - VALIDATION_REQUIRED
+  - VALIDATED
+  - REPLICATION_FAILED
+  - REPLICATED
+  - PROMOTED
+  - NOT_ELIGIBLE
+  - SUPERSEDED
+
+promotion_states:
+  - NOT_EVALUATED
+  - INELIGIBLE
+  - ELIGIBLE
+  - PROMOTED
+
+policy:
+  minimum_discovery_n: 8
+  minimum_validation_n: 6
+  minimum_replication_n: 6
+  minimum_distinct_periods: 2
+  minimum_effect_magnitude: 0.05
+  maximum_absolute_replication_drift: 0.20
+  require_same_effect_direction: true
+  require_independent_validation_population: true
+  require_independent_replication_population: true
+  require_regime_manifest: true
+  require_confounder_manifest: true
+  require_temporal_lineage: true
+  preserve_all_tested_candidates: true
+  preserve_negative_and_null_results: true
+
+allowed_effect_directions:
+  - POSITIVE
+  - NEGATIVE
+  - NULL
+
+governance:
+  historical_descriptive_only: true
+  no_prediction: true
+  no_recommendation: true
+  no_ranking: true
+  no_avm: true
+  fail_closed_promotion: true
+  immutable_validation_receipts: true
+  deterministic_output: true

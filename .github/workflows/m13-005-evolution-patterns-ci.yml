@@ -1,4 +1,4 @@
-name: M13-004 Temporal History CI
+name: M13-005 Evolution Patterns CI
 
 on:
   pull_request:
@@ -7,19 +7,19 @@ on:
       - 'registries/community_temporal_state/**'
       - 'src/community_temporal_state/**'
       - 'tests/unit/community_temporal_state/**'
-      - 'docs/implementation/M13-004.md'
-      - 'certification-evidence/m13-003/**'
+      - 'docs/implementation/M13-005.md'
       - 'certification-evidence/m13-004/**'
+      - 'certification-evidence/m13-005/**'
       - 'CONTRACT-MANIFEST.yaml'
       - 'BUILD-MANIFEST.yaml'
-      - '.github/workflows/m13-004-temporal-history-ci.yml'
+      - '.github/workflows/m13-005-evolution-patterns-ci.yml'
   workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  m13-004:
+  m13-005:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
@@ -28,7 +28,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install pytest pyyaml
-      - name: Validate M13-004 frozen boundary and predecessor
+      - name: Validate M13-005 frozen boundary and predecessor
         run: |
           python - <<'PY'
           import hashlib, json
@@ -36,7 +36,7 @@ jobs:
           import yaml
 
           manifest=yaml.safe_load(Path("CONTRACT-MANIFEST.yaml").read_text())
-          rows=[x for x in manifest["contracts"] if x["id"]=="STH-COMMUNITY-TEMPORAL-HISTORY"]
+          rows=[x for x in manifest["contracts"] if x["id"]=="STH-COMMUNITY-EVOLUTION-PATTERNS"]
           assert len(rows)==1
           row=rows[0]
           path=Path(row["path"])
@@ -44,70 +44,73 @@ jobs:
           assert hashlib.sha256(path.read_bytes()).hexdigest()==row["sha256"]
           contract=yaml.safe_load(path.read_text())
           assert contract["status"]=="LOCKED"
-          assert contract["ticket"]=="M13-004"
-          assert len(contract["subsequence"])==10
-          assert contract["subsequence"][0]=="M13-004A_LEDGER_SCHEMA_AND_TAXONOMY"
-          assert contract["subsequence"][-1]=="M13-004J_FINAL_CERTIFICATION_AND_ADJUDICATION"
+          assert contract["ticket"]=="M13-005"
+          assert len(contract["subsequence"])==12
+          assert contract["subsequence"][0]=="M13-005A_GOVERNANCE_AND_PATTERN_TAXONOMY"
+          assert contract["subsequence"][-1]=="M13-005L_FULL_CERTIFICATION_AND_ADJUDICATION"
 
-          pred=json.loads(Path("certification-evidence/m13-003/selective-refresh-acceptance-v1.0.json").read_text())
-          assert pred["ticket"]=="M13-003"
+          pred=json.loads(Path("certification-evidence/m13-004/temporal-history-acceptance-v1.0.json").read_text())
+          assert pred["ticket"]=="M13-004"
           assert pred["status"]=="ACCEPTED"
           assert pred["waivers"]==0
           assert pred["open_defects"]==0
 
           build=yaml.safe_load(Path("BUILD-MANIFEST.yaml").read_text())
-          assert build["current_ticket"].startswith("M13-")
+          assert build["current_ticket"]=="M13-005"
           states={x["id"]:x["status"] for x in build["milestones"]}
           assert states["M12"]=="ACCEPTED"
           assert states["M13"]=="IN_PROGRESS"
 
           for key in (
-              "certified_history_rewrite_prohibited",
-              "certified_history_delete_prohibited",
-              "reality_knowledge_time_conflation_prohibited",
-              "inferred_dates_prohibited",
-              "fabricated_facts_prohibited",
-              "conflict_erasure_prohibited",
-              "superseded_evidence_erasure_prohibited",
+              "prediction_prohibited",
+              "avm_prohibited",
+              "autonomous_seller_decisions_prohibited",
+              "recommendations_prohibited",
+              "ranking_or_winner_selection_prohibited",
+              "hidden_utility_score_prohibited",
+              "future_outcome_claims_prohibited",
+              "causal_claim_without_governed_basis_prohibited",
+              "cherry_picking_prohibited",
+              "post_hoc_population_redefinition_prohibited",
+              "discovery_validation_leakage_prohibited",
+              "validation_holdout_reuse_prohibited",
+              "negative_result_suppression_prohibited",
+              "failed_replication_suppression_prohibited",
+              "unsupported_pattern_promotion_prohibited",
+              "stale_history_use_prohibited",
               "lineage_bypass_prohibited",
-              "ui_mutation_prohibited",
-              "unaffected_intelligence_regeneration_prohibited",
-              "competing_identity_truth_system_prohibited",
-              "competing_community_truth_system_prohibited",
-              "append_only_corrections_required",
-              "seller_recommendations_prohibited",
-              "listing_actions_prohibited",
-              "publication_prohibited",
+              "temporal_history_mutation_prohibited",
               "m12_execution_mutation_prohibited",
+              "publication_prohibited",
           ):
               assert contract["hard_boundaries"][key] is True
 
-          evidence_path=Path("certification-evidence/m13-004/temporal-history-acceptance-v1.0.json")
+          evidence_path=Path("certification-evidence/m13-005/evolution-patterns-acceptance-v1.0.json")
           if evidence_path.exists():
               evidence=json.loads(evidence_path.read_text())
-              assert evidence["ticket"]=="M13-004"
+              assert evidence["ticket"]=="M13-005"
               assert evidence["status"]=="ACCEPTED"
-              assert evidence["parent"]["ticket"]=="M13-003"
-              assert evidence["community_temporal_history_contract_sha256"]==row["sha256"]
+              assert evidence["parent"]["ticket"]=="M13-004"
+              assert evidence["community_evolution_patterns_contract_sha256"]==row["sha256"]
               assert evidence["tests"]["failed"]==0
               assert evidence["waivers"]==0
               assert evidence["open_defects"]==0
               assert all(x["conclusion"]=="success" for x in evidence["github_actions"].values())
-          evidence_path=Path("certification-evidence/m13-004/temporal-history-acceptance-v1.0.json")
+          evidence_path=Path("certification-evidence/m13-005/evolution-patterns-acceptance-v1.0.json")
           if evidence_path.exists():
               evidence=json.loads(evidence_path.read_text())
-              assert evidence["ticket"]=="M13-004"
+              assert evidence["ticket"]=="M13-005"
               assert evidence["status"]=="ACCEPTED"
-              assert evidence["parent"]["ticket"]=="M13-003"
-              assert evidence["community_temporal_history_contract_sha256"]==row["sha256"]
-              assert evidence["tests"]["m13_004_specific_tests"]==12
-              assert evidence["tests"]["m13_temporal_state_total_passed"]==74
+              assert evidence["parent"]["ticket"]=="M13-004"
+              assert evidence["community_evolution_patterns_contract_sha256"]==row["sha256"]
+              assert evidence["tests"]["m13_005_specific_tests"]==11
+              assert evidence["tests"]["m13_temporal_state_total_passed"]==85
               assert evidence["tests"]["inherited_m12_passed"]==137
               assert evidence["tests"]["failed"]==0
               assert evidence["waivers"]==0
               assert evidence["open_defects"]==0
               assert all(x["conclusion"]=="success" for x in evidence["github_actions"].values())
-          print("PASS: M13-004 frozen temporal-history boundary and accepted M13-003 predecessor are pinned")
+          print("PASS: M13-005 frozen evolution-pattern boundary and accepted M13-004 predecessor are pinned")
           PY
       - name: Run M13 temporal-state tests
         run: pytest -q tests/unit/community_temporal_state
