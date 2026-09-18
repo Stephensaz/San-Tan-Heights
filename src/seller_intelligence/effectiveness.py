@@ -9,6 +9,7 @@ from typing import Iterable, Mapping
 import yaml
 
 from src.seller_intelligence.workspace import SellerIntelligenceCase
+from src.seller_intelligence.timeline import SellerDecisionTimeline
 
 
 def _hash(payload: object) -> str:
@@ -143,14 +144,21 @@ def _validate_case(case: SellerIntelligenceCase) -> None:
 def _association_records(
     *,
     case: SellerIntelligenceCase,
+    timeline: SellerDecisionTimeline,
     outcome: ObservedOutcome,
 ) -> tuple[AssociationRecord,...]:
     observed=_parse_ts(outcome.observed_at)
+    case_event_fps={item.source_event_fingerprint for item in case.review_items}
     prior_reviews=[]
-    for item in case.review_items:
-        # Review items are linked to immutable event fingerprints; without event time on the case DTO,
-        # treat their existence as prior case context only when they belong to the current immutable case.
-        prior_reviews.append(item.source_event_fingerprint)
+    for entry in timeline.entries:
+        event=entry.monitoring_event
+        if event is None:
+            continue
+        if event.event_fingerprint not in case_event_fps:
+            continue
+        event_time=_parse_ts(event.observed_at)
+        if event_time<=observed:
+            prior_reviews.append(event.event_fingerprint)
 
     prior_decisions=[]
     for decision in case.human_decisions:
@@ -287,6 +295,9 @@ def _validate_prohibited(result: EffectivenessLearningResult, registry: Mapping[
 def evaluate_effectiveness(
     *,
     case: SellerIntelligenceCase,
+    timeline: SellerDecisionTimeline,
+    m11_004_certified: bool,
+    m11_004_evidence_fingerprint: str,
     m11_006_certified: bool,
     m11_006_evidence_fingerprint: str,
     outcomes: Iterable[ObservedOutcome],
@@ -294,8 +305,22 @@ def evaluate_effectiveness(
 ) -> EffectivenessLearningResult:
     if m11_006_certified is not True:
         raise ValueError("certified M11-006 case required")
+    if m11_004_certified is not True:
+        raise ValueError("certified M11-004 timeline required")
     _validate_fp(m11_006_evidence_fingerprint,"m11_006_evidence_fingerprint")
+    _validate_fp(m11_004_evidence_fingerprint,"m11_004_evidence_fingerprint")
     _validate_case(case)
+    if timeline.subject_property_id!=case.subject_property_id:
+        raise ValueError("timeline/case property mismatch")
+    if timeline.public_eligible is not False or timeline.external_action_capability!="NONE":
+        raise ValueError("M11-004 timeline effectiveness boundary violated")
+    timeline_refs={
+        x.artifact_fingerprint
+        for x in case.current_artifacts
+        if x.artifact_type=="M11-004_TIMELINE"
+    }
+    if timeline.timeline_fingerprint not in timeline_refs:
+        raise ValueError("case does not reference supplied certified timeline")
 
     rows=tuple(outcomes)
     seen=set()
@@ -314,7 +339,7 @@ def evaluate_effectiveness(
     associations=[]
     candidates=[]
     for _,outcome in ordered:
-        records=_association_records(case=case,outcome=outcome)
+        records=_association_records(case=case,timeline=timeline,outcome=outcome)
         associations.extend(records)
         candidates.extend(_calibration_candidates(outcome=outcome,associations=records,registry=registry))
 
@@ -324,6 +349,8 @@ def evaluate_effectiveness(
     unknown=tuple(sorted(o.outcome_id for o in ordered_outcomes if o.outcome_state=="UNKNOWN"))
     source_fps={
         case.case_fingerprint,
+        timeline.timeline_fingerprint,
+        m11_004_evidence_fingerprint,
         m11_006_evidence_fingerprint,
         *(o.outcome_fingerprint for o in ordered_outcomes),
         *(a.association_fingerprint for a in associations_tuple),
