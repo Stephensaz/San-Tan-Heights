@@ -34,6 +34,7 @@ def test_final_adjudication_reproduces_production_candidate_and_passes():
     assert result.rollback_rule_fingerprint=="2f39d3fa387ce45c7fe22d8b79f7c92effb47642ecb4a8a111a069b03051aae2"
     assert result.public_eligible is False
     assert result.external_action_capability=="NONE"
+    assert result.certification_root_hash=="8c5c656934909c10c3c5bc52ae9d12b3c646348686f3d1d787a9b0b067ce6ccf"
 
 
 def test_final_certification_root_is_deterministic():
@@ -95,3 +96,12 @@ def test_wrong_release_candidate_version_fails_closed():
     r=deepcopy(reg()); r["release_candidate_version"]="9.9.9"
     with pytest.raises(ValueError,match="release candidate version mismatch"):
         adjudicate(r)
+
+
+def test_wrong_frozen_final_root_forces_no_go():
+    r=deepcopy(reg())
+    r["expected_certification_root_hash"]="0"*64
+    result=adjudicate(r)
+    assert result.status=="FAIL"
+    assert result.decision=="NO-GO"
+    assert "M11_FINAL_CERTIFICATION_ROOT_MISMATCH" in result.blocking_reasons
