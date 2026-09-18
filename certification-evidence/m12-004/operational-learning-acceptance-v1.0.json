@@ -1,0 +1,47 @@
+{
+  "evidence_id": "STH-M12-004-OPERATIONAL-LEARNING-v1.0",
+  "ticket": "M12-004",
+  "status": "ACCEPTED",
+  "parent": {
+    "ticket": "M12-003",
+    "evidence": "certification-evidence/m12-003/verification-reconciliation-acceptance-v1.0.json"
+  },
+  "capabilities": {
+    "immutable_operational_episode_registration": true,
+    "immutable_operational_outcome_registration": true,
+    "exact_m12_001_through_003_lineage": true,
+    "execution_effectiveness_metrics": true,
+    "verification_effectiveness_metrics": true,
+    "reconciliation_metrics": true,
+    "rollback_metrics": true,
+    "noncausal_association_records": true,
+    "advisory_operational_improvement_candidates": true
+  },
+  "controls": {
+    "historical_mutation_prohibited": true,
+    "causation_claims_prohibited": true,
+    "unknown_outcomes_explicit": true,
+    "unresolved_outcomes_explicit": true,
+    "seller_intent_inference_prohibited": true,
+    "seller_approval_inference_prohibited": true,
+    "price_or_terms_change_prohibited": true,
+    "automatic_execution_policy_change_prohibited": true,
+    "automatic_candidate_promotion_prohibited": true,
+    "public_eligible": false,
+    "external_action_capability": "NONE",
+    "deterministic_output": true
+  },
+  "github_actions": {
+    "m12_listing_execution_ci": {
+      "run_number": 13,
+      "run_id": 35378778018,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "passed": 63,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
