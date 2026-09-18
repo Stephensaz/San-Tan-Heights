@@ -1,1 +1,1 @@
-"""San Tan Heights intelligence implementation package."""
+"""Property intelligence implementation package."""

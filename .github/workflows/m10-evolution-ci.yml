@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - 'src/evolution/**'
+      - 'src/platform_config/**'
+      - 'config/communities/**'
       - 'registries/evolution/**'
       - 'contracts/evolution/**'
       - 'certification-evidence/m10-*/**'

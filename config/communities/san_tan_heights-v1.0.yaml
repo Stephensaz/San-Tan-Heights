@@ -1,0 +1,21 @@
+community_config_id: STH-COMMUNITY-CONFIG-v1.0
+version: 1.0.0
+status: FROZEN
+community:
+  community_id: SAN_TAN_HEIGHTS
+  display_name: San Tan Heights
+  state: AZ
+  county: Pinal
+  property_id_prefix: STH-
+source_systems:
+  listing_service: ARMLS
+baseline:
+  baseline_id: SAN_TAN_HEIGHTS_PRODUCTION_BASELINE
+  baseline_version: 1.0.0
+  baseline_manifest_fingerprint: 11b735c64118f5118b0fb31a52a830c859bf03e41674134f432e6316796f3d3c
+  m9_candidate_fingerprint: 722fc69461bf1d7bd171e0a582a41811f3a46c878e7a81030784f57c828eadd8
+  m9_certification_root_hash: a66dc169ec51cfd9a243f49fb922d5c70a7cc11bdd0e5e621ac49eda9cd20704
+governance:
+  identity_assumptions_must_remain_configuration: true
+  source_assumptions_must_remain_configuration: true
+  core_platform_may_not_hardcode_community_identity: true
