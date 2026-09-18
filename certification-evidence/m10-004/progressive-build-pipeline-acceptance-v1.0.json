@@ -1,0 +1,40 @@
+{
+  "evidence_id": "STH-M10-004-PROGRESSIVE-BUILD-PIPELINE-v1.0",
+  "ticket": "M10-004",
+  "status": "ACCEPTED",
+  "controls": {
+    "exact_eight_stage_sequence": true,
+    "predecessor_pass_required": true,
+    "failed_stage_stops_pipeline": true,
+    "skipped_stage_prohibited": true,
+    "deterministic_stage_evidence": true,
+    "deterministic_candidate_fingerprint": true,
+    "protected_community_defaults_externalized": true,
+    "protected_default_leakage_detection": true,
+    "publication_prohibited": true,
+    "waiver_prohibited": true
+  },
+  "synthetic_certification": {
+    "complete_pipeline_pass": true,
+    "intentional_failure_each_stage_verified": true,
+    "candidate_fingerprint_suppressed_on_failure": true,
+    "missing_stage_rejected": true,
+    "extra_stage_rejected": true,
+    "stage_identity_mismatch_rejected": true,
+    "missing_checks_rejected": true,
+    "missing_evidence_rejected": true
+  },
+  "github_actions": {
+    "m10_evolution_ci": {
+      "run_number": 21,
+      "run_id": 35359554559,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "passed": 55,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
