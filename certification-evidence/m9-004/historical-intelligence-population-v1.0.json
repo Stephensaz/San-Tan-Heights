@@ -1,6 +1,6 @@
 {
   "evidence_id": "STH-M9-004-HISTORICAL-INTELLIGENCE-POPULATION-v1.0",
-  "status": "PASS_PENDING_CI",
+  "status": "PASS",
   "sources": {
     "m9_003_binding_sha256": "3c2507b0045d412633d10b10c259275c193bf27a843e7591fbf16be8abb71efd",
     "canonical_property_master_sha256": "1e8713f61378581651831d720a360974a58c1b072bbf326f47676e0d21b380a7",
@@ -56,5 +56,14 @@
   },
   "historical_population_fingerprint": "5acf6132b4b88b6aa3fef6355b6aeacc5bf652e60b7225eb0646bc5a339895cb",
   "defects": [],
-  "waivers": []
+  "waivers": [],
+  "acceptance_evidence": {
+    "m9_activation_ci_run": 24,
+    "m9_boundary_validation_run": 25,
+    "m8_presentation_ci_run": 79,
+    "m8_presentation_certification_run": 82,
+    "m8_final_certification_run": 33,
+    "defects": 0,
+    "waivers": 0
+  }
 }
