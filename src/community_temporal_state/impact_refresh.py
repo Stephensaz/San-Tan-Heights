@@ -195,18 +195,30 @@ def build_selective_refresh_plan(
     decisions_tuple = tuple(decisions)
     refresh_ids = tuple(d.artifact_id for d in decisions_tuple if d.decision == "REFRESH_REQUIRED")
     preserved_ids = tuple(d.artifact_id for d in decisions_tuple if d.decision == "NO_IMPACT")
-    payload = {
+    dependency_fp = policy_fingerprint(registry)
+    hash_payload = {
         "plan_id": plan_id,
         "community_id": delta.community_id,
         "delta_id": delta.delta_id,
         "delta_fingerprint": delta.delta_fingerprint,
         "after_snapshot_semantic_hash": delta.after_snapshot_semantic_hash,
-        "dependency_policy_fingerprint": policy_fingerprint(registry),
+        "dependency_policy_fingerprint": dependency_fp,
         "decisions": tuple(asdict(d) for d in decisions_tuple),
         "refresh_artifact_ids": refresh_ids,
         "preserved_artifact_ids": preserved_ids,
     }
-    return SelectiveRefreshPlan(**payload, plan_fingerprint=_hash(payload))
+    return SelectiveRefreshPlan(
+        plan_id=plan_id,
+        community_id=delta.community_id,
+        delta_id=delta.delta_id,
+        delta_fingerprint=delta.delta_fingerprint,
+        after_snapshot_semantic_hash=delta.after_snapshot_semantic_hash,
+        dependency_policy_fingerprint=dependency_fp,
+        decisions=decisions_tuple,
+        refresh_artifact_ids=refresh_ids,
+        preserved_artifact_ids=preserved_ids,
+        plan_fingerprint=_hash(hash_payload),
+    )
 
 
 def validate_refresh_plan_replay(plan: SelectiveRefreshPlan) -> bool:
@@ -282,16 +294,28 @@ def apply_selective_refresh(
     out_tuple = tuple(sorted(output, key=lambda r: r.artifact_id))
     if {r.artifact_id for r in out_tuple} != set(current):
         raise ValueError("selective refresh cannot add or drop current artifact identities")
-    payload = {
+    refreshed_ids = tuple(sorted(required))
+    preserved_ids = tuple(sorted(preserved))
+    replacement_ids = tuple(sorted(replacement_fps))
+    hash_payload = {
         "result_id": result_id,
         "plan_id": plan.plan_id,
         "plan_fingerprint": plan.plan_fingerprint,
         "records": tuple(asdict(r) for r in out_tuple),
-        "refreshed_artifact_ids": tuple(sorted(required)),
-        "preserved_artifact_ids": tuple(sorted(preserved)),
-        "replacement_fingerprints": tuple(sorted(replacement_fps)),
+        "refreshed_artifact_ids": refreshed_ids,
+        "preserved_artifact_ids": preserved_ids,
+        "replacement_fingerprints": replacement_ids,
     }
-    return SelectiveRefreshResult(**payload, result_fingerprint=_hash(payload))
+    return SelectiveRefreshResult(
+        result_id=result_id,
+        plan_id=plan.plan_id,
+        plan_fingerprint=plan.plan_fingerprint,
+        records=out_tuple,
+        refreshed_artifact_ids=refreshed_ids,
+        preserved_artifact_ids=preserved_ids,
+        replacement_fingerprints=replacement_ids,
+        result_fingerprint=_hash(hash_payload),
+    )
 
 
 def validate_refresh_result_replay(result: SelectiveRefreshResult) -> bool:
