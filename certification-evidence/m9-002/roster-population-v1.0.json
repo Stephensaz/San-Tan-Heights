@@ -1,6 +1,6 @@
 {
   "evidence_id": "STH-M9-002-CANONICAL-ROSTER-POPULATION-v1.0",
-  "status": "PASS_PENDING_CI",
+  "status": "PASS",
   "source": {
     "m9_001_freeze_fingerprint": "f9499c10399d79e7346f9736dfbe4a360a59f1f663d7b5795a1e845ab31b3810",
     "canonical_roster_raw_sha256": "1e8713f61378581651831d720a360974a58c1b072bbf326f47676e0d21b380a7"
@@ -35,5 +35,14 @@
     "publication_performed": false
   },
   "defects": [],
-  "waivers": []
+  "waivers": [],
+  "acceptance_evidence": {
+    "m9_activation_ci_run": 9,
+    "m9_boundary_validation_run": 10,
+    "m8_presentation_ci_run": 62,
+    "m8_presentation_certification_run": 65,
+    "m8_final_certification_run": 18,
+    "defects": 0,
+    "waivers": 0
+  }
 }
