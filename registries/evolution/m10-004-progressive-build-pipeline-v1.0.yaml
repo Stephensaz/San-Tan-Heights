@@ -36,6 +36,12 @@ stages:
     requires:
       - PRESENTATION_INTEGRITY_READINESS
 
+protected_defaults:
+  - SAN_TAN_HEIGHTS
+  - San Tan Heights
+  - Pinal
+  - ARMLS
+
 governance:
   predecessor_pass_required: true
   failed_stage_stops_pipeline: true
@@ -43,6 +49,6 @@ governance:
   deterministic_stage_evidence_required: true
   deterministic_candidate_fingerprint_required: true
   generated_timestamp_prohibited: true
-  protected_san_tan_heights_defaults_prohibited: true
+  protected_community_defaults_prohibited: true
   publication_prohibited: true
   waiver_prohibited: true
