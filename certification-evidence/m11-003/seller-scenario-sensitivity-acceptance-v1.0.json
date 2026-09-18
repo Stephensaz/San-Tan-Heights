@@ -1,0 +1,51 @@
+{
+  "evidence_id": "STH-M11-003-SELLER-SCENARIO-SENSITIVITY-v1.0",
+  "ticket": "M11-003",
+  "status": "ACCEPTED",
+  "parent": {
+    "ticket": "M11-002",
+    "evidence": "certification-evidence/m11-002/property-seller-strategy-acceptance-v1.0.json"
+  },
+  "capabilities": {
+    "controlled_what_if_scenarios": true,
+    "competitive_pressure_sensitivity": true,
+    "buyer_depth_sensitivity": true,
+    "verified_differentiation_sensitivity": true,
+    "new_construction_pressure_sensitivity": true,
+    "pricing_response_environment_sensitivity": true,
+    "week_over_week_direction_sensitivity": true,
+    "review_trigger_sensitivity": true
+  },
+  "controls": {
+    "certified_m11_002_parent_required": true,
+    "baseline_lineage_separate_from_hypothetical_lineage": true,
+    "assumptions_explicitly_hypothetical": true,
+    "hypothetical_inputs_not_promoted_to_facts": true,
+    "unsupported_targets_fail_closed": true,
+    "unsupported_states_fail_closed": true,
+    "deterministic_output": true,
+    "recommended_list_price_prohibited": true,
+    "predicted_sale_price_prohibited": true,
+    "guaranteed_net_proceeds_prohibited": true,
+    "guaranteed_outcomes_prohibited": true,
+    "seller_acceptance_prediction_prohibited": true,
+    "buyer_behavior_prediction_prohibited": true,
+    "seller_motivation_inference_prohibited": true,
+    "protected_class_inference_prohibited": true,
+    "public_eligible": false,
+    "external_action_capability": "NONE"
+  },
+  "github_actions": {
+    "m11_seller_intelligence_ci": {
+      "run_number": 10,
+      "run_id": 35365080792,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "passed": 40,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
