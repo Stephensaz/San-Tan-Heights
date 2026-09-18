@@ -46,7 +46,7 @@ def execute_hardened_replay(
 ) -> HardeningReplayResult:
     root=Path(repository_root)
     if _baseline_fingerprint(san_tan_baseline_path)!=expected_san_tan_baseline_fingerprint:
-        raise ValueError("San Tan Heights accepted baseline changed before M10-006 replay")
+        raise ValueError("accepted parent baseline changed before portability-hardening replay")
 
     profiles=validate_disposition_artifacts(repository_root=root,registry=hardening_registry)
     prior_remediation=tuple(original_profile.get("remediation") or ())
