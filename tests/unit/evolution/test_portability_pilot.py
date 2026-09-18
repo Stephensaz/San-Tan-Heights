@@ -100,28 +100,21 @@ def test_invalid_source_url_blocks_pilot():
         execute(p)
 
 
-def test_proprietary_mls_access_cannot_be_implied():
+def test_proprietary_mls_access_cannot_be_implied(tmp_path):
     p = deepcopy(profile())
     p["pilot_data_policy"]["proprietary_mls_records_used"] = True
-    with pytest.raises(ValueError, match="must not imply proprietary MLS data access"):
-        execute_portability_pilot(
-            repository_root=".",
-            profile=load_pilot_profile(PROFILE),
-            onboarding_contract_path=CONTRACT,
-            pipeline_registry_path=PIPELINE,
-        )
-    with pytest.raises(ValueError, match="must not imply proprietary MLS data access"):
-        load_pilot_profile_from_mapping_for_test(p)
-
-
-def load_pilot_profile_from_mapping_for_test(raw):
-    tmp = Path("tests/unit/evolution/.tmp-m10-005-profile.yaml")
+    tmp = tmp_path / "pilot.yaml"
     import yaml
-    tmp.write_text(yaml.safe_dump(raw, sort_keys=False))
-    try:
-        return load_pilot_profile(tmp)
-    finally:
-        tmp.unlink(missing_ok=True)
+    tmp.write_text(yaml.safe_dump(p, sort_keys=False))
+    with pytest.raises(ValueError, match="must not imply proprietary MLS data access"):
+        load_pilot_profile(tmp)
+
+
+def test_missing_resolution_artifact_blocks_pilot():
+    p = deepcopy(profile())
+    p["remediation"][0]["resolution_artifact"] = "config/pilots/rancho_vistoso/does-not-exist.yaml"
+    with pytest.raises(ValueError, match="missing remediation resolution artifact"):
+        execute(p)
 
 
 def test_missing_stage_evidence_blocks_progressive_execution():
