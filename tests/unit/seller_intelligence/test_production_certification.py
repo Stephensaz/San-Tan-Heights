@@ -35,6 +35,7 @@ def test_complete_chain_replays_as_production_candidate_not_final_release():
     assert result.rollback_rule_fingerprint
     assert result.public_eligible is False
     assert result.external_action_capability=="NONE"
+    assert result.production_candidate_root=="2cca3529c4b09b0a3dc4305b9b7c1732b894fc47018dc971cfe18a98c8e269dd"
 
 
 def test_production_candidate_root_is_deterministic():
@@ -97,14 +98,11 @@ def test_wrong_candidate_version_fails_closed():
         certify(r)
 
 
-def test_emit_m11_009_candidate_fingerprints():
-    import warnings
-    x=certify()
-    warnings.warn(
-        "M11_009_ROOT="+x.production_candidate_root
-        +" END_TO_END="+x.end_to_end_fingerprint
-        +" PACKAGE="+x.promotion_package_fingerprint
-        +" ROLLBACK="+x.rollback_rule_fingerprint,
-        RuntimeWarning,
-    )
-    assert x.status=="PASS"
+
+def test_frozen_production_candidate_root_mismatch_forces_no_go():
+    r=deepcopy(reg())
+    r["expected_production_candidate_root"]="0"*64
+    result=certify(r)
+    assert result.status=="FAIL"
+    assert result.decision=="NO-GO"
+    assert "PRODUCTION_CANDIDATE_ROOT_MISMATCH" in result.blocking_reasons
