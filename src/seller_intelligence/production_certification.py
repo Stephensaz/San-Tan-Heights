@@ -345,6 +345,10 @@ def execute_production_certification(
         "external_action_capability":"NONE",
     }
     root_fp=_hash(payload)
+    expected=str(registry.get("expected_production_candidate_root") or "")
+    if expected and root_fp!=expected:
+        blocking.append("PRODUCTION_CANDIDATE_ROOT_MISMATCH")
+        blocking_tuple=tuple(sorted(set(blocking)))
     passed=not blocking_tuple
     return ProductionCertificationResult(
         status="PASS" if passed else "FAIL",
