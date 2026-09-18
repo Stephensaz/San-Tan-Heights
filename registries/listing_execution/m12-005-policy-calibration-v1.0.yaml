@@ -1,0 +1,101 @@
+policy_calibration_registry_id: STH-M12-005-POLICY-CALIBRATION-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M12-005
+contract_id: STH-LISTING-EXECUTION
+parent_ticket: M12-004
+parent_evidence: certification-evidence/m12-004/operational-learning-acceptance-v1.0.json
+
+accepted_baseline:
+  version: LISTING-EXECUTION-POLICY-v1.0
+  immutable: true
+
+candidate_domains:
+  ACTION_GENERATION:
+    allowed_candidate_types:
+      - RECONCILIATION_WORKFLOW_REVIEW
+  APPROVAL:
+    allowed_candidate_types:
+      - RECONCILIATION_WORKFLOW_REVIEW
+  AUTHORITY:
+    allowed_candidate_types:
+      - EXECUTION_RELIABILITY_REVIEW
+      - ROLLBACK_RELIABILITY_REVIEW
+  EXECUTION:
+    allowed_candidate_types:
+      - EXECUTION_RELIABILITY_REVIEW
+  ADAPTER:
+    allowed_candidate_types:
+      - EXECUTION_RELIABILITY_REVIEW
+      - ROLLBACK_RELIABILITY_REVIEW
+  VERIFICATION:
+    allowed_candidate_types:
+      - VERIFICATION_POLICY_REVIEW
+      - VERIFICATION_COVERAGE_REVIEW
+  RECONCILIATION:
+    allowed_candidate_types:
+      - RECONCILIATION_WORKFLOW_REVIEW
+  ROLLBACK:
+    allowed_candidate_types:
+      - ROLLBACK_RELIABILITY_REVIEW
+
+policy_fields:
+  human_approval_required: true
+  independent_authority_required: true
+  authority_revalidation_required: true
+  deterministic_idempotency_required: true
+  duplicate_side_effect_suppression_required: true
+  outcome_unknown_silent_retry_prohibited: true
+  independent_verification_required: true
+  mismatch_reconciliation_required: true
+  outcome_unknown_reconciliation_required: true
+  separate_rollback_approval_required: true
+  separate_rollback_authority_required: true
+  rollback_authority_revalidation_required: true
+  immutable_execution_receipt_required: true
+  immutable_verification_receipt_required: true
+  immutable_rollback_receipt_required: true
+  seller_approval_inference_prohibited: true
+  system_determined_price_or_terms_prohibited: true
+  public_strategy_exposure_prohibited: true
+
+protected_true_fields:
+  - human_approval_required
+  - independent_authority_required
+  - authority_revalidation_required
+  - deterministic_idempotency_required
+  - duplicate_side_effect_suppression_required
+  - outcome_unknown_silent_retry_prohibited
+  - independent_verification_required
+  - mismatch_reconciliation_required
+  - outcome_unknown_reconciliation_required
+  - separate_rollback_approval_required
+  - separate_rollback_authority_required
+  - rollback_authority_revalidation_required
+  - immutable_execution_receipt_required
+  - immutable_verification_receipt_required
+  - immutable_rollback_receipt_required
+  - seller_approval_inference_prohibited
+  - system_determined_price_or_terms_prohibited
+  - public_strategy_exposure_prohibited
+
+promotion:
+  human_approval_required: true
+  automatic_promotion_prohibited: true
+  promotion_package_status: READY_FOR_M12_CERTIFICATION
+
+governance:
+  candidate_isolation_required: true
+  exact_parent_lineage_required: true
+  side_effect_free_replay_required: true
+  current_vs_candidate_diff_required: true
+  safety_regressions_fail_closed: true
+  rollback_lineage_required: true
+  accepted_baseline_mutation_prohibited: true
+  causation_claims_prohibited: true
+  execution_side_effects_prohibited: true
+  publication_side_effects_prohibited: true
+  scheduling_side_effects_prohibited: true
+  queueing_side_effects_prohibited: true
+  transmission_side_effects_prohibited: true
+  deterministic_output_required: true
