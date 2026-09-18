@@ -1,0 +1,138 @@
+{
+  "evidence_id": "STH-M13-003-SELECTIVE-REFRESH-v1.0",
+  "ticket": "M13-003",
+  "status": "ACCEPTED",
+  "parent": {
+    "ticket": "M13-002",
+    "evidence": "certification-evidence/m13-002/community-delta-acceptance-v1.0.json"
+  },
+  "temporal_impact_refresh_contract_sha256": "9738646b48f2ee8bb707392e44225c158aeacdcc9b9513863a23c6780c8935e7",
+  "capabilities": {
+    "certified_delta_consumption": true,
+    "deterministic_dependency_resolution": true,
+    "exact_refresh_and_no_impact_proof": true,
+    "selective_invalidation": true,
+    "exact_refresh_set": true,
+    "authoritative_replacement_validation": true,
+    "after_snapshot_binding": true,
+    "unaffected_state_exact_preservation": true,
+    "deterministic_plan_replay": true,
+    "deterministic_result_replay": true
+  },
+  "controls": {
+    "uncertified_delta_prohibited": true,
+    "nonreproducible_delta_prohibited": true,
+    "blanket_refresh_prohibited": true,
+    "unaffected_refresh_prohibited": true,
+    "local_domain_recalculation_prohibited": true,
+    "inferred_dependency_prohibited": true,
+    "missing_or_extra_replacements_fail_closed": true,
+    "stale_replacement_prohibited": true,
+    "property_scope_cross_contamination_prohibited": true,
+    "seller_recommendations_prohibited": true,
+    "listing_actions_prohibited": true,
+    "publication_prohibited": true,
+    "m12_execution_mutation_prohibited": true,
+    "protected_field_propagation_prohibited": true
+  },
+  "github_actions": {
+    "m13_003_selective_refresh_ci": {
+      "run_number": 2,
+      "run_id": 35403201149,
+      "conclusion": "success"
+    },
+    "m13_002_temporal_change_delta_ci": {
+      "run_number": 6,
+      "run_id": 35403201105,
+      "conclusion": "success"
+    },
+    "m13_001_community_state_snapshot_ci": {
+      "run_number": 11,
+      "run_id": 35403201160,
+      "conclusion": "success"
+    },
+    "m10_evolution_ci": {
+      "run_number": 106,
+      "run_id": 35403201116,
+      "conclusion": "success"
+    },
+    "m11_seller_intelligence_ci": {
+      "run_number": 77,
+      "run_id": 35403201096,
+      "conclusion": "success"
+    },
+    "m11_final_seller_intelligence_certification": {
+      "run_number": 33,
+      "run_id": 35403201132,
+      "conclusion": "success"
+    },
+    "m12_listing_execution_ci": {
+      "run_number": 54,
+      "run_id": 35403201135,
+      "conclusion": "success"
+    },
+    "m12_operational_certification": {
+      "run_number": 25,
+      "run_id": 35403201145,
+      "conclusion": "success"
+    },
+    "m12_009_final_integrated_certification": {
+      "run_number": 18,
+      "run_id": 35403201143,
+      "conclusion": "success"
+    },
+    "m8_presentation_ci": {
+      "run_number": 220,
+      "run_id": 35403201157,
+      "conclusion": "success"
+    },
+    "m8_presentation_certification": {
+      "run_number": 223,
+      "run_id": 35403201177,
+      "conclusion": "success"
+    },
+    "m8_033_final_presentation_certification": {
+      "run_number": 134,
+      "run_id": 35403201134,
+      "conclusion": "success"
+    },
+    "m9_activation_ci": {
+      "run_number": 131,
+      "run_id": 35403201095,
+      "conclusion": "success"
+    },
+    "m9_architecture_boundary_validation": {
+      "run_number": 134,
+      "run_id": 35403201173,
+      "conclusion": "success"
+    },
+    "m9_final_production_activation_certification": {
+      "run_number": 77,
+      "run_id": 35403201152,
+      "conclusion": "success"
+    },
+    "m10_architecture_boundary_validation": {
+      "run_number": 90,
+      "run_id": 35403201114,
+      "conclusion": "success"
+    },
+    "m11_architecture_boundary_validation": {
+      "run_number": 60,
+      "run_id": 35403201144,
+      "conclusion": "success"
+    },
+    "m12_architecture_boundary_validation": {
+      "run_number": 38,
+      "run_id": 35403201153,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "m13_003_specific_tests": 13,
+    "m13_temporal_state_total_passed": 62,
+    "inherited_m12_passed": 137,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
