@@ -1,0 +1,32 @@
+name: M11 Seller Intelligence CI
+
+on:
+  pull_request:
+    paths:
+      - 'contracts/seller_intelligence/**'
+      - 'registries/seller_intelligence/**'
+      - 'src/seller_intelligence/**'
+      - 'tests/unit/seller_intelligence/**'
+      - 'docs/implementation/M11-*.md'
+      - 'CONTRACT-MANIFEST.yaml'
+      - 'BUILD-MANIFEST.yaml'
+      - '.github/workflows/m11-seller-intelligence-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  seller-intelligence-tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pytest pyyaml
+      - name: Run M11 seller intelligence tests
+        run: pytest -q tests/unit/seller_intelligence
+      - name: Validate repository structure
+        run: python scripts_validate_repo.py
