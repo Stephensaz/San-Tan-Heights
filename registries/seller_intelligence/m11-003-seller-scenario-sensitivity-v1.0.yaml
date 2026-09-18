@@ -1,0 +1,90 @@
+seller_scenario_registry_id: STH-M11-003-SELLER-SCENARIO-SENSITIVITY-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M11-003
+contract_id: STH-SELLER-INTELLIGENCE
+parent_ticket: M11-002
+parent_evidence: certification-evidence/m11-002/property-seller-strategy-acceptance-v1.0.json
+
+scenario_targets:
+  COMPETITIVE_PRESSURE:
+    allowed_states:
+      - LOW
+      - MODERATE
+      - HIGH
+  BUYER_DEPTH:
+    allowed_states:
+      - DEEP
+      - BALANCED
+      - THIN
+      - UNKNOWN
+  VERIFIED_DIFFERENTIATION:
+    allowed_states:
+      - STRONG
+      - MODERATE
+      - LIMITED
+      - UNKNOWN
+  NEW_CONSTRUCTION_PRESSURE:
+    allowed_states:
+      - LOW
+      - MODERATE
+      - HIGH
+      - UNKNOWN
+  PRICING_RESPONSE_ENVIRONMENT:
+    allowed_states:
+      - RESPONSIVE
+      - MIXED
+      - WEAK
+      - UNKNOWN
+  WEEK_OVER_WEEK_DIRECTION:
+    allowed_states:
+      - IMPROVING
+      - STABLE
+      - WORSENING
+      - UNKNOWN
+  REVIEW_DAY_7:
+    allowed_states:
+      - TRIGGERED
+      - NOT_TRIGGERED
+  REVIEW_DAY_10:
+    allowed_states:
+      - TRIGGERED
+      - NOT_TRIGGERED
+  REVIEW_DAY_14:
+    allowed_states:
+      - TRIGGERED
+      - NOT_TRIGGERED
+
+governance:
+  certified_m11_002_parent_required: true
+  exact_m11_002_lineage_required: true
+  assumptions_must_be_explicitly_hypothetical: true
+  baseline_and_hypothesis_lineage_must_remain_separate: true
+  unsupported_targets_fail_closed: true
+  unsupported_states_fail_closed: true
+  hypothetical_inputs_may_not_be_promoted_to_facts: true
+  recommended_list_price_prohibited: true
+  predicted_sale_price_prohibited: true
+  guaranteed_net_proceeds_prohibited: true
+  guaranteed_outcomes_prohibited: true
+  seller_acceptance_prediction_prohibited: true
+  buyer_behavior_prediction_prohibited: true
+  seller_motivation_inference_prohibited: true
+  protected_class_inference_prohibited: true
+  public_output_prohibited: true
+  external_action_capability: NONE
+  deterministic_output_required: true
+
+prohibited_output_fields:
+  - recommended_list_price
+  - suggested_list_price
+  - predicted_sale_price
+  - estimated_sale_price
+  - guaranteed_net_proceeds
+  - predicted_net_proceeds
+  - guaranteed_outcome
+  - seller_acceptance_prediction
+  - buyer_behavior_prediction
+  - seller_motivation
+  - seller_intent
+  - automatic_action
