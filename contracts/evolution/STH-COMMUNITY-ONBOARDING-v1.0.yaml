@@ -1,0 +1,63 @@
+contract_id: STH-COMMUNITY-ONBOARDING
+version: 1.0.0
+status: LOCKED
+milestone: M10
+ticket: M10-003
+name: Community Onboarding Contract & Bootstrap Generator
+purpose: >
+  Define the minimum governed inputs required to onboard a new community and
+  deterministically generate bootstrap configuration and lineage artifacts
+  without copying San Tan Heights-specific assumptions into reusable platform behavior.
+required_fields:
+  identity:
+    - onboarding_id
+    - community_id
+    - display_name
+    - state
+    - county
+    - property_id_prefix
+  sources:
+    - listing_service
+    - parcel_authority
+    - recorder_authority
+  lineage:
+    - parent_platform_version
+    - parent_platform_fingerprint
+  assumptions:
+    - community_specific
+    - source_specific
+hard_boundaries:
+  - no_san_tan_heights_defaults
+  - no_hidden_identity_defaults
+  - no_hidden_source_defaults
+  - no_baseline_mutation
+  - no_production_ingestion
+  - no_new_intelligence_methods
+  - no_release_certification
+validation:
+  require_upper_snake_case_community_id: true
+  require_nonempty_display_name: true
+  require_two_letter_state: true
+  require_nonempty_county: true
+  require_property_id_prefix: true
+  require_nonempty_source_authorities: true
+  require_sha256_parent_platform_fingerprint: true
+  require_explicit_community_specific_assumptions: true
+  require_explicit_source_specific_assumptions: true
+  reject_protected_community_id: SAN_TAN_HEIGHTS
+bootstrap:
+  deterministic: true
+  generated_timestamp_prohibited: true
+  exact_input_lineage_required: true
+  output_fingerprints_required: true
+  canonical_sorting_required: true
+  generated_artifacts:
+    - community_config
+    - onboarding_manifest
+acceptance:
+  valid_inputs_reproduce_identical_outputs: true
+  invalid_inputs_fail_closed: true
+  no_san_tan_heights_default_leakage: true
+  accepted_baseline_artifacts_unchanged: true
+  inherited_regression_gates_required: true
+  allow_waivers: false

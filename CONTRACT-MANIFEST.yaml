@@ -65,4 +65,11 @@ contracts:
   depends_on:
   - STH-PRODUCTION-POPULATION-ACTIVATION
   - STH-PRODUCTION-CERTIFICATION
+- id: STH-COMMUNITY-ONBOARDING
+  version: 1.0.0
+  status: LOCKED
+  path: contracts/evolution/STH-COMMUNITY-ONBOARDING-v1.0.yaml
+  sha256: 2e65a4e374229f5de25edc8fa63b501a808f41a3c677b0c74bbab9b46debc125
+  depends_on:
+  - STH-MULTI-COMMUNITY-PLATFORM-EVOLUTION
 hash_algorithm: SHA-256
