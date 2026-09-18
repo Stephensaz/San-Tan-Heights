@@ -1,0 +1,47 @@
+{
+  "evidence_id": "STH-M9-001-CORPUS-FREEZE-EVIDENCE-v1.0",
+  "status": "PASS",
+  "source": {
+    "name": "San_Tan_Heights_Canonical_Property_Master_v1_0.csv",
+    "original_library_file_id": "libfile_cc0da76d02a881918037413429de4479",
+    "original_library_version": "1",
+    "raw_size_bytes": 1078298,
+    "raw_sha256": "1e8713f61378581651831d720a360974a58c1b072bbf326f47676e0d21b380a7"
+  },
+  "raw_audit": {
+    "row_count": 4956,
+    "unique_canonical_property_ids": 4956,
+    "unique_county_parcelids": 4956,
+    "blank_canonical_property_ids": 0,
+    "blank_county_parcelids": 0,
+    "community_membership_status_counts": {
+      "VERIFIED_RECORDED_SAN_TAN_HEIGHTS": 4956
+    },
+    "parcel_role_counts": {
+      "RESIDENTIAL_LOT": 4956
+    },
+    "canonical_master_version_counts": {
+      "1.0.0": 4956
+    },
+    "canonical_property_ids_sha256": "82d0c5f51d1664f9d39fee1703ea6360dcfd866522c5e7d5cf0ce476a6b6d857",
+    "county_parcelids_sha256": "3ea6b3f0e85b3f0f71f565547f91e7ee6922c69346384472dc7f187908035db5",
+    "canonical_property_id_to_parcelid_pairs_sha256": "c9fb8420b38224eea6baaf9e1d07597776d94b36a99da1c107bd961bfd711e09"
+  },
+  "admission": {
+    "admitted": 4956,
+    "quarantined": 0,
+    "excluded_with_governed_reason": 0,
+    "accounting_status": "COMPLETE"
+  },
+  "upstream_certification": {
+    "non_village_verified_residential": 3953,
+    "village_verified_residential": 1003,
+    "final_canonical_total": 4956,
+    "exact_one_to_one_geometry_matches": 4956,
+    "missing_parcel_geometries": 0,
+    "duplicate_residential_parcelid_identities": 0
+  },
+  "freeze_fingerprint": "f9499c10399d79e7346f9736dfbe4a360a59f1f663d7b5795a1e845ab31b3810",
+  "defects": [],
+  "waivers": []
+}
