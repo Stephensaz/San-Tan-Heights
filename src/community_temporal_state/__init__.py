@@ -52,6 +52,21 @@ from .history import (
     validate_ledger_replay,
 )
 
+from .patterns import (
+    PatternObservation,
+    PatternPopulation,
+    PatternEstimate,
+    GovernedPatternCandidate,
+    build_pattern_population,
+    discover_pattern,
+    estimate_pattern,
+    load_evolution_pattern_registry,
+    make_pattern_observation,
+    promote_pattern,
+    validate_and_replicate_pattern,
+    validate_candidate_replay,
+)
+
 __all__ = [
     "CommunityStateSnapshot",
     "PropertyStateProjection",
@@ -96,4 +111,16 @@ __all__ = [
     "refresh_entries",
     "snapshot_entries",
     "validate_ledger_replay",
+    "PatternObservation",
+    "PatternPopulation",
+    "PatternEstimate",
+    "GovernedPatternCandidate",
+    "build_pattern_population",
+    "discover_pattern",
+    "estimate_pattern",
+    "load_evolution_pattern_registry",
+    "make_pattern_observation",
+    "promote_pattern",
+    "validate_and_replicate_pattern",
+    "validate_candidate_replay",
 ]
