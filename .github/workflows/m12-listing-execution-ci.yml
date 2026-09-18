@@ -1,0 +1,32 @@
+name: M12 Listing Execution CI
+
+on:
+  pull_request:
+    paths:
+      - 'contracts/listing_execution/**'
+      - 'registries/listing_execution/**'
+      - 'src/listing_execution/**'
+      - 'tests/unit/listing_execution/**'
+      - 'docs/implementation/M12-*.md'
+      - 'CONTRACT-MANIFEST.yaml'
+      - 'BUILD-MANIFEST.yaml'
+      - '.github/workflows/m12-listing-execution-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  listing-execution-tests:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pytest pyyaml
+      - name: Run M12 listing execution tests
+        run: pytest -q tests/unit/listing_execution
+      - name: Validate repository structure
+        run: python scripts_validate_repo.py

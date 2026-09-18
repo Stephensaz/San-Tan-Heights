@@ -1,0 +1,80 @@
+contract_id: STH-LISTING-EXECUTION
+version: 1.0.0
+status: LOCKED
+milestone: M12
+depends_on:
+  - STH-SELLER-INTELLIGENCE
+  - STH-MULTI-COMMUNITY-PLATFORM-EVOLUTION
+  - STH-PRODUCTION-POPULATION-ACTIVATION
+
+tickets:
+  - id: M12-001
+    name: Listing Action Planning & Governed Action Proposal Engine
+  - id: M12-002
+    name: Authorized Listing Action Execution & Receipt Layer
+  - id: M12-003
+    name: Listing Action Verification, Reconciliation & Controlled Rollback Layer
+  - id: M12-004
+    name: Listing Action Effectiveness & Operational Learning Layer
+  - id: M12-005
+    name: Listing Action Policy Calibration & Controlled Promotion Framework
+  - id: M12-006
+    name: Listing Execution Workspace & Operational Command Center
+  - id: M12-007
+    name: Listing Execution Operations Monitoring, Incident Containment & Recovery Layer
+  - id: M12-008
+    name: Listing Execution Audit, Compliance Evidence & Operational Certification Layer
+  - id: M12-009
+    name: Final Integrated Production Certification & Failure-Injection Gate
+
+hard_boundaries:
+  certified_m11_baseline_required: true
+  intelligence_to_execution_authority_separation_required: true
+  system_determined_price_or_terms_prohibited: true
+  autonomous_listing_change_prohibited: true
+  autonomous_seller_communication_prohibited: true
+  autonomous_external_execution_prohibited: true
+  human_approval_required_before_authorization: true
+  authority_revalidation_required_before_execution: true
+  immutable_versioned_audit_trail_required: true
+  stale_or_superseded_inputs_must_fail_closed: true
+  public_strategy_exposure_prohibited: true
+  calibration_auto_promotion_prohibited: true
+
+m12_001:
+  input_policy:
+    certified_seller_intelligence_case_required: true
+    released_m11_evidence_required: true
+    current_listing_context_required: true
+    explicit_action_intent_required: true
+  output_policy:
+    immutable_governed_proposal_required: true
+    exact_lineage_required: true
+    freshness_prerequisites_limitations_required: true
+    proposal_state_only: true
+    human_approval_required: true
+    external_action_capability: NONE
+  prohibited_capabilities:
+    - APPROVE
+    - AUTHORIZE
+    - SCHEDULE
+    - QUEUE
+    - EXECUTE
+    - PUBLISH
+    - TRANSMIT
+    - PROMOTE_POLICY
+    - DETERMINE_SELLER_DECISION
+
+m12_009:
+  certification_sequence:
+    - M12-009A_PREFLIGHT_MANIFEST_AND_PRECONDITION_VALIDATION
+    - M12-009B_GOLDEN_PATH_AND_AUTHORITY_SEPARATION
+    - M12-009C_DUPLICATE_SIDE_EFFECT_IDEMPOTENCY_AND_OUTCOME_UNKNOWN
+    - M12-009D_VERIFICATION_RECONCILIATION_AND_FINAL_STATE
+    - M12-009E_INCIDENT_HOLD_AND_RECOVERY
+    - M12-009F_WORKSPACE_AND_HUMAN_CONTROL
+    - M12-009G_POLICY_CALIBRATION_AND_PROMOTION
+    - M12-009H_AUDIT_INTEGRITY_AND_REPRODUCIBILITY
+    - M12-009I_CROSS_LAYER_CHAOS
+    - M12-009J_FULL_REPLAY_COVERAGE_CLOSURE_AND_ADJUDICATION
+  no_additional_design_stage_after_j: true
