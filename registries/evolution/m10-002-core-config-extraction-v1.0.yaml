@@ -16,6 +16,7 @@ component_classes:
 
 path_rules:
   CORE_REUSABLE:
+    - src/__init__.py
     - src/certification/
     - src/dependency/
     - src/kernel/
@@ -41,6 +42,8 @@ path_rules:
     - contracts/security/
     - contracts/services/
   COMMUNITY_CONFIGURABLE:
+    - registries/dependency-types.yaml
+    - registries/deprecated-patterns.yaml
     - contracts/evolution/
     - registries/certification/
     - registries/classifications/
