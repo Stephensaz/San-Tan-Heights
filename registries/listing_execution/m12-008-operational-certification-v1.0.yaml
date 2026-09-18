@@ -52,6 +52,9 @@ control_rules:
 
 package:
   status: READY_FOR_M12_009
+  expected_evidence_chain_root: 82bb94798f887e5b7115abbac55c6b6e9e0cae3130f2310d1efab1ba0dbfe92c
+  expected_artifact_manifest_root: 6e411dfccac19bfc0fdad22011307e507bc120a2d3a568e09ffd74364956a315
+  expected_operational_certification_root: 700b426fdf8b576c0522fce216f3af2e1853fd7d851c0dc4ebb80089824f7b84
   final_milestone_decision_issued: false
   public_eligible: false
   external_action_capability: NONE
