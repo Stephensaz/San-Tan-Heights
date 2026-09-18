@@ -1,6 +1,6 @@
 {
   "evidence_id": "STH-M9-007-REPORT-MATERIALIZATION-v1.0",
-  "status": "PASS_PENDING_CI",
+  "status": "PASS",
   "population": {
     "properties": 4956,
     "total_variants": 14868,
@@ -40,5 +40,14 @@
   },
   "publication_state": "MATERIALIZED_NOT_PUBLISHED",
   "defects": [],
-  "waivers": []
+  "waivers": [],
+  "acceptance_evidence": {
+    "m9_activation_ci_run": 35,
+    "m9_boundary_validation_run": 36,
+    "m8_presentation_ci_run": 93,
+    "m8_presentation_certification_run": 96,
+    "m8_final_certification_run": 44,
+    "defects": 0,
+    "waivers": 0
+  }
 }
