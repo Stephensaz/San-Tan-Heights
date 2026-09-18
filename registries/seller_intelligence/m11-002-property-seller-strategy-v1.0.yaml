@@ -1,0 +1,102 @@
+seller_strategy_registry_id: STH-M11-002-PROPERTY-SELLER-STRATEGY-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M11-002
+contract_id: STH-SELLER-INTELLIGENCE
+parent_ticket: M11-001
+parent_evidence: certification-evidence/m11-001/seller-opportunity-acceptance-v1.0.json
+
+required_input_state:
+  baseline_certified: true
+  qa_status: PASS
+  output_tier: SELLER
+  freshness_state: CURRENT
+
+strategy_dimensions:
+  BUYER_DEPTH:
+    allowed_states:
+      - DEEP
+      - BALANCED
+      - THIN
+      - UNKNOWN
+  VERIFIED_DIFFERENTIATION:
+    allowed_states:
+      - STRONG
+      - MODERATE
+      - LIMITED
+      - UNKNOWN
+  NEW_CONSTRUCTION_PRESSURE:
+    allowed_states:
+      - LOW
+      - MODERATE
+      - HIGH
+      - UNKNOWN
+  PRICING_RESPONSE_ENVIRONMENT:
+    allowed_states:
+      - RESPONSIVE
+      - MIXED
+      - WEAK
+      - UNKNOWN
+  WEEK_OVER_WEEK_DIRECTION:
+    allowed_states:
+      - IMPROVING
+      - STABLE
+      - WORSENING
+      - UNKNOWN
+
+review_checkpoints:
+  - day: 7
+    name: EARLY_RESPONSE_REVIEW
+  - day: 10
+    name: COMPETITIVE_POSITION_REVIEW
+  - day: 14
+    name: STRATEGY_CHECKPOINT
+
+review_reason_rules:
+  DAY_7:
+    - competitive_pressure: HIGH
+      reason: HIGH_CURRENT_COMPETITIVE_PRESSURE
+    - BUYER_DEPTH: THIN
+      reason: THIN_BUYER_DEPTH
+    - WEEK_OVER_WEEK_DIRECTION: WORSENING
+      reason: MARKET_DIRECTION_WORSENING
+  DAY_10:
+    - PRICING_RESPONSE_ENVIRONMENT: WEAK
+      reason: WEAK_PRICING_RESPONSE_ENVIRONMENT
+    - NEW_CONSTRUCTION_PRESSURE: HIGH
+      reason: HIGH_NEW_CONSTRUCTION_PRESSURE
+    - VERIFIED_DIFFERENTIATION: LIMITED
+      reason: LIMITED_VERIFIED_DIFFERENTIATION
+  DAY_14:
+    - always: true
+      reason: GOVERNED_DAY_14_STRATEGY_CHECKPOINT
+
+governance:
+  exact_m11_001_lineage_required: true
+  stale_inputs_suppressed: true
+  non_seller_tier_inputs_suppressed: true
+  qa_failed_inputs_suppressed: true
+  uncertified_baseline_inputs_rejected: true
+  missing_dimensions_explicit: true
+  review_triggers_non_prescriptive: true
+  recommended_list_price_prohibited: true
+  predicted_sale_price_prohibited: true
+  valuation_prohibited: true
+  guaranteed_outcomes_prohibited: true
+  seller_motivation_inference_prohibited: true
+  protected_class_inference_prohibited: true
+  public_output_prohibited: true
+  external_action_capability: NONE
+  deterministic_output_required: true
+  lineage_required: true
+
+prohibited_output_fields:
+  - recommended_list_price
+  - suggested_list_price
+  - predicted_sale_price
+  - estimated_sale_price
+  - value_opinion
+  - seller_motivation
+  - seller_intent
+  - guaranteed_outcome
+  - automatic_action
