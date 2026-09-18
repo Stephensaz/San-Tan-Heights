@@ -124,7 +124,7 @@ def test_namespaces_must_be_unique():
 
 def test_namespace_must_match_own_community():
     m=deepcopy(manifest())
-    m["members"][1]["namespace"]="community/RANCHO_VISTOSO"
+    m["members"][1]["namespace"]="community/WRONG_COMMUNITY"
     result=certify(m)
     assert result.decision=="NO-GO"
     assert "NAMESPACE_COMMUNITY_MISMATCH" in result.members[1].reasons
