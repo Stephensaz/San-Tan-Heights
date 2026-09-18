@@ -58,3 +58,11 @@ def test_mutated_baseline_fails(tmp_path):
     raw=Path(B).read_bytes(); p=tmp_path/"baseline.json"; p.write_bytes(raw+b" ")
     fp=hashlib.sha256(raw).hexdigest()
     with pytest.raises(ValueError,match="baseline changed"): assert_baseline_preserved(frozen_fingerprint=fp,current_baseline_path=p)
+
+
+def test_actual_repository_declared_scope_is_fully_classified():
+    audit=inventory_repository(".",registry())
+    assert audit.unclassified==()
+    assert audit.ambiguous==()
+    assert audit.core_marker_violations==()
+    assert len(audit.classified)>0
