@@ -1,0 +1,54 @@
+{
+  "evidence_id": "STH-M10-010-FINAL-ADJUDICATION-v1.0",
+  "ticket": "M10-010",
+  "status": "ACCEPTED",
+  "decision": "PLATFORM RELEASED",
+  "release_candidate_version": "0.1.121",
+  "certification_root_hash": "7c74fd81bcc91816dceb81129d022e6605b65ea5f1e14ab88ec8d8b75b005913",
+  "accepted_evidence_sha256": {
+    "M10-001": "eb5f19b66412cd167a8da0dedddd95e2f1353d44e7b6672aea1f01552da8decb",
+    "M10-002": "d41430419b365e17376bec8f059fab95e8fd5bdb4923448fff5ab81a5170aee2",
+    "M10-003": "dedebc911086e9ea6cc711ae498bb59118bc9752cc1f853fae79529b10b4d47a",
+    "M10-004": "ed7800ea6d723ce58a4b7b3a596f25ebead352a69f32253391c2687a0ebfd34b",
+    "M10-005": "480b53de6cb7443ced7cb2dae0ca1ab0d062c92bfbab29d29355ec20f93e2c65",
+    "M10-006": "6b145ac4d0e8f415850d70427c3fa5a5f2ee4082067543f73d8cfc8ced1fc029",
+    "M10-007": "3d073e8d7af035df8b3ae0013c490d2456ef72e9fbeacd632988c1edc65bd8d0",
+    "M10-008": "ec295e389310b3303cea9c3f7e6d43d6ec394169cf8b0e6a9e63921aa54f97fd",
+    "M10-009": "a2f999aef0c7acc8adb2d3f5779854e6f9e15879bcc9e252ee507f7fc9a07d1f"
+  },
+  "factory_replay_fingerprints": {
+    "DAYBREAK_UT": "09c610e8e14dc5005d01614b9b2ed1627d22bd404c89dd3e4418f5410e758436",
+    "RANCHO_VISTOSO": "5c3c00bc4e9017db574a9b2597183af6455a670cce7a42376035eb20c848b820"
+  },
+  "portfolio_replay": {
+    "decision": "GO",
+    "fingerprint": "83b48a0a8bcb5a22d4859ff66d32d577b39acb45afa587c9ab5dbe9d010f2d12",
+    "published": false,
+    "readiness_only": true
+  },
+  "adjudication": {
+    "m10_001_through_009_all_accepted": true,
+    "evidence_chain_complete": true,
+    "zero_waivers": true,
+    "zero_open_defects": true,
+    "factory_replay_pass": true,
+    "portfolio_replay_go": true,
+    "certification_root_reproduced": true,
+    "partial_result_prohibited": true,
+    "publication_side_effect": false,
+    "blocking_reasons": []
+  },
+  "github_actions": {
+    "m10_evolution_ci": {
+      "run_number": 52,
+      "run_id": 35363361068,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "passed": 127,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
