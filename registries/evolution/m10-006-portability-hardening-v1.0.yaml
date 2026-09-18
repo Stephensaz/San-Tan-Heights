@@ -1,0 +1,80 @@
+hardening_registry_id: STH-M10-006-PORTABILITY-HARDENING-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M10-006
+parent_evidence: certification-evidence/m10-005/rancho-vistoso-portability-acceptance-v1.0.json
+
+profile_types:
+  COMMUNITY_TAXONOMY:
+    retained_component_class: COMMUNITY_SPECIFIC
+    required_keys:
+      - profile_id
+      - profile_type
+      - community_id
+      - authority
+      - semantics
+  LISTING_SOURCE_COMPATIBILITY:
+    retained_component_class: SOURCE_SPECIFIC
+    required_keys:
+      - profile_id
+      - profile_type
+      - community_id
+      - source_system
+      - mapping_boundary
+      - access_policy
+  PARCEL_SOURCE_COMPATIBILITY:
+    retained_component_class: SOURCE_SPECIFIC
+    required_keys:
+      - profile_id
+      - profile_type
+      - community_id
+      - source_system
+      - mapping_boundary
+  RECORDER_SOURCE_COMPATIBILITY:
+    retained_component_class: SOURCE_SPECIFIC
+    required_keys:
+      - profile_id
+      - profile_type
+      - community_id
+      - source_system
+      - mapping_boundary
+
+dispositions:
+  - work_item_id: COM-001
+    prior_class: COMMUNITY_SPECIFIC
+    prior_action: REMEDIATE
+    disposition: GOVERNED_PROFILE_INPUT
+    post_action: CONFIGURE
+    profile_type: COMMUNITY_TAXONOMY
+    hardened_artifact: config/hardening/rancho_vistoso/community-taxonomy-profile-v1.0.yaml
+  - work_item_id: SRC-001
+    prior_class: SOURCE_SPECIFIC
+    prior_action: REMEDIATE
+    disposition: GOVERNED_PROFILE_INPUT
+    post_action: CONFIGURE
+    profile_type: LISTING_SOURCE_COMPATIBILITY
+    hardened_artifact: config/hardening/rancho_vistoso/mlssaz-compatibility-profile-v1.0.yaml
+  - work_item_id: SRC-002
+    prior_class: SOURCE_SPECIFIC
+    prior_action: REMEDIATE
+    disposition: GOVERNED_PROFILE_INPUT
+    post_action: CONFIGURE
+    profile_type: PARCEL_SOURCE_COMPATIBILITY
+    hardened_artifact: config/hardening/rancho_vistoso/pima-assessor-profile-v1.0.yaml
+  - work_item_id: SRC-003
+    prior_class: SOURCE_SPECIFIC
+    prior_action: REMEDIATE
+    disposition: GOVERNED_PROFILE_INPUT
+    post_action: CONFIGURE
+    profile_type: RECORDER_SOURCE_COMPATIBILITY
+    hardened_artifact: config/hardening/rancho_vistoso/pima-recorder-profile-v1.0.yaml
+
+governance:
+  classification_may_not_change_during_hardening: true
+  hidden_defaults_prohibited: true
+  profile_artifact_required: true
+  profile_validation_required: true
+  source_access_may_not_be_implied: true
+  original_m10_005_evidence_immutable: true
+  san_tan_heights_baseline_immutable: true
+  replay_required: true
