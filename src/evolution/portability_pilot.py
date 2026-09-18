@@ -189,6 +189,11 @@ def execute_portability_pilot(
     if unresolved:
         raise ValueError(f"unresolved portability remediation: {unresolved}")
 
+    for item in remediations:
+        artifact = str(item.get("resolution_artifact") or "")
+        if not artifact or not (root / artifact).is_file():
+            raise ValueError(f"missing remediation resolution artifact: {artifact or item.get('id')}")
+
     remediation_work_items = {str(x.get("work_item_id")) for x in remediations}
     metrics = _measure(profile)
     if set(metrics.manual_remediation_items) != remediation_work_items:
