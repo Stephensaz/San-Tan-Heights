@@ -1,0 +1,11 @@
+profile_id: DAYBREAK-UT-SALT-LAKE-RECORDER-v1.0
+profile_type: RECORDER_SOURCE_COMPATIBILITY
+version: 1.0.0
+status: HARDENED
+community_id: DAYBREAK_UT
+component_class: SOURCE_SPECIFIC
+source_system: Salt Lake County Recorder
+mapping_boundary:
+  document_index: SOURCE_SPECIFIC
+  authority: Salt Lake County Recorder
+  historic_index_coverage_requires_source_validation: true

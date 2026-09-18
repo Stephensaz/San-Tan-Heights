@@ -1,0 +1,15 @@
+profile_id: DAYBREAK-UT-COMMUNITY-TAXONOMY-v1.0
+profile_type: COMMUNITY_TAXONOMY
+version: 1.0.0
+status: HARDENED
+community_id: DAYBREAK_UT
+component_class: COMMUNITY_SPECIFIC
+authority:
+  name: South Jordan City GIS
+  source_url: https://gis2.southjordanutah.gov/server/rest/services/Planning/Daybreak_SAA/MapServer
+semantics:
+  municipality: South Jordan
+  county: Salt Lake
+  state: UT
+  planning_boundary_type: Daybreak SAA
+  platform_default_prohibited: true
