@@ -13,6 +13,10 @@ community:
   community_type: master_planned
   real_community: true
 
+parent_platform:
+  version: 0.1.116
+  immutable_evidence: certification-evidence/m10-004/progressive-build-pipeline-acceptance-v1.0.json
+
 source_systems:
   listing_service: MLSSAZ
   parcel_authority: Pima County Assessor
