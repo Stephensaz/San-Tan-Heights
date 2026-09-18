@@ -1,0 +1,116 @@
+current_context_registry_id: STH-M9-005-CURRENT-MARKET-BUILDER-v1.0
+version: 1.0.0
+status: FROZEN
+community_id: SAN_TAN_HEIGHTS
+evaluation_date: 2026-09-17
+freshness_policy:
+  cadence: WEEKLY
+  snapshot_max_age_days: 7
+  freshness_state_within_cadence: CURRENT
+
+inputs:
+  m9_003_binding:
+    raw_sha256: 3c2507b0045d412633d10b10c259275c193bf27a843e7591fbf16be8abb71efd
+    row_count: 4956
+  m9_004_historical_property_population:
+    raw_sha256: 925c6745dbf82691d691933846f8ea81dbe49b1df3ea1bf60a5f133bce2eb2b9
+    immutable: true
+  m9_004_legacy_episode_bridge:
+    raw_sha256: 0a342b069e79ef08be0925c2de1cd59669e1c053e905104bd32db2fd98b1fcf9
+    immutable: true
+  current_snapshot_competition:
+    library_file_id: libfile_c3647e4f563c8191a4385c986cdbeac9
+    raw_size_bytes: 359013
+    raw_sha256: b70701fc99e8ff7243b625340f11737d07c74a9c0a3c7d53f9fd5f52e8a1df98
+    snapshot_date: 2026-09-14
+    rows: 4955
+    qa_pass_rows: 4955
+    source_mode: FINAL_STATE_SNAPSHOT
+  active_resale_competition:
+    library_file_id: libfile_2f09806c7ce481919367260e1f11b585
+    raw_size_bytes: 12065
+    raw_sha256: c06d9c42328febafc6e410df086bec522af67fbcf11cdb616caa4e99e1cf5e80
+    snapshot_date: 2026-09-14
+    eligible_rows: 55
+    unique_mls_numbers: 55
+    anomaly_review_rows: 1
+  builder_alternatives:
+    library_file_id: libfile_7d06a85c91ec8191b35a09572f0d5738
+    raw_size_bytes: 2616
+    raw_sha256: 1c1e96f3e70cd01c192507883c635feb7fa93ae53c2bad8145d62abccf046cbd
+    snapshot_date: 2026-09-14
+    rows: 6
+    direct_in_community_rows: 1
+    nearby_new_construction_rows: 5
+  competition_overlay_audit:
+    library_file_id: libfile_5c4ca0e71b4c8191af8c3396b139f5f6
+    raw_size_bytes: 871
+    raw_sha256: 2acabef14f3754c4f19263ec4c7f6f42c80ed787b89ddabd29735c5e1b1e1c46
+
+artifacts:
+  property_context:
+    name: m9_005_current_property_context_v1.csv
+    library_file_id: libfile_325a617e5ca88191a4e90f3388a03fc4
+    path: /M9/m9_005_current_property_context_v1.csv
+    raw_size_bytes: 493077
+    raw_sha256: 18b764be9fad8b81d17e709f308f7562180417771c83a6bf6d7747f1e58e22ec
+    authoritative: false
+  builder_context:
+    name: m9_005_builder_context_v1.csv
+    library_file_id: libfile_506e814ee2508191b100ff9dbdef7d46
+    path: /M9/m9_005_builder_context_v1.csv
+    raw_size_bytes: 3014
+    raw_sha256: d8bef30fc7936621e1f6658fa1057181fb11a4c38bb805f30036cdb35e7165b1
+    authoritative: false
+
+property_population:
+  corpus_members: 4956
+  current_context_available: 4955
+  current_context_unavailable: 1
+  unavailable_property_ids:
+    - STH-516018120
+  unavailable_reason:
+    STH-516018120: UPSTREAM_SPATIAL_FRONTAGE_UNRESOLVED
+  snapshot_date: 2026-09-14
+  snapshot_age_days_at_evaluation: 3
+  snapshot_freshness_state: CURRENT
+  qa_pass_source_rows: 4955
+  available_property_universe_count: 53
+  marketed_under_contract_property_universe_count: 5
+
+active_resale_context:
+  source_rows_before_filters: 58
+  eligible_resale_rows: 55
+  unique_mls_numbers: 55
+  net_reduction_rows: 33
+  no_net_change_rows: 20
+  net_increase_rows: 1
+  anomaly_review_rows: 1
+  historical_buyer_depth_modified: false
+
+builder_context:
+  alternatives: 6
+  direct_in_community: 1
+  nearby_new_construction: 5
+  snapshot_freshness_state: CURRENT
+  explicit_offer_end_dates:
+    count: 1
+    expired_as_of_evaluation: 1
+    expired_context_ids:
+      - BC-006
+  offers_without_explicit_end_date: 5
+  no_claim_of_continued_offer_validity_without_reverification: true
+
+governance:
+  historical_layer_immutable: true
+  preserve_source_values: true
+  preserve_source_dates: true
+  preserve_source_qa_states: true
+  stale_or_unavailable_states_explicit: true
+  expired_offer_terms_not_carried_forward_as_current: true
+  property_specific_builder_substitution_inference_prohibited: true
+  new_pricing_conclusions_prohibited: true
+  new_value_opinions_prohibited: true
+  current_market_refresh_outside_frozen_snapshot_prohibited: true
+  report_generation_prohibited: true
+  publication_prohibited: true
