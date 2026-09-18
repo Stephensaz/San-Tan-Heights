@@ -5,7 +5,7 @@ status_values:
 - IN_PROGRESS
 - BLOCKED
 - ACCEPTED
-current_ticket: M12-009
+current_ticket: M13-001
 milestones:
 - id: M1
   name: Governed Lifecycle Kernel
@@ -43,4 +43,7 @@ milestones:
 - id: M12
   name: Listing Execution
   status: ACCEPTED
-version: 0.1.132
+- id: M13
+  name: Temporal Community Intelligence & Unified Seller Intelligence
+  status: IN_PROGRESS
+version: 0.1.133
