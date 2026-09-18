@@ -1,0 +1,50 @@
+{
+  "evidence_id": "STH-M12-002-AUTHORIZED-EXECUTION-v1.0",
+  "ticket": "M12-002",
+  "status": "ACCEPTED",
+  "parent": {
+    "ticket": "M12-001",
+    "evidence": "certification-evidence/m12-001/action-proposal-acceptance-v1.0.json"
+  },
+  "capabilities": {
+    "explicit_human_approval_record": true,
+    "exact_approval_to_proposal_binding": true,
+    "independent_execution_authority": true,
+    "pre_execution_authority_revalidation": true,
+    "deterministic_idempotency_key": true,
+    "adapter_request_response_boundary": true,
+    "immutable_execution_receipt": true,
+    "duplicate_side_effect_suppression": true,
+    "outcome_unknown_handling": true
+  },
+  "controls": {
+    "approval_inference_prohibited": true,
+    "seller_approval_inference_prohibited": true,
+    "authority_scope_validation_required": true,
+    "expired_authority_fails_closed": true,
+    "stale_or_non_pristine_proposal_execution_prohibited": true,
+    "duplicate_reexecution_prohibited": true,
+    "outcome_unknown_retry_prohibited": true,
+    "success_without_external_receipt_downgraded_to_outcome_unknown": true,
+    "adapter_exception_becomes_outcome_unknown": true,
+    "adapter_binding_mismatch_becomes_outcome_unknown": true,
+    "price_or_terms_payload_prohibited": true,
+    "policy_auto_promotion_prohibited": true,
+    "receipt_immutable": true,
+    "public_eligible": false,
+    "deterministic_output": true
+  },
+  "github_actions": {
+    "m12_listing_execution_ci": {
+      "run_number": 7,
+      "run_id": 35376619552,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "passed": 34,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
