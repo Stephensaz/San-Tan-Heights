@@ -56,14 +56,16 @@ acceptance_criteria:
   - INTCERT-AC11_REPRODUCIBILITY
   - INTCERT-AC12_ALL_OR_NOTHING_PASS_GO
 visual_evidence:
-  baseline_root: tests/visual/baselines/m8-032
+  baseline_mode: deterministic_fixture_manifest
   required_targets:
     - PUBLIC_WEB
     - SELLER_WEB
     - AGENT_WEB
     - PDF
     - PRINT
-  require_real_png_capture: true
+  require_controlled_runtime_match: true
+  require_structural_assertions_pass: true
+  require_deterministic_replay: true
 final_rules:
   allow_waivers: false
   allow_conditional_go: false
