@@ -1,0 +1,83 @@
+binding_registry_id: STH-M9-003-IDENTITY-PHASE-SPATIAL-v1.0
+version: 1.0.0
+status: FROZEN
+community_id: SAN_TAN_HEIGHTS
+inputs:
+  m9_001_corpus_freeze_fingerprint: f9499c10399d79e7346f9736dfbe4a360a59f1f663d7b5795a1e845ab31b3810
+  m9_002_activation_roster:
+    raw_sha256: 38d9ca1ad5b81ce4038edf149a9a9a3a80e58d315c8a0f206173c19521bb7b54
+    row_count: 4956
+  canonical_property_master:
+    library_file_id: libfile_cc0da76d02a881918037413429de4479
+    raw_sha256: 1e8713f61378581651831d720a360974a58c1b072bbf326f47676e0d21b380a7
+    role: IDENTITY_AND_PHASE_AUTHORITY
+    row_count: 4956
+  supporting_phase_normalization:
+    library_file_id: libfile_49a39609b3f081918a8bc61273562982
+    raw_sha256: e26f8fc3f09bb054fcfb539ada1777577806c235c2230d504e4908c5f8476051
+    role: SUPPORTING_HISTORICAL_PHASE_EVIDENCE
+    row_count: 3717
+  canonical_property_geometry_metrics:
+    library_file_id: libfile_10aec281b1408191a81413f3ecade2ba
+    raw_sha256: fd9a2b8539c0598f69fcd43134289de50ea7a5f4db3460f55364ff6698112948
+    row_count: 4956
+  lot_side_micro_location_dna:
+    library_file_id: libfile_c5557fa4ecf48191968ad1e48a33c5a7
+    raw_sha256: 47003c2811162140c17f6dbc37ed3f16f080e6f7686458a79adcdf0883f02be3
+    row_count: 4956
+  block_position_geometry:
+    library_file_id: libfile_a5664a9c10788191b53be3128dc9f0f3
+    raw_sha256: 65320e750801976c86c7d69cae370eb14c36aad64a22cf4b7f34da62d2760bdc
+    row_count: 4955
+  parcel_raw_adjacency_graph:
+    library_file_id: libfile_8aff5c92d2b48191a3315ab6e6efa4d5
+    raw_sha256: 7edb2fa15bd4ed92d3a14d2391ba7d803b96fe4cfc0f18884f2e9c5b8c4fa438
+    row_count: 23862
+artifact:
+  name: m9_003_identity_phase_spatial_binding_v1.csv
+  library_file_id: libfile_3aa28b9fcc188191838c0de6fe86b3d5
+  path: /M9/m9_003_identity_phase_spatial_binding_v1.csv
+  raw_size_bytes: 2580880
+  raw_sha256: 3c2507b0045d412633d10b10c259275c193bf27a843e7591fbf16be8abb71efd
+  authoritative: false
+population:
+  row_count: 4956
+  unique_canonical_property_ids: 4956
+  unique_county_parcelids: 4956
+  additions_vs_m9_002: 0
+  omissions_vs_m9_002: 0
+  parcelid_mismatches_vs_m9_002: 0
+phase_binding:
+  bound: 4956
+  unresolved: 0
+  blank_recorded_phase: 0
+  blank_phase_group: 0
+geometry_binding:
+  bound: 4956
+  qa_pass: 4956
+  unresolved: 0
+lot_side_binding:
+  qa_pass: 4955
+  review_required: 1
+block_binding:
+  bound: 4955
+  unresolved_frontage: 1
+adjacency_binding:
+  properties_represented: 4956
+  source_rows: 23862
+  qa_pass_rows: 23862
+spatial_binding:
+  bound: 4955
+  partial_unresolved: 1
+  unresolved_property_ids:
+    - STH-516018120
+  unresolved_reason:
+    STH-516018120: BLOCKED_FRONTAGE_UNRESOLVED
+governance:
+  preserve_upstream_unresolved_states: true
+  new_phase_inference_prohibited: true
+  new_spatial_inference_prohibited: true
+  address_identity_inference_prohibited: true
+  membership_changes_prohibited: true
+  report_generation_prohibited: true
+  publication_prohibited: true

@@ -14,6 +14,11 @@ from .roster_population import (
     build_activation_roster,
     validate_against_registry,
 )
+from .identity_phase_spatial_binding import (
+    BindingAudit,
+    audit_binding,
+    validate_binding_against_registry,
+)
 
 __all__ = [
     "AdmissionState",
@@ -29,4 +34,7 @@ __all__ = [
     "audit_activation_roster",
     "build_activation_roster",
     "validate_against_registry",
+    "BindingAudit",
+    "audit_binding",
+    "validate_binding_against_registry",
 ]
