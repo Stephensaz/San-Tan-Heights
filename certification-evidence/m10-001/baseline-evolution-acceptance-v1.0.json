@@ -1,0 +1,50 @@
+{
+  "evidence_id": "STH-M10-001-BASELINE-EVOLUTION-v1.0",
+  "ticket": "M10-001",
+  "status": "ACCEPTED",
+  "baseline": {
+    "baseline_id": "SAN_TAN_HEIGHTS_PRODUCTION_BASELINE",
+    "baseline_version": "1.0.0",
+    "baseline_manifest_fingerprint": "11b735c64118f5118b0fb31a52a830c859bf03e41674134f432e6316796f3d3c",
+    "m9_candidate_fingerprint": "722fc69461bf1d7bd171e0a582a41811f3a46c878e7a81030784f57c828eadd8",
+    "m9_certification_root_hash": "a66dc169ec51cfd9a243f49fb922d5c70a7cc11bdd0e5e621ac49eda9cd20704",
+    "immutable": true
+  },
+  "github_actions": {
+    "m10_evolution_ci": {
+      "run_number": 2,
+      "run_id": 35315502443,
+      "conclusion": "success"
+    },
+    "m10_architecture_boundary": {
+      "run_number": 2,
+      "run_id": 35315502414,
+      "conclusion": "success"
+    },
+    "m9_final_certification": {
+      "run_number": 7,
+      "run_id": 35315502349,
+      "conclusion": "success"
+    }
+  },
+  "tests": {
+    "passed": 11,
+    "failed": 0
+  },
+  "controls": {
+    "in_place_baseline_mutation_prohibited": true,
+    "classified_change_request_required": true,
+    "exact_parent_lineage_required": true,
+    "versioned_candidate_required": true,
+    "impact_scope_required": true,
+    "structured_diff_required": true,
+    "deterministic_recertification_scope": true,
+    "emergency_bypass_prohibited": true,
+    "blocking_exceptions_prevent_promotion": true,
+    "required_evidence_prevents_unsafe_promotion": true,
+    "exact_artifact_rollback": true,
+    "superseded_baseline_immutability": true
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
