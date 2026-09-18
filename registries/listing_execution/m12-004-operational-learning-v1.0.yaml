@@ -1,0 +1,77 @@
+operational_learning_registry_id: STH-M12-004-OPERATIONAL-LEARNING-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M12-004
+contract_id: STH-LISTING-EXECUTION
+parent_ticket: M12-003
+parent_evidence: certification-evidence/m12-003/verification-reconciliation-acceptance-v1.0.json
+
+outcome_types:
+  - OPERATIONAL_RESULT
+  - VERIFICATION_RESULT
+  - RECONCILIATION_RESULT
+  - ROLLBACK_RESULT
+
+allowed_outcome_states:
+  - SUCCEEDED
+  - FAILED
+  - VERIFIED
+  - MISMATCH
+  - OUTCOME_UNKNOWN
+  - NOT_APPLICABLE
+  - RESOLVED
+  - UNRESOLVED
+  - DUPLICATE_SUPPRESSED
+  - BLOCKED_OUTCOME_UNKNOWN
+
+association_types:
+  - LINKED_EXECUTION
+  - LINKED_VERIFICATION
+  - LINKED_RECONCILIATION
+  - LINKED_ROLLBACK
+
+metrics:
+  - execution_attempt_count
+  - execution_success_count
+  - duplicate_suppression_count
+  - execution_outcome_unknown_count
+  - verification_count
+  - verification_mismatch_count
+  - verification_outcome_unknown_count
+  - reconciliation_case_count
+  - open_reconciliation_count
+  - rollback_attempt_count
+  - rollback_success_count
+  - rollback_outcome_unknown_count
+
+improvement_rules:
+  EXECUTION_OUTCOME_UNKNOWN:
+    candidate_type: EXECUTION_RELIABILITY_REVIEW
+  VERIFICATION_MISMATCH:
+    candidate_type: VERIFICATION_POLICY_REVIEW
+  VERIFICATION_OUTCOME_UNKNOWN:
+    candidate_type: VERIFICATION_COVERAGE_REVIEW
+  OPEN_RECONCILIATION:
+    candidate_type: RECONCILIATION_WORKFLOW_REVIEW
+  ROLLBACK_OUTCOME_UNKNOWN:
+    candidate_type: ROLLBACK_RELIABILITY_REVIEW
+
+governance:
+  immutable_history_required: true
+  exact_m12_001_through_003_lineage_required: true
+  observation_association_hypothesis_separation_required: true
+  causation_claims_prohibited: true
+  missing_unknown_outcomes_explicit: true
+  historical_mutation_prohibited: true
+  advisory_candidates_only: true
+  automatic_policy_change_prohibited: true
+  automatic_candidate_promotion_prohibited: true
+  seller_intent_inference_prohibited: true
+  seller_approval_inference_prohibited: true
+  price_or_terms_change_prohibited: true
+  execution_side_effects_prohibited: true
+  publication_side_effects_prohibited: true
+  scheduling_side_effects_prohibited: true
+  queueing_side_effects_prohibited: true
+  transmission_side_effects_prohibited: true
+  deterministic_output_required: true
