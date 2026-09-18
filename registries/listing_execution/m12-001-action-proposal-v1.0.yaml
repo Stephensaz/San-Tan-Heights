@@ -1,0 +1,88 @@
+action_proposal_registry_id: STH-M12-001-ACTION-PROPOSAL-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M12-001
+contract_id: STH-LISTING-EXECUTION
+
+released_m11:
+  version: 0.1.131
+  certification_root: 8c5c656934909c10c3c5bc52ae9d12b3c646348686f3d1d787a9b0b067ce6ccf
+
+policy:
+  version: LISTING-ACTION-PROPOSAL-v1.0
+  allowed_action_types:
+    - REVIEW_LISTING_POSITIONING
+    - REFRESH_MARKET_EVIDENCE
+    - REVIEW_MARKETING_PLAN
+    - REVIEW_LISTING_CONTENT
+    - REVIEW_LISTING_TERMS
+    - PREPARE_SELLER_COMMUNICATION
+  allowed_origins:
+    - SYSTEM_SIGNAL
+    - AGENT_REQUEST
+  allowed_listing_statuses:
+    - ACTIVE
+    - COMING_SOON
+    - PENDING
+    - TEMPORARILY_OFF_MARKET
+  allowed_judgment_codes:
+    - AGENT_REVIEW_REQUEST
+    - EVIDENCE_REFRESH_REQUEST
+    - SELLER_DIRECTION_RECORDED
+  current_freshness_state: CURRENT
+  reviewable_statuses:
+    - PENDING
+    - ACKNOWLEDGED
+
+proposal_state:
+  proposal_status: PROPOSED
+  approval_state: NOT_APPROVED
+  authorization_state: NOT_AUTHORIZED
+  schedule_state: NOT_SCHEDULED
+  queue_state: NOT_QUEUED
+  execution_state: NOT_EXECUTABLE
+  publication_state: NOT_PUBLISHED
+  transmission_state: NOT_TRANSMITTED
+  external_action_capability: NONE
+  public_eligible: false
+
+required_prerequisites:
+  - HUMAN_APPROVAL_REQUIRED
+  - M12_002_AUTHORIZATION_REQUIRED
+  - AUTHORITY_REVALIDATION_REQUIRED_BEFORE_EXECUTION
+
+governance:
+  certified_m11_case_required: true
+  exact_m11_release_root_required: true
+  current_listing_context_required: true
+  system_signal_requires_current_review_item: true
+  agent_request_requires_agent_judgment: true
+  superseded_or_resolved_review_items_prohibited: true
+  proposal_is_not_approval: true
+  proposal_is_not_authorization: true
+  proposal_is_not_execution_instruction: true
+  system_determined_price_or_terms_prohibited: true
+  seller_decision_inference_prohibited: true
+  automatic_seller_communication_prohibited: true
+  publication_prohibited: true
+  scheduling_prohibited: true
+  queueing_prohibited: true
+  execution_prohibited: true
+  deterministic_output_required: true
+
+prohibited_output_fields:
+  - approved
+  - authorized
+  - approval_id
+  - authorization_id
+  - scheduled_at
+  - queue_id
+  - execution_payload
+  - execution_receipt
+  - list_price
+  - price_change
+  - listing_terms
+  - seller_message
+  - publish_action
+  - transmit_action
+  - external_action
