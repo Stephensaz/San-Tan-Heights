@@ -1,0 +1,59 @@
+contract_id: STH-TEMPORAL-IMPACT-REFRESH
+version: 1.0.0
+status: LOCKED
+milestone: M13
+ticket: M13-003
+name: Temporal Impact Propagation & Selective Intelligence Refresh
+
+depends_on:
+  - STH-COMMUNITY-DELTA
+  - STH-COMMUNITY-TEMPORAL-STATE
+
+purpose:
+  certified_delta_required: true
+  deterministic_dependency_resolution_required: true
+  exact_impact_proof_required: true
+  selective_invalidation_required: true
+  selective_refresh_required: true
+  unaffected_state_preservation_required: true
+  authoritative_engine_replacement_required: true
+  deterministic_replay_required: true
+
+required_inputs:
+  certified_m13_002_delta: true
+  reproducible_delta_required: true
+  frozen_dependency_policy_required: true
+  current_derived_state_required: true
+  exact_after_snapshot_binding_required: true
+
+decision_states:
+  - REFRESH_REQUIRED
+  - NO_IMPACT
+  - BLOCKED
+
+result_states:
+  - REFRESHED
+  - PRESERVED
+  - BLOCKED
+
+hard_boundaries:
+  uncertified_delta_prohibited: true
+  delta_mutation_prohibited: true
+  blanket_refresh_prohibited: true
+  unaffected_refresh_prohibited: true
+  local_domain_recalculation_prohibited: true
+  inferred_dependency_prohibited: true
+  missing_authoritative_replacement_fails_closed: true
+  stale_replacement_prohibited: true
+  property_scope_cross_contamination_prohibited: true
+  seller_recommendations_prohibited: true
+  listing_actions_prohibited: true
+  publication_prohibited: true
+  m12_execution_mutation_prohibited: true
+  protected_field_propagation_prohibited: true
+  silent_no_impact_prohibited: true
+
+m13_004_boundary:
+  historical_learning_prohibited: true
+  outcome_inference_prohibited: true
+  calibration_prohibited: true

@@ -21,6 +21,20 @@ from .delta import (
     validate_delta_replay,
 )
 
+from .impact_refresh import (
+    DerivedIntelligenceRecord,
+    RefreshDecision,
+    SelectiveRefreshPlan,
+    SelectiveRefreshResult,
+    apply_selective_refresh,
+    build_selective_refresh_plan,
+    load_impact_refresh_registry,
+    make_derived_record,
+    policy_fingerprint,
+    validate_refresh_plan_replay,
+    validate_refresh_result_replay,
+)
+
 __all__ = [
     "CommunityStateSnapshot",
     "PropertyStateProjection",
@@ -40,4 +54,15 @@ __all__ = [
     "certify_delta",
     "load_delta_registry",
     "validate_delta_replay",
+    "DerivedIntelligenceRecord",
+    "RefreshDecision",
+    "SelectiveRefreshPlan",
+    "SelectiveRefreshResult",
+    "apply_selective_refresh",
+    "build_selective_refresh_plan",
+    "load_impact_refresh_registry",
+    "make_derived_record",
+    "policy_fingerprint",
+    "validate_refresh_plan_replay",
+    "validate_refresh_result_replay",
 ]

@@ -1,0 +1,100 @@
+name: M13-003 Selective Refresh CI
+
+on:
+  pull_request:
+    paths:
+      - 'contracts/community_temporal_state/**'
+      - 'registries/community_temporal_state/**'
+      - 'src/community_temporal_state/**'
+      - 'tests/unit/community_temporal_state/**'
+      - 'docs/implementation/M13-003.md'
+      - 'certification-evidence/m13-002/**'
+      - 'certification-evidence/m13-003/**'
+      - 'CONTRACT-MANIFEST.yaml'
+      - 'BUILD-MANIFEST.yaml'
+      - '.github/workflows/m13-003-selective-refresh-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  m13-003:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pytest pyyaml
+      - name: Validate M13-003 contract and accepted predecessor
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          import yaml
+
+          manifest=yaml.safe_load(Path("CONTRACT-MANIFEST.yaml").read_text())
+          rows=[x for x in manifest["contracts"] if x["id"]=="STH-TEMPORAL-IMPACT-REFRESH"]
+          assert len(rows)==1
+          row=rows[0]
+          path=Path(row["path"])
+          assert path.exists()
+          assert hashlib.sha256(path.read_bytes()).hexdigest()==row["sha256"]
+          contract=yaml.safe_load(path.read_text())
+          assert contract["status"]=="LOCKED"
+          assert contract["ticket"]=="M13-003"
+
+          pred=json.loads(Path("certification-evidence/m13-002/community-delta-acceptance-v1.0.json").read_text())
+          assert pred["status"]=="ACCEPTED"
+          assert pred["ticket"]=="M13-002"
+          assert pred["waivers"]==0
+          assert pred["open_defects"]==0
+
+          build=yaml.safe_load(Path("BUILD-MANIFEST.yaml").read_text())
+          states={x["id"]:x["status"] for x in build["milestones"]}
+          assert states["M12"]=="ACCEPTED"
+          assert states["M13"]=="IN_PROGRESS"
+          assert build["current_ticket"]=="M13-003"
+
+          for key in (
+              "uncertified_delta_prohibited",
+              "delta_mutation_prohibited",
+              "blanket_refresh_prohibited",
+              "unaffected_refresh_prohibited",
+              "local_domain_recalculation_prohibited",
+              "inferred_dependency_prohibited",
+              "missing_authoritative_replacement_fails_closed",
+              "stale_replacement_prohibited",
+              "property_scope_cross_contamination_prohibited",
+              "seller_recommendations_prohibited",
+              "listing_actions_prohibited",
+              "publication_prohibited",
+              "m12_execution_mutation_prohibited",
+              "protected_field_propagation_prohibited",
+              "silent_no_impact_prohibited",
+          ):
+              assert contract["hard_boundaries"][key] is True
+          evidence_path=Path("certification-evidence/m13-003/selective-refresh-acceptance-v1.0.json")
+          if evidence_path.exists():
+              evidence=json.loads(evidence_path.read_text())
+              assert evidence["ticket"]=="M13-003"
+              assert evidence["status"]=="ACCEPTED"
+              assert evidence["parent"]["ticket"]=="M13-002"
+              assert evidence["temporal_impact_refresh_contract_sha256"]==row["sha256"]
+              assert evidence["tests"]["m13_003_specific_tests"]==13
+              assert evidence["tests"]["m13_temporal_state_total_passed"]==62
+              assert evidence["tests"]["inherited_m12_passed"]==137
+              assert evidence["tests"]["failed"]==0
+              assert evidence["waivers"]==0
+              assert evidence["open_defects"]==0
+              assert all(x["conclusion"]=="success" for x in evidence["github_actions"].values())
+          print("PASS: M13-003 frozen selective-refresh boundary and accepted M13-002 predecessor are pinned")
+          PY
+      - name: Run M13 temporal-state tests
+        run: pytest -q tests/unit/community_temporal_state
+      - name: Run inherited M12 regression
+        run: pytest -q tests/unit/listing_execution
+      - name: Validate repository structure
+        run: python scripts_validate_repo.py

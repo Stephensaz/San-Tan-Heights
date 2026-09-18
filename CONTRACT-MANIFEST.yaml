@@ -104,4 +104,12 @@ contracts:
   sha256: 8f66143425ed389831ff5f5e9f3d6fa03948fa14c815fec598d0086da4eab112
   depends_on:
   - STH-COMMUNITY-TEMPORAL-STATE
+- id: STH-TEMPORAL-IMPACT-REFRESH
+  version: 1.0.0
+  status: LOCKED
+  path: contracts/community_temporal_state/STH-TEMPORAL-IMPACT-REFRESH-v1.0.yaml
+  sha256: 9738646b48f2ee8bb707392e44225c158aeacdcc9b9513863a23c6780c8935e7
+  depends_on:
+  - STH-COMMUNITY-DELTA
+  - STH-COMMUNITY-TEMPORAL-STATE
 hash_algorithm: SHA-256
