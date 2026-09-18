@@ -8,6 +8,7 @@ on:
       - 'src/community_temporal_state/**'
       - 'tests/unit/community_temporal_state/**'
       - 'docs/implementation/M13-001.md'
+      - 'certification-evidence/m13-001/**'
       - 'CONTRACT-MANIFEST.yaml'
       - 'BUILD-MANIFEST.yaml'
       - 'VERSION'
@@ -29,7 +30,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: python -m pip install pytest pyyaml
-      - name: Validate M13-001 contract registration and released M12 baseline
+      - name: Validate M13-001 contract, M12 baseline, and acceptance evidence
         run: |
           python - <<'PY'
           import hashlib
@@ -43,7 +44,8 @@ jobs:
           row=rows[0]
           p=Path(row["path"])
           assert p.exists()
-          assert hashlib.sha256(p.read_bytes()).hexdigest()==row["sha256"]
+          contract_sha=hashlib.sha256(p.read_bytes()).hexdigest()
+          assert contract_sha==row["sha256"]
           contract=yaml.safe_load(p.read_text())
           assert contract["status"]=="LOCKED"
           assert contract["milestone"]=="M13"
@@ -60,6 +62,8 @@ jobs:
           assert states["M12"]=="ACCEPTED"
           assert states["M13"]=="IN_PROGRESS"
           assert build["current_ticket"]=="M13-001"
+          assert str(build["version"])=="0.1.132"
+          assert Path("VERSION").read_text().strip()=="0.1.132"
 
           for key in (
               "change_detection_prohibited",
@@ -80,7 +84,23 @@ jobs:
               "comparison_requires_certified_snapshot",
           ):
               assert contract["hard_boundaries"][key] is True
-          print("PASS: M13-001 frozen temporal baseline boundary and M12 release lineage")
+
+          evidence_path=Path("certification-evidence/m13-001/community-state-snapshot-acceptance-v1.0.json")
+          assert evidence_path.exists()
+          evidence=json.loads(evidence_path.read_text())
+          assert evidence["ticket"]=="M13-001"
+          assert evidence["status"]=="ACCEPTED"
+          assert evidence["released_m12"]["version"]=="0.1.132"
+          assert evidence["released_m12"]["certification_root"]==released["certification_root_hash"]
+          assert evidence["community_temporal_state_contract_sha256"]==contract_sha
+          assert evidence["tests"]["m13_001_passed"]==22
+          assert evidence["tests"]["inherited_m12_passed"]==137
+          assert evidence["tests"]["failed"]==0
+          assert evidence["waivers"]==0
+          assert evidence["open_defects"]==0
+          assert all(x["conclusion"]=="success" for x in evidence["github_actions"].values())
+          assert "Status: ACCEPTED" in Path("docs/implementation/M13-001.md").read_text()
+          print("PASS: M13-001 accepted temporal baseline and exact M12 lineage are pinned")
           PY
       - name: Run M13-001 unit tests
         run: pytest -q tests/unit/community_temporal_state
