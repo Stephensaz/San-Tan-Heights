@@ -1,0 +1,75 @@
+name: M12 Architecture Boundary Validation
+
+on:
+  pull_request:
+    paths:
+      - 'contracts/listing_execution/**'
+      - 'docs/implementation/M12-*.md'
+      - 'CONTRACT-MANIFEST.yaml'
+      - 'BUILD-MANIFEST.yaml'
+      - '.github/workflows/m12-architecture-validation.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-m12-boundary:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pyyaml
+      - name: Validate frozen M12 boundary and released M11 baseline
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          import yaml
+
+          manifest=yaml.safe_load(Path("CONTRACT-MANIFEST.yaml").read_text())
+          rows=[x for x in manifest["contracts"] if x["id"]=="STH-LISTING-EXECUTION"]
+          assert len(rows)==1
+          row=rows[0]
+          path=Path(row["path"])
+          assert path.exists()
+          assert hashlib.sha256(path.read_bytes()).hexdigest()==row["sha256"]
+          contract=yaml.safe_load(path.read_text())
+          assert contract["status"]=="LOCKED"
+          assert contract["milestone"]=="M12"
+          assert [x["id"] for x in contract["tickets"]]==[f"M12-{i:03d}" for i in range(1,10)]
+          assert contract["m12_009"]["no_additional_design_stage_after_j"] is True
+          assert len(contract["m12_009"]["certification_sequence"])==10
+
+          m11=Path("certification-evidence/m11-010/final-adjudication-v1.0.json")
+          assert m11.exists()
+          released=json.loads(m11.read_text())
+          assert released["status"]=="ACCEPTED"
+          assert released["decision"]=="SELLER INTELLIGENCE RELEASED"
+          assert released["certification_root_hash"]=="8c5c656934909c10c3c5bc52ae9d12b3c646348686f3d1d787a9b0b067ce6ccf"
+
+          build=yaml.safe_load(Path("BUILD-MANIFEST.yaml").read_text())
+          states={x["id"]:x["status"] for x in build["milestones"]}
+          assert states["M11"]=="ACCEPTED"
+          assert states["M12"]=="IN_PROGRESS"
+          assert build["current_ticket"].startswith("M12-")
+          assert Path("docs/implementation",build["current_ticket"]+".md").exists()
+
+          for key in (
+              "certified_m11_baseline_required",
+              "intelligence_to_execution_authority_separation_required",
+              "system_determined_price_or_terms_prohibited",
+              "autonomous_listing_change_prohibited",
+              "autonomous_seller_communication_prohibited",
+              "autonomous_external_execution_prohibited",
+              "human_approval_required_before_authorization",
+              "stale_or_superseded_inputs_must_fail_closed",
+              "public_strategy_exposure_prohibited",
+              "calibration_auto_promotion_prohibited",
+          ):
+              assert contract["hard_boundaries"][key] is True
+          print("PASS: M12 frozen Listing Execution boundary and released M11 baseline are present")
+          PY
