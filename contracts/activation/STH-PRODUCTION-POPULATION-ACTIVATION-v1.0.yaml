@@ -1,0 +1,101 @@
+contract_id: STH-PRODUCTION-POPULATION-ACTIVATION
+version: 1.0.0
+status: LOCKED
+milestone: M9
+name: Production Population & Community Activation
+purpose: >
+  Populate the certified San Tan Heights platform with the complete governed
+  production property corpus, materialize certified report outputs, quarantine
+  unresolved exceptions, activate publication in controlled cohorts, and prove
+  repeatable refresh/regeneration without changing upstream intelligence or
+  presentation semantics.
+locked_inputs:
+  - accepted M1-M8 architecture and implementation
+  - certified M8 presentation production candidate
+  - canonical property identity and phase layers
+  - governed evidence passports and production findings
+  - approved historical and current source datasets
+  - publication-tier and audience contracts
+hard_boundaries:
+  - no_new_property_intelligence_methods
+  - no_repricing_or_value_opinion_engine
+  - no_new_presentation_capabilities
+  - no_client_side_tier_filtering
+  - no_direct_raw_source_queries_from_renderer
+  - no_silent_identity_or_phase_inference
+  - no_publication_of_quarantined_records
+  - no_overwrite_of_immutable_accepted_history
+  - no_real_record_without_lineage
+production_population_rules:
+  corpus_membership:
+    source: frozen production corpus manifest
+    count_is_manifest_driven: true
+    hard_coded_property_count_prohibited: true
+  admission:
+    require_canonical_property_identity: true
+    require_identity_status_eligible: true
+    require_phase_state_explicit: true
+    require_lineage_complete: true
+    require_qa_state_explicit: true
+    unresolved_records_route_to_quarantine: true
+  materialization:
+    require_evidence_passport: true
+    require_production_finding_governance: true
+    require_audience_projection: true
+    require_deterministic_report_fingerprint: true
+    require_current_publication_pointer: true
+  publication:
+    staged_cohorts_only: true
+    public_requires_public_tier_eligibility: true
+    seller_requires_seller_tier_eligibility: true
+    agent_requires_agent_tier_eligibility: true
+    rollback_must_preserve_history: true
+    invalidated_history_never_auto_fallback: true
+  refresh:
+    repeatable_weekly_refresh_required: true
+    changed_records_regenerate_only_when_governed_dependencies_change: true
+    unchanged_records_must_remain_fingerprint_stable: true
+    failures_must_be_isolated_and_retryable: true
+exception_classes:
+  - IDENTITY
+  - PHASE
+  - SPATIAL
+  - EVIDENCE
+  - MARKET_DATA
+  - BUILDER_DATA
+  - REPORT_GENERATION
+  - PUBLICATION
+  - PRIVACY
+  - LINEAGE
+acceptance_model:
+  require_manifest_accounting_for_every_corpus_member: true
+  require_zero_unclassified_exceptions: true
+  require_zero_tier_leakage: true
+  require_zero_unapproved_publications: true
+  require_zero_source_lineage_gaps_for_published_records: true
+  require_deterministic_replay: true
+  require_refresh_replay_pass: true
+  require_controlled_rollback_pass: true
+  require_full_corpus_certification: true
+  allow_waivers: false
+  allow_conditional_go: false
+ticket_sequence:
+  - M9-001 Production Corpus Manifest & Admission Bootstrap
+  - M9-002 Canonical Property Roster Population
+  - M9-003 Identity / Phase / Spatial Binding
+  - M9-004 Historical Intelligence Population
+  - M9-005 Current Market & Builder Context Population
+  - M9-006 Evidence Passport & Production Finding Materialization
+  - M9-007 Agent / Seller / Public Report Materialization
+  - M9-008 Exception Quarantine & Repair Workflow
+  - M9-009 Full-Corpus QA & Coverage Audit
+  - M9-010 Controlled Publication Cohorts
+  - M9-011 Refresh / Regeneration / Rollback Replay
+  - M9-012 Production Activation Certification
+first_ticket:
+  id: M9-001
+  objective: >
+    Freeze the exact production corpus manifest, source snapshot references,
+    admission schema, eligibility states, quarantine reasons, accounting rules,
+    and deterministic manifest fingerprint before any production property is
+    populated.

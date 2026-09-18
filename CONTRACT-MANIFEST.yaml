@@ -49,4 +49,12 @@ contracts:
   path: contracts/implementation/STH-CANONICAL-SERIALIZATION-v1.0.yaml
   depends_on: []
   sha256: e8ecdf966760309873a90d09c1f8830e6e10e84fdc8d0db44f4962e5d9d8e830
+- id: STH-PRODUCTION-POPULATION-ACTIVATION
+  version: 1.0.0
+  status: LOCKED
+  path: contracts/activation/STH-PRODUCTION-POPULATION-ACTIVATION-v1.0.yaml
+  sha256: d6945fbd616a306b5a1d2d16df289e043242bc1813c0af78f5268eb8e8bf7803
+  depends_on:
+  - STH-PRESENTATION-CONSUMER-SYSTEM
+  - STH-PRODUCTION-CERTIFICATION
 hash_algorithm: SHA-256
