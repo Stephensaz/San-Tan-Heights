@@ -1,0 +1,11 @@
+profile_id: RANCHO-VISTOSO-PIMA-RECORDER-HARDENED-v1.0
+profile_type: RECORDER_SOURCE_COMPATIBILITY
+version: 1.0.0
+status: HARDENED
+community_id: RANCHO_VISTOSO
+component_class: SOURCE_SPECIFIC
+source_system: Pima County Recorder
+mapping_boundary:
+  document_index: SOURCE_SPECIFIC
+  authority: Pima County Recorder
+  historic_index_coverage_may_vary: true
