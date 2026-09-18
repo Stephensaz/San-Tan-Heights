@@ -1,0 +1,37 @@
+adjudication_registry_id: STH-M10-010-FINAL-ADJUDICATION-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M10-010
+release_candidate_version: 0.1.121
+
+accepted_evidence:
+  M10-001: certification-evidence/m10-001/baseline-evolution-acceptance-v1.0.json
+  M10-002: certification-evidence/m10-002/core-config-extraction-acceptance-v1.0.json
+  M10-003: certification-evidence/m10-003/community-onboarding-acceptance-v1.0.json
+  M10-004: certification-evidence/m10-004/progressive-build-pipeline-acceptance-v1.0.json
+  M10-005: certification-evidence/m10-005/rancho-vistoso-portability-acceptance-v1.0.json
+  M10-006: certification-evidence/m10-006/portability-hardening-acceptance-v1.0.json
+  M10-007: certification-evidence/m10-007/daybreak-cold-start-acceptance-v1.0.json
+  M10-008: certification-evidence/m10-008/community-factory-acceptance-v1.0.json
+  M10-009: certification-evidence/m10-009/portfolio-certification-acceptance-v1.0.json
+
+replay:
+  factory_registry: registries/evolution/m10-008-community-factory-v1.0.yaml
+  factory_jobs:
+    - config/factory/jobs/rancho-vistoso-v1.0.yaml
+    - config/factory/jobs/daybreak-v1.0.yaml
+  portfolio_registry: registries/evolution/m10-009-portfolio-certification-v1.0.yaml
+  portfolio_manifest: config/portfolio/multi-community-v1.0.yaml
+  onboarding_contract: contracts/evolution/STH-COMMUNITY-ONBOARDING-v1.0.yaml
+  progressive_pipeline_registry: registries/evolution/m10-004-progressive-build-pipeline-v1.0.yaml
+  hardening_registry: registries/evolution/m10-006-portability-hardening-v1.0.yaml
+
+release_rules:
+  all_prior_tickets_must_be_accepted: true
+  zero_waivers_required: true
+  zero_open_defects_required: true
+  factory_replay_pass_required: true
+  portfolio_replay_go_required: true
+  portfolio_must_remain_unpublished: true
+  reproducible_root_required: true
+  partial_result_prohibited: true
