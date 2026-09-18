@@ -60,9 +60,14 @@ jobs:
           assert contract["first_ticket"]["id"] == "M9-001"
 
           build = yaml.safe_load(Path("BUILD-MANIFEST.yaml").read_text())
-          assert build["current_ticket"] == "M9-001"
+          current_ticket = build["current_ticket"]
+          assert isinstance(current_ticket, str) and current_ticket.startswith("M9-"), (
+              f"current ticket must remain inside M9 while M9 is in progress: {current_ticket}"
+          )
+          ticket_doc = Path("docs/implementation") / f"{current_ticket}.md"
+          assert ticket_doc.exists(), f"missing current M9 ticket document: {ticket_doc}"
           m9 = [item for item in build["milestones"] if item["id"] == "M9"]
           assert len(m9) == 1
           assert m9[0]["status"] == "IN_PROGRESS"
-          print("PASS: M9 architecture boundary is internally consistent")
+          print(f"PASS: M9 architecture boundary is internally consistent at {current_ticket}")
           PY
