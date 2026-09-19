@@ -138,6 +138,16 @@ from .scenario_comparison import (
     validate_comparison_replay,
 )
 
+from .scenario_explainability import (
+    ComparisonExplanation,
+    ScenarioExplanation,
+    build_comparison_explanation,
+    build_scenario_explanation,
+    load_explainability_registry,
+    validate_comparison_explanation_replay,
+    validate_scenario_explanation_replay,
+)
+
 __all__ = [
     "CommunityStateSnapshot",
     "PropertyStateProjection",
@@ -244,4 +254,11 @@ __all__ = [
     "compare_scenario_members",
     "load_scenario_comparison_registry",
     "validate_comparison_replay",
+    "ComparisonExplanation",
+    "ScenarioExplanation",
+    "build_comparison_explanation",
+    "build_scenario_explanation",
+    "load_explainability_registry",
+    "validate_comparison_explanation_replay",
+    "validate_scenario_explanation_replay",
 ]
