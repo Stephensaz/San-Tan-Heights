@@ -53,7 +53,23 @@ jobs:
           assert reg["status"]=="FROZEN" and reg["ticket"]=="M13-007A"
           for key in ("deterministic_output","immutable_state","lineage_required","facts_assumptions_distinct","unknowns_first_class","stale_is_explicit","conflicts_are_explicit","significance_is_descriptive_only","no_recommendation","no_prediction","no_ranking","no_seller_scoring","no_m12_execution","no_publication"):
               assert reg["policy"][key] is True
-          print("PASS: M13-007A frozen governance boundary and M13-006 PASS GO predecessor are pinned")
+          evidence_path=Path("certification-evidence/m13-007a/unified-intelligence-governance-acceptance-v1.0.json")
+          if evidence_path.exists():
+              evidence=json.loads(evidence_path.read_text())
+              assert evidence["ticket"]=="M13-007A" and evidence["status"]=="ACCEPTED"
+              assert evidence["parent"]["ticket"]=="M13-006J"
+              assert evidence["parent"]["decision"]=="PASS / GO"
+              assert evidence["unified_intelligence_contract_sha256"]==row["sha256"]
+              assert evidence["tests"]["m13_007a_specific_passed"]==13
+              assert evidence["tests"]["m13_temporal_state_total_passed"]==264
+              assert evidence["tests"]["inherited_m12_passed"]==137
+              assert evidence["tests"]["failed"]==0
+              assert evidence["checks"]["total"]==30
+              assert evidence["checks"]["successful"]==30
+              assert evidence["checks"]["failed"]==0
+              assert evidence["waivers"]==0 and evidence["open_defects"]==0
+              assert all(x["conclusion"]=="success" for x in evidence["github_checks"])
+          print("PASS: M13-007A frozen governance boundary, M13-006 PASS GO predecessor, and acceptance evidence are pinned")
           PY
       - name: Run M13-007A tests
         run: pytest -q tests/unit/community_temporal_state/test_unified_seller_intelligence.py
