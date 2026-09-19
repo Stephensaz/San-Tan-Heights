@@ -1,0 +1,60 @@
+contract_id: STH-SCENARIO-PRESENTATION-CONTRACTS
+version: 1.0.0
+status: LOCKED
+milestone: M13
+ticket: M13-006I
+name: Seller/Agent Scenario Eligibility & Presentation Contracts
+
+depends_on:
+  - STH-SCENARIO-EXPLAINABILITY
+  - STH-SCENARIO-MULTI-COMPARISON
+
+purpose:
+  tier_eligibility_required: true
+  field_visibility_contracts_required: true
+  mandatory_disclosure_inheritance_required: true
+  deterministic_seller_simplification_required: true
+  explicit_suppression_required: true
+  screen_export_eligibility_separate_required: true
+  semantic_equivalence_required: true
+  physical_tier_payload_isolation_required: true
+
+visibility_states:
+  - FULL
+  - SIMPLIFIED
+  - SUMMARY_ONLY
+  - CONDITIONAL
+  - SUPPRESSED
+  - NOT_APPLICABLE
+
+hard_boundaries:
+  new_analytics_prohibited: true
+  recommendation_prohibited: true
+  ranking_prohibited: true
+  winner_selection_prohibited: true
+  prediction_prohibited: true
+  confidence_invention_prohibited: true
+  uncertainty_suppression_prohibited: true
+  limitation_suppression_prohibited: true
+  disclosure_suppression_prohibited: true
+  historical_pattern_predictive_rewrite_prohibited: true
+  agent_only_to_seller_leakage_prohibited: true
+  hidden_master_payload_prohibited: true
+  silent_suppression_prohibited: true
+  certainty_strengthening_prohibited: true
+  renderer_ownership_prohibited: true
+  workspace_ownership_prohibited: true
+  direct_m12_execution_prohibited: true
+  publication_prohibited: true
+
+acceptance:
+  agent_seller_contracts_separate_required: true
+  semantic_equivalence_required: true
+  seller_simplification_deterministic_required: true
+  mandatory_qualifiers_survive_required: true
+  suppression_reason_codes_required: true
+  screen_export_separation_required: true
+  visual_semantic_neutrality_required: true
+  exact_h_lineage_required: true
+  deterministic_replay_required: true
+  zero_waivers_required: true
