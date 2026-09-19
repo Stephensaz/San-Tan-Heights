@@ -210,4 +210,11 @@ contracts:
   depends_on:
   - STH-SCENARIO-EXPLAINABILITY
   - STH-SCENARIO-MULTI-COMPARISON
+- id: STH-SCENARIO-REVIEW-WORKSPACE
+  version: 1.0.0
+  status: LOCKED
+  path: contracts/community_temporal_state/STH-SCENARIO-REVIEW-WORKSPACE-v1.0.yaml
+  sha256: 15d999ec6238b9b4de1006c25f734ba7059317c6b111a0f6381360204b60c4f1
+  depends_on:
+  - STH-SCENARIO-EXPLAINABILITY
 hash_algorithm: SHA-256

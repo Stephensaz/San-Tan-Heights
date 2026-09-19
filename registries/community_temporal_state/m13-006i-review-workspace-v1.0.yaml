@@ -1,0 +1,37 @@
+review_workspace_registry_id: STH-M13-006I-REVIEW-WORKSPACE-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-006I
+contract_id: STH-SCENARIO-REVIEW-WORKSPACE
+package_states:
+  - READY_FOR_HUMAN_REVIEW
+  - STALE_REVIEW_REQUIRED
+review_states:
+  - REVIEWED
+  - NEEDS_ADDITIONAL_EVIDENCE
+  - ASSUMPTIONS_NEED_REVISION
+  - SCENARIO_REJECTED_BY_REVIEWER
+  - SCENARIO_RETAINED_FOR_FURTHER_CONSIDERATION
+  - NO_DECISION_MADE
+blocking_conditions:
+  - MISSING_BASELINE
+  - UNRESOLVED_IDENTITY
+  - STALE_BASELINE
+  - MISSING_SCENARIO
+  - INVALID_ASSUMPTION
+  - EVIDENCE_LINEAGE_INCOMPLETE
+  - COMPARISON_INCOMPLETE
+  - EXPLAINABILITY_INCOMPLETE
+  - TEMPORAL_LEAKAGE_DETECTED
+  - POLICY_VERSION_MISMATCH
+  - HASH_MISMATCH
+policy:
+  fail_closed: true
+  deterministic_output: true
+  immutable_package: true
+  stale_requires_new_package: true
+  no_ranking: true
+  no_recommendation: true
+  no_prediction: true
+  no_execution: true
+  no_publication: true

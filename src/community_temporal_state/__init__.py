@@ -161,6 +161,16 @@ from .scenario_presentation_contracts import (
     validate_semantic_equivalence,
 )
 
+from .scenario_review_workspace import (
+    ScenarioReviewPackage,
+    HumanReviewReceipt,
+    build_review_package,
+    load_review_workspace_registry,
+    mark_package_stale,
+    record_human_review,
+    validate_review_package_replay,
+)
+
 __all__ = [
     "CommunityStateSnapshot",
     "PropertyStateProjection",
@@ -284,4 +294,11 @@ __all__ = [
     "validate_comparison_presentation_replay",
     "validate_scenario_presentation_replay",
     "validate_semantic_equivalence",
+    "ScenarioReviewPackage",
+    "HumanReviewReceipt",
+    "build_review_package",
+    "load_review_workspace_registry",
+    "mark_package_stale",
+    "record_human_review",
+    "validate_review_package_replay",
 ]
