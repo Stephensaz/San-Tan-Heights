@@ -80,6 +80,17 @@ from .scenario_governance import (
     validate_scenario_contract_replay,
 )
 
+from .scenario_baseline import (
+    CertifiedScenarioBaseline,
+    PatternApplicability,
+    PatternApplicabilityRule,
+    assemble_certified_scenario_baseline,
+    assess_pattern_applicability,
+    load_certified_baseline_registry,
+    make_pattern_applicability_rule,
+    validate_certified_scenario_baseline_replay,
+)
+
 __all__ = [
     "CommunityStateSnapshot",
     "PropertyStateProjection",
@@ -146,4 +157,12 @@ __all__ = [
     "make_scenario_fact",
     "ready_scenario_contract",
     "validate_scenario_contract_replay",
+    "CertifiedScenarioBaseline",
+    "PatternApplicability",
+    "PatternApplicabilityRule",
+    "assemble_certified_scenario_baseline",
+    "assess_pattern_applicability",
+    "load_certified_baseline_registry",
+    "make_pattern_applicability_rule",
+    "validate_certified_scenario_baseline_replay",
 ]
