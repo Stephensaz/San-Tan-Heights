@@ -1,0 +1,36 @@
+scenario_governance_registry_id: STH-M13-006A-SCENARIO-GOVERNANCE-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-006A
+contract_id: STH-SCENARIO-GOVERNANCE
+
+contract_states:
+  - DRAFT
+  - READY
+
+assumption_types:
+  - MONEY
+  - INTEGER
+  - NUMBER
+  - PERCENT
+  - BOOLEAN
+  - ENUM
+  - TEXT
+  - DATE
+
+policy:
+  require_certified_baseline: true
+  require_baseline_fingerprint: true
+  require_subject_identity: true
+  require_at_least_one_assumption: true
+  require_explicit_assumption_type: true
+  require_assumption_source: true
+  require_fact_source_lineage: true
+  prohibit_fact_assumption_key_collision: true
+  ready_is_immutable: true
+  deterministic_output: true
+  no_scenario_calculation: true
+  no_prediction: true
+  no_recommendation: true
+  no_ranking: true
+  no_execution: true
