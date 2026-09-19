@@ -1,0 +1,50 @@
+contract_id: STH-SCENARIO-HISTORICAL-EVIDENCE
+version: 1.0.0
+status: LOCKED
+milestone: M13
+ticket: M13-006C
+name: Historical Analog & Scenario Evidence Retrieval
+
+depends_on:
+  - STH-SCENARIO-CERTIFIED-BASELINE
+  - STH-COMMUNITY-TEMPORAL-HISTORY
+
+purpose:
+  certified_b_context_required: true
+  governed_retrieval_rules_required: true
+  bitemporal_lineage_required: true
+  explicit_coverage_required: true
+  explicit_no_evidence_state_required: true
+  deterministic_selection_required: true
+  limitation_carry_forward_required: true
+  replay_validation_required: true
+
+hard_boundaries:
+  scenario_calculation_prohibited: true
+  prediction_prohibited: true
+  recommendation_prohibited: true
+  ranking_prohibited: true
+  winner_selection_prohibited: true
+  hidden_utility_score_prohibited: true
+  cherry_picking_prohibited: true
+  post_hoc_rule_mutation_prohibited: true
+  temporal_lineage_bypass_prohibited: true
+  future_knowledge_leakage_prohibited: true
+  evidence_mutation_prohibited: true
+  direct_m12_execution_prohibited: true
+  publication_prohibited: true
+  limitation_suppression_prohibited: true
+  empty_result_suppression_prohibited: true
+
+acceptance:
+  exact_b_context_binding_required: true
+  deterministic_rule_hash_required: true
+  valid_time_filter_required: true
+  knowledge_time_filter_required: true
+  exact_lineage_required: true
+  deterministic_ordering_required: true
+  explicit_coverage_metrics_required: true
+  explicit_empty_result_required: true
+  deterministic_replay_required: true
+  forbidden_decision_fields_absent: true
+  zero_waivers_required: true
