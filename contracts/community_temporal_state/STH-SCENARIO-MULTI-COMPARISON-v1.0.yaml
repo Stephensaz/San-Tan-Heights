@@ -1,0 +1,49 @@
+contract_id: STH-SCENARIO-MULTI-COMPARISON
+version: 1.0.0
+status: LOCKED
+milestone: M13
+ticket: M13-006G
+name: Multi-Scenario Comparison & Tradeoff Engine
+
+depends_on:
+  - STH-SCENARIO-NEW-CONSTRUCTION-COMPETITION
+  - STH-SCENARIO-BUYER-SUBSTITUTION-COMPETITIVE
+  - STH-SCENARIO-PRICING-TIMING
+  - STH-SCENARIO-EVIDENCE-RETRIEVAL
+
+purpose:
+  accepted_d_e_f_states_required: true
+  exact_scenario_lineage_required: true
+  human_scenario_order_preservation_required: true
+  governed_dimension_comparison_required: true
+  pairwise_difference_required: true
+  coverage_visibility_required: true
+  uncertainty_visibility_required: true
+  deterministic_replay_required: true
+
+hard_boundaries:
+  scenario_ranking_prohibited: true
+  winner_selection_prohibited: true
+  recommendation_prohibited: true
+  hidden_utility_score_prohibited: true
+  aggregate_preference_score_prohibited: true
+  weight_application_prohibited: true
+  scenario_reordering_prohibited: true
+  outcome_prediction_prohibited: true
+  causal_inference_prohibited: true
+  direct_m12_execution_prohibited: true
+  publication_prohibited: true
+  unknown_suppression_prohibited: true
+  limitation_suppression_prohibited: true
+
+acceptance:
+  exact_d_e_f_fingerprints_required: true
+  exact_context_and_evidence_lineage_required: true
+  unique_user_order_required: true
+  deterministic_dimension_materialization_required: true
+  deterministic_pairwise_comparison_required: true
+  coverage_is_descriptive_count_only_required: true
+  uncertainty_is_explicit_required: true
+  complete_replay_required: true
+  forbidden_ranking_fields_absent: true
+  zero_waivers_required: true

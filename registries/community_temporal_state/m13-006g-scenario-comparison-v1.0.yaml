@@ -1,0 +1,44 @@
+scenario_comparison_registry_id: STH-M13-006G-SCENARIO-COMPARISON-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-006G
+contract_id: STH-SCENARIO-MULTI-COMPARISON
+
+governed_dimensions:
+  - pricing_position_percent
+  - listing_timing_days
+  - buyer_depth
+  - comparable_depth
+  - substitution_requirement
+  - scarcity_context
+  - resale_competition
+  - new_construction_competition
+  - builder_inventory
+  - builder_incentive_value
+  - builder_incentive_posture
+  - applicable_patterns
+  - historical_evidence_count
+  - known_dimension_count
+  - total_dimension_count
+  - unknowns
+
+relations:
+  - SAME
+  - DIFFERENT
+  - LEFT_LOWER
+  - LEFT_HIGHER
+  - LEFT_MISSING
+  - RIGHT_MISSING
+
+policy:
+  preserve_human_order: true
+  unique_user_order_required: true
+  deterministic_output: true
+  no_ranking: true
+  no_winner: true
+  no_recommendation: true
+  no_hidden_score: true
+  no_weights: true
+  no_prediction: true
+  no_causal_inference: true
+  no_execution: true

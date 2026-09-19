@@ -128,6 +128,16 @@ from .scenario_new_construction import (
     validate_new_construction_state_replay,
 )
 
+from .scenario_comparison import (
+    MultiScenarioComparison,
+    ScenarioComparisonMember,
+    ScenarioDimensionDifference,
+    build_comparison_member,
+    compare_scenario_members,
+    load_scenario_comparison_registry,
+    validate_comparison_replay,
+)
+
 __all__ = [
     "CommunityStateSnapshot",
     "PropertyStateProjection",
@@ -227,4 +237,11 @@ __all__ = [
     "build_new_construction_scenario_state",
     "load_new_construction_registry",
     "validate_new_construction_state_replay",
+    "MultiScenarioComparison",
+    "ScenarioComparisonMember",
+    "ScenarioDimensionDifference",
+    "build_comparison_member",
+    "compare_scenario_members",
+    "load_scenario_comparison_registry",
+    "validate_comparison_replay",
 ]
