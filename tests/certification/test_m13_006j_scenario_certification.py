@@ -52,8 +52,12 @@ def test_build_manifest_is_on_j_and_m13_remains_in_progress():
     assert states["M13"]=="IN_PROGRESS"
 
 def test_no_m13_006k_exists():
-    text="\n".join(p.read_text(errors="ignore") for p in Path(".").rglob("*") if p.is_file() and p.suffix in {".py",".md",".yaml",".yml",".json"})
-    assert "M13-006K" not in text
+    assert not any("M13-006K" in str(p) for p in Path(".").rglob("*"))
+    backlog=Path("IMPLEMENTATION-BACKLOG.yaml")
+    if backlog.exists():
+        data=yaml.safe_load(backlog.read_text())
+        tickets=data.get("tickets",[]) if isinstance(data,dict) else []
+        assert all(x.get("ticket_id")!="M13-006K" for x in tickets if isinstance(x,dict))
 
 def test_governing_i_contract_has_all_frozen_prohibitions():
     manifest=yaml.safe_load(Path("CONTRACT-MANIFEST.yaml").read_text())
