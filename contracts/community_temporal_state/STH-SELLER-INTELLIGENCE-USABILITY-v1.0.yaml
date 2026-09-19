@@ -1,0 +1,49 @@
+contract_id: STH-SELLER-INTELLIGENCE-USABILITY
+version: 1.0.0
+status: LOCKED
+milestone: M13
+ticket: M13-007F
+name: Conflict, Freshness, Unknown & Limitation Framework
+depends_on:
+  - STH-CURRENT-UNIFIED-SELLER-INTELLIGENCE-STATE
+  - STH-SELLER-INTELLIGENCE-STATE-DELTA
+  - STH-CROSS-SYSTEM-EVIDENCE-BINDING
+purpose:
+  downstream_usability_governance_required: true
+  affected_dimension_fail_closed_required: true
+  unaffected_intelligence_preservation_required: true
+  conflict_governance_required: true
+  freshness_governance_required: true
+  unknown_governance_required: true
+  limitation_governance_required: true
+usability_states:
+  - USABLE
+  - USABLE_WITH_LIMITATION
+  - REVIEW_REQUIRED
+  - BLOCKED
+  - UNKNOWN
+hard_boundaries:
+  seller_brief_assembly_prohibited: true
+  recommendation_prohibited: true
+  action_generation_prohibited: true
+  prediction_prohibited: true
+  ranking_prohibited: true
+  seller_scoring_prohibited: true
+  hidden_weighting_prohibited: true
+  m12_execution_prohibited: true
+  silent_conflict_resolution_prohibited: true
+  silent_stale_promotion_prohibited: true
+  unknown_coercion_prohibited: true
+acceptance:
+  exact_d_state_required: true
+  exact_e_ledger_required: true
+  lineage_match_required: true
+  per_dimension_usability_required: true
+  blocking_scope_must_be_localized: true
+  unaffected_dimensions_preserved: true
+  conflicts_explicit: true
+  stale_explicit: true
+  unknowns_explicit: true
+  limitations_explicit: true
+  deterministic_replay_required: true
+  zero_waivers_required: true
