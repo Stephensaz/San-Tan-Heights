@@ -5,7 +5,7 @@ status_values:
 - IN_PROGRESS
 - BLOCKED
 - ACCEPTED
-current_ticket: M13-006A
+current_ticket: M13-006B
 milestones:
 - id: M1
   name: Governed Lifecycle Kernel
