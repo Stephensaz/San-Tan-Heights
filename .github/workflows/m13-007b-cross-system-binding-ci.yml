@@ -40,7 +40,22 @@ jobs:
           r=yaml.safe_load(Path("registries/community_temporal_state/m13-007b-cross-system-binding-v1.0.yaml").read_text())
           assert r["status"]=="FROZEN" and r["ticket"]=="M13-007B"
           for k in ("exact_property_match","exact_community_match","temporal_boundary_must_not_be_future","fingerprints_required","deterministic_output","fail_closed_on_conflict","missing_is_explicit","stale_is_explicit","no_relevance_decision","no_state_synthesis","no_recommendation","no_prediction","no_ranking","no_seller_scoring","no_m12_execution"): assert r["policy"][k] is True
-          print("PASS: M13-007B boundary and accepted M13-007A predecessor are pinned")
+          evidence_path=Path("certification-evidence/m13-007b/cross-system-binding-acceptance-v1.0.json")
+          if evidence_path.exists():
+              evidence=json.loads(evidence_path.read_text())
+              assert evidence["ticket"]=="M13-007B" and evidence["status"]=="ACCEPTED"
+              assert evidence["parent"]["ticket"]=="M13-007A"
+              assert evidence["cross_system_binding_contract_sha256"]==row["sha256"]
+              assert evidence["tests"]["m13_007b_specific_passed"]==12
+              assert evidence["tests"]["m13_temporal_state_total_passed"]==276
+              assert evidence["tests"]["inherited_m12_passed"]==137
+              assert evidence["tests"]["failed"]==0
+              assert evidence["workflows"]["total"]==33
+              assert evidence["workflows"]["successful"]==33
+              assert evidence["workflows"]["failed"]==0
+              assert evidence["waivers"]==0 and evidence["open_defects"]==0
+              assert all(x["conclusion"]=="success" for x in evidence["github_workflow_runs"])
+          print("PASS: M13-007B boundary, accepted M13-007A predecessor, and acceptance evidence are pinned")
           PY
       - name: Run M13-007B tests
         run: pytest -q tests/unit/community_temporal_state/test_cross_system_binding.py
