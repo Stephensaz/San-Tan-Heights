@@ -1,0 +1,163 @@
+{
+  "evidence_id": "STH-M13-006I-REVIEW-WORKSPACE-v1.0",
+  "ticket": "M13-006I",
+  "status": "ACCEPTED",
+  "corrective_replacement_of": "STH-SCENARIO-PRESENTATION-CONTRACTS",
+  "parent": {
+    "ticket": "M13-006H",
+    "evidence": "certification-evidence/m13-006h/explainability-acceptance-v1.0.json"
+  },
+  "acceptance_candidate": {
+    "pull_request": 73,
+    "head_sha": "62435e72b0ee3ce43d3b502d110107b7c0cbc2db",
+    "base_sha": "cee8ba130526c3c492188cfd805b39119653b8d3"
+  },
+  "review_workspace_contract_sha256": "15d999ec6238b9b4de1006c25f734ba7059317c6b111a0f6381360204b60c4f1",
+  "tests": {
+    "m13_006i_review_specific_passed": 12,
+    "m13_temporal_state_total_passed": 251,
+    "inherited_m12_passed": 137,
+    "failed": 0
+  },
+  "checks": {
+    "total": 22,
+    "successful": 22,
+    "failed": 0
+  },
+  "github_checks": [
+    {
+      "name": "m13-006h",
+      "check_run_id": 105923837439,
+      "run_id": 35453204380,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006f",
+      "check_run_id": 105923837219,
+      "run_id": 35453204425,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006i-review",
+      "check_run_id": 105923837203,
+      "run_id": 35453204466,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006i",
+      "check_run_id": 105923837180,
+      "run_id": 35453204414,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006c",
+      "check_run_id": 105923837126,
+      "run_id": 35453204441,
+      "conclusion": "success"
+    },
+    {
+      "name": "validate-m12-boundary",
+      "check_run_id": 105923837119,
+      "run_id": 35453204459,
+      "conclusion": "success"
+    },
+    {
+      "name": "validate-m10-boundary",
+      "check_run_id": 105923837117,
+      "run_id": 35453204411,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006b",
+      "check_run_id": 105923837110,
+      "run_id": 35453204422,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-005",
+      "check_run_id": 105923837104,
+      "run_id": 35453204436,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-003",
+      "check_run_id": 105923837046,
+      "run_id": 35453204387,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006e",
+      "check_run_id": 105923837028,
+      "run_id": 35453204367,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-002",
+      "check_run_id": 105923837027,
+      "run_id": 35453204426,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-001",
+      "check_run_id": 105923836975,
+      "run_id": 35453204419,
+      "conclusion": "success"
+    },
+    {
+      "name": "listing-execution-tests",
+      "check_run_id": 105923836950,
+      "run_id": 35453204363,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006g",
+      "check_run_id": 105923836949,
+      "run_id": 35453204409,
+      "conclusion": "success"
+    },
+    {
+      "name": "seller-intelligence-tests",
+      "check_run_id": 105923836944,
+      "run_id": 35453204388,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006d",
+      "check_run_id": 105923836939,
+      "run_id": 35453204376,
+      "conclusion": "success"
+    },
+    {
+      "name": "evolution-tests",
+      "check_run_id": 105923836935,
+      "run_id": 35453204429,
+      "conclusion": "success"
+    },
+    {
+      "name": "validate-m9-boundary",
+      "check_run_id": 105923836910,
+      "run_id": 35453204394,
+      "conclusion": "success"
+    },
+    {
+      "name": "validate-m11-boundary",
+      "check_run_id": 105923836893,
+      "run_id": 35453204382,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006a",
+      "check_run_id": 105923836791,
+      "run_id": 35453204366,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-004",
+      "check_run_id": 105923836790,
+      "run_id": 35453204353,
+      "conclusion": "success"
+    }
+  ],
+  "waivers": 0,
+  "open_defects": 0
+}
