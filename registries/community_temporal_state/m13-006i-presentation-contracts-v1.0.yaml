@@ -1,0 +1,83 @@
+scenario_presentation_registry_id: STH-M13-006I-PRESENTATION-CONTRACTS-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-006I
+contract_id: STH-SCENARIO-PRESENTATION-CONTRACTS
+
+tiers:
+  - AGENT
+  - SELLER
+
+visibility_states:
+  - FULL
+  - SIMPLIFIED
+  - SUMMARY_ONLY
+  - CONDITIONAL
+  - SUPPRESSED
+  - NOT_APPLICABLE
+
+sections:
+  - FACTS
+  - ASSUMPTIONS
+  - MODELED_DIMENSIONS
+  - CHANGED_FROM_REFERENCE
+  - EVIDENCE_LINEAGE
+  - PROMOTED_PATTERNS
+  - UNKNOWNS
+  - LIMITATIONS
+  - COMPARISON_DIFFERENCES
+  - DISCLOSURES
+
+agent_visibility:
+  FACTS: FULL
+  ASSUMPTIONS: FULL
+  MODELED_DIMENSIONS: FULL
+  CHANGED_FROM_REFERENCE: FULL
+  EVIDENCE_LINEAGE: FULL
+  PROMOTED_PATTERNS: FULL
+  UNKNOWNS: FULL
+  LIMITATIONS: FULL
+  COMPARISON_DIFFERENCES: FULL
+  DISCLOSURES: FULL
+
+seller_visibility:
+  FACTS: SIMPLIFIED
+  ASSUMPTIONS: SIMPLIFIED
+  MODELED_DIMENSIONS: SUMMARY_ONLY
+  CHANGED_FROM_REFERENCE: FULL
+  EVIDENCE_LINEAGE: SUPPRESSED
+  PROMOTED_PATTERNS: SUMMARY_ONLY
+  UNKNOWNS: FULL
+  LIMITATIONS: FULL
+  COMPARISON_DIFFERENCES: SIMPLIFIED
+  DISCLOSURES: FULL
+
+mandatory_disclosures:
+  - Historical evidence and promoted patterns describe observed associations only; they are not predictions.
+  - Assumptions remain assumptions and are not certified facts.
+  - Scenario comparisons describe differences and do not establish preference, expected outcome, or recommendation.
+
+suppression_reasons:
+  EVIDENCE_LINEAGE:
+    SELLER: AGENT_TECHNICAL_LINEAGE_NOT_SELLER_ELIGIBLE
+
+screen_eligibility:
+  AGENT: true
+  SELLER: true
+
+export_eligibility:
+  AGENT: true
+  SELLER: true
+
+policy:
+  presentation_may_reduce_complexity_not_increase_certainty: true
+  mandatory_disclosures_inherited: true
+  uncertainty_and_limitations_always_visible_when_present: true
+  seller_payload_physical_isolation: true
+  explicit_suppression_reason_required: true
+  deterministic_output: true
+  no_recommendation: true
+  no_ranking: true
+  no_winner: true
+  no_prediction: true
+  no_visual_preference_semantics: true
