@@ -1,0 +1,34 @@
+state_delta_registry_id: STH-M13-007E-STATE-DELTA-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-007E
+contract_id: STH-SELLER-INTELLIGENCE-STATE-DELTA
+change_states:
+  - NEW
+  - CHANGED
+  - UNCHANGED
+  - STALE
+  - RESOLVED
+  - NO_LONGER_APPLICABLE
+  - UNKNOWN
+significance_classes:
+  - INFORMATIONAL
+  - NOTICEABLE_CHANGE
+  - MATERIAL_CHANGE
+  - REVIEW_REQUIRED
+  - INSUFFICIENT_INFORMATION
+policy:
+  same_property_required: true
+  same_community_required: true
+  prior_time_before_current_required: true
+  deterministic_output: true
+  explicit_significance_rules: true
+  no_hidden_weighting: true
+  preserve_unknown_transitions: true
+  preserve_state_lineage: true
+  no_recommendation: true
+  no_action_generation: true
+  no_prediction: true
+  no_ranking: true
+  no_seller_scoring: true
+  no_m12_execution: true
