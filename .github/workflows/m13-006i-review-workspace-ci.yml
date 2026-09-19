@@ -51,7 +51,22 @@ jobs:
           assert reg["policy"]["deterministic_output"] is True
           for key in ("no_ranking","no_recommendation","no_prediction","no_execution","no_publication"):
               assert reg["policy"][key] is True
-          print("PASS: corrected frozen M13-006I review-workspace boundary is pinned")
+          evidence_path=Path("certification-evidence/m13-006i/review-workspace-acceptance-v1.0.json")
+          if evidence_path.exists():
+              evidence=json.loads(evidence_path.read_text())
+              assert evidence["ticket"]=="M13-006I" and evidence["status"]=="ACCEPTED"
+              assert evidence["parent"]["ticket"]=="M13-006H"
+              assert evidence["review_workspace_contract_sha256"]==row["sha256"]
+              assert evidence["tests"]["m13_006i_review_specific_passed"]==12
+              assert evidence["tests"]["m13_temporal_state_total_passed"]==251
+              assert evidence["tests"]["inherited_m12_passed"]==137
+              assert evidence["tests"]["failed"]==0
+              assert evidence["checks"]["total"]==22
+              assert evidence["checks"]["successful"]==22
+              assert evidence["checks"]["failed"]==0
+              assert evidence["waivers"]==0 and evidence["open_defects"]==0
+              assert all(x["conclusion"]=="success" for x in evidence["github_checks"])
+          print("PASS: corrected frozen M13-006I review-workspace boundary and acceptance evidence are pinned")
           PY
       - name: Run corrective M13-006I tests
         run: pytest -q tests/unit/community_temporal_state/test_scenario_review_workspace.py
