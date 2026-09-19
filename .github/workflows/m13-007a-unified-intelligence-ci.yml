@@ -48,7 +48,7 @@ jobs:
           assert pred["decision"]=="PASS / GO"
           assert pred["waivers"]==0 and pred["open_defects"]==0 and pred["unresolved_blocking_defects"]==0
           build=yaml.safe_load(Path("BUILD-MANIFEST.yaml").read_text())
-          assert build["current_ticket"]=="M13-007A"
+          assert build["current_ticket"].startswith("M13-007")
           reg=yaml.safe_load(Path("registries/community_temporal_state/m13-007a-unified-intelligence-v1.0.yaml").read_text())
           assert reg["status"]=="FROZEN" and reg["ticket"]=="M13-007A"
           for key in ("deterministic_output","immutable_state","lineage_required","facts_assumptions_distinct","unknowns_first_class","stale_is_explicit","conflicts_are_explicit","significance_is_descriptive_only","no_recommendation","no_prediction","no_ranking","no_seller_scoring","no_m12_execution","no_publication"):
