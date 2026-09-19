@@ -45,7 +45,7 @@ def ledger():
     import yaml
     r = yaml.safe_load(open(LEDGER_REGISTRY))
     e1 = make_temporal_entry(
-        entry_id="E1", community_id="SAN-TAN-HEIGHTS", entry_type="OBSERVATION",
+        entry_id="E1", community_id="SAN-TAN-HEIGHTS", entry_type="SNAPSHOT",
         scope="PROPERTY", scope_id="P1", fact_key="buyer_depth", fact_value=4,
         valid_from="2026-01-01T00:00:00+00:00", known_at="2026-01-02T00:00:00+00:00",
         recorded_at="2026-01-02T00:00:00+00:00", registry=r,
@@ -53,7 +53,7 @@ def ledger():
         limitations=("Historical observation.",),
     )
     e2 = make_temporal_entry(
-        entry_id="E2", community_id="SAN-TAN-HEIGHTS", entry_type="OBSERVATION",
+        entry_id="E2", community_id="SAN-TAN-HEIGHTS", entry_type="SNAPSHOT",
         scope="PROPERTY", scope_id="P2", fact_key="buyer_depth", fact_value=6,
         valid_from="2026-02-01T00:00:00+00:00", known_at="2026-02-02T00:00:00+00:00",
         recorded_at="2026-02-02T00:00:00+00:00", registry=r,
@@ -61,7 +61,7 @@ def ledger():
         limitations=("Historical observation.",),
     )
     e3 = make_temporal_entry(
-        entry_id="E3", community_id="SAN-TAN-HEIGHTS", entry_type="OBSERVATION",
+        entry_id="E3", community_id="SAN-TAN-HEIGHTS", entry_type="SNAPSHOT",
         scope="PROPERTY", scope_id="P3", fact_key="pricing_position", fact_value=0.98,
         valid_from="2026-03-01T00:00:00+00:00", known_at="2026-03-05T00:00:00+00:00",
         recorded_at="2026-03-05T00:00:00+00:00", registry=r,
