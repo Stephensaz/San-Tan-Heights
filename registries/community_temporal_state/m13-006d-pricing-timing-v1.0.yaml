@@ -1,0 +1,27 @@
+pricing_timing_registry_id: STH-M13-006D-PRICING-TIMING-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-006D
+contract_id: STH-SCENARIO-PRICING-TIMING
+
+policy:
+  candidate_price_assumption_key: candidate_list_price
+  reference_price_fact_keys:
+    - current_list_price
+    - benchmark_price
+    - reference_price
+  candidate_date_assumption_key: candidate_listing_date
+  reference_date_fact_keys:
+    - current_listing_date
+    - baseline_date
+    - reference_date
+  require_explicit_human_assumption: true
+  require_certified_reference_fact: true
+  deterministic_output: true
+  no_selected_price: true
+  no_recommended_price: true
+  no_recommended_timing: true
+  no_prediction: true
+  no_causal_inference: true
+  no_ranking: true
+  no_execution: true
