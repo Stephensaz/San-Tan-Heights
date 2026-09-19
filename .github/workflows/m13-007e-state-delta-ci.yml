@@ -1,0 +1,52 @@
+name: M13-007E State Delta CI
+on:
+  pull_request:
+    paths:
+      - 'contracts/community_temporal_state/**'
+      - 'registries/community_temporal_state/**'
+      - 'src/community_temporal_state/**'
+      - 'tests/unit/community_temporal_state/**'
+      - 'docs/implementation/M13-007E.md'
+      - 'certification-evidence/m13-007d/**'
+      - 'certification-evidence/m13-007e/**'
+      - 'CONTRACT-MANIFEST.yaml'
+      - 'BUILD-MANIFEST.yaml'
+      - '.github/workflows/m13-007e-state-delta-ci.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  m13-007e:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m pip install pytest pyyaml
+      - name: Validate E boundary and accepted D predecessor
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          import yaml
+          m=yaml.safe_load(Path("CONTRACT-MANIFEST.yaml").read_text())
+          row=[x for x in m["contracts"] if x["id"]=="STH-SELLER-INTELLIGENCE-STATE-DELTA"][0]
+          p=Path(row["path"]); assert hashlib.sha256(p.read_bytes()).hexdigest()==row["sha256"]
+          c=yaml.safe_load(p.read_text()); assert c["status"]=="LOCKED" and c["ticket"]=="M13-007E"; assert all(c["hard_boundaries"].values())
+          pred=json.loads(Path("certification-evidence/m13-007d/current-unified-state-acceptance-v1.0.json").read_text())
+          assert pred["ticket"]=="M13-007D" and pred["status"]=="ACCEPTED" and pred["waivers"]==0 and pred["open_defects"]==0
+          b=yaml.safe_load(Path("BUILD-MANIFEST.yaml").read_text()); assert b["current_ticket"]=="M13-007E"
+          r=yaml.safe_load(Path("registries/community_temporal_state/m13-007e-state-delta-v1.0.yaml").read_text())
+          assert r["status"]=="FROZEN" and r["ticket"]=="M13-007E"
+          for k in ("same_property_required","same_community_required","prior_time_before_current_required","deterministic_output","explicit_significance_rules","no_hidden_weighting","preserve_unknown_transitions","preserve_state_lineage","no_recommendation","no_action_generation","no_prediction","no_ranking","no_seller_scoring","no_m12_execution"): assert r["policy"][k] is True
+          print("PASS: M13-007E boundary and accepted M13-007D predecessor are pinned")
+          PY
+      - name: Run M13-007E tests
+        run: pytest -q tests/unit/community_temporal_state/test_state_delta.py
+      - name: Run all M13 temporal-state regression tests
+        run: pytest -q tests/unit/community_temporal_state
+      - name: Run inherited M12 regression
+        run: pytest -q tests/unit/listing_execution
+      - name: Validate repository structure
+        run: python scripts_validate_repo.py
