@@ -8,6 +8,7 @@ on:
       - 'src/community_temporal_state/**'
       - 'tests/unit/community_temporal_state/**'
       - 'docs/implementation/M13-006A.md'
+      - 'certification-evidence/m13-006a/**'
       - 'CONTRACT-MANIFEST.yaml'
       - 'BUILD-MANIFEST.yaml'
       - '.github/workflows/m13-006a-scenario-governance-ci.yml'
@@ -77,7 +78,23 @@ jobs:
               "ready_contract_mutation_prohibited",
           ):
               assert contract["hard_boundaries"][key] is True
-          print("PASS: M13-006A frozen governance boundary and accepted M13-005 predecessor are pinned")
+          evidence_path=Path("certification-evidence/m13-006a/scenario-governance-acceptance-v1.0.json")
+          if evidence_path.exists():
+              accepted=json.loads(evidence_path.read_text())
+              assert accepted["ticket"]=="M13-006A"
+              assert accepted["status"]=="ACCEPTED"
+              assert accepted["parent"]["ticket"]=="M13-005"
+              assert accepted["scenario_governance_contract_sha256"]==row["sha256"]
+              assert accepted["tests"]["m13_006a_specific_passed"]==13
+              assert accepted["tests"]["m13_temporal_state_total_passed"]==98
+              assert accepted["tests"]["inherited_m12_passed"]==137
+              assert accepted["tests"]["failed"]==0
+              assert accepted["checks"]["total"]==21
+              assert accepted["checks"]["successful"]==21
+              assert accepted["waivers"]==0
+              assert accepted["open_defects"]==0
+              assert all(x["conclusion"]=="success" for x in accepted["github_checks"])
+          print("PASS: M13-006A frozen governance boundary, accepted M13-005 predecessor, and acceptance evidence are pinned")
           PY
       - name: Run M13-006A tests
         run: pytest -q tests/unit/community_temporal_state/test_scenario_governance.py
