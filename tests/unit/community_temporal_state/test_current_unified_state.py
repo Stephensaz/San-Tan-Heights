@@ -33,6 +33,8 @@ def aset(b=None,states=(("buyer_depth","APPLICABLE"),("builder_competition","NOT
             d=replace(d,applicability_state="APPLICABLE",rule_outcome="MATCH",reason="Property satisfies the governed applicability rule.",unknowns=())
         elif state=="NOT_APPLICABLE":
             d=replace(d,applicability_state="NOT_APPLICABLE",rule_outcome="NO_MATCH",reason="Property does not satisfy the governed applicability rule.",unknowns=(),exclusions=("governed_exclusion",))
+        elif state=="UNKNOWN":
+            d=replace(d,applicability_state="UNKNOWN",rule_outcome="INSUFFICIENT_EVIDENCE",reason="Required property evidence is unknown.",unknowns=("required_property_fact",),exclusions=())
         ds.append(d)
     return build_applicability_set(applicability_set_id="AS1",bundle=b,decisions=tuple(ds))
 
