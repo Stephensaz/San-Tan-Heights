@@ -122,7 +122,7 @@ def build_scenario_explanation(
         "modeled_dimensions":dims,"changed_from_reference":changed,
         "evidence_source_fingerprints":tuple(evidence_set.source_fingerprints),
         "evidence_fingerprints":tuple(evidence_set.evidence_fingerprints),
-        "applicable_pattern_ids":tuple(comparison_member.dimensions[11][1] or ()),
+        "applicable_pattern_ids":tuple(dict(comparison_member.dimensions).get("applicable_patterns") or ()),
         "unknown_pattern_ids":tuple(buyer_substitution_state.unknown_pattern_ids),
         "unknowns":unknowns,"limitations":limits,
     }
