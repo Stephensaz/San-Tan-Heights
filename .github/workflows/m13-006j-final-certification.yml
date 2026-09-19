@@ -1,0 +1,71 @@
+name: M13-006J Final Scenario Intelligence Certification
+
+on:
+  pull_request:
+    paths:
+      - 'src/community_temporal_state/**'
+      - 'tests/unit/community_temporal_state/**'
+      - 'tests/certification/test_m13_006j_scenario_certification.py'
+      - 'docs/implementation/M13-006I.md'
+      - 'docs/implementation/M13-006J.md'
+      - 'certification-evidence/m13-006*/**'
+      - 'CONTRACT-MANIFEST.yaml'
+      - 'BUILD-MANIFEST.yaml'
+      - '.github/workflows/m13-006j-final-certification.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  m13-006j:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          clean: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pytest pyyaml
+      - name: Verify clean A-I certification chain
+        run: pytest -q tests/certification/test_m13_006j_scenario_certification.py
+      - name: Replay governing M13-006A-I scenario tests
+        run: |
+          pytest -q \
+            tests/unit/community_temporal_state/test_scenario_governance.py \
+            tests/unit/community_temporal_state/test_scenario_baseline.py \
+            tests/unit/community_temporal_state/test_scenario_evidence.py \
+            tests/unit/community_temporal_state/test_scenario_pricing_timing.py \
+            tests/unit/community_temporal_state/test_scenario_buyer_substitution.py \
+            tests/unit/community_temporal_state/test_scenario_new_construction.py \
+            tests/unit/community_temporal_state/test_scenario_comparison.py \
+            tests/unit/community_temporal_state/test_scenario_explainability.py \
+            tests/unit/community_temporal_state/test_scenario_review_workspace.py
+      - name: Replay all M13 temporal-state regressions
+        run: pytest -q tests/unit/community_temporal_state
+      - name: Replay inherited M12 regressions
+        run: pytest -q tests/unit/listing_execution
+      - name: Validate repository structure
+        run: python scripts_validate_repo.py
+      - name: Adjudicate candidate
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          paths=[
+            "certification-evidence/m13-006a/scenario-governance-acceptance-v1.0.json",
+            "certification-evidence/m13-006b/certified-baseline-acceptance-v1.0.json",
+            "certification-evidence/m13-006c/scenario-evidence-acceptance-v1.0.json",
+            "certification-evidence/m13-006d/pricing-timing-acceptance-v1.0.json",
+            "certification-evidence/m13-006e/buyer-substitution-acceptance-v1.0.json",
+            "certification-evidence/m13-006f/new-construction-acceptance-v1.0.json",
+            "certification-evidence/m13-006g/scenario-comparison-acceptance-v1.0.json",
+            "certification-evidence/m13-006h/explainability-acceptance-v1.0.json",
+            "certification-evidence/m13-006i/review-workspace-acceptance-v1.0.json",
+          ]
+          evidence=[json.loads(Path(p).read_text()) for p in paths]
+          assert all(x["status"]=="ACCEPTED" and x["waivers"]==0 and x["open_defects"]==0 and x["tests"]["failed"]==0 for x in evidence)
+          print("M13-006J CANDIDATE ADJUDICATION: PASS / GO")
+          PY
