@@ -202,6 +202,14 @@ from .seller_relevance import (
     validate_applicability_set_replay,
 )
 
+from .current_unified_state import (
+    CurrentStateBuildResult,
+    IntelligenceCandidate,
+    build_current_unified_state,
+    load_current_state_registry,
+    validate_current_state_result_replay,
+)
+
 __all__ = [
     "CommunityStateSnapshot",
     "PropertyStateProjection",
@@ -354,4 +362,9 @@ __all__ = [
     "load_seller_relevance_registry",
     "make_rule",
     "validate_applicability_set_replay",
+    "CurrentStateBuildResult",
+    "IntelligenceCandidate",
+    "build_current_unified_state",
+    "load_current_state_registry",
+    "validate_current_state_result_replay",
 ]
