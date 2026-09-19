@@ -1,0 +1,40 @@
+contract_id: STH-CURRENT-UNIFIED-SELLER-INTELLIGENCE-STATE
+version: 1.0.0
+status: LOCKED
+milestone: M13
+ticket: M13-007D
+name: Current Unified Seller Intelligence State Builder
+depends_on:
+  - STH-UNIFIED-SELLER-INTELLIGENCE
+  - STH-CROSS-SYSTEM-EVIDENCE-BINDING
+  - STH-SELLER-RELEVANCE-APPLICABILITY
+purpose:
+  current_immutable_state_materialization_required: true
+  applicable_intelligence_only_required: true
+  unknown_preservation_required: true
+  limitation_preservation_required: true
+  stale_conflict_context_preservation_required: true
+  exact_evidence_lineage_required: true
+  excluded_intelligence_preservation_required: true
+hard_boundaries:
+  prior_state_comparison_prohibited: true
+  material_change_detection_prohibited: true
+  recommendation_prohibited: true
+  prediction_prohibited: true
+  ranking_prohibited: true
+  seller_scoring_prohibited: true
+  hidden_weighting_prohibited: true
+  m12_execution_prohibited: true
+  upstream_mutation_prohibited: true
+  silent_unknown_resolution_prohibited: true
+acceptance:
+  ready_b_bundle_required: true
+  c_bundle_fingerprint_match_required: true
+  c_property_match_required: true
+  applicable_only_promotion_required: true
+  unknowns_explicit_required: true
+  exclusions_preserved_required: true
+  lineage_complete_required: true
+  deterministic_state_required: true
+  prior_state_fingerprint_must_be_null: true
+  zero_waivers_required: true
