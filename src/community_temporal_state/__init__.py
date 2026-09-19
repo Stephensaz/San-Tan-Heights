@@ -91,6 +91,16 @@ from .scenario_baseline import (
     validate_certified_scenario_baseline_replay,
 )
 
+from .scenario_evidence import (
+    HistoricalEvidenceItem,
+    HistoricalEvidenceRule,
+    HistoricalEvidenceSet,
+    load_historical_evidence_registry,
+    make_historical_evidence_rule,
+    retrieve_historical_evidence,
+    validate_historical_evidence_replay,
+)
+
 __all__ = [
     "CommunityStateSnapshot",
     "PropertyStateProjection",
@@ -165,4 +175,11 @@ __all__ = [
     "load_certified_baseline_registry",
     "make_pattern_applicability_rule",
     "validate_certified_scenario_baseline_replay",
+    "HistoricalEvidenceItem",
+    "HistoricalEvidenceRule",
+    "HistoricalEvidenceSet",
+    "load_historical_evidence_registry",
+    "make_historical_evidence_rule",
+    "retrieve_historical_evidence",
+    "validate_historical_evidence_replay",
 ]
