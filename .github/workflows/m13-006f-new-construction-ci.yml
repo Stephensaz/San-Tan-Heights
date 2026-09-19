@@ -1,0 +1,77 @@
+name: M13-006F New Construction CI
+
+on:
+  pull_request:
+    paths:
+      - 'contracts/community_temporal_state/**'
+      - 'registries/community_temporal_state/**'
+      - 'src/community_temporal_state/**'
+      - 'tests/unit/community_temporal_state/**'
+      - 'docs/implementation/M13-006F.md'
+      - 'certification-evidence/m13-006e/**'
+      - 'certification-evidence/m13-006f/**'
+      - 'CONTRACT-MANIFEST.yaml'
+      - 'BUILD-MANIFEST.yaml'
+      - '.github/workflows/m13-006e-buyer-substitution-ci.yml'
+      - '.github/workflows/m13-006f-new-construction-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  m13-006f:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pytest pyyaml
+      - name: Validate M13-006F frozen boundary and accepted E predecessor
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          import yaml
+          manifest=yaml.safe_load(Path("CONTRACT-MANIFEST.yaml").read_text())
+          rows=[x for x in manifest["contracts"] if x["id"]=="STH-SCENARIO-NEW-CONSTRUCTION-COMPETITION"]
+          assert len(rows)==1
+          row=rows[0]; path=Path(row["path"])
+          assert hashlib.sha256(path.read_bytes()).hexdigest()==row["sha256"]
+          contract=yaml.safe_load(path.read_text())
+          assert contract["status"]=="LOCKED" and contract["ticket"]=="M13-006F"
+          assert all(contract["hard_boundaries"].values())
+          pred=json.loads(Path("certification-evidence/m13-006e/buyer-substitution-acceptance-v1.0.json").read_text())
+          assert pred["ticket"]=="M13-006E" and pred["status"]=="ACCEPTED"
+          assert pred["waivers"]==0 and pred["open_defects"]==0
+          build=yaml.safe_load(Path("BUILD-MANIFEST.yaml").read_text())
+          assert build["current_ticket"]=="M13-006F"
+          registry=yaml.safe_load(Path("registries/community_temporal_state/m13-006f-new-construction-v1.0.yaml").read_text())
+          assert registry["status"]=="FROZEN" and registry["ticket"]=="M13-006F"
+          for key in ("no_prediction","no_recommendation","no_ranking","no_hidden_score","no_causal_inference","no_execution"):
+              assert registry["policy"][key] is True
+          evidence_path=Path("certification-evidence/m13-006f/new-construction-acceptance-v1.0.json")
+          if evidence_path.exists():
+              evidence=json.loads(evidence_path.read_text())
+              assert evidence["ticket"]=="M13-006F" and evidence["status"]=="ACCEPTED"
+              assert evidence["parent"]["ticket"]=="M13-006E"
+              assert evidence["scenario_new_construction_contract_sha256"]==row["sha256"]
+              assert evidence["tests"]["m13_006f_specific_passed"]==20
+              assert evidence["tests"]["m13_temporal_state_total_passed"]==197
+              assert evidence["tests"]["inherited_m12_passed"]==137
+              assert evidence["tests"]["failed"]==0
+              assert evidence["checks"]["failed"]==0
+              assert evidence["waivers"]==0 and evidence["open_defects"]==0
+              assert all(x["conclusion"]=="success" for x in evidence["github_checks"])
+          print("PASS: M13-006F boundary and accepted M13-006E predecessor are pinned")
+          PY
+      - name: Run M13-006F tests
+        run: pytest -q tests/unit/community_temporal_state/test_scenario_new_construction.py
+      - name: Run all M13 temporal-state regression tests
+        run: pytest -q tests/unit/community_temporal_state
+      - name: Run inherited M12 regression
+        run: pytest -q tests/unit/listing_execution
+      - name: Validate repository structure
+        run: python scripts_validate_repo.py
