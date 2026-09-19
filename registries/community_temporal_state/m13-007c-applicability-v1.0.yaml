@@ -1,0 +1,31 @@
+seller_relevance_registry_id: STH-M13-007C-SELLER-RELEVANCE-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-007C
+contract_id: STH-SELLER-RELEVANCE-APPLICABILITY
+applicability_states:
+  - APPLICABLE
+  - NOT_APPLICABLE
+  - UNKNOWN
+  - BLOCKED
+rule_outcomes:
+  - MATCH
+  - NO_MATCH
+  - INSUFFICIENT_EVIDENCE
+  - BLOCKED_DEPENDENCY
+policy:
+  input_bundle_must_be_ready: true
+  explicit_rule_id: true
+  explicit_reason: true
+  deterministic_output: true
+  preserve_source_lineage: true
+  preserve_exclusions: true
+  preserve_uncertainty: true
+  no_hidden_weighting: true
+  no_relevance_score: true
+  no_state_synthesis: true
+  no_recommendation: true
+  no_prediction: true
+  no_ranking: true
+  no_seller_scoring: true
+  no_m12_execution: true
