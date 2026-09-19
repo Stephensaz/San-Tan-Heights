@@ -1,0 +1,67 @@
+name: M13-007D Current Unified State CI
+on:
+  pull_request:
+    paths:
+      - 'contracts/community_temporal_state/**'
+      - 'registries/community_temporal_state/**'
+      - 'src/community_temporal_state/**'
+      - 'tests/unit/community_temporal_state/**'
+      - 'docs/implementation/M13-007D.md'
+      - 'certification-evidence/m13-007c/**'
+      - 'certification-evidence/m13-007d/**'
+      - 'CONTRACT-MANIFEST.yaml'
+      - 'BUILD-MANIFEST.yaml'
+      - '.github/workflows/m13-007d-current-state-ci.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  m13-007d:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m pip install pytest pyyaml
+      - name: Validate D boundary and accepted C predecessor
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          import yaml
+          m=yaml.safe_load(Path("CONTRACT-MANIFEST.yaml").read_text())
+          row=[x for x in m["contracts"] if x["id"]=="STH-CURRENT-UNIFIED-SELLER-INTELLIGENCE-STATE"][0]
+          p=Path(row["path"]); assert hashlib.sha256(p.read_bytes()).hexdigest()==row["sha256"]
+          c=yaml.safe_load(p.read_text()); assert c["status"]=="LOCKED" and c["ticket"]=="M13-007D"; assert all(c["hard_boundaries"].values())
+          pred=json.loads(Path("certification-evidence/m13-007c/seller-relevance-acceptance-v1.0.json").read_text())
+          assert pred["ticket"]=="M13-007C" and pred["status"]=="ACCEPTED" and pred["waivers"]==0 and pred["open_defects"]==0
+          b=yaml.safe_load(Path("BUILD-MANIFEST.yaml").read_text()); assert b["current_ticket"]=="M13-007D"
+          r=yaml.safe_load(Path("registries/community_temporal_state/m13-007d-current-state-v1.0.yaml").read_text())
+          assert r["status"]=="FROZEN" and r["ticket"]=="M13-007D"
+          for k in ("input_bundle_must_be_ready","applicability_bundle_match_required","property_match_required","applicable_only_promotion","unknowns_preserved","exclusions_preserved","limitations_preserved","lineage_preserved","deterministic_output","prior_state_comparison_prohibited","material_change_detection_prohibited","no_recommendation","no_prediction","no_ranking","no_seller_scoring","no_m12_execution"): assert r["policy"][k] is True
+          evidence_path=Path("certification-evidence/m13-007d/current-unified-state-acceptance-v1.0.json")
+          if evidence_path.exists():
+              evidence=json.loads(evidence_path.read_text())
+              assert evidence["ticket"]=="M13-007D" and evidence["status"]=="ACCEPTED"
+              assert evidence["parent"]["ticket"]=="M13-007C"
+              assert evidence["current_state_contract_sha256"]==row["sha256"]
+              assert evidence["tests"]["m13_007d_specific_passed"]==11
+              assert evidence["tests"]["m13_temporal_state_total_passed"]==297
+              assert evidence["tests"]["inherited_m12_passed"]==137
+              assert evidence["tests"]["failed"]==0
+              assert evidence["workflows"]["total"]==35
+              assert evidence["workflows"]["successful"]==35
+              assert evidence["workflows"]["failed"]==0
+              assert evidence["waivers"]==0 and evidence["open_defects"]==0
+              assert all(x["conclusion"]=="success" for x in evidence["github_workflow_runs"])
+          print("PASS: M13-007D boundary, accepted M13-007C predecessor, and acceptance evidence are pinned")
+          PY
+      - name: Run M13-007D tests
+        run: pytest -q tests/unit/community_temporal_state/test_current_unified_state.py
+      - name: Run all M13 temporal-state regression tests
+        run: pytest -q tests/unit/community_temporal_state
+      - name: Run inherited M12 regression
+        run: pytest -q tests/unit/listing_execution
+      - name: Validate repository structure
+        run: python scripts_validate_repo.py
