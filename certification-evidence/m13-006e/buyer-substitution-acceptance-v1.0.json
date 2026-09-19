@@ -1,0 +1,175 @@
+{
+  "evidence_id": "STH-M13-006E-BUYER-SUBSTITUTION-v1.0",
+  "ticket": "M13-006E",
+  "status": "ACCEPTED",
+  "parent": {
+    "ticket": "M13-006D",
+    "evidence": "certification-evidence/m13-006d/pricing-timing-acceptance-v1.0.json"
+  },
+  "acceptance_candidate": {
+    "pull_request": 66,
+    "head_sha": "50c0729f531df315946570aaf1d685dd2a6d32e2",
+    "base_sha": "cc2c3b99bcb880599ccce27d258b06b8b919a1b6"
+  },
+  "scenario_buyer_substitution_contract_sha256": "93ba7ee00ecbdbb6a35d3131b062207151ab391ce3b15eb50fa610d11fe880e6",
+  "capabilities": {
+    "descriptive_buyer_depth": true,
+    "descriptive_comparable_depth": true,
+    "descriptive_resale_competition": true,
+    "descriptive_substitution_state": true,
+    "scarcity_context_preservation": true,
+    "deterministic_replay": true
+  },
+  "controls": {
+    "buyer_behavior_prediction_prohibited": true,
+    "demand_prediction_prohibited": true,
+    "sale_probability_prohibited": true,
+    "recommendation_prohibited": true,
+    "ranking_prohibited": true,
+    "winner_selection_prohibited": true,
+    "hidden_utility_score_prohibited": true,
+    "causal_inference_prohibited": true,
+    "direct_m12_execution_prohibited": true,
+    "publication_prohibited": true
+  },
+  "github_checks": [
+    {
+      "name": "M10 Architecture Boundary Validation",
+      "run_id": 35414081035,
+      "conclusion": "success"
+    },
+    {
+      "name": "M10 Evolution CI",
+      "run_id": 35414081021,
+      "conclusion": "success"
+    },
+    {
+      "name": "M11 Architecture Boundary Validation",
+      "run_id": 35414081166,
+      "conclusion": "success"
+    },
+    {
+      "name": "M11 Final Seller Intelligence Certification",
+      "run_id": 35414081040,
+      "conclusion": "success"
+    },
+    {
+      "name": "M11 Seller Intelligence CI",
+      "run_id": 35414081117,
+      "conclusion": "success"
+    },
+    {
+      "name": "M12 Architecture Boundary Validation",
+      "run_id": 35414081128,
+      "conclusion": "success"
+    },
+    {
+      "name": "M12 Listing Execution CI",
+      "run_id": 35414081063,
+      "conclusion": "success"
+    },
+    {
+      "name": "M12 Operational Certification",
+      "run_id": 35414081029,
+      "conclusion": "success"
+    },
+    {
+      "name": "M12-009 Final Integrated Certification",
+      "run_id": 35414081077,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-001 Community State Snapshot CI",
+      "run_id": 35414081013,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-002 Temporal Change Delta CI",
+      "run_id": 35414081087,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-003 Selective Refresh CI",
+      "run_id": 35414081114,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-004 Temporal History CI",
+      "run_id": 35414081102,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-005 Evolution Patterns CI",
+      "run_id": 35414081124,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-006A Scenario Governance CI",
+      "run_id": 35414081162,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-006B Certified Baseline CI",
+      "run_id": 35414081027,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-006C Scenario Evidence CI",
+      "run_id": 35414081044,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-006D Pricing Timing CI",
+      "run_id": 35414081097,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-006E Buyer Substitution CI",
+      "run_id": 35414081081,
+      "conclusion": "success"
+    },
+    {
+      "name": "M8 Presentation Certification",
+      "run_id": 35414081120,
+      "conclusion": "success"
+    },
+    {
+      "name": "M8 Presentation CI",
+      "run_id": 35414081174,
+      "conclusion": "success"
+    },
+    {
+      "name": "M8-033 Final Presentation Certification",
+      "run_id": 35414080978,
+      "conclusion": "success"
+    },
+    {
+      "name": "M9 Activation CI",
+      "run_id": 35414081129,
+      "conclusion": "success"
+    },
+    {
+      "name": "M9 Architecture Boundary Validation",
+      "run_id": 35414081069,
+      "conclusion": "success"
+    },
+    {
+      "name": "M9 Final Production Activation Certification",
+      "run_id": 35414081037,
+      "conclusion": "success"
+    }
+  ],
+  "tests": {
+    "m13_006e_specific_passed": 21,
+    "m13_temporal_state_total_passed": 177,
+    "inherited_m12_passed": 137,
+    "failed": 0
+  },
+  "checks": {
+    "total": 25,
+    "successful": 25,
+    "failed": 0
+  },
+  "waivers": 0,
+  "open_defects": 0
+}
