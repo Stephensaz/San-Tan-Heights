@@ -1,0 +1,54 @@
+contract_id: STH-SCENARIO-BUYER-SUBSTITUTION-COMPETITIVE
+version: 1.0.0
+status: LOCKED
+milestone: M13
+ticket: M13-006E
+name: Buyer-Depth, Substitution & Competitive-Set Scenario Engine
+
+depends_on:
+  - STH-SCENARIO-PRICING-TIMING
+  - STH-SCENARIO-EVIDENCE-RETRIEVAL
+  - STH-SCENARIO-CERTIFIED-BASELINE
+
+purpose:
+  accepted_pricing_timing_state_required: true
+  certified_scenario_context_required: true
+  certified_scenario_evidence_required: true
+  explicit_human_assumptions_required: true
+  descriptive_buyer_depth_calculation_required: true
+  descriptive_comparable_depth_calculation_required: true
+  descriptive_substitution_state_required: true
+  descriptive_resale_competition_calculation_required: true
+  scarcity_context_preservation_required: true
+  deterministic_replay_required: true
+  uncertainty_and_limitation_carry_forward_required: true
+
+hard_boundaries:
+  implicit_assumption_prohibited: true
+  buyer_behavior_prediction_prohibited: true
+  demand_prediction_prohibited: true
+  sale_probability_prohibited: true
+  competitive_winner_selection_prohibited: true
+  substitution_recommendation_prohibited: true
+  strategy_recommendation_prohibited: true
+  ranking_prohibited: true
+  hidden_utility_score_prohibited: true
+  causal_inference_prohibited: true
+  direct_m12_execution_prohibited: true
+  publication_prohibited: true
+  evidence_lineage_loss_prohibited: true
+  unknown_suppression_prohibited: true
+  limitation_suppression_prohibited: true
+
+acceptance:
+  exact_d_state_fingerprint_required: true
+  exact_b_context_fingerprint_required: true
+  exact_c_evidence_fingerprint_required: true
+  explicit_assumption_required_for_each_modeled_dimension: true
+  certified_reference_fact_required: true
+  deterministic_numeric_calculation_required: true
+  deterministic_categorical_change_required: true
+  scarcity_context_descriptive_only_required: true
+  complete_replay_required: true
+  forbidden_decision_fields_absent: true
+  zero_waivers_required: true

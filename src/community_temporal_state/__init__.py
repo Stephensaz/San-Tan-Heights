@@ -110,6 +110,15 @@ from .scenario_pricing_timing import (
     validate_pricing_timing_state_replay,
 )
 
+from .scenario_buyer_substitution import (
+    BuyerSubstitutionCompetitiveState,
+    CategoricalDimensionPosition,
+    NumericDimensionPosition,
+    build_buyer_substitution_competitive_state,
+    load_buyer_substitution_registry,
+    validate_buyer_substitution_state_replay,
+)
+
 __all__ = [
     "CommunityStateSnapshot",
     "PropertyStateProjection",
@@ -197,4 +206,10 @@ __all__ = [
     "build_pricing_timing_scenario_state",
     "load_pricing_timing_registry",
     "validate_pricing_timing_state_replay",
+    "BuyerSubstitutionCompetitiveState",
+    "CategoricalDimensionPosition",
+    "NumericDimensionPosition",
+    "build_buyer_substitution_competitive_state",
+    "load_buyer_substitution_registry",
+    "validate_buyer_substitution_state_replay",
 ]
