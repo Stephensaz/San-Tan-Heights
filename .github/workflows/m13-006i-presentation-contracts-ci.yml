@@ -76,7 +76,12 @@ jobs:
               assert evidence["ticket"]=="M13-006I" and evidence["status"]=="ACCEPTED"
               assert evidence["parent"]["ticket"]=="M13-006H"
               assert evidence["scenario_presentation_contract_sha256"]==row["sha256"]
+              assert evidence["tests"]["m13_006i_specific_passed"]==13
+              assert evidence["tests"]["m13_temporal_state_total_passed"]==239
+              assert evidence["tests"]["inherited_m12_passed"]==137
               assert evidence["tests"]["failed"]==0
+              assert evidence["checks"]["total"]==29
+              assert evidence["checks"]["successful"]==29
               assert evidence["checks"]["failed"]==0
               assert evidence["waivers"]==0 and evidence["open_defects"]==0
               assert all(x["conclusion"]=="success" for x in evidence["github_checks"])
