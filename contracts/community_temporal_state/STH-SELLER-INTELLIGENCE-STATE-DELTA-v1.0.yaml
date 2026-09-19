@@ -1,0 +1,50 @@
+contract_id: STH-SELLER-INTELLIGENCE-STATE-DELTA
+version: 1.0.0
+status: LOCKED
+milestone: M13
+ticket: M13-007E
+name: Prior-State Delta & Material-Change Engine
+depends_on:
+  - STH-CURRENT-UNIFIED-SELLER-INTELLIGENCE-STATE
+  - STH-UNIFIED-SELLER-INTELLIGENCE
+purpose:
+  exact_prior_current_comparison_required: true
+  deterministic_change_ledger_required: true
+  governed_significance_rules_required: true
+  prior_current_lineage_required: true
+  unknown_transition_preservation_required: true
+change_states:
+  - NEW
+  - CHANGED
+  - UNCHANGED
+  - STALE
+  - RESOLVED
+  - NO_LONGER_APPLICABLE
+  - UNKNOWN
+significance_classes:
+  - INFORMATIONAL
+  - NOTICEABLE_CHANGE
+  - MATERIAL_CHANGE
+  - REVIEW_REQUIRED
+  - INSUFFICIENT_INFORMATION
+hard_boundaries:
+  recommendation_prohibited: true
+  action_generation_prohibited: true
+  pricing_strategy_selection_prohibited: true
+  prediction_prohibited: true
+  ranking_prohibited: true
+  seller_scoring_prohibited: true
+  hidden_weighting_prohibited: true
+  m12_execution_prohibited: true
+  state_mutation_prohibited: true
+  significance_without_explicit_rule_prohibited: true
+acceptance:
+  same_property_required: true
+  same_community_required: true
+  prior_time_before_current_required: true
+  deterministic_delta_required: true
+  all_change_states_supported: true
+  explicit_significance_rule_required: true
+  exact_state_fingerprints_preserved: true
+  unknown_transitions_explicit: true
+  zero_waivers_required: true
