@@ -1,0 +1,38 @@
+scenario_evidence_registry_id: STH-M13-006C-SCENARIO-EVIDENCE-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-006C
+contract_id: STH-SCENARIO-EVIDENCE-RETRIEVAL
+
+allowed_scopes:
+  - PROPERTY
+  - COMMUNITY
+  - INTELLIGENCE
+  - MANIFEST
+
+allowed_truth_states:
+  - ASSERTED
+  - CERTIFIED
+  - CORRECTED
+  - UNKNOWN
+
+evidence_states:
+  - INCLUDED
+  - EXCLUDED
+
+policy:
+  require_certified_scenario_context: true
+  require_reproducible_ledger: true
+  require_explicit_fact_keys: true
+  require_explicit_time_window: true
+  require_known_at_cutoff: true
+  require_source_lineage: true
+  preserve_entry_limitations: true
+  preserve_correction_lineage: true
+  deterministic_output: true
+  no_prediction: true
+  no_causal_inference: true
+  no_recommendation: true
+  no_ranking: true
+  no_scenario_calculation: true
+  no_execution: true
