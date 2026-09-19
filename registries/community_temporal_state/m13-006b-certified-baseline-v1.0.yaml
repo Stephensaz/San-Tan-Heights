@@ -1,0 +1,27 @@
+certified_baseline_registry_id: STH-M13-006B-CERTIFIED-BASELINE-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-006B
+contract_id: STH-SCENARIO-CERTIFIED-BASELINE
+
+applicability_states:
+  - APPLICABLE
+  - NOT_APPLICABLE
+  - UNKNOWN
+
+policy:
+  require_ready_scenario_contract: true
+  require_exact_baseline_identity: true
+  require_exact_baseline_fingerprint: true
+  require_fact_reconciliation: true
+  promoted_patterns_only: true
+  preserve_pattern_statement: true
+  preserve_pattern_limitations: true
+  preserve_pattern_lineage: true
+  unknown_must_be_explicit: true
+  deterministic_output: true
+  no_scenario_calculation: true
+  no_prediction: true
+  no_recommendation: true
+  no_ranking: true
+  no_execution: true
