@@ -148,6 +148,19 @@ from .scenario_explainability import (
     validate_scenario_explanation_replay,
 )
 
+from .scenario_presentation_contracts import (
+    PresentationSection,
+    ScenarioPresentationContract,
+    ComparisonPresentationContract,
+    assert_seller_payload_isolated,
+    build_comparison_presentation_contract,
+    build_scenario_presentation_contract,
+    load_presentation_contract_registry,
+    validate_comparison_presentation_replay,
+    validate_scenario_presentation_replay,
+    validate_semantic_equivalence,
+)
+
 __all__ = [
     "CommunityStateSnapshot",
     "PropertyStateProjection",
@@ -261,4 +274,14 @@ __all__ = [
     "load_explainability_registry",
     "validate_comparison_explanation_replay",
     "validate_scenario_explanation_replay",
+    "PresentationSection",
+    "ScenarioPresentationContract",
+    "ComparisonPresentationContract",
+    "assert_seller_payload_isolated",
+    "build_comparison_presentation_contract",
+    "build_scenario_presentation_contract",
+    "load_presentation_contract_registry",
+    "validate_comparison_presentation_replay",
+    "validate_scenario_presentation_replay",
+    "validate_semantic_equivalence",
 ]
