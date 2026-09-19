@@ -77,3 +77,30 @@ def test_final_certification_document_declares_binary_decision_only():
     assert "PASS / GO" in doc and "FAIL / NO-GO" in doc
     assert "CONDITIONAL PASS" in doc
     assert "prohibited" in doc.lower()
+
+
+def test_final_m13_006j_evidence_if_present_is_clean():
+    path=Path("certification-evidence/m13-006j/final-certification-v1.0.json")
+    if not path.exists():
+        return
+    e=json.loads(path.read_text())
+    assert e["ticket"]=="M13-006J"
+    assert e["subsystem"]=="M13-006"
+    assert e["status"]=="ACCEPTED"
+    assert e["decision"]=="PASS / GO"
+    assert e["governing_i"]["evidence"]=="certification-evidence/m13-006i/review-workspace-acceptance-v1.0.json"
+    assert e["tests"]["certification_tests_passed"]==7
+    assert e["tests"]["governing_scenario_tests_passed"]==153
+    assert e["tests"]["m13_temporal_state_total_passed"]==251
+    assert e["tests"]["inherited_m12_passed"]==137
+    assert e["tests"]["failed"]==0
+    assert e["checks"]["total"]==31
+    assert e["checks"]["successful"]==31
+    assert e["checks"]["failed"]==0
+    assert e["waivers"]==0
+    assert e["open_defects"]==0
+    assert e["unresolved_blocking_defects"]==0
+    assert e["conditional_pass_allowed"] is False
+    assert e["m13_006k_exists"] is False
+    assert len(e["certification_root_hash"])==64
+    assert all(x["conclusion"]=="success" for x in e["github_checks"])
