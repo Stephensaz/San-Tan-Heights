@@ -191,6 +191,17 @@ from .cross_system_binding import (
     validate_input_bundle_replay,
 )
 
+from .seller_relevance import (
+    ApplicabilityDecision,
+    ApplicabilityRule,
+    ApplicabilitySet,
+    build_applicability_set,
+    evaluate_applicability,
+    load_seller_relevance_registry,
+    make_rule,
+    validate_applicability_set_replay,
+)
+
 __all__ = [
     "CommunityStateSnapshot",
     "PropertyStateProjection",
@@ -335,4 +346,12 @@ __all__ = [
     "make_dependency",
     "resolve_input_bundle",
     "validate_input_bundle_replay",
+    "ApplicabilityDecision",
+    "ApplicabilityRule",
+    "ApplicabilitySet",
+    "build_applicability_set",
+    "evaluate_applicability",
+    "load_seller_relevance_registry",
+    "make_rule",
+    "validate_applicability_set_replay",
 ]
