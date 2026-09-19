@@ -1,0 +1,49 @@
+contract_id: STH-SCENARIO-EXPLAINABILITY
+version: 1.0.0
+status: LOCKED
+milestone: M13
+ticket: M13-006H
+name: Uncertainty, Limitation & Scenario Explainability Framework
+
+depends_on:
+  - STH-SCENARIO-MULTI-COMPARISON
+  - STH-SCENARIO-NEW-CONSTRUCTION-COMPETITION
+  - STH-SCENARIO-EVIDENCE-RETRIEVAL
+  - STH-SCENARIO-CERTIFIED-BASELINE
+
+purpose:
+  certified_fact_assumption_separation_required: true
+  scenario_change_explanation_required: true
+  evidence_lineage_explanation_required: true
+  applicable_pattern_explanation_required: true
+  uncertainty_visibility_required: true
+  limitation_visibility_required: true
+  comparison_difference_explanation_required: true
+  deterministic_replay_required: true
+
+hard_boundaries:
+  historical_association_as_prediction_prohibited: true
+  assumption_as_fact_prohibited: true
+  unknown_suppression_prohibited: true
+  limitation_suppression_prohibited: true
+  causal_claim_invention_prohibited: true
+  recommendation_prohibited: true
+  ranking_prohibited: true
+  winner_selection_prohibited: true
+  hidden_utility_score_prohibited: true
+  confidence_invention_prohibited: true
+  direct_m12_execution_prohibited: true
+  publication_prohibited: true
+
+acceptance:
+  exact_a_g_lineage_required: true
+  facts_and_assumptions_separate_required: true
+  changed_from_reference_explicit_required: true
+  evidence_fingerprints_explicit_required: true
+  promoted_pattern_context_explicit_required: true
+  unknowns_explicit_required: true
+  limitations_explicit_required: true
+  comparison_differences_preserved_required: true
+  complete_replay_required: true
+  forbidden_decision_fields_absent: true
+  zero_waivers_required: true
