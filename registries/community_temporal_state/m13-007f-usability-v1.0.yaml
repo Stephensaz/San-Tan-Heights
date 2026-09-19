@@ -1,0 +1,36 @@
+usability_registry_id: STH-M13-007F-USABILITY-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-007F
+contract_id: STH-SELLER-INTELLIGENCE-USABILITY
+usability_states:
+  - USABLE
+  - USABLE_WITH_LIMITATION
+  - REVIEW_REQUIRED
+  - BLOCKED
+  - UNKNOWN
+blocking_conflict_states:
+  - UNRESOLVED_CONFLICT
+review_change_states:
+  - STALE
+review_significance_classes:
+  - REVIEW_REQUIRED
+limited_significance_classes:
+  - INSUFFICIENT_INFORMATION
+policy:
+  exact_state_ledger_match: true
+  per_dimension_assessment: true
+  block_only_affected_dimension: true
+  unaffected_dimensions_preserved: true
+  stale_never_silent: true
+  conflicts_never_silent: true
+  unknowns_never_coerced: true
+  limitations_never_suppressed: true
+  deterministic_output: true
+  no_brief_assembly: true
+  no_recommendation: true
+  no_action_generation: true
+  no_prediction: true
+  no_ranking: true
+  no_seller_scoring: true
+  no_m12_execution: true

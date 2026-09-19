@@ -220,6 +220,14 @@ from .state_delta import (
     validate_change_ledger_replay,
 )
 
+from .intelligence_usability import (
+    DimensionUsability,
+    IntelligenceUsabilityFramework,
+    assess_intelligence_usability,
+    load_usability_registry,
+    validate_usability_replay,
+)
+
 __all__ = [
     "CommunityStateSnapshot",
     "PropertyStateProjection",
@@ -384,4 +392,9 @@ __all__ = [
     "load_state_delta_registry",
     "make_significance_rule",
     "validate_change_ledger_replay",
+    "DimensionUsability",
+    "IntelligenceUsabilityFramework",
+    "assess_intelligence_usability",
+    "load_usability_registry",
+    "validate_usability_replay",
 ]
