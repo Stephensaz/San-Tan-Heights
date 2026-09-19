@@ -1,0 +1,91 @@
+name: M13-006C Historical Evidence CI
+
+on:
+  pull_request:
+    paths:
+      - 'contracts/community_temporal_state/**'
+      - 'registries/community_temporal_state/**'
+      - 'src/community_temporal_state/**'
+      - 'tests/unit/community_temporal_state/**'
+      - 'docs/implementation/M13-006C.md'
+      - 'certification-evidence/m13-006b/**'
+      - 'certification-evidence/m13-006c/**'
+      - 'CONTRACT-MANIFEST.yaml'
+      - 'BUILD-MANIFEST.yaml'
+      - '.github/workflows/m13-006c-historical-evidence-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  m13-006c:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pytest pyyaml
+      - name: Validate M13-006C frozen boundary and accepted B predecessor
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          import yaml
+
+          manifest=yaml.safe_load(Path("CONTRACT-MANIFEST.yaml").read_text())
+          rows=[x for x in manifest["contracts"] if x["id"]=="STH-SCENARIO-HISTORICAL-EVIDENCE"]
+          assert len(rows)==1
+          row=rows[0]
+          path=Path(row["path"])
+          assert path.exists()
+          assert hashlib.sha256(path.read_bytes()).hexdigest()==row["sha256"]
+          contract=yaml.safe_load(path.read_text())
+          assert contract["status"]=="LOCKED"
+          assert contract["ticket"]=="M13-006C"
+
+          pred=json.loads(Path("certification-evidence/m13-006b/certified-baseline-acceptance-v1.0.json").read_text())
+          assert pred["ticket"]=="M13-006B"
+          assert pred["status"]=="ACCEPTED"
+          assert pred["waivers"]==0
+          assert pred["open_defects"]==0
+
+          build=yaml.safe_load(Path("BUILD-MANIFEST.yaml").read_text())
+          assert build["current_ticket"]=="M13-006C"
+          states={x["id"]:x["status"] for x in build["milestones"]}
+          assert states["M12"]=="ACCEPTED"
+          assert states["M13"]=="IN_PROGRESS"
+
+          for key,value in contract["hard_boundaries"].items():
+              assert value is True,key
+
+          registry=yaml.safe_load(Path("registries/community_temporal_state/m13-006c-historical-evidence-v1.0.yaml").read_text())
+          assert registry["status"]=="FROZEN"
+          assert registry["ticket"]=="M13-006C"
+          assert registry["coverage_states"]==["SUFFICIENT","PARTIAL","NONE"]
+          for key in ("no_scenario_calculation","no_prediction","no_recommendation","no_ranking","no_execution"):
+              assert registry["policy"][key] is True
+
+          evidence_path=Path("certification-evidence/m13-006c/historical-evidence-acceptance-v1.0.json")
+          if evidence_path.exists():
+              evidence=json.loads(evidence_path.read_text())
+              assert evidence["ticket"]=="M13-006C"
+              assert evidence["status"]=="ACCEPTED"
+              assert evidence["parent"]["ticket"]=="M13-006B"
+              assert evidence["scenario_historical_evidence_contract_sha256"]==row["sha256"]
+              assert evidence["tests"]["failed"]==0
+              assert evidence["waivers"]==0
+              assert evidence["open_defects"]==0
+              assert all(x["conclusion"]=="success" for x in evidence["github_checks"])
+          print("PASS: M13-006C boundary and accepted M13-006B predecessor are pinned")
+          PY
+      - name: Run M13-006C tests
+        run: pytest -q tests/unit/community_temporal_state/test_scenario_evidence.py
+      - name: Run all M13 temporal-state regression tests
+        run: pytest -q tests/unit/community_temporal_state
+      - name: Run inherited M12 regression
+        run: pytest -q tests/unit/listing_execution
+      - name: Validate repository structure
+        run: python scripts_validate_repo.py
