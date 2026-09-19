@@ -1,0 +1,31 @@
+review_workspace_registry_id: STH-M13-006I-REVIEW-WORKSPACE-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-006I
+contract_id: STH-SCENARIO-REVIEW-WORKSPACE
+
+review_states:
+  - READY_FOR_HUMAN_REVIEW
+
+required_sections:
+  - certified_inputs
+  - facts
+  - assumptions
+  - scenario_outputs
+  - comparisons
+  - evidence
+  - unknowns
+  - limitations
+  - human_decisions
+
+policy:
+  preserve_human_scenario_order: true
+  human_decisions_are_external_inputs: true
+  deterministic_output: true
+  no_automatic_selection: true
+  no_recommendation: true
+  no_ranking: true
+  no_winner: true
+  no_hidden_score: true
+  no_execution: true
+  no_publication: true
