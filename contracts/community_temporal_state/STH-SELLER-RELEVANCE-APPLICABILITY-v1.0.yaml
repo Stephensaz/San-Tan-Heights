@@ -1,0 +1,40 @@
+contract_id: STH-SELLER-RELEVANCE-APPLICABILITY
+version: 1.0.0
+status: LOCKED
+milestone: M13
+ticket: M13-007C
+name: Seller-Relevance & Applicability Engine
+depends_on:
+  - STH-CROSS-SYSTEM-EVIDENCE-BINDING
+  - STH-UNIFIED-SELLER-INTELLIGENCE
+purpose:
+  property_specific_applicability_required: true
+  explicit_rule_reason_required: true
+  exclusion_preservation_required: true
+  uncertainty_preservation_required: true
+  deterministic_applicability_required: true
+applicability_states:
+  - APPLICABLE
+  - NOT_APPLICABLE
+  - UNKNOWN
+  - BLOCKED
+hard_boundaries:
+  unified_state_synthesis_prohibited: true
+  relevance_scoring_prohibited: true
+  recommendation_prohibited: true
+  prediction_prohibited: true
+  ranking_prohibited: true
+  seller_scoring_prohibited: true
+  m12_execution_prohibited: true
+  hidden_weighting_prohibited: true
+  unknown_coercion_prohibited: true
+  upstream_mutation_prohibited: true
+acceptance:
+  ready_bundle_required: true
+  explicit_rule_id_required: true
+  explicit_reason_required: true
+  evidence_lineage_preserved: true
+  exclusions_preserved: true
+  uncertainty_preserved: true
+  deterministic_replay_required: true
+  zero_waivers_required: true
