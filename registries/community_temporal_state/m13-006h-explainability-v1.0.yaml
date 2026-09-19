@@ -1,0 +1,32 @@
+explainability_registry_id: STH-M13-006H-EXPLAINABILITY-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-006H
+contract_id: STH-SCENARIO-EXPLAINABILITY
+
+change_dimensions:
+  - pricing_position
+  - listing_timing
+  - buyer_depth
+  - comparable_depth
+  - resale_competition
+  - substitution_requirement
+  - new_construction_competition
+  - builder_inventory
+  - builder_incentive_value
+  - builder_incentive_posture
+
+policy:
+  facts_assumptions_separate: true
+  evidence_lineage_required: true
+  uncertainty_required: true
+  limitations_required: true
+  preserve_comparison_relations: true
+  no_prediction: true
+  no_recommendation: true
+  no_ranking: true
+  no_winner: true
+  no_hidden_score: true
+  no_invented_confidence: true
+  no_causal_inference: true
+  no_execution: true
