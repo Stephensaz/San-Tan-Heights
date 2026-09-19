@@ -1,0 +1,56 @@
+scenario_registry_id: STH-M13-006-SCENARIO-REGISTRY-v1.0
+status: FROZEN
+ticket: M13-006
+scenario_types:
+  - BASELINE
+  - PRICING_POSITION
+  - LISTING_TIMING
+  - BUYER_DEPTH
+  - SUBSTITUTION
+  - COMPETITIVE_SET
+  - NEW_CONSTRUCTION
+dimensions:
+  - pricing_position
+  - listing_timing
+  - buyer_depth
+  - comparable_depth
+  - substitution_requirement
+  - scarcity_context
+  - resale_competition
+  - new_construction_competition
+  - historical_support
+  - coverage
+  - uncertainty
+assumption_kinds:
+  - OBSERVED
+  - USER_SUPPLIED
+  - MODELED
+truth_states:
+  - CERTIFIED
+  - ASSERTED
+  - UNKNOWN
+pattern_states_allowed:
+  - PROMOTED
+  - REPLICATED
+prohibited_output_tokens:
+  - recommended
+  - best
+  - winner
+  - optimal
+  - should choose
+  - will sell
+  - likely to sell
+  - guaranteed
+policy:
+  require_certified_baseline: true
+  require_temporal_ledger_lineage: true
+  require_evidence_lineage: true
+  require_explicit_assumptions: true
+  preserve_user_scenario_order: true
+  require_unknowns_section: true
+  require_limitations_section: true
+  allow_numeric_modeled_deltas: true
+  prediction_prohibited: true
+  recommendation_prohibited: true
+  ranking_prohibited: true
+  execution_prohibited: true
