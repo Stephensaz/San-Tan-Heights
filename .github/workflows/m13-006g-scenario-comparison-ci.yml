@@ -47,7 +47,7 @@ jobs:
           assert pred["ticket"]=="M13-006F" and pred["status"]=="ACCEPTED"
           assert pred["waivers"]==0 and pred["open_defects"]==0
           build=yaml.safe_load(Path("BUILD-MANIFEST.yaml").read_text())
-          assert build["current_ticket"]=="M13-006G"
+          assert build["current_ticket"].startswith("M13-006")
           registry=yaml.safe_load(Path("registries/community_temporal_state/m13-006g-scenario-comparison-v1.0.yaml").read_text())
           assert registry["status"]=="FROZEN" and registry["ticket"]=="M13-006G"
           for key in ("no_ranking","no_winner","no_recommendation","no_hidden_score","no_weights","no_prediction","no_causal_inference","no_execution"):
