@@ -210,6 +210,16 @@ from .current_unified_state import (
     validate_current_state_result_replay,
 )
 
+from .state_delta import (
+    IntelligenceDelta,
+    SellerIntelligenceChangeLedger,
+    SignificanceRule,
+    build_change_ledger,
+    load_state_delta_registry,
+    make_significance_rule,
+    validate_change_ledger_replay,
+)
+
 __all__ = [
     "CommunityStateSnapshot",
     "PropertyStateProjection",
@@ -367,4 +377,11 @@ __all__ = [
     "build_current_unified_state",
     "load_current_state_registry",
     "validate_current_state_result_replay",
+    "IntelligenceDelta",
+    "SellerIntelligenceChangeLedger",
+    "SignificanceRule",
+    "build_change_ledger",
+    "load_state_delta_registry",
+    "make_significance_rule",
+    "validate_change_ledger_replay",
 ]
