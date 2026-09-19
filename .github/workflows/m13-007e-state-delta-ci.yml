@@ -40,7 +40,22 @@ jobs:
           r=yaml.safe_load(Path("registries/community_temporal_state/m13-007e-state-delta-v1.0.yaml").read_text())
           assert r["status"]=="FROZEN" and r["ticket"]=="M13-007E"
           for k in ("same_property_required","same_community_required","prior_time_before_current_required","deterministic_output","explicit_significance_rules","no_hidden_weighting","preserve_unknown_transitions","preserve_state_lineage","no_recommendation","no_action_generation","no_prediction","no_ranking","no_seller_scoring","no_m12_execution"): assert r["policy"][k] is True
-          print("PASS: M13-007E boundary and accepted M13-007D predecessor are pinned")
+          evidence_path=Path("certification-evidence/m13-007e/state-delta-acceptance-v1.0.json")
+          if evidence_path.exists():
+              evidence=json.loads(evidence_path.read_text())
+              assert evidence["ticket"]=="M13-007E" and evidence["status"]=="ACCEPTED"
+              assert evidence["parent"]["ticket"]=="M13-007D"
+              assert evidence["state_delta_contract_sha256"]==row["sha256"]
+              assert evidence["tests"]["m13_007e_specific_passed"]==12
+              assert evidence["tests"]["m13_temporal_state_total_passed"]==309
+              assert evidence["tests"]["inherited_m12_passed"]==137
+              assert evidence["tests"]["failed"]==0
+              assert evidence["workflows"]["total"]==36
+              assert evidence["workflows"]["successful"]==36
+              assert evidence["workflows"]["failed"]==0
+              assert evidence["waivers"]==0 and evidence["open_defects"]==0
+              assert all(x["conclusion"]=="success" for x in evidence["github_workflow_runs"])
+          print("PASS: M13-007E boundary, accepted M13-007D predecessor, and acceptance evidence are pinned")
           PY
       - name: Run M13-007E tests
         run: pytest -q tests/unit/community_temporal_state/test_state_delta.py
