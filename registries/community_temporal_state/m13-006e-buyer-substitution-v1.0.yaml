@@ -1,0 +1,42 @@
+buyer_substitution_registry_id: STH-M13-006E-BUYER-SUBSTITUTION-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-006E
+contract_id: STH-SCENARIO-BUYER-SUBSTITUTION-COMPETITIVE
+
+dimensions:
+  buyer_depth:
+    assumption_key: candidate_buyer_depth
+    reference_fact_keys:
+      - current_buyer_depth
+      - buyer_depth
+  comparable_depth:
+    assumption_key: candidate_comparable_depth
+    reference_fact_keys:
+      - current_comparable_depth
+      - comparable_depth
+  resale_competition:
+    assumption_key: candidate_resale_competition
+    reference_fact_keys:
+      - current_resale_competition
+      - resale_competition
+  substitution_requirement:
+    assumption_key: candidate_substitution_requirement
+    reference_fact_keys:
+      - current_substitution_requirement
+      - substitution_requirement
+  scarcity_context:
+    reference_fact_keys:
+      - scarcity_context
+      - current_scarcity_context
+
+policy:
+  require_explicit_human_assumption: true
+  require_certified_reference_fact: true
+  deterministic_output: true
+  no_prediction: true
+  no_recommendation: true
+  no_ranking: true
+  no_hidden_score: true
+  no_causal_inference: true
+  no_execution: true
