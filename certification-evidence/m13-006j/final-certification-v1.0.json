@@ -1,0 +1,270 @@
+{
+  "evidence_id": "STH-M13-006J-FINAL-CERTIFICATION-v1.0",
+  "ticket": "M13-006J",
+  "subsystem": "M13-006",
+  "status": "ACCEPTED",
+  "decision": "PASS / GO",
+  "candidate": {
+    "pull_request": 74,
+    "head_sha": "b17cf5659e7a1a7f44ee15123c8212f5476679eb",
+    "base_sha": "2564c9c38f0a86ed1697d27c00943c7af98110d2"
+  },
+  "governing_i": {
+    "ticket": "M13-006I",
+    "evidence": "certification-evidence/m13-006i/review-workspace-acceptance-v1.0.json",
+    "corrected_boundary": true
+  },
+  "evidence_chain": [
+    [
+      "M13-006A",
+      "certification-evidence/m13-006a/scenario-governance-acceptance-v1.0.json",
+      "0af5bc80ff6c8e66fafbf83a30822049a514eab3"
+    ],
+    [
+      "M13-006B",
+      "certification-evidence/m13-006b/certified-baseline-acceptance-v1.0.json",
+      "0f2648d71c1f1543be25d38d0e47d88d3c67c79b"
+    ],
+    [
+      "M13-006C",
+      "certification-evidence/m13-006c/scenario-evidence-acceptance-v1.0.json",
+      "ca077a44a7f553cc4bc967b60857c7cdf8791998"
+    ],
+    [
+      "M13-006D",
+      "certification-evidence/m13-006d/pricing-timing-acceptance-v1.0.json",
+      "92ea9fe5ce5a482cb5fc35ae1d3fda68e1ad1326"
+    ],
+    [
+      "M13-006E",
+      "certification-evidence/m13-006e/buyer-substitution-acceptance-v1.0.json",
+      "bc4da9fb49e99afd4c4853072f7f16c903f1216e"
+    ],
+    [
+      "M13-006F",
+      "certification-evidence/m13-006f/new-construction-acceptance-v1.0.json",
+      "8bb3d7531bfda861b41114576510ddbbd9093298"
+    ],
+    [
+      "M13-006G",
+      "certification-evidence/m13-006g/scenario-comparison-acceptance-v1.0.json",
+      "c5a5f746ced33a1e841d614a9fa21a6143d269ed"
+    ],
+    [
+      "M13-006H",
+      "certification-evidence/m13-006h/explainability-acceptance-v1.0.json",
+      "4323d1234f028ac197e2c9b0cd12218d61536646"
+    ],
+    [
+      "M13-006I",
+      "certification-evidence/m13-006i/review-workspace-acceptance-v1.0.json",
+      "fc8b7e18f28c7eec0ac8bc4d9da04eeea94608ce"
+    ]
+  ],
+  "tests": {
+    "certification_tests_passed": 7,
+    "governing_scenario_tests_passed": 153,
+    "m13_temporal_state_total_passed": 251,
+    "inherited_m12_passed": 137,
+    "failed": 0
+  },
+  "checks": {
+    "total": 31,
+    "successful": 31,
+    "failed": 0
+  },
+  "github_checks": [
+    {
+      "name": "m13-005",
+      "check_run_id": 105924368611,
+      "run_id": 35453404593,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-003",
+      "check_run_id": 105924368494,
+      "run_id": 35453404546,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006f",
+      "check_run_id": 105924368470,
+      "run_id": 35453404511,
+      "conclusion": "success"
+    },
+    {
+      "name": "final-seller-intelligence-certification",
+      "check_run_id": 105924368390,
+      "run_id": 35453404558,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006e",
+      "check_run_id": 105924368373,
+      "run_id": 35453404537,
+      "conclusion": "success"
+    },
+    {
+      "name": "final-integrated-certification",
+      "check_run_id": 105924368370,
+      "run_id": 35453404436,
+      "conclusion": "success"
+    },
+    {
+      "name": "validate-m10-boundary",
+      "check_run_id": 105924368359,
+      "run_id": 35453404517,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-001",
+      "check_run_id": 105924368355,
+      "run_id": 35453404525,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006b",
+      "check_run_id": 105924368329,
+      "run_id": 35453404519,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006i",
+      "check_run_id": 105924368305,
+      "run_id": 35453404487,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006c",
+      "check_run_id": 105924368303,
+      "run_id": 35453404539,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006j",
+      "check_run_id": 105924368289,
+      "run_id": 35453404494,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-004",
+      "check_run_id": 105924368274,
+      "run_id": 35453404541,
+      "conclusion": "success"
+    },
+    {
+      "name": "activation-tests",
+      "check_run_id": 105924368262,
+      "run_id": 35453404499,
+      "conclusion": "success"
+    },
+    {
+      "name": "validate-m9-boundary",
+      "check_run_id": 105924368247,
+      "run_id": 35453404490,
+      "conclusion": "success"
+    },
+    {
+      "name": "validate-m12-boundary",
+      "check_run_id": 105924368226,
+      "run_id": 35453404471,
+      "conclusion": "success"
+    },
+    {
+      "name": "presentation-tests",
+      "check_run_id": 105924368198,
+      "run_id": 35453404446,
+      "conclusion": "success"
+    },
+    {
+      "name": "listing-execution-tests",
+      "check_run_id": 105924368197,
+      "run_id": 35453404513,
+      "conclusion": "success"
+    },
+    {
+      "name": "final-certification",
+      "check_run_id": 105924368190,
+      "run_id": 35453404434,
+      "conclusion": "success"
+    },
+    {
+      "name": "final-certification",
+      "check_run_id": 105924368186,
+      "run_id": 35453404479,
+      "conclusion": "success"
+    },
+    {
+      "name": "validate-m11-boundary",
+      "check_run_id": 105924368180,
+      "run_id": 35453404498,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006i-review",
+      "check_run_id": 105924368160,
+      "run_id": 35453404450,
+      "conclusion": "success"
+    },
+    {
+      "name": "operational-certification",
+      "check_run_id": 105924368156,
+      "run_id": 35453404491,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006a",
+      "check_run_id": 105924368140,
+      "run_id": 35453404502,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006d",
+      "check_run_id": 105924368132,
+      "run_id": 35453404472,
+      "conclusion": "success"
+    },
+    {
+      "name": "presentation-tests",
+      "check_run_id": 105924368112,
+      "run_id": 35453404476,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-002",
+      "check_run_id": 105924368069,
+      "run_id": 35453404456,
+      "conclusion": "success"
+    },
+    {
+      "name": "seller-intelligence-tests",
+      "check_run_id": 105924368068,
+      "run_id": 35453404406,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006h",
+      "check_run_id": 105924368056,
+      "run_id": 35453404415,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006g",
+      "check_run_id": 105924367989,
+      "run_id": 35453404407,
+      "conclusion": "success"
+    },
+    {
+      "name": "evolution-tests",
+      "check_run_id": 105924367911,
+      "run_id": 35453404380,
+      "conclusion": "success"
+    }
+  ],
+  "certification_root_hash": "65f7d5ee3075a1606e3b0e0b5440a1281fe1f06f3dd51e3dd9bae3bb6e80c210",
+  "waivers": 0,
+  "open_defects": 0,
+  "unresolved_blocking_defects": 0,
+  "conditional_pass_allowed": false,
+  "m13_006k_exists": false
+}
