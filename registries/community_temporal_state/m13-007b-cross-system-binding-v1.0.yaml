@@ -1,0 +1,35 @@
+cross_system_binding_registry_id: STH-M13-007B-CROSS-SYSTEM-BINDING-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-007B
+contract_id: STH-CROSS-SYSTEM-EVIDENCE-BINDING
+required_systems:
+  - M11_SELLER_INTELLIGENCE
+  - M13_TEMPORAL_STATE
+  - M13_TEMPORAL_DELTA
+  - M13_TEMPORAL_HISTORY
+  - M13_PROMOTED_PATTERNS
+  - M13_SCENARIO_INTELLIGENCE
+dependency_statuses:
+  - BOUND
+  - MISSING
+  - STALE
+  - CONFLICTING
+  - INCOMPATIBLE
+  - NOT_APPLICABLE
+policy:
+  exact_property_match: true
+  exact_community_match: true
+  temporal_boundary_must_not_be_future: true
+  fingerprints_required: true
+  deterministic_output: true
+  fail_closed_on_conflict: true
+  missing_is_explicit: true
+  stale_is_explicit: true
+  no_relevance_decision: true
+  no_state_synthesis: true
+  no_recommendation: true
+  no_prediction: true
+  no_ranking: true
+  no_seller_scoring: true
+  no_m12_execution: true
