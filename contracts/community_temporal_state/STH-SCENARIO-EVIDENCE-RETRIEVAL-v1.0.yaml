@@ -1,0 +1,54 @@
+contract_id: STH-SCENARIO-EVIDENCE-RETRIEVAL
+version: 1.0.0
+status: LOCKED
+milestone: M13
+ticket: M13-006C
+name: Historical Analog & Scenario Evidence Retrieval Engine
+
+depends_on:
+  - STH-SCENARIO-CERTIFIED-BASELINE
+  - STH-COMMUNITY-TEMPORAL-HISTORY
+  - STH-COMMUNITY-EVOLUTION-PATTERNS
+
+purpose:
+  certified_scenario_baseline_required: true
+  reproducible_temporal_ledger_required: true
+  governed_query_contract_required: true
+  deterministic_historical_evidence_retrieval_required: true
+  explicit_inclusion_exclusion_reasoning_required: true
+  evidence_lineage_required: true
+  temporal_cutoff_enforcement_required: true
+  limitation_carry_forward_required: true
+  replay_validation_required: true
+
+hard_boundaries:
+  uncertified_scenario_context_use_prohibited: true
+  nonreproducible_ledger_use_prohibited: true
+  future_knowledge_leakage_prohibited: true
+  silent_filtering_prohibited: true
+  evidence_lineage_loss_prohibited: true
+  historical_outcome_prediction_prohibited: true
+  causal_inference_prohibited: true
+  recommendation_prohibited: true
+  ranking_prohibited: true
+  winner_selection_prohibited: true
+  hidden_utility_score_prohibited: true
+  scenario_calculation_prohibited: true
+  list_price_selection_prohibited: true
+  direct_m12_execution_prohibited: true
+  publication_prohibited: true
+  unknown_suppression_prohibited: true
+  limitation_suppression_prohibited: true
+
+acceptance:
+  exact_b_context_fingerprint_required: true
+  exact_ledger_fingerprint_required: true
+  deterministic_query_hash_required: true
+  deterministic_result_order_required: true
+  temporal_cutoff_test_required: true
+  explicit_exclusion_reasons_required: true
+  source_and_evidence_fingerprints_preserved: true
+  correction_lineage_preserved: true
+  complete_replay_required: true
+  forbidden_decision_fields_absent: true
+  zero_waivers_required: true
