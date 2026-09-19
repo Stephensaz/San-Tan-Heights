@@ -1,0 +1,77 @@
+contract_id: STH-SCENARIO-INTELLIGENCE
+version: 1.0.0
+status: LOCKED
+ticket: M13-006
+purpose: Governed descriptive scenario intelligence for seller and agent decision support.
+predecessor: M13-005
+subsequence:
+  - M13-006A_SCENARIO_REGISTRY_ASSUMPTION_CONTRACT_AND_GOVERNANCE
+  - M13-006B_CERTIFIED_BASELINE_ASSEMBLY_AND_PATTERN_APPLICABILITY
+  - M13-006C_HISTORICAL_ANALOG_AND_SCENARIO_EVIDENCE_RETRIEVAL
+  - M13-006D_PRICING_POSITION_AND_LISTING_TIMING_SCENARIO_ENGINE
+  - M13-006E_BUYER_DEPTH_SUBSTITUTION_AND_COMPETITIVE_SET_SCENARIO_ENGINE
+  - M13-006F_NEW_CONSTRUCTION_COMPETITION_SCENARIO_ENGINE
+  - M13-006G_MULTI_SCENARIO_COMPARISON_AND_TRADEOFF_ENGINE
+  - M13-006H_UNCERTAINTY_LIMITATION_AND_EXPLAINABILITY_FRAMEWORK
+  - M13-006I_GOVERNED_SCENARIO_REVIEW_WORKSPACE_AND_DECISION_SUPPORT_PACKAGE_ASSEMBLY
+  - M13-006J_FULL_SCENARIO_INTELLIGENCE_CERTIFICATION_REPLAY_COVERAGE_CLOSURE_AND_PRODUCTION_CANDIDATE_ADJUDICATION
+hard_boundaries:
+  prediction_prohibited: true
+  recommendation_prohibited: true
+  ranking_or_winner_selection_prohibited: true
+  hidden_utility_score_prohibited: true
+  autonomous_seller_decisions_prohibited: true
+  listing_execution_mutation_prohibited: true
+  m12_execution_mutation_prohibited: true
+  temporal_history_mutation_prohibited: true
+  pattern_promotion_prohibited: true
+  evidence_lineage_bypass_prohibited: true
+  assumption_concealment_prohibited: true
+  uncertainty_suppression_prohibited: true
+  limitation_suppression_prohibited: true
+  unsupported_causal_claim_prohibited: true
+  silent_refresh_prohibited: true
+  scenario_order_reinterpretation_prohibited: true
+  publication_prohibited: true
+governed_dimensions:
+  - pricing_position
+  - listing_timing
+  - buyer_depth
+  - comparable_depth
+  - substitution_requirement
+  - scarcity_context
+  - resale_competition
+  - new_construction_competition
+  - promoted_patterns
+  - historical_support
+  - coverage
+  - uncertainty
+required_lineage:
+  - certified_baseline_fingerprint
+  - temporal_ledger_fingerprint
+  - source_evidence_fingerprints
+  - applicable_pattern_fingerprints
+  - assumption_fingerprints
+required_review_package_sections:
+  - certified_inputs
+  - facts
+  - assumptions
+  - evidence
+  - scenario_outputs
+  - comparisons
+  - unknowns
+  - limitations
+  - human_decisions
+certification:
+  clean_environment_replay_required: true
+  exact_production_candidate_required: true
+  executable_coverage_required_for_all_frozen_invariants: true
+  deterministic_replay_required: true
+  adversarial_tests_required: true
+  temporal_tests_required: true
+  zero_waivers_required: true
+  zero_open_critical_defects_required: true
+  decisions:
+    - PASS_GO
+    - FAIL_NO_GO
+  additional_subticket_after_j_prohibited: true
