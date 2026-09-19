@@ -182,6 +182,15 @@ from .unified_seller_intelligence import (
     validate_unified_state_replay,
 )
 
+from .cross_system_binding import (
+    DependencyArtifact,
+    GovernedInputBundle,
+    load_cross_system_binding_registry,
+    make_dependency,
+    resolve_input_bundle,
+    validate_input_bundle_replay,
+)
+
 __all__ = [
     "CommunityStateSnapshot",
     "PropertyStateProjection",
@@ -320,4 +329,10 @@ __all__ = [
     "make_intelligence_item",
     "make_source_ref",
     "validate_unified_state_replay",
+    "DependencyArtifact",
+    "GovernedInputBundle",
+    "load_cross_system_binding_registry",
+    "make_dependency",
+    "resolve_input_bundle",
+    "validate_input_bundle_replay",
 ]
