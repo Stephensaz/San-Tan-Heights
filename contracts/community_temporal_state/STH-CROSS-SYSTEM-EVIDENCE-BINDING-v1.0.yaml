@@ -1,0 +1,50 @@
+contract_id: STH-CROSS-SYSTEM-EVIDENCE-BINDING
+version: 1.0.0
+status: LOCKED
+milestone: M13
+ticket: M13-007B
+name: Cross-System Evidence Binding & Dependency Resolver
+depends_on:
+  - STH-UNIFIED-SELLER-INTELLIGENCE
+  - STH-SELLER-INTELLIGENCE
+  - STH-COMMUNITY-TEMPORAL-STATE
+  - STH-COMMUNITY-DELTA
+  - STH-COMMUNITY-TEMPORAL-HISTORY
+  - STH-COMMUNITY-EVOLUTION-PATTERNS
+  - STH-SCENARIO-REVIEW-WORKSPACE
+purpose:
+  exact_property_binding_required: true
+  temporal_boundary_binding_required: true
+  complete_dependency_lineage_required: true
+  source_fingerprint_validation_required: true
+  explicit_dependency_status_required: true
+  governed_input_bundle_required: true
+dependency_statuses:
+  - BOUND
+  - MISSING
+  - STALE
+  - CONFLICTING
+  - INCOMPATIBLE
+  - NOT_APPLICABLE
+hard_boundaries:
+  seller_relevance_determination_prohibited: true
+  unified_state_synthesis_prohibited: true
+  recommendation_prohibited: true
+  prediction_prohibited: true
+  ranking_prohibited: true
+  seller_scoring_prohibited: true
+  m12_execution_prohibited: true
+  upstream_mutation_prohibited: true
+  silent_refresh_prohibited: true
+  silent_conflict_resolution_prohibited: true
+acceptance:
+  deterministic_binding_required: true
+  property_identity_match_required: true
+  community_identity_match_required: true
+  temporal_compatibility_required: true
+  fingerprint_integrity_required: true
+  duplicate_dependency_rejected: true
+  missing_dependencies_explicit: true
+  stale_dependencies_explicit: true
+  conflicting_dependencies_explicit: true
+  zero_waivers_required: true
