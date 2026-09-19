@@ -1,0 +1,38 @@
+buyer_depth_substitution_registry_id: STH-M13-006E-BUYER-DEPTH-SUBSTITUTION-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-006E
+contract_id: STH-SCENARIO-BUYER-DEPTH-SUBSTITUTION
+
+policy:
+  candidate_buyer_depth_assumption_key: candidate_buyer_depth
+  candidate_substitution_requirement_assumption_key: candidate_substitution_requirement
+  candidate_competitive_set_size_assumption_key: candidate_competitive_set_size
+  reference_buyer_depth_fact_keys:
+    - buyer_depth
+    - active_buyer_depth
+  reference_substitution_fact_keys:
+    - substitution_requirement
+    - substitution_depth
+  reference_competitive_set_fact_keys:
+    - competitive_set_size
+    - resale_competition
+    - comparable_depth
+  historical_buyer_depth_fact_keys:
+    - buyer_depth
+    - active_buyer_depth
+  historical_substitution_fact_keys:
+    - substitution_requirement
+    - substitution_depth
+  historical_competitive_set_fact_keys:
+    - competitive_set_size
+    - resale_competition
+    - comparable_depth
+  no_demand_prediction: true
+  no_probability_prediction: true
+  no_absorption_prediction: true
+  no_recommendation: true
+  no_competitor_ranking: true
+  no_scenario_ranking: true
+  no_causal_inference: true
+  no_execution: true
