@@ -1,0 +1,56 @@
+contract_id: STH-SCENARIO-GOVERNANCE
+version: 1.0.0
+status: LOCKED
+milestone: M13
+ticket: M13-006A
+name: Scenario Definition, Assumption Governance & Contract Freezing
+
+depends_on:
+  - STH-COMMUNITY-EVOLUTION-PATTERNS
+  - STH-COMMUNITY-TEMPORAL-STATE
+
+purpose:
+  immutable_versioned_scenario_contracts_required: true
+  certified_baseline_reference_required: true
+  typed_assumption_sets_required: true
+  fact_assumption_separation_required: true
+  deterministic_hashing_required: true
+  audit_lineage_required: true
+  ready_state_freeze_required: true
+  supersession_instead_of_mutation_required: true
+
+lifecycle:
+  allowed_states:
+    - DRAFT
+    - READY
+  ready_is_immutable: true
+  later_change_requires_new_contract_version: true
+
+hard_boundaries:
+  scenario_calculation_prohibited: true
+  prediction_prohibited: true
+  recommendation_prohibited: true
+  ranking_prohibited: true
+  winner_selection_prohibited: true
+  hidden_utility_score_prohibited: true
+  list_price_selection_prohibited: true
+  future_outcome_claims_prohibited: true
+  direct_m12_execution_prohibited: true
+  publication_prohibited: true
+  fact_assumption_collision_prohibited: true
+  uncertified_baseline_use_prohibited: true
+  silent_assumption_defaulting_prohibited: true
+  ready_contract_mutation_prohibited: true
+
+acceptance:
+  deterministic_contract_hash_required: true
+  deterministic_ordering_required: true
+  typed_assumption_validation_required: true
+  duplicate_keys_rejected: true
+  fact_assumption_collision_rejected: true
+  certified_baseline_enforced: true
+  exact_baseline_fingerprint_required: true
+  ready_contract_replay_required: true
+  ready_contract_immutability_required: true
+  forbidden_decision_fields_absent: true
+  zero_waivers_required: true
