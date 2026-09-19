@@ -40,7 +40,22 @@ jobs:
           r=yaml.safe_load(Path("registries/community_temporal_state/m13-007f-usability-v1.0.yaml").read_text())
           assert r["status"]=="FROZEN" and r["ticket"]=="M13-007F"
           for k in ("exact_state_ledger_match","per_dimension_assessment","block_only_affected_dimension","unaffected_dimensions_preserved","stale_never_silent","conflicts_never_silent","unknowns_never_coerced","limitations_never_suppressed","deterministic_output","no_brief_assembly","no_recommendation","no_action_generation","no_prediction","no_ranking","no_seller_scoring","no_m12_execution"): assert r["policy"][k] is True
-          print("PASS: M13-007F boundary and accepted M13-007E predecessor are pinned")
+          evidence_path=Path("certification-evidence/m13-007f/usability-framework-acceptance-v1.0.json")
+          if evidence_path.exists():
+              evidence=json.loads(evidence_path.read_text())
+              assert evidence["ticket"]=="M13-007F" and evidence["status"]=="ACCEPTED"
+              assert evidence["parent"]["ticket"]=="M13-007E"
+              assert evidence["usability_contract_sha256"]==row["sha256"]
+              assert evidence["tests"]["m13_007f_specific_passed"]==10
+              assert evidence["tests"]["m13_temporal_state_total_passed"]==319
+              assert evidence["tests"]["inherited_m12_passed"]==137
+              assert evidence["tests"]["failed"]==0
+              assert evidence["workflows"]["total"]==37
+              assert evidence["workflows"]["successful"]==37
+              assert evidence["workflows"]["failed"]==0
+              assert evidence["waivers"]==0 and evidence["open_defects"]==0
+              assert all(x["conclusion"]=="success" for x in evidence["github_workflow_runs"])
+          print("PASS: M13-007F boundary, accepted M13-007E predecessor, and acceptance evidence are pinned")
           PY
       - name: Run M13-007F tests
         run: pytest -q tests/unit/community_temporal_state/test_intelligence_usability.py
