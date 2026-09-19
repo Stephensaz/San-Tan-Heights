@@ -1,0 +1,61 @@
+unified_intelligence_registry_id: STH-M13-007A-UNIFIED-INTELLIGENCE-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-007A
+contract_id: STH-UNIFIED-SELLER-INTELLIGENCE
+
+source_classes:
+  - CERTIFIED_FACT
+  - CURRENT_OBSERVATION
+  - HISTORICAL_OBSERVATION
+  - PROMOTED_PATTERN
+  - EXPLICIT_SCENARIO_ASSUMPTION
+  - SCENARIO_RESULT
+  - UNKNOWN
+  - LIMITATION
+  - HUMAN_INPUT
+
+freshness_states:
+  - CURRENT
+  - STALE
+  - SUPERSEDED
+  - UNKNOWN
+  - NOT_APPLICABLE
+
+conflict_states:
+  - NO_CONFLICT
+  - RESOLVED_BY_GOVERNED_PRECEDENCE
+  - UNRESOLVED_CONFLICT
+  - INSUFFICIENT_EVIDENCE
+
+change_states:
+  - NEW
+  - CHANGED
+  - UNCHANGED
+  - STALE
+  - RESOLVED
+  - NO_LONGER_APPLICABLE
+  - UNKNOWN
+
+significance_classes:
+  - INFORMATIONAL
+  - NOTICEABLE_CHANGE
+  - MATERIAL_CHANGE
+  - REVIEW_REQUIRED
+  - INSUFFICIENT_INFORMATION
+
+policy:
+  deterministic_output: true
+  immutable_state: true
+  lineage_required: true
+  facts_assumptions_distinct: true
+  unknowns_first_class: true
+  stale_is_explicit: true
+  conflicts_are_explicit: true
+  significance_is_descriptive_only: true
+  no_recommendation: true
+  no_prediction: true
+  no_ranking: true
+  no_seller_scoring: true
+  no_m12_execution: true
+  no_publication: true

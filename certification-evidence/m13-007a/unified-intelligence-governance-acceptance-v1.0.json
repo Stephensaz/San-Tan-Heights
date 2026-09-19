@@ -1,0 +1,236 @@
+{
+  "evidence_id": "STH-M13-007A-UNIFIED-INTELLIGENCE-GOVERNANCE-v1.0",
+  "ticket": "M13-007A",
+  "status": "ACCEPTED",
+  "parent": {
+    "ticket": "M13-006J",
+    "evidence": "certification-evidence/m13-006j/final-certification-v1.0.json",
+    "decision": "PASS / GO"
+  },
+  "acceptance_candidate": {
+    "pull_request": 76,
+    "head_sha": "fe6c0514e5e992aac6e825b99d3f43f8671e3853",
+    "base_sha": "b5652c27217fcce272570bcebfdcdee761545aab"
+  },
+  "unified_intelligence_contract_sha256": "ae74ed66f55e3631e29e57f57422174a0f7ad43c742fa0b4b66ed75ab2dc2b18",
+  "capabilities": {
+    "unified_property_level_schema": true,
+    "source_taxonomy": true,
+    "evidence_lineage": true,
+    "freshness_states": true,
+    "conflict_states": true,
+    "change_states": true,
+    "significance_classes": true,
+    "unknowns_first_class": true,
+    "deterministic_immutable_state": true
+  },
+  "controls": {
+    "no_price_selection": true,
+    "no_strategy_recommendation": true,
+    "no_scenario_ranking": true,
+    "no_prediction": true,
+    "no_seller_motivation_inference": true,
+    "no_seller_scoring": true,
+    "no_m12_execution": true,
+    "no_homeowner_contact": true,
+    "no_publication": true,
+    "no_upstream_mutation": true,
+    "no_silent_stale_refresh": true,
+    "no_unknown_inference": true
+  },
+  "tests": {
+    "m13_007a_specific_passed": 13,
+    "m13_temporal_state_total_passed": 264,
+    "inherited_m12_passed": 137,
+    "failed": 0
+  },
+  "checks": {
+    "total": 30,
+    "successful": 30,
+    "failed": 0
+  },
+  "github_checks": [
+    {
+      "name": "m13-006g",
+      "check_run_id": 105940340771,
+      "run_id": 35459374692,
+      "conclusion": "success"
+    },
+    {
+      "name": "activation-tests",
+      "check_run_id": 105940340486,
+      "run_id": 35459374560,
+      "conclusion": "success"
+    },
+    {
+      "name": "operational-certification",
+      "check_run_id": 105940340481,
+      "run_id": 35459374576,
+      "conclusion": "success"
+    },
+    {
+      "name": "validate-m12-boundary",
+      "check_run_id": 105940340359,
+      "run_id": 35459374540,
+      "conclusion": "success"
+    },
+    {
+      "name": "final-certification",
+      "check_run_id": 105940340350,
+      "run_id": 35459374566,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006h",
+      "check_run_id": 105940340314,
+      "run_id": 35459374543,
+      "conclusion": "success"
+    },
+    {
+      "name": "presentation-tests",
+      "check_run_id": 105940340260,
+      "run_id": 35459374507,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-003",
+      "check_run_id": 105940340238,
+      "run_id": 35459374520,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006j",
+      "check_run_id": 105940340224,
+      "run_id": 35459374504,
+      "conclusion": "success"
+    },
+    {
+      "name": "final-seller-intelligence-certification",
+      "check_run_id": 105940340218,
+      "run_id": 35459374499,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006d",
+      "check_run_id": 105940340168,
+      "run_id": 35459374479,
+      "conclusion": "success"
+    },
+    {
+      "name": "final-certification",
+      "check_run_id": 105940340153,
+      "run_id": 35459374495,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006c",
+      "check_run_id": 105940340114,
+      "run_id": 35459374476,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-004",
+      "check_run_id": 105940340109,
+      "run_id": 35459374482,
+      "conclusion": "success"
+    },
+    {
+      "name": "validate-m10-boundary",
+      "check_run_id": 105940340102,
+      "run_id": 35459374480,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006i-review",
+      "check_run_id": 105940340078,
+      "run_id": 35459374490,
+      "conclusion": "success"
+    },
+    {
+      "name": "validate-m11-boundary",
+      "check_run_id": 105940340068,
+      "run_id": 35459374481,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006f",
+      "check_run_id": 105940340065,
+      "run_id": 35459374463,
+      "conclusion": "success"
+    },
+    {
+      "name": "validate-m9-boundary",
+      "check_run_id": 105940340051,
+      "run_id": 35459374458,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-005",
+      "check_run_id": 105940340021,
+      "run_id": 35459374500,
+      "conclusion": "success"
+    },
+    {
+      "name": "presentation-tests",
+      "check_run_id": 105940340019,
+      "run_id": 35459374454,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-001",
+      "check_run_id": 105940340006,
+      "run_id": 35459374459,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006a",
+      "check_run_id": 105940340002,
+      "run_id": 35459374436,
+      "conclusion": "success"
+    },
+    {
+      "name": "seller-intelligence-tests",
+      "check_run_id": 105940340001,
+      "run_id": 35459374443,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006e",
+      "check_run_id": 105940339986,
+      "run_id": 35459374475,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-006b",
+      "check_run_id": 105940339978,
+      "run_id": 35459374440,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-002",
+      "check_run_id": 105940339977,
+      "run_id": 35459374488,
+      "conclusion": "success"
+    },
+    {
+      "name": "m13-007a",
+      "check_run_id": 105940339941,
+      "run_id": 35459374462,
+      "conclusion": "success"
+    },
+    {
+      "name": "final-integrated-certification",
+      "check_run_id": 105940339885,
+      "run_id": 35459374446,
+      "conclusion": "success"
+    },
+    {
+      "name": "listing-execution-tests",
+      "check_run_id": 105940339884,
+      "run_id": 35459374451,
+      "conclusion": "success"
+    }
+  ],
+  "waivers": 0,
+  "open_defects": 0
+}

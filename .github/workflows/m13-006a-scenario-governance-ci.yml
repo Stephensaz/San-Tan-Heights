@@ -56,7 +56,7 @@ jobs:
           assert evidence["open_defects"]==0
 
           build=yaml.safe_load(Path("BUILD-MANIFEST.yaml").read_text())
-          assert build["current_ticket"].startswith("M13-006")
+          assert build["current_ticket"].startswith("M13-")
           states={x["id"]:x["status"] for x in build["milestones"]}
           assert states["M12"]=="ACCEPTED"
           assert states["M13"]=="IN_PROGRESS"

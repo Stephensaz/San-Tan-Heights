@@ -1,0 +1,102 @@
+contract_id: STH-UNIFIED-SELLER-INTELLIGENCE
+version: 1.0.0
+status: LOCKED
+milestone: M13
+ticket: M13-007A
+name: Unified Intelligence Schema, Source Taxonomy & Governance
+
+depends_on:
+  - STH-SELLER-INTELLIGENCE
+  - STH-COMMUNITY-TEMPORAL-STATE
+  - STH-COMMUNITY-DELTA
+  - STH-COMMUNITY-TEMPORAL-HISTORY
+  - STH-COMMUNITY-EVOLUTION-PATTERNS
+  - STH-SCENARIO-REVIEW-WORKSPACE
+
+purpose:
+  unified_property_level_intelligence_state_required: true
+  immutable_versioned_state_required: true
+  source_taxonomy_required: true
+  evidence_lineage_required: true
+  freshness_state_required: true
+  conflict_state_required: true
+  unknowns_first_class_required: true
+  significance_classification_governed: true
+
+source_classes:
+  - CERTIFIED_FACT
+  - CURRENT_OBSERVATION
+  - HISTORICAL_OBSERVATION
+  - PROMOTED_PATTERN
+  - EXPLICIT_SCENARIO_ASSUMPTION
+  - SCENARIO_RESULT
+  - UNKNOWN
+  - LIMITATION
+  - HUMAN_INPUT
+
+freshness_states:
+  - CURRENT
+  - STALE
+  - SUPERSEDED
+  - UNKNOWN
+  - NOT_APPLICABLE
+
+conflict_states:
+  - NO_CONFLICT
+  - RESOLVED_BY_GOVERNED_PRECEDENCE
+  - UNRESOLVED_CONFLICT
+  - INSUFFICIENT_EVIDENCE
+
+change_states:
+  - NEW
+  - CHANGED
+  - UNCHANGED
+  - STALE
+  - RESOLVED
+  - NO_LONGER_APPLICABLE
+  - UNKNOWN
+
+significance_classes:
+  - INFORMATIONAL
+  - NOTICEABLE_CHANGE
+  - MATERIAL_CHANGE
+  - REVIEW_REQUIRED
+  - INSUFFICIENT_INFORMATION
+
+hard_boundaries:
+  list_price_selection_prohibited: true
+  pricing_strategy_recommendation_prohibited: true
+  list_or_do_not_list_recommendation_prohibited: true
+  listing_timing_recommendation_prohibited: true
+  scenario_ranking_prohibited: true
+  scenario_selection_prohibited: true
+  sale_price_prediction_prohibited: true
+  days_on_market_prediction_prohibited: true
+  sale_probability_prohibited: true
+  appreciation_prediction_prohibited: true
+  seller_motivation_inference_prohibited: true
+  seller_urgency_inference_prohibited: true
+  seller_lead_scoring_prohibited: true
+  hidden_opportunity_score_prohibited: true
+  m12_action_generation_prohibited: true
+  m12_action_approval_prohibited: true
+  m12_execution_prohibited: true
+  homeowner_contact_prohibited: true
+  external_publication_prohibited: true
+  upstream_mutation_prohibited: true
+  silent_stale_refresh_prohibited: true
+  unknown_value_inference_prohibited: true
+
+acceptance:
+  deterministic_schema_required: true
+  complete_source_taxonomy_required: true
+  lineage_required_for_material_items: true
+  facts_assumptions_distinct: true
+  historical_evidence_remains_historical: true
+  scenario_assumptions_remain_assumptions: true
+  promoted_patterns_not_predictions: true
+  unknowns_preserved: true
+  stale_state_explicit: true
+  conflicts_explicit: true
+  significance_is_change_only_not_advice: true
+  zero_waivers_required: true

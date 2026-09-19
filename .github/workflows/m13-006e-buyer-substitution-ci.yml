@@ -48,7 +48,7 @@ jobs:
           assert pred["ticket"]=="M13-006D" and pred["status"]=="ACCEPTED"
           assert pred["waivers"]==0 and pred["open_defects"]==0
           build=yaml.safe_load(Path("BUILD-MANIFEST.yaml").read_text())
-          assert build["current_ticket"].startswith("M13-006")
+          assert build["current_ticket"].startswith("M13-")
           states={x["id"]:x["status"] for x in build["milestones"]}
           assert states["M12"]=="ACCEPTED" and states["M13"]=="IN_PROGRESS"
           registry=yaml.safe_load(Path("registries/community_temporal_state/m13-006e-buyer-substitution-v1.0.yaml").read_text())
