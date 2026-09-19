@@ -1,0 +1,38 @@
+new_construction_registry_id: STH-M13-006F-NEW-CONSTRUCTION-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-006F
+contract_id: STH-SCENARIO-NEW-CONSTRUCTION-COMPETITION
+
+dimensions:
+  new_construction_competition:
+    assumption_key: candidate_new_construction_competition
+    reference_fact_keys:
+      - current_new_construction_competition
+      - new_construction_competition
+  builder_inventory:
+    assumption_key: candidate_builder_inventory
+    reference_fact_keys:
+      - current_builder_inventory
+      - builder_inventory
+  builder_incentive_value:
+    assumption_key: candidate_builder_incentive_value
+    reference_fact_keys:
+      - current_builder_incentive_value
+      - builder_incentive_value
+  builder_incentive_posture:
+    assumption_key: candidate_builder_incentive_posture
+    reference_fact_keys:
+      - current_builder_incentive_posture
+      - builder_incentive_posture
+
+policy:
+  require_explicit_human_assumption: true
+  require_certified_reference_fact: true
+  deterministic_output: true
+  no_prediction: true
+  no_recommendation: true
+  no_ranking: true
+  no_hidden_score: true
+  no_causal_inference: true
+  no_execution: true
