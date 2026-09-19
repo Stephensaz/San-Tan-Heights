@@ -36,7 +36,7 @@ jobs:
           c=yaml.safe_load(p.read_text()); assert c["status"]=="LOCKED" and c["ticket"]=="M13-007D"; assert all(c["hard_boundaries"].values())
           pred=json.loads(Path("certification-evidence/m13-007c/seller-relevance-acceptance-v1.0.json").read_text())
           assert pred["ticket"]=="M13-007C" and pred["status"]=="ACCEPTED" and pred["waivers"]==0 and pred["open_defects"]==0
-          b=yaml.safe_load(Path("BUILD-MANIFEST.yaml").read_text()); assert b["current_ticket"].startsWith("M13-007")
+          b=yaml.safe_load(Path("BUILD-MANIFEST.yaml").read_text()); assert b["current_ticket"].startswith("M13-007")
           r=yaml.safe_load(Path("registries/community_temporal_state/m13-007d-current-state-v1.0.yaml").read_text())
           assert r["status"]=="FROZEN" and r["ticket"]=="M13-007D"
           for k in ("input_bundle_must_be_ready","applicability_bundle_match_required","property_match_required","applicable_only_promotion","unknowns_preserved","exclusions_preserved","limitations_preserved","lineage_preserved","deterministic_output","prior_state_comparison_prohibited","material_change_detection_prohibited","no_recommendation","no_prediction","no_ranking","no_seller_scoring","no_m12_execution"): assert r["policy"][k] is True
