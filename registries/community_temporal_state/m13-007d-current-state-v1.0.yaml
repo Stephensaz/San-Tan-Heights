@@ -1,0 +1,30 @@
+current_state_registry_id: STH-M13-007D-CURRENT-STATE-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-007D
+contract_id: STH-CURRENT-UNIFIED-SELLER-INTELLIGENCE-STATE
+promotable_applicability_states:
+  - APPLICABLE
+unknown_applicability_states:
+  - UNKNOWN
+excluded_applicability_states:
+  - NOT_APPLICABLE
+blocking_applicability_states:
+  - BLOCKED
+policy:
+  input_bundle_must_be_ready: true
+  applicability_bundle_match_required: true
+  property_match_required: true
+  applicable_only_promotion: true
+  unknowns_preserved: true
+  exclusions_preserved: true
+  limitations_preserved: true
+  lineage_preserved: true
+  deterministic_output: true
+  prior_state_comparison_prohibited: true
+  material_change_detection_prohibited: true
+  no_recommendation: true
+  no_prediction: true
+  no_ranking: true
+  no_seller_scoring: true
+  no_m12_execution: true
