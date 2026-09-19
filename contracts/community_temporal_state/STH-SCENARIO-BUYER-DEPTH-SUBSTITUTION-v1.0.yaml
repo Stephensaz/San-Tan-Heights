@@ -1,0 +1,55 @@
+contract_id: STH-SCENARIO-BUYER-DEPTH-SUBSTITUTION
+version: 1.0.0
+status: LOCKED
+milestone: M13
+ticket: M13-006E
+name: Buyer Depth, Substitution & Competitive Set Scenario Engine
+
+depends_on:
+  - STH-SCENARIO-PRICING-TIMING
+  - STH-SCENARIO-EVIDENCE-RETRIEVAL
+  - STH-SCENARIO-CERTIFIED-BASELINE
+
+purpose:
+  certified_d_state_required: true
+  certified_scenario_context_required: true
+  certified_scenario_evidence_required: true
+  explicit_human_assumptions_required: true
+  descriptive_buyer_depth_position_required: true
+  descriptive_substitution_position_required: true
+  descriptive_competitive_set_position_required: true
+  historical_distribution_summary_required: true
+  deterministic_replay_required: true
+  uncertainty_and_limitation_carry_forward_required: true
+
+hard_boundaries:
+  implicit_assumption_prohibited: true
+  buyer_demand_prediction_prohibited: true
+  buyer_probability_prediction_prohibited: true
+  absorption_prediction_prohibited: true
+  sale_probability_prohibited: true
+  recommended_substitution_strategy_prohibited: true
+  recommended_competitive_set_prohibited: true
+  competitor_ranking_prohibited: true
+  scenario_ranking_prohibited: true
+  winner_selection_prohibited: true
+  hidden_utility_score_prohibited: true
+  causal_inference_prohibited: true
+  direct_m12_execution_prohibited: true
+  publication_prohibited: true
+  evidence_lineage_loss_prohibited: true
+  unknown_suppression_prohibited: true
+  limitation_suppression_prohibited: true
+
+acceptance:
+  exact_b_context_fingerprint_required: true
+  exact_c_evidence_fingerprint_required: true
+  exact_d_state_fingerprint_required: true
+  explicit_assumption_required_for_candidate_calculation: true
+  certified_reference_fact_required: true
+  descriptive_numeric_difference_only_required: true
+  historical_distribution_descriptive_only_required: true
+  deterministic_evidence_partition_required: true
+  complete_replay_required: true
+  forbidden_decision_fields_absent: true
+  zero_waivers_required: true
