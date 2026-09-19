@@ -67,6 +67,19 @@ from .patterns import (
     validate_candidate_replay,
 )
 
+from .scenario_governance import (
+    ScenarioAssumption,
+    ScenarioContract,
+    ScenarioFact,
+    assert_ready_contract_immutable,
+    build_scenario_contract,
+    load_scenario_governance_registry,
+    make_scenario_assumption,
+    make_scenario_fact,
+    ready_scenario_contract,
+    validate_scenario_contract_replay,
+)
+
 __all__ = [
     "CommunityStateSnapshot",
     "PropertyStateProjection",
@@ -123,4 +136,14 @@ __all__ = [
     "promote_pattern",
     "validate_and_replicate_pattern",
     "validate_candidate_replay",
+    "ScenarioAssumption",
+    "ScenarioContract",
+    "ScenarioFact",
+    "assert_ready_contract_immutable",
+    "build_scenario_contract",
+    "load_scenario_governance_registry",
+    "make_scenario_assumption",
+    "make_scenario_fact",
+    "ready_scenario_contract",
+    "validate_scenario_contract_replay",
 ]

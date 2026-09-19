@@ -129,4 +129,12 @@ contracts:
   depends_on:
   - STH-COMMUNITY-TEMPORAL-HISTORY
   - STH-TEMPORAL-IMPACT-REFRESH
+- id: STH-SCENARIO-GOVERNANCE
+  version: 1.0.0
+  status: LOCKED
+  path: contracts/community_temporal_state/STH-SCENARIO-GOVERNANCE-v1.0.yaml
+  sha256: 4cb4b40ce4e074480560a64d82f6f40d513741fbd2370d5da12e26cbcd9e4da5
+  depends_on:
+  - STH-COMMUNITY-EVOLUTION-PATTERNS
+  - STH-COMMUNITY-TEMPORAL-STATE
 hash_algorithm: SHA-256
