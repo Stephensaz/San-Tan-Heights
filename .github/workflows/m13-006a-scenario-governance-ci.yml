@@ -1,0 +1,89 @@
+name: M13-006A Scenario Governance CI
+
+on:
+  pull_request:
+    paths:
+      - 'contracts/community_temporal_state/**'
+      - 'registries/community_temporal_state/**'
+      - 'src/community_temporal_state/**'
+      - 'tests/unit/community_temporal_state/**'
+      - 'docs/implementation/M13-006A.md'
+      - 'CONTRACT-MANIFEST.yaml'
+      - 'BUILD-MANIFEST.yaml'
+      - '.github/workflows/m13-006a-scenario-governance-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  m13-006a:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pytest pyyaml
+      - name: Validate M13-006A frozen boundary and predecessor
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          import yaml
+
+          manifest=yaml.safe_load(Path("CONTRACT-MANIFEST.yaml").read_text())
+          rows=[x for x in manifest["contracts"] if x["id"]=="STH-SCENARIO-GOVERNANCE"]
+          assert len(rows)==1
+          row=rows[0]
+          path=Path(row["path"])
+          assert path.exists()
+          assert hashlib.sha256(path.read_bytes()).hexdigest()==row["sha256"]
+          contract=yaml.safe_load(path.read_text())
+          assert contract["status"]=="LOCKED"
+          assert contract["ticket"]=="M13-006A"
+
+          predecessor=yaml.safe_load(Path("contracts/community_temporal_state/STH-COMMUNITY-EVOLUTION-PATTERNS-v1.0.yaml").read_text())
+          assert predecessor["status"]=="LOCKED"
+          assert predecessor["ticket"]=="M13-005"
+
+          evidence=json.loads(Path("certification-evidence/m13-005/evolution-patterns-acceptance-v1.0.json").read_text())
+          assert evidence["ticket"]=="M13-005"
+          assert evidence["status"]=="ACCEPTED"
+          assert evidence["waivers"]==0
+          assert evidence["open_defects"]==0
+
+          build=yaml.safe_load(Path("BUILD-MANIFEST.yaml").read_text())
+          assert build["current_ticket"]=="M13-006A"
+          states={x["id"]:x["status"] for x in build["milestones"]}
+          assert states["M12"]=="ACCEPTED"
+          assert states["M13"]=="IN_PROGRESS"
+
+          for key in (
+              "scenario_calculation_prohibited",
+              "prediction_prohibited",
+              "recommendation_prohibited",
+              "ranking_prohibited",
+              "winner_selection_prohibited",
+              "hidden_utility_score_prohibited",
+              "list_price_selection_prohibited",
+              "future_outcome_claims_prohibited",
+              "direct_m12_execution_prohibited",
+              "publication_prohibited",
+              "fact_assumption_collision_prohibited",
+              "uncertified_baseline_use_prohibited",
+              "silent_assumption_defaulting_prohibited",
+              "ready_contract_mutation_prohibited",
+          ):
+              assert contract["hard_boundaries"][key] is True
+          print("PASS: M13-006A frozen governance boundary and accepted M13-005 predecessor are pinned")
+          PY
+      - name: Run M13-006A tests
+        run: pytest -q tests/unit/community_temporal_state/test_scenario_governance.py
+      - name: Run all M13 temporal-state regression tests
+        run: pytest -q tests/unit/community_temporal_state
+      - name: Run inherited M12 regression
+        run: pytest -q tests/unit/listing_execution
+      - name: Validate repository structure
+        run: python scripts_validate_repo.py
