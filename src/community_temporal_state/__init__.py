@@ -148,6 +148,15 @@ from .scenario_explainability import (
     validate_scenario_explanation_replay,
 )
 
+from .scenario_review_workspace import (
+    ScenarioReviewItem,
+    ScenarioReviewPackage,
+    assemble_review_package,
+    build_review_item,
+    load_review_workspace_registry,
+    validate_review_package_replay,
+)
+
 __all__ = [
     "CommunityStateSnapshot",
     "PropertyStateProjection",
@@ -261,4 +270,10 @@ __all__ = [
     "load_explainability_registry",
     "validate_comparison_explanation_replay",
     "validate_scenario_explanation_replay",
+    "ScenarioReviewItem",
+    "ScenarioReviewPackage",
+    "assemble_review_package",
+    "build_review_item",
+    "load_review_workspace_registry",
+    "validate_review_package_replay",
 ]
