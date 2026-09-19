@@ -1,0 +1,25 @@
+historical_evidence_registry_id: STH-M13-006C-HISTORICAL-EVIDENCE-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-006C
+contract_id: STH-SCENARIO-HISTORICAL-EVIDENCE
+
+coverage_states:
+  - SUFFICIENT
+  - PARTIAL
+  - NONE
+
+policy:
+  require_certified_b_context: true
+  require_temporal_lineage: true
+  enforce_valid_time: true
+  enforce_knowledge_time: true
+  deterministic_selection: true
+  preserve_entry_truth_state: true
+  preserve_entry_limitations: true
+  empty_result_is_valid: true
+  no_scenario_calculation: true
+  no_prediction: true
+  no_recommendation: true
+  no_ranking: true
+  no_execution: true
