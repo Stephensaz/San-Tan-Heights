@@ -1,0 +1,35 @@
+name: M13-006J Full Scenario Intelligence Certification
+
+on:
+  pull_request:
+    paths:
+      - 'src/community_temporal_state/**'
+      - 'tests/certification/**'
+      - 'tests/unit/community_temporal_state/**'
+      - 'certification-evidence/m13-006*/**'
+      - 'docs/implementation/M13-006J.md'
+      - 'BUILD-MANIFEST.yaml'
+      - '.github/workflows/m13-006j-full-certification-ci.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  m13-006j:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pytest pyyaml
+      - name: Execute M13-006J certification tests
+        run: pytest -q tests/certification/test_m13_006j_certification.py
+      - name: Replay complete M13 temporal-state suite
+        run: pytest -q tests/unit/community_temporal_state
+      - name: Replay inherited M12 regression
+        run: pytest -q tests/unit/listing_execution
+      - name: Validate repository structure
+        run: python scripts_validate_repo.py
