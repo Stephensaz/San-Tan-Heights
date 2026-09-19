@@ -171,6 +171,17 @@ from .scenario_review_workspace import (
     validate_review_package_replay,
 )
 
+from .unified_seller_intelligence import (
+    IntelligenceSourceRef,
+    UnifiedIntelligenceItem,
+    UnifiedSellerIntelligenceState,
+    build_unified_state,
+    load_unified_intelligence_registry,
+    make_intelligence_item,
+    make_source_ref,
+    validate_unified_state_replay,
+)
+
 __all__ = [
     "CommunityStateSnapshot",
     "PropertyStateProjection",
@@ -301,4 +312,12 @@ __all__ = [
     "mark_package_stale",
     "record_human_review",
     "validate_review_package_replay",
+    "IntelligenceSourceRef",
+    "UnifiedIntelligenceItem",
+    "UnifiedSellerIntelligenceState",
+    "build_unified_state",
+    "load_unified_intelligence_registry",
+    "make_intelligence_item",
+    "make_source_ref",
+    "validate_unified_state_replay",
 ]
