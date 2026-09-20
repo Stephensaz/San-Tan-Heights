@@ -1,0 +1,40 @@
+continuous_certification_registry_id: STH-M13-009-CONTINUOUS-CERTIFICATION-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-009
+contract_id: STH-CONTINUOUS-INTELLIGENCE-CERTIFICATION
+required_artifact_kinds:
+  - COMMUNITY_SNAPSHOT
+  - TEMPORAL_DELTA
+  - TEMPORAL_HISTORY
+  - PROMOTED_PATTERNS
+  - SCENARIO_INTELLIGENCE
+  - UNIFIED_SELLER_INTELLIGENCE
+  - HISTORICAL_REPLAY
+review_artifact_states:
+  - DEGRADED
+  - STALE
+blocking_artifact_states:
+  - BLOCKED
+  - MISSING
+policy:
+  certification_each_refresh: true
+  exact_artifact_lineage: true
+  fingerprints_required: true
+  prior_receipt_immutable: true
+  deterministic_output: true
+  drift_never_silent: true
+  stale_never_silent: true
+  missing_never_silent: true
+  conflicts_never_silent: true
+  no_automatic_repair: true
+  no_silent_recertification: true
+  no_recommendation: true
+  no_prediction: true
+  no_ranking: true
+  no_seller_scoring: true
+  no_autonomous_contact: true
+  no_autonomous_marketing: true
+  no_autonomous_pricing: true
+  no_autonomous_execution: true
+  no_m12_circumvention: true
