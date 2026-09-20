@@ -1,0 +1,43 @@
+contract_id: STH-GOVERNED-SELLER-DECISION-BRIEF
+version: 1.0.0
+status: LOCKED
+milestone: M13
+ticket: M13-007G
+name: Governed Seller Decision-Brief Assembly
+depends_on:
+  - STH-UNIFIED-SELLER-INTELLIGENCE
+  - STH-CURRENT-UNIFIED-SELLER-INTELLIGENCE-STATE
+  - STH-SELLER-INTELLIGENCE-STATE-DELTA
+  - STH-SELLER-INTELLIGENCE-USABILITY
+purpose:
+  human_review_brief_required: true
+  exact_a_to_f_lineage_required: true
+  current_state_section_required: true
+  change_section_required: true
+  usability_section_required: true
+  unknowns_limitations_exclusions_required: true
+  review_required_conditions_required: true
+hard_boundaries:
+  new_analysis_prohibited: true
+  recommendation_prohibited: true
+  list_price_selection_prohibited: true
+  pricing_strategy_selection_prohibited: true
+  action_generation_prohibited: true
+  prediction_prohibited: true
+  ranking_prohibited: true
+  seller_scoring_prohibited: true
+  hidden_weighting_prohibited: true
+  m12_execution_prohibited: true
+  source_mutation_prohibited: true
+acceptance:
+  exact_state_match_required: true
+  exact_delta_match_required: true
+  exact_usability_match_required: true
+  blocked_dimensions_not_presented_as_usable: true
+  unknowns_explicit: true
+  limitations_explicit: true
+  exclusions_explicit: true
+  review_conditions_explicit: true
+  evidence_lineage_preserved: true
+  deterministic_brief_required: true
+  zero_waivers_required: true
