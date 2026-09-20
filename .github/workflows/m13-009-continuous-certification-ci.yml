@@ -41,7 +41,22 @@ jobs:
           b=yaml.safe_load(Path("BUILD-MANIFEST.yaml").read_text()); assert b["current_ticket"]=="M13-009"
           r=yaml.safe_load(Path("registries/community_temporal_state/m13-009-continuous-certification-v1.0.yaml").read_text())
           assert r["status"]=="FROZEN" and r["ticket"]=="M13-009" and all(r["policy"].values())
-          print("PASS: M13-009 boundary and accepted M13-008 predecessor are pinned")
+          evidence_path=Path("certification-evidence/m13-009/continuous-certification-acceptance-v1.0.json")
+          if evidence_path.exists():
+              evidence=json.loads(evidence_path.read_text())
+              assert evidence["ticket"]=="M13-009" and evidence["status"]=="ACCEPTED"
+              assert evidence["parent"]["ticket"]=="M13-008"
+              assert evidence["continuous_certification_contract_sha256"]==row["sha256"]
+              assert evidence["tests"]["m13_009_specific_passed"]==12
+              assert evidence["tests"]["m13_temporal_state_total_passed"]==353
+              assert evidence["tests"]["inherited_m12_passed"]==137
+              assert evidence["tests"]["failed"]==0
+              assert evidence["workflows"]["total"]==41
+              assert evidence["workflows"]["successful"]==41
+              assert evidence["workflows"]["failed"]==0
+              assert evidence["waivers"]==0 and evidence["open_defects"]==0 and evidence["unresolved_blocking_defects"]==0
+              assert all(x["conclusion"]=="success" for x in evidence["github_workflow_runs"])
+          print("PASS: M13-009 boundary, accepted M13-008 predecessor, and acceptance evidence are pinned")
           PY
       - name: Run M13-009 tests
         run: pytest -q tests/unit/community_temporal_state/test_continuous_certification.py
