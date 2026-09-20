@@ -1,0 +1,52 @@
+name: M13-007G Seller Decision Brief CI
+on:
+  pull_request:
+    paths:
+      - 'contracts/community_temporal_state/**'
+      - 'registries/community_temporal_state/**'
+      - 'src/community_temporal_state/**'
+      - 'tests/unit/community_temporal_state/**'
+      - 'docs/implementation/M13-007G.md'
+      - 'certification-evidence/m13-007f/**'
+      - 'certification-evidence/m13-007g/**'
+      - 'CONTRACT-MANIFEST.yaml'
+      - 'BUILD-MANIFEST.yaml'
+      - '.github/workflows/m13-007g-seller-brief-ci.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  m13-007g:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: python -m pip install pytest pyyaml
+      - name: Validate G boundary and accepted F predecessor
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          import yaml
+          m=yaml.safe_load(Path("CONTRACT-MANIFEST.yaml").read_text())
+          row=[x for x in m["contracts"] if x["id"]=="STH-GOVERNED-SELLER-DECISION-BRIEF"][0]
+          p=Path(row["path"]); assert hashlib.sha256(p.read_bytes()).hexdigest()==row["sha256"]
+          c=yaml.safe_load(p.read_text()); assert c["status"]=="LOCKED" and c["ticket"]=="M13-007G"; assert all(c["hard_boundaries"].values())
+          pred=json.loads(Path("certification-evidence/m13-007f/usability-framework-acceptance-v1.0.json").read_text())
+          assert pred["ticket"]=="M13-007F" and pred["status"]=="ACCEPTED" and pred["waivers"]==0 and pred["open_defects"]==0
+          b=yaml.safe_load(Path("BUILD-MANIFEST.yaml").read_text()); assert b["current_ticket"]=="M13-007G"
+          r=yaml.safe_load(Path("registries/community_temporal_state/m13-007g-seller-brief-v1.0.yaml").read_text())
+          assert r["status"]=="FROZEN" and r["ticket"]=="M13-007G"
+          for k in ("exact_state_match","exact_delta_match","exact_usability_match","deterministic_output","preserve_evidence_lineage","preserve_unknowns","preserve_limitations","preserve_exclusions","preserve_review_conditions","no_new_analysis","no_recommendation","no_list_price_selection","no_pricing_strategy_selection","no_action_generation","no_prediction","no_ranking","no_seller_scoring","no_m12_execution"): assert r["policy"][k] is True
+          print("PASS: M13-007G boundary and accepted M13-007F predecessor are pinned")
+          PY
+      - name: Run M13-007G tests
+        run: pytest -q tests/unit/community_temporal_state/test_seller_decision_brief.py
+      - name: Run all M13 temporal-state regression tests
+        run: pytest -q tests/unit/community_temporal_state
+      - name: Run inherited M12 regression
+        run: pytest -q tests/unit/listing_execution
+      - name: Validate repository structure
+        run: python scripts_validate_repo.py
