@@ -40,7 +40,22 @@ jobs:
           r=yaml.safe_load(Path("registries/community_temporal_state/m13-007g-seller-brief-v1.0.yaml").read_text())
           assert r["status"]=="FROZEN" and r["ticket"]=="M13-007G"
           for k in ("exact_state_match","exact_delta_match","exact_usability_match","deterministic_output","preserve_evidence_lineage","preserve_unknowns","preserve_limitations","preserve_exclusions","preserve_review_conditions","no_new_analysis","no_recommendation","no_list_price_selection","no_pricing_strategy_selection","no_action_generation","no_prediction","no_ranking","no_seller_scoring","no_m12_execution"): assert r["policy"][k] is True
-          print("PASS: M13-007G boundary and accepted M13-007F predecessor are pinned")
+          evidence_path=Path("certification-evidence/m13-007g/seller-decision-brief-acceptance-v1.0.json")
+          if evidence_path.exists():
+              evidence=json.loads(evidence_path.read_text())
+              assert evidence["ticket"]=="M13-007G" and evidence["status"]=="ACCEPTED"
+              assert evidence["parent"]["ticket"]=="M13-007F"
+              assert evidence["seller_brief_contract_sha256"]==row["sha256"]
+              assert evidence["tests"]["m13_007g_specific_passed"]==10
+              assert evidence["tests"]["m13_temporal_state_total_passed"]==329
+              assert evidence["tests"]["inherited_m12_passed"]==137
+              assert evidence["tests"]["failed"]==0
+              assert evidence["workflows"]["total"]==38
+              assert evidence["workflows"]["successful"]==38
+              assert evidence["workflows"]["failed"]==0
+              assert evidence["waivers"]==0 and evidence["open_defects"]==0
+              assert all(x["conclusion"]=="success" for x in evidence["github_workflow_runs"])
+          print("PASS: M13-007G boundary, accepted M13-007F predecessor, and acceptance evidence are pinned")
           PY
       - name: Run M13-007G tests
         run: pytest -q tests/unit/community_temporal_state/test_seller_decision_brief.py
