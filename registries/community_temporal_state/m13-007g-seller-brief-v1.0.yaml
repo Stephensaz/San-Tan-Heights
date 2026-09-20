@@ -1,0 +1,32 @@
+seller_brief_registry_id: STH-M13-007G-SELLER-BRIEF-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-007G
+contract_id: STH-GOVERNED-SELLER-DECISION-BRIEF
+section_order:
+  - CURRENT_INTELLIGENCE
+  - CHANGES
+  - USABILITY
+  - UNKNOWNS
+  - LIMITATIONS
+  - EXCLUSIONS
+  - REVIEW_REQUIRED
+policy:
+  exact_state_match: true
+  exact_delta_match: true
+  exact_usability_match: true
+  deterministic_output: true
+  preserve_evidence_lineage: true
+  preserve_unknowns: true
+  preserve_limitations: true
+  preserve_exclusions: true
+  preserve_review_conditions: true
+  no_new_analysis: true
+  no_recommendation: true
+  no_list_price_selection: true
+  no_pricing_strategy_selection: true
+  no_action_generation: true
+  no_prediction: true
+  no_ranking: true
+  no_seller_scoring: true
+  no_m12_execution: true
