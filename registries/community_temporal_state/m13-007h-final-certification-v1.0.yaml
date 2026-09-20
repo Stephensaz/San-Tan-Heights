@@ -1,0 +1,53 @@
+final_certification_registry_id: STH-M13-007H-FINAL-CERTIFICATION-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-007H
+subsystem: M13-007
+decision_values:
+  - PASS / GO
+  - FAIL / NO-GO
+conditional_pass_allowed: false
+required_tickets:
+  - M13-007A
+  - M13-007B
+  - M13-007C
+  - M13-007D
+  - M13-007E
+  - M13-007F
+  - M13-007G
+acceptance_requirements:
+  - deterministic_same_inputs_same_state
+  - complete_intelligence_lineage
+  - facts_assumptions_distinct
+  - historical_remains_historical
+  - scenario_assumptions_remain_assumptions
+  - promoted_patterns_not_predictions
+  - unknowns_explicit
+  - stale_not_silently_current
+  - conflicts_surfaced
+  - applicability_property_specific_reproducible
+  - no_unrelated_intelligence_leakage
+  - prior_state_comparison_exact
+  - material_changes_describe_evidence_change_only
+  - no_seller_motivation_inference
+  - no_list_price_selection
+  - no_scenario_ranking
+  - no_future_outcome_prediction
+  - no_hidden_seller_or_opportunity_score
+  - no_m12_execution_trigger
+  - human_review_does_not_mutate_analytics
+  - clean_replay_reproduces_hashes
+  - zero_waivers
+  - zero_unresolved_blocking_defects
+  - complete_executable_requirement_coverage
+policy:
+  no_functionality_added: true
+  exact_a_g_candidate_required: true
+  evidence_chain_required: true
+  parent_chain_required: true
+  deterministic_replay_required: true
+  inherited_regressions_required: true
+  binary_adjudication_only: true
+  zero_waivers_required: true
+  zero_open_defects_required: true
+  zero_unresolved_blocking_defects_required: true
