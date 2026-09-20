@@ -247,6 +247,15 @@ from .historical_replay import (
     validate_replay_report,
 )
 
+from .continuous_certification import (
+    CertificationArtifact,
+    ContinuousCertificationReceipt,
+    certify_intelligence_cycle,
+    load_continuous_certification_registry,
+    make_certification_artifact,
+    validate_continuous_certification_replay,
+)
+
 __all__ = [
     "CommunityStateSnapshot",
     "PropertyStateProjection",
@@ -429,4 +438,10 @@ __all__ = [
     "load_historical_replay_registry",
     "make_replay_case",
     "validate_replay_report",
+    "CertificationArtifact",
+    "ContinuousCertificationReceipt",
+    "certify_intelligence_cycle",
+    "load_continuous_certification_registry",
+    "make_certification_artifact",
+    "validate_continuous_certification_replay",
 ]

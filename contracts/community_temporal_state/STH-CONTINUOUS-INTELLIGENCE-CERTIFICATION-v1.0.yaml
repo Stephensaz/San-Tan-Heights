@@ -1,0 +1,54 @@
+contract_id: STH-CONTINUOUS-INTELLIGENCE-CERTIFICATION
+version: 1.0.0
+status: LOCKED
+milestone: M13
+ticket: M13-009
+name: Continuous Intelligence Certification
+depends_on:
+  - M13-008
+purpose:
+  certification_each_refresh_required: true
+  exact_artifact_lineage_required: true
+  freshness_validation_required: true
+  historical_replay_validation_required: true
+  drift_visibility_required: true
+  fail_closed_required: true
+  deterministic_receipt_required: true
+  prior_receipt_preservation_required: true
+certification_states:
+  - CERTIFIED
+  - REVIEW_REQUIRED
+  - BLOCKED
+artifact_states:
+  - CERTIFIED
+  - DEGRADED
+  - BLOCKED
+  - STALE
+  - MISSING
+hard_boundaries:
+  automatic_repair_prohibited: true
+  silent_recertification_prohibited: true
+  stale_as_current_prohibited: true
+  missing_as_present_prohibited: true
+  conflict_suppression_prohibited: true
+  recommendation_prohibited: true
+  prediction_prohibited: true
+  ranking_prohibited: true
+  seller_scoring_prohibited: true
+  autonomous_contact_prohibited: true
+  autonomous_marketing_prohibited: true
+  autonomous_pricing_prohibited: true
+  autonomous_execution_prohibited: true
+  m12_circumvention_prohibited: true
+acceptance:
+  exact_m13_008_predecessor_required: true
+  complete_required_artifact_set_required: true
+  artifact_fingerprints_required: true
+  prior_receipt_immutable_required: true
+  certified_only_when_all_required_controls_pass: true
+  degraded_for_review_required_conditions: true
+  blocked_for_missing_or_blocked_required_artifacts: true
+  drift_never_silent: true
+  stale_never_silent: true
+  deterministic_replay_required: true
+  zero_waivers_required: true

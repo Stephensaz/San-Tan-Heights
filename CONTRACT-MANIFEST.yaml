@@ -293,4 +293,11 @@ contracts:
   sha256: a3d472a35356b7c8641f13462a162d0782516c05e831ff28aba1041b1213f739
   depends_on:
   - M13-007H
+- id: STH-CONTINUOUS-INTELLIGENCE-CERTIFICATION
+  version: 1.0.0
+  status: LOCKED
+  path: contracts/community_temporal_state/STH-CONTINUOUS-INTELLIGENCE-CERTIFICATION-v1.0.yaml
+  sha256: cd6456ab34dfd35aac4e1c13c0e2d4c09da91b132872bca16cf0cbc0a5221ab7
+  depends_on:
+  - M13-008
 hash_algorithm: SHA-256
