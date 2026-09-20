@@ -1,0 +1,66 @@
+name: M13-007H Final Unified Seller Intelligence Certification
+
+on:
+  pull_request:
+    paths:
+      - 'src/community_temporal_state/**'
+      - 'tests/unit/community_temporal_state/**'
+      - 'tests/certification/test_m13_007h_unified_seller_intelligence_certification.py'
+      - 'docs/implementation/M13-007*.md'
+      - 'certification-evidence/m13-007*/**'
+      - 'registries/community_temporal_state/m13-007h-final-certification-v1.0.yaml'
+      - 'BUILD-MANIFEST.yaml'
+      - '.github/workflows/m13-007h-final-certification.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  m13-007h:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          clean: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pytest pyyaml
+      - name: Verify clean A-G certification chain and 24-requirement coverage
+        run: pytest -q tests/certification/test_m13_007h_unified_seller_intelligence_certification.py
+      - name: Replay governing M13-007A-G tests
+        run: |
+          pytest -q \
+            tests/unit/community_temporal_state/test_unified_seller_intelligence.py \
+            tests/unit/community_temporal_state/test_cross_system_binding.py \
+            tests/unit/community_temporal_state/test_seller_relevance.py \
+            tests/unit/community_temporal_state/test_current_unified_state.py \
+            tests/unit/community_temporal_state/test_state_delta.py \
+            tests/unit/community_temporal_state/test_intelligence_usability.py \
+            tests/unit/community_temporal_state/test_seller_decision_brief.py
+      - name: Replay all M13 temporal-state regressions
+        run: pytest -q tests/unit/community_temporal_state
+      - name: Replay inherited M12 regressions
+        run: pytest -q tests/unit/listing_execution
+      - name: Validate repository structure
+        run: python scripts_validate_repo.py
+      - name: Adjudicate production candidate
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          paths=[
+            "certification-evidence/m13-007a/unified-intelligence-governance-acceptance-v1.0.json",
+            "certification-evidence/m13-007b/cross-system-binding-acceptance-v1.0.json",
+            "certification-evidence/m13-007c/seller-relevance-acceptance-v1.0.json",
+            "certification-evidence/m13-007d/current-unified-state-acceptance-v1.0.json",
+            "certification-evidence/m13-007e/state-delta-acceptance-v1.0.json",
+            "certification-evidence/m13-007f/usability-framework-acceptance-v1.0.json",
+            "certification-evidence/m13-007g/seller-decision-brief-acceptance-v1.0.json",
+          ]
+          evidence=[json.loads(Path(p).read_text()) for p in paths]
+          assert all(x["status"]=="ACCEPTED" and x["waivers"]==0 and x["open_defects"]==0 and x["tests"]["failed"]==0 for x in evidence)
+          print("M13-007H CANDIDATE ADJUDICATION: PASS / GO")
+          PY
