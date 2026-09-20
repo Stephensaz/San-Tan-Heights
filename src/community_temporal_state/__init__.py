@@ -236,6 +236,17 @@ from .seller_decision_brief import (
     validate_seller_brief_replay,
 )
 
+from .historical_replay import (
+    HistoricalReplayCase,
+    HistoricalReplayReport,
+    HistoricalReplayResult,
+    build_replay_report,
+    evaluate_replay_case,
+    load_historical_replay_registry,
+    make_replay_case,
+    validate_replay_report,
+)
+
 __all__ = [
     "CommunityStateSnapshot",
     "PropertyStateProjection",
@@ -410,4 +421,12 @@ __all__ = [
     "assemble_seller_decision_brief",
     "load_seller_brief_registry",
     "validate_seller_brief_replay",
+    "HistoricalReplayCase",
+    "HistoricalReplayReport",
+    "HistoricalReplayResult",
+    "build_replay_report",
+    "evaluate_replay_case",
+    "load_historical_replay_registry",
+    "make_replay_case",
+    "validate_replay_report",
 ]
