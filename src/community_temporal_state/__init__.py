@@ -228,6 +228,14 @@ from .intelligence_usability import (
     validate_usability_replay,
 )
 
+from .seller_decision_brief import (
+    GovernedSellerDecisionBrief,
+    SellerBriefDimension,
+    assemble_seller_decision_brief,
+    load_seller_brief_registry,
+    validate_seller_brief_replay,
+)
+
 __all__ = [
     "CommunityStateSnapshot",
     "PropertyStateProjection",
@@ -397,4 +405,9 @@ __all__ = [
     "assess_intelligence_usability",
     "load_usability_registry",
     "validate_usability_replay",
+    "GovernedSellerDecisionBrief",
+    "SellerBriefDimension",
+    "assemble_seller_decision_brief",
+    "load_seller_brief_registry",
+    "validate_seller_brief_replay",
 ]
