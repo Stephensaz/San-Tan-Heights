@@ -1,0 +1,553 @@
+{
+  "evidence_id": "STH-M13-007H-FINAL-CERTIFICATION-v1.0",
+  "package_id": "M13_007_CERTIFICATION_PACKAGE",
+  "ticket": "M13-007H",
+  "subsystem": "M13-007",
+  "status": "ACCEPTED",
+  "decision": "PASS / GO",
+  "production_candidate_manifest": {
+    "pull_request": 83,
+    "head_sha": "77dde090131e0ba8a9acf77cd444d18250f086cd",
+    "base_sha": "f8f1423c5e1682d8ee3c0a2d41ba82434baccdeb",
+    "exact_a_g_candidate": true,
+    "functionality_added_by_h": false
+  },
+  "a_g_version_manifest": [
+    {
+      "ticket": "M13-007A",
+      "evidence": "certification-evidence/m13-007a/unified-intelligence-governance-acceptance-v1.0.json",
+      "accepted_merge_sha": "fd3546f084bba9663f7990419f183c5f256e10a9"
+    },
+    {
+      "ticket": "M13-007B",
+      "evidence": "certification-evidence/m13-007b/cross-system-binding-acceptance-v1.0.json",
+      "accepted_merge_sha": "aa470a1ea0719d5378f1666d59ffe3fae27b32d4"
+    },
+    {
+      "ticket": "M13-007C",
+      "evidence": "certification-evidence/m13-007c/seller-relevance-acceptance-v1.0.json",
+      "accepted_merge_sha": "f9eb2147a3cb0cd3bf60d58d6a9c15cdd3efba42"
+    },
+    {
+      "ticket": "M13-007D",
+      "evidence": "certification-evidence/m13-007d/current-unified-state-acceptance-v1.0.json",
+      "accepted_merge_sha": "198fa54bef63c27e9f60a0f66ee0a66e3d836d97"
+    },
+    {
+      "ticket": "M13-007E",
+      "evidence": "certification-evidence/m13-007e/state-delta-acceptance-v1.0.json",
+      "accepted_merge_sha": "6be28a510a175763c68119a3338456f24ddba946"
+    },
+    {
+      "ticket": "M13-007F",
+      "evidence": "certification-evidence/m13-007f/usability-framework-acceptance-v1.0.json",
+      "accepted_merge_sha": "8d9489ff87e2c6660d805d57e0327c154491adc5"
+    },
+    {
+      "ticket": "M13-007G",
+      "evidence": "certification-evidence/m13-007g/seller-decision-brief-acceptance-v1.0.json",
+      "accepted_merge_sha": "f8f1423c5e1682d8ee3c0a2d41ba82434baccdeb"
+    }
+  ],
+  "upstream_dependency_manifest": {
+    "M11": "ACCEPTED",
+    "M12": "ACCEPTED",
+    "M13_001_to_006": "ACCEPTED/CERTIFIED",
+    "M13_007_A_to_G": "ACCEPTED"
+  },
+  "requirement_traceability_matrix": [
+    {
+      "requirement": "deterministic_same_inputs_same_state",
+      "covered": true,
+      "covered_by": [
+        "M13-007A",
+        "M13-007D"
+      ]
+    },
+    {
+      "requirement": "complete_intelligence_lineage",
+      "covered": true,
+      "covered_by": [
+        "M13-007A",
+        "M13-007B",
+        "M13-007G"
+      ]
+    },
+    {
+      "requirement": "facts_assumptions_distinct",
+      "covered": true,
+      "covered_by": [
+        "M13-007A"
+      ]
+    },
+    {
+      "requirement": "historical_remains_historical",
+      "covered": true,
+      "covered_by": [
+        "M13-007A",
+        "M13-007B"
+      ]
+    },
+    {
+      "requirement": "scenario_assumptions_remain_assumptions",
+      "covered": true,
+      "covered_by": [
+        "M13-007A",
+        "M13-007B"
+      ]
+    },
+    {
+      "requirement": "promoted_patterns_not_predictions",
+      "covered": true,
+      "covered_by": [
+        "M13-007A",
+        "M13-007B"
+      ]
+    },
+    {
+      "requirement": "unknowns_explicit",
+      "covered": true,
+      "covered_by": [
+        "M13-007A",
+        "M13-007C",
+        "M13-007D",
+        "M13-007F",
+        "M13-007G"
+      ]
+    },
+    {
+      "requirement": "stale_not_silently_current",
+      "covered": true,
+      "covered_by": [
+        "M13-007B",
+        "M13-007D",
+        "M13-007F"
+      ]
+    },
+    {
+      "requirement": "conflicts_surfaced",
+      "covered": true,
+      "covered_by": [
+        "M13-007B",
+        "M13-007F"
+      ]
+    },
+    {
+      "requirement": "applicability_property_specific_reproducible",
+      "covered": true,
+      "covered_by": [
+        "M13-007C"
+      ]
+    },
+    {
+      "requirement": "no_unrelated_intelligence_leakage",
+      "covered": true,
+      "covered_by": [
+        "M13-007C",
+        "M13-007D"
+      ]
+    },
+    {
+      "requirement": "prior_state_comparison_exact",
+      "covered": true,
+      "covered_by": [
+        "M13-007E"
+      ]
+    },
+    {
+      "requirement": "material_changes_describe_evidence_change_only",
+      "covered": true,
+      "covered_by": [
+        "M13-007E"
+      ]
+    },
+    {
+      "requirement": "no_seller_motivation_inference",
+      "covered": true,
+      "covered_by": [
+        "M13-007A",
+        "M13-007C"
+      ]
+    },
+    {
+      "requirement": "no_list_price_selection",
+      "covered": true,
+      "covered_by": [
+        "M13-007A",
+        "M13-007G"
+      ]
+    },
+    {
+      "requirement": "no_scenario_ranking",
+      "covered": true,
+      "covered_by": [
+        "M13-007A",
+        "M13-007G"
+      ]
+    },
+    {
+      "requirement": "no_future_outcome_prediction",
+      "covered": true,
+      "covered_by": [
+        "M13-007A",
+        "M13-007G"
+      ]
+    },
+    {
+      "requirement": "no_hidden_seller_or_opportunity_score",
+      "covered": true,
+      "covered_by": [
+        "M13-007A",
+        "M13-007C",
+        "M13-007G"
+      ]
+    },
+    {
+      "requirement": "no_m12_execution_trigger",
+      "covered": true,
+      "covered_by": [
+        "M13-007A",
+        "M13-007C",
+        "M13-007F",
+        "M13-007G"
+      ]
+    },
+    {
+      "requirement": "human_review_does_not_mutate_analytics",
+      "covered": true,
+      "covered_by": [
+        "M13-007G"
+      ]
+    },
+    {
+      "requirement": "clean_replay_reproduces_hashes",
+      "covered": true,
+      "covered_by": [
+        "M13-007A",
+        "M13-007B",
+        "M13-007C",
+        "M13-007D",
+        "M13-007E",
+        "M13-007F",
+        "M13-007G"
+      ]
+    },
+    {
+      "requirement": "zero_waivers",
+      "covered": true,
+      "covered_by": [
+        "M13-007A",
+        "M13-007B",
+        "M13-007C",
+        "M13-007D",
+        "M13-007E",
+        "M13-007F",
+        "M13-007G"
+      ]
+    },
+    {
+      "requirement": "zero_unresolved_blocking_defects",
+      "covered": true,
+      "covered_by": [
+        "M13-007A",
+        "M13-007B",
+        "M13-007C",
+        "M13-007D",
+        "M13-007E",
+        "M13-007F",
+        "M13-007G"
+      ]
+    },
+    {
+      "requirement": "complete_executable_requirement_coverage",
+      "covered": true,
+      "covered_by": [
+        "M13-007A",
+        "M13-007B",
+        "M13-007C",
+        "M13-007D",
+        "M13-007E",
+        "M13-007F",
+        "M13-007G"
+      ]
+    }
+  ],
+  "evidence_lineage_report": {
+    "status": "COMPLETE",
+    "broken_lineage_count": 0,
+    "a_g_chain_complete": true
+  },
+  "applicability_test_results": {
+    "status": "PASS",
+    "ticket": "M13-007C"
+  },
+  "deterministic_replay_results": {
+    "status": "PASS",
+    "certification_tests": 8,
+    "governing_a_g_tests": 78,
+    "m13_temporal_state_tests": 329
+  },
+  "freshness_tests": {
+    "status": "PASS",
+    "ticket": "M13-007F"
+  },
+  "conflict_tests": {
+    "status": "PASS",
+    "ticket": "M13-007F"
+  },
+  "unknown_preservation_tests": {
+    "status": "PASS",
+    "tickets": [
+      "M13-007C",
+      "M13-007D",
+      "M13-007F",
+      "M13-007G"
+    ]
+  },
+  "adversarial_boundary_tests": {
+    "status": "PASS",
+    "no_recommendation": true,
+    "no_prediction": true,
+    "no_ranking": true,
+    "no_seller_scoring": true,
+    "no_m12_execution": true
+  },
+  "inherited_regression_results": {
+    "status": "PASS",
+    "m12_tests": 137
+  },
+  "coverage_report": {
+    "requirements_total": 24,
+    "requirements_covered": 24,
+    "coverage_percent": 100
+  },
+  "defect_report": {
+    "open_defects": 0,
+    "unresolved_blocking_defects": 0,
+    "waivers": 0
+  },
+  "certification_receipt": {
+    "binary_decision_only": true,
+    "conditional_pass_allowed": false,
+    "clean_checkout_replay": true,
+    "repository_validation": "PASS",
+    "github_workflows_total": 39,
+    "github_workflows_successful": 39,
+    "github_workflows_failed": 0
+  },
+  "tests": {
+    "certification_tests_passed": 8,
+    "governing_a_g_tests_passed": 78,
+    "m13_temporal_state_total_passed": 329,
+    "inherited_m12_passed": 137,
+    "failed": 0
+  },
+  "checks": {
+    "total": 39,
+    "successful": 39,
+    "failed": 0
+  },
+  "github_workflow_runs": [
+    {
+      "name": "M13-001 Community State Snapshot CI",
+      "run_id": 35483868699,
+      "conclusion": "success"
+    },
+    {
+      "name": "M12 Operational Certification",
+      "run_id": 35483868752,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-006D Pricing Timing CI",
+      "run_id": 35483868744,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-006I Presentation Contracts CI",
+      "run_id": 35483868638,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-006I Review Workspace CI",
+      "run_id": 35483868662,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-007B Cross-System Binding CI",
+      "run_id": 35483868636,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-004 Temporal History CI",
+      "run_id": 35483868689,
+      "conclusion": "success"
+    },
+    {
+      "name": "M12-009 Final Integrated Certification",
+      "run_id": 35483868732,
+      "conclusion": "success"
+    },
+    {
+      "name": "M10 Architecture Boundary Validation",
+      "run_id": 35483868663,
+      "conclusion": "success"
+    },
+    {
+      "name": "M11 Final Seller Intelligence Certification",
+      "run_id": 35483868651,
+      "conclusion": "success"
+    },
+    {
+      "name": "M12 Architecture Boundary Validation",
+      "run_id": 35483868641,
+      "conclusion": "success"
+    },
+    {
+      "name": "M11 Architecture Boundary Validation",
+      "run_id": 35483868642,
+      "conclusion": "success"
+    },
+    {
+      "name": "M8 Presentation Certification",
+      "run_id": 35483868749,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-006E Buyer Substitution CI",
+      "run_id": 35483868635,
+      "conclusion": "success"
+    },
+    {
+      "name": "M9 Final Production Activation Certification",
+      "run_id": 35483868680,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-006B Certified Baseline CI",
+      "run_id": 35483868734,
+      "conclusion": "success"
+    },
+    {
+      "name": "M11 Seller Intelligence CI",
+      "run_id": 35483868633,
+      "conclusion": "success"
+    },
+    {
+      "name": "M12 Listing Execution CI",
+      "run_id": 35483868717,
+      "conclusion": "success"
+    },
+    {
+      "name": "M9 Architecture Boundary Validation",
+      "run_id": 35483868656,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-006H Explainability CI",
+      "run_id": 35483868741,
+      "conclusion": "success"
+    },
+    {
+      "name": "M9 Activation CI",
+      "run_id": 35483868756,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-006A Scenario Governance CI",
+      "run_id": 35483868722,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-003 Selective Refresh CI",
+      "run_id": 35483868767,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-007F Usability Framework CI",
+      "run_id": 35483868690,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-007D Current Unified State CI",
+      "run_id": 35483868706,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-002 Temporal Change Delta CI",
+      "run_id": 35483868697,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-007E State Delta CI",
+      "run_id": 35483868695,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-006F New Construction CI",
+      "run_id": 35483868683,
+      "conclusion": "success"
+    },
+    {
+      "name": "M8 Presentation CI",
+      "run_id": 35483868737,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-006G Scenario Comparison CI",
+      "run_id": 35483868726,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-005 Evolution Patterns CI",
+      "run_id": 35483868735,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-006J Final Scenario Intelligence Certification",
+      "run_id": 35483868704,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-006C Scenario Evidence CI",
+      "run_id": 35483868769,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-007G Seller Decision Brief CI",
+      "run_id": 35483868728,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-007A Unified Intelligence Governance CI",
+      "run_id": 35483868707,
+      "conclusion": "success"
+    },
+    {
+      "name": "M10 Evolution CI",
+      "run_id": 35483868727,
+      "conclusion": "success"
+    },
+    {
+      "name": "M8-033 Final Presentation Certification",
+      "run_id": 35483868740,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-007H Final Unified Seller Intelligence Certification",
+      "run_id": 35483868780,
+      "conclusion": "success"
+    },
+    {
+      "name": "M13-007C Seller Relevance CI",
+      "run_id": 35483868764,
+      "conclusion": "success"
+    }
+  ],
+  "certification_root_hash": "f6c72451dd4602482a47f1f7993fa6dd0d85119f253aee39095cfff16b2599b4",
+  "waivers": 0,
+  "open_defects": 0,
+  "unresolved_blocking_defects": 0,
+  "conditional_pass_allowed": false,
+  "m13_007i_exists": false
+}
