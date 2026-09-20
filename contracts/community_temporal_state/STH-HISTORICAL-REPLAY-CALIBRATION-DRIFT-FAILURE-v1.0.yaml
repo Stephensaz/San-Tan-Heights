@@ -1,0 +1,68 @@
+contract_id: STH-HISTORICAL-REPLAY-CALIBRATION-DRIFT-FAILURE
+version: 1.0.0
+status: LOCKED
+milestone: M13
+ticket: M13-008
+name: Historical Replay, Calibration, Drift & Failure Controls
+depends_on:
+  - M13-007H
+purpose:
+  historical_replay_required: true
+  detector_calibration_required: true
+  drift_detection_required: true
+  failure_injection_required: true
+  reproducibility_required: true
+  prior_certified_state_preservation_required: true
+  correction_isolation_required: true
+  degraded_input_behavior_required: true
+market_regimes:
+  - CALM
+  - RAPID_CHANGE
+input_conditions:
+  - NORMAL
+  - INCENTIVE_CHANGE
+  - PRICE_REDUCTION
+  - DUPLICATE
+  - CORRECTED
+  - DELAYED
+  - CONFLICTED
+  - MISSING
+  - STALE
+metrics:
+  - FALSE_POSITIVE
+  - MISS
+  - PERSISTENCE
+  - DUPLICATION
+  - CHURN
+  - MATERIALITY_STABILITY
+  - CONFLICT_HANDLING
+  - EXPIRATION
+  - REPRODUCIBILITY
+hard_boundaries:
+  autonomous_contact_prohibited: true
+  autonomous_marketing_prohibited: true
+  autonomous_pricing_prohibited: true
+  autonomous_execution_prohibited: true
+  seller_intent_inference_prohibited: true
+  protected_class_or_proxy_use_prohibited: true
+  unauthorized_scraping_prohibited: true
+  upstream_truth_replacement_prohibited: true
+  unsupported_significance_or_causation_prohibited: true
+  hidden_conflict_resolution_prohibited: true
+  m12_circumvention_prohibited: true
+  valuation_engine_behavior_prohibited: true
+  historical_state_mutation_prohibited: true
+acceptance:
+  exact_m13_007h_predecessor_required: true
+  deterministic_replay_required: true
+  historical_state_immutability_required: true
+  duplicate_detection_required: true
+  correction_isolation_required: true
+  delayed_input_behavior_required: true
+  conflict_behavior_required: true
+  missing_input_behavior_required: true
+  stale_input_behavior_required: true
+  drift_detection_required: true
+  failure_recovery_required: true
+  explicit_metric_results_required: true
+  zero_waivers_required: true
