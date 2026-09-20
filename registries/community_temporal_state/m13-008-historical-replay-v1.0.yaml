@@ -1,0 +1,35 @@
+historical_replay_registry_id: STH-M13-008-HISTORICAL-REPLAY-v1.0
+version: 1.0.0
+status: FROZEN
+ticket: M13-008
+contract_id: STH-HISTORICAL-REPLAY-CALIBRATION-DRIFT-FAILURE
+replay_outcomes:
+  - MATCH
+  - DRIFT
+  - DEGRADED
+  - BLOCKED
+failure_conditions:
+  - DUPLICATE
+  - CORRECTED
+  - DELAYED
+  - CONFLICTED
+  - MISSING
+  - STALE
+policy:
+  deterministic_replay: true
+  immutable_historical_inputs: true
+  correction_isolation: true
+  duplicate_suppression: true
+  delayed_inputs_explicit: true
+  conflict_inputs_explicit: true
+  missing_inputs_explicit: true
+  stale_inputs_explicit: true
+  drift_never_silent: true
+  failure_recovery_explicit: true
+  no_autonomous_contact: true
+  no_autonomous_marketing: true
+  no_autonomous_pricing: true
+  no_autonomous_execution: true
+  no_seller_intent_inference: true
+  no_protected_class_or_proxy_use: true
+  no_valuation_engine_behavior: true
