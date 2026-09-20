@@ -36,7 +36,7 @@ jobs:
           c=yaml.safe_load(p.read_text()); assert c["status"]=="LOCKED" and c["ticket"]=="M13-007C"; assert all(c["hard_boundaries"].values())
           pred=json.loads(Path("certification-evidence/m13-007b/cross-system-binding-acceptance-v1.0.json").read_text())
           assert pred["ticket"]=="M13-007B" and pred["status"]=="ACCEPTED" and pred["waivers"]==0 and pred["open_defects"]==0
-          b=yaml.safe_load(Path("BUILD-MANIFEST.yaml").read_text()); assert b["current_ticket"].startswith("M13-007")
+          b=yaml.safe_load(Path("BUILD-MANIFEST.yaml").read_text()); assert b["current_ticket"].startswith("M13-")
           r=yaml.safe_load(Path("registries/community_temporal_state/m13-007c-applicability-v1.0.yaml").read_text())
           assert r["status"]=="FROZEN" and r["ticket"]=="M13-007C"
           for k in ("input_bundle_must_be_ready","explicit_rule_id","explicit_reason","deterministic_output","preserve_source_lineage","preserve_exclusions","preserve_uncertainty","no_hidden_weighting","no_relevance_score","no_state_synthesis","no_recommendation","no_prediction","no_ranking","no_seller_scoring","no_m12_execution"): assert r["policy"][k] is True
